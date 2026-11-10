@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CMP(화학기계연마) 정리</title>
+<meta name="description" content="CMP가 필요한 이유(DOF), 화학+기계 원리와 Preston 방정식, 장비·패드·엔드포인트, 슬러리, Dishing·Erosion 결함 정리 노트">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-root="../../" data-topic="cmp">
+
+<div id="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <button id="menuBtn" class="icon-btn menu-btn" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <a id="brand" class="brand" href="../../index.html">나의 공부 공간</a>
+  <nav id="tabs" class="tabs" aria-label="영역"></nav>
+  <button id="themeBtn" class="icon-btn" aria-label="다크 모드 전환">◐</button>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="목차">
+    <div class="sidebar-head">
+      <a href="#top" class="sidebar-title">CMP 정리</a>
+    </div>
+    <nav id="toc"></nav>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <main id="top" class="content">
+
+    <header class="cover">
+      <h1>CMP(화학기계연마) 정리</h1>
+      <p class="meta">「CMP(Chemical Mechanical Polishing)」 원리 · 장비 · 슬러리 · 결함 정리 노트</p>
+      <p class="meta">원본: YouTube 강의 영상 · 사용자 노션 필기 기반</p>
+
+      <div class="toc-box">
+        <b>목차</b>
+        <p><a href="#s1">CMP란 무엇인가</a> · <a href="#s2">CMP가 필요한 이유</a> · <a href="#s3">CMP의 원리</a> · <a href="#s4">CMP 장비</a> · <a href="#s5">엔드포인트 검출</a> · <a href="#s6">슬러리</a> · <a href="#s7">CMP 결함</a> · <a href="#s8">공정 통합과 활용</a></p>
+        <p class="meta small">[사용자 노트 필기] 표시 = 사용자가 노션에 직접 정리한 원본 노트(내용·말투·감상은 원문 그대로). 회색 캡션은 이미지 설명.</p>
+      </div>
+    </header>
+
+    <section>
+      <h2 id="s1">1. CMP란 무엇인가</h2>
+      <figure><img src="images/fig01.png" width="1180" height="655" alt="CMP: Chemical Mechanical Polishing — Wafer Carrier · Rotating Wafer · Slurry Supply · Large Rotating CMP Pad · Platen" loading="lazy"><figcaption>CMP: Chemical Mechanical Polishing — Wafer Carrier · Rotating Wafer · Slurry Supply · Large Rotating CMP Pad · Platen (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 화학적인 반응과 물리적 반응을 동시에 사용</p>
+        <p>- 깎아낸다기 보다는 원래 상태로 만들어서 다음 공정이 잘 진행될 수 있게 세팅하는 것이 목적임</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s2">2. CMP가 필요한 이유</h2>
+
+      <h3 id="s2-1">2-1. 쌓을수록 울퉁불퉁해지는 웨이퍼</h3>
+      <figure><img src="images/fig02.png" width="1176" height="663" alt="왜 반도체는 점점 울퉁불퉁해질까 — 반복 증착/식각에 따른 단차 누적" loading="lazy"><figcaption>왜 반도체는 점점 울퉁불퉁해질까 — 반복 증착/식각에 따른 단차 누적 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 웨이퍼 위에 계속 쌓기 때문에 단차가 생기게 된다. 이렇게 울퉁불퉁 할 때 리소그래피 공정을 진행을 진행할 수 없다.</p>
+      </div>
+
+      <h3 id="s2-2">2-2. DOF와 미세화</h3>
+      <figure><img src="images/fig03.png" width="1177" height="664" alt="DOF (Depth Of Focus) — DUV(KrF/ArF) vs EUV Lithography" loading="lazy"><figcaption>DOF (Depth Of Focus) — DUV(KrF/ArF) vs EUV Lithography (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- EUV로 넘어오면서 DOF가 매우 작아졌다. 따라서 미세 공정으로 갈수록 CMP가 더 필요함을 알 수 있다.</p>
+      </div>
+
+      <h3 id="s2-3">2-3. 평탄화의 목표</h3>
+      <figure><img src="images/fig04.png" width="1176" height="651" alt="그래서 CMP가 등장했다 — 나노미터 수준의 평탄화를 위한 필수 공정 (Before CMP / After CMP)" loading="lazy"><figcaption>그래서 CMP가 등장했다 — 나노미터 수준의 평탄화를 위한 필수 공정 (Before CMP / After CMP) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- CMP는 얼마나 깎는지가 중요한게 아니라, 튀어나온 부분만 잘 연마해서 전체적으로 고르게 만드는 지가 중요하다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s3">3. CMP의 원리</h2>
+
+      <h3 id="s3-1">3-1. 화학 + 기계의 협업</h3>
+      <figure><img src="images/fig05.png" width="1183" height="652" alt="CMP는 ‘화학 + 힘’의 협업 — Chemical Action / Mechanical Force" loading="lazy"><figcaption>CMP는 ‘화학 + 힘’의 협업 — Chemical Action / Mechanical Force (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 먼저 화학적으로 결합을 약하게 만들고 물리적인 힘으로 연마하는 방법이다.</p>
+      </div>
+
+      <h3 id="s3-2">3-2. 패드와 압력</h3>
+      <figure><img src="images/fig06.png" width="1176" height="655" alt="기계적 요소: 패드와 압력 — Downforce · 연마제 · 돌기(Asperities)" loading="lazy"><figcaption>기계적 요소: 패드와 압력 — Downforce · 연마제 · 돌기(Asperities) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 힘 조절을 잘해야한다는 의미에서 설명한다. 너무 약하면 연마되는 정도가 너무 떨어질 것이고, 너무 강하게 하면 스크레치가 날 것이다.</p>
+      </div>
+
+      <h3 id="s3-3">3-3. Preston 방정식</h3>
+      <figure><img src="images/fig07.png" width="1189" height="655" alt="Preston 방정식(개념적으로만) — 제거율 ∝ 압력 × 속도" loading="lazy"><figcaption>Preston 방정식(개념적으로만) — 제거율 ∝ 압력 × 속도 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Preston 방정식에 의하면 제거율은 압력과 속도에 동시에 비례하게 된다.</p>
+        <p>- 하지만 실제 공정에서는 슬러리의 화학적인 특성과 패드의 상태, 온도에 따라 복잡하게 변수로 존재한다.</p>
+      </div>
+
+      <h3 id="s3-4">3-4. 갈아내는 것이 아니라 벗겨내는 것</h3>
+      <figure><img src="images/fig08.png" width="1186" height="655" alt="CMP는 ‘갈아내는 게 아니라 벗겨내는 것’ — Grinding vs Peeling" loading="lazy"><figcaption>CMP는 ‘갈아내는 게 아니라 벗겨내는 것’ — Grinding vs Peeling (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 머릿속에서는 마치 물리적으로 갈아내는 것을 생각했겠지만, 화학적인 작용을 한 원자층들을 벗겨낸다고 생각하는 것이 더 맞다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s4">4. CMP 장비</h2>
+
+      <h3 id="s4-1">4-1. 장비 구조</h3>
+      <figure><img src="images/fig09.png" width="1180" height="655" alt="CMP 장비 전체 구조 — Wafer · Carrier · Polishing Pad · Platen · 슬러리 공급 · 컨디셔너" loading="lazy"><figcaption>CMP 장비 전체 구조 — Wafer · Carrier · Polishing Pad · Platen · 슬러리 공급 · 컨디셔너 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 컨디셔너는 원판이 돌아가면서 연마 패드가 균일한 조건으로 웨이퍼를 연마할 수 있게 만들어주는 역할이다.</p>
+      </div>
+      <figure><img src="images/fig10.png" width="1180" height="654" alt="실제 CMP 장비 (R&amp;D 타입) — 슬러리 공급장치 · 컨디셔너 · 캐리어 · 패드 · 플래튼" loading="lazy"><figcaption>실제 CMP 장비 (R&D 타입) — 슬러리 공급장치 · 컨디셔너 · 캐리어 · 패드 · 플래튼 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- R&amp;D 타입의 CMP</p>
+      </div>
+
+      <h3 id="s4-2">4-2. 패드 컨디셔닝</h3>
+      <figure><img src="images/fig11.png" width="1186" height="652" alt="패드의 표면 상태 — 연마 횟수에 따른 변화(1st ~ 14th CMP, After Cond.)" loading="lazy"><figcaption>패드의 표면 상태 — 연마 횟수에 따른 변화(1st ~ 14th CMP, After Cond.) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이처럼 패드의 상태가 달라지게 되면 웨이퍼가 동일한 조건으로 연마되지 않기 때문에 컨디셔닝이 필요한 것이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s5">5. CMP 엔드포인트 검출</h2>
+      <figure><img src="images/fig12.png" width="1186" height="652" alt="CMP 엔드포인트 검출 — 시간(Time) · 마찰(Friction) · 광학(Optical)" loading="lazy"><figcaption>CMP 엔드포인트 검출 — 시간(Time) · 마찰(Friction) · 광학(Optical) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- CMP가 언제 멈춰야할지를 어떻게 아는가?</p>
+        <p>- 시간으로 따지는 것은 부정확하다.</p>
+        <p>- 마찰력을 모니터링 하다 보면 연마하고자 하는 소재가 전부 연마되었을 때 혹은 평평해졌을 때 마찰력이 달라질 것이다.</p>
+        <p>- 광학을 이용해서도 측정할 수 있다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s6">6. 슬러리</h2>
+
+      <h3 id="s6-1">6-1. 슬러리의 3요소</h3>
+      <figure><img src="images/fig13.png" width="1179" height="652" alt="슬러리의 3요소 (Slurry Composition Breakdown) — Abrasive · Chemical · Additive" loading="lazy"><figcaption>슬러리의 3요소 (Slurry Composition Breakdown) — Abrasive · Chemical · Additive (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 연마 입자가 존재해야한다.</p>
+        <p>- 산화제, pH 조절 해주는 화학성분이 있어야 한다.</p>
+        <p>- 첨가제는 연마입자가 잘 분산되어 존재할 수 있게 만들어줘야한다.</p>
+      </div>
+
+      <h3 id="s6-2">6-2. 연마제의 역할</h3>
+      <figure><img src="images/fig14.png" width="1180" height="652" alt="연마제 역할 — SiO2 (Colloidal Silica) vs Al2O3 (Fumed Alumina) vs CeO2 (Ceria)" loading="lazy"><figcaption>연마제 역할 — SiO<sub>2</sub> (Colloidal Silica) vs Al<sub>2</sub>O<sub>3</sub> (Fumed Alumina) vs CeO<sub>2</sub> (Ceria) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 가장 많이 사용하는 것은 SiO₂이다. 주로 부드러운 표면을 연마할 때 사용한다.</p>
+      </div>
+
+      <h3 id="s6-3">6-3. pH의 영향</h3>
+      <figure><img src="images/fig15.png" width="1182" height="657" alt="pH가 바뀌면 모든 게 달라진다 — 재질별 제거율(MRR) 변화" loading="lazy"><figcaption>pH가 바뀌면 모든 게 달라진다 — 재질별 제거율(MRR) 변화 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- pH에 따라서도 제거율이 많이 달라진다.</p>
+      </div>
+
+      <h3 id="s6-4">6-4. 제타 포텐셜과 입자의 분산</h3>
+      <figure><img src="images/fig16.png" width="1171" height="651" alt="제타 포텐셜과 입자의 운명 — 안정적 분산 vs 불안정한 응집" loading="lazy"><figcaption>제타 포텐셜과 입자의 운명 — 안정적 분산 vs 불안정한 응집 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 서로를 밀어내는 힘이 제타 힘인데, 너무 약하면 응집되고 너무 강하면 서로 멀리 떨어지려고 할 것이다. 적당한 힘으로 밀어내서 잘 분산되어서 존재해야 한다.</p>
+        <p>- 뭉치게 되면 너무 큰 입자가 되어 스크래치가 날 수 있다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s7">7. CMP 결함</h2>
+
+      <h3 id="s7-1">7-1. Dishing과 Erosion</h3>
+      <figure><img src="images/fig17.png" width="1186" height="658" alt="Dishing과 Erosion — 연질 재료 과연마 / 고밀도 패턴 효과" loading="lazy"><figcaption>Dishing과 Erosion — 연질 재료 과연마 / 고밀도 패턴 효과 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Dishing 부터 보자면 절연체인 SiO₂는 매우 하드한 물질이고, Cu는 상대적으로 유연한 물질이다. 그래서 동시에 연마를 하다보면 유연한 재료에서 움푹 파이듯이 연마된다.</p>
+        <p>- Erosion에서는 패턴이 밀집된 위치에서 연마가 더 많이 된다.</p>
+      </div>
+
+      <h3 id="s7-2">7-2. 스크래치와 파티클</h3>
+      <figure><img src="images/fig18.png" width="1177" height="654" alt="Defect: 스크래치와 파티클 — Micro-scratches · Pad debris · Residual Particles" loading="lazy"><figcaption>Defect: 스크래치와 파티클 — Micro-scratches · Pad debris · Residual Particles (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- CMP를 하고 나면 이런 스크래치와 파티클들이 발생하게 된다. 따라서 CMP를 진행하고 난 다음에는 Cleaning 공정을 진행해야 한다.</p>
+      </div>
+
+      <h3 id="s7-3">7-3. ‘둥둥’ 현상 (패턴 의존성)</h3>
+      <figure><img src="images/fig19.png" width="1177" height="652" alt="‘둥둥’ 현상(패턴 의존성) — 과연마(Over-polishing) / 미연마(Under-polishing)" loading="lazy"><figcaption>‘둥둥’ 현상(패턴 의존성) — 과연마(Over-polishing) / 미연마(Under-polishing) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 웨이퍼가 살짝 뜨는 현상이 생길 수 있다.</p>
+        <p>- 패턴이 밀집된 부분은 덜한데 패턴이 밀집되지 않는 지역에서는 연마가 잘 안될 수 있다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s8">8. 공정 통합과 활용</h2>
+      <figure><img src="images/fig20.png" width="1176" height="657" alt="CMP는 공정 통합 문제다 — 포토 → 식각 → 증착 → CMP → 후속 공정" loading="lazy"><figcaption>CMP는 공정 통합 문제다 — 포토 → 식각 → 증착 → CMP → 후속 공정 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- CMP 공정은 단독 공정이 아니고, 앞 뒤 공정을 잘 알고 있어야 한다.</p>
+      </div>
+      <figure><img src="images/fig21.png" width="1179" height="654" alt="CMP는 어디에 쓰이나 — 반도체 공정 전반의 CMP 응용 · HBM 하이브리드 본딩용 Metal CMP" loading="lazy"><figcaption>CMP는 어디에 쓰이나 — 반도체 공정 전반의 CMP 응용 · HBM 하이브리드 본딩용 Metal CMP (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <footer class="site-footer">
+      <p>필기는 사용자가 노션에 정리한 원문 그대로이며, 이미지는 영상 슬라이드 캡처입니다.</p>
+      <p><span id="updatedAt"></span> · <a id="notionLink" href="#" target="_blank" rel="noopener" hidden>Notion 원본 보기</a> · <a href="../../index.html">홈으로</a></p>
+    </footer>
+  </main>
+</div>
+
+<button id="toTop" class="to-top" aria-label="맨 위로" hidden>↑</button>
+
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="이미지 확대">
+  <button class="lb-close" aria-label="닫기">✕</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</div>
+
+<script src="../../topics.js"></script>
+<script src="../../assets/common.js"></script>
+<script src="../../assets/topic.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>반도체 정리노트 Q&A 연습</title>
+<meta name="description" content="Word로 정리한 반도체 질문과 답변. 질문만 보고 답해 본 뒤 눌러서 답을 확인하는 연습용 페이지">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-root="../../" data-topic="notes-qa">
+
+<div id="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <button id="menuBtn" class="icon-btn menu-btn" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <a id="brand" class="brand" href="../../index.html">나의 공부 공간</a>
+  <nav id="tabs" class="tabs" aria-label="주제"></nav>
+  <button id="themeBtn" class="icon-btn" aria-label="다크 모드 전환">◐</button>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="목차">
+    <div class="sidebar-head">
+      <a href="#top" class="sidebar-title">Q&A 연습</a>
+    </div>
+    <nav id="toc"></nav>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <main id="top" class="content">
+
+    <header class="cover">
+      <h1>반도체 정리노트 Q&A 연습</h1>
+      <p class="meta">질문만 보고 먼저 말해 본 뒤, 질문을 눌러서 답변을 확인합니다. (총 47문항)</p>
+      <p class="meta">출처: Word 파일 「반도체 정리노트」 (사용자 정리)</p>
+      <div class="qa-tools">
+        <button type="button" class="qa-btn" id="openAll">모두 펼치기</button>
+        <button type="button" class="qa-btn" id="closeAll">모두 접기</button>
+      </div>
+    </header>
+
+    <div class="note"><b>[사용자 노트 필기]</b>
+      <p>- 문어체로 정리하지 않고 구어체로 정리하기.</p>
+      <p>- 단편적인 사실만 취하지 말고, 본질을 정리하기</p>
+      <p>- 정리해둔 노트는 말로 뱉을 수 있게 정리</p>
+      <p>- 수식은 비례, 반비례 관계로 설명하기</p>
+    </div>
+
+    <section>
+      <h2 id="s1">1. Q1~Q2. 반도체의 정의와 종류</h2>
+      <details class="note qa qa-card" id="q1"><summary><b>[질문 노트]</b><span class="q">Q1. 반도체의 정의를 다음 세 가지 키워드 중에 하나 잡고 설명하시오</span><span class="qsub">1. Conductivity (전기전도도)</span><span class="qsub">2. Resistivity (비저항)</span><span class="qsub">3. Energy Band gap</span></summary>
+        <div class="ans"><p>1. 반도체는 도체와 부도체의 중간 성질을 갖습니다. Conductivity의 control이 가능한 것을 반도체라고 합니다. 이 때 Conductivity는 Resistivity와 Trade-off 관계(반비례)에 있습니다.</p><p>2. 비저항은 물질의 고유한 특성입니다. 물질의 저항은 비저항값에 물질의 길이를 곱하고 단면적으로 나눈 값입니다. 따라서 저항은 길이에 비례하고, 단면적에 반비례하는 특징을 갖습니다. 이때 대표적인 Si의 비저항은 10⁻³~10³ Ω·cm 값을 가집니다.</p><p>3. Energy Band gap은 Valence band와 Conduction band 사이에 Energy level이 존재 하지 않는 구역을 말합니다. Si는 1.12 eV의 Ge 0.67eV의 Bandgap을 가지는 대표적 반도체 물질입니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q2"><summary><b>[질문 노트]</b><span class="q">Q2. 반도체의 종류는 몇 가지인가요?</span></summary>
+        <div class="ans"><p>1. 사용 용도에 따라 분류하면 메모리 반도체와 비메모리 반도체로 나뉩니다.</p><p>- 메모리 반도체에는 휘발성 메모리 반도체(DRAM), 비휘발성 메모리 반도체(Flash)가 있습니다.</p><p>- 비메모리 반도체에는 시스템 반도체(마이크로 컴퍼넌트, 로직반도체), 광반도체(LED, 이미지 센서), 개별소자(Diode, Transistor)</p><p>2. 구성 성분으로 분류하면 Elements, Compounds, Alloy로 이루어져 있습니다.</p><p>Elements(원소 반도체)는 다시 Intrinsics(진성 반도체)와 Extrinsics(불순물 반도체)로 구분됩니다. 진성 반도체에는 Si, Ge로 분류됩니다. 불순물 반도체는 P-type과 N-type으로 분류됩니다.</p><p>Compounds(화합물 반도체)에는 GaAs, GaP, GaN, SiC, ZnO 등이 있습니다.</p><p>Alloy(합금 반도체)에는 Si-Ge가 있습니다.</p></div>
+      </details>
+    </section>
+
+    <section>
+      <h2 id="s2">2. Q3~Q5. Nitride, 건물 비유, 공정 변천사</h2>
+      <details class="note qa qa-card" id="q3"><summary><b>[질문 노트]</b><span class="q">Q3. Nitride Film은 Si와 평행하게 증착하지 않는 이유를 설명하시오.</span></summary>
+        <div class="ans"><p>A3. Nitride Film은 Si Wafer와의 열팽창계수 차이로 인해 Wafer가 휘어지게 하는 Thermal stress가 발생합니다. 따라서 Nitride Film은 Si Wafer 위에 사용하지 않습니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q3-1"><summary><b>[질문 노트]</b><span class="q">Q3-1) Nitride의 사용용도를 과거와 현재를 비교해서 설명하시오.</span></summary>
+        <div class="ans"><p>A3-1) 과거에는 LOCOS에서 확산 방지막으로 사용했습니다. 그리고 나서 Si₃N₄는 없앱니다. 다만 Passivation으로 맨 마지막에 사용합니다.</p><p>현재에는 STI에서 Hard mask로 사용합니다. 그리고 CMP Stopping Layer 사용합니다. 현재에도 과정들을 끝내고 웨이퍼에 남아있지 않습니다. 오직 Passivation 할 때만 남겨둡니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q4"><summary><b>[질문 노트]</b><span class="q">Q4. 반도체를 건물에 비유해서 설명하시오.</span></summary>
+        <div class="ans"><p>A4. 1~30 층에서 전류가 흘러야한다면 금속 배선이, 전류가 흐르지 않아야 한다면 절연체가 사용됩니다. 전류가 흐르는 것은 Metal, 절연체는 Oxide와 Nitride를 사용합니다. 이 때 Nitride는 ~ 해서 사용하지 않습니다. 하지만 passivation 하기 위해서 가장 맨 꼭대기에는 사용할 수 있습니다. 지하를 지을 때는 Si와 Wafer가 만나면 Contact 저항이 생깁니다. 그래서 Impurity가 필요합니다.</p><p>지하에서는 유전체로 Oxide와 Nitride를 모두 사용해도 됩니다.</p><p>1. Metal</p><p>2. Dielectric – Oxide, Nitride</p><p>3. Impurity</p></div>
+      </details>
+      <details class="note qa qa-card" id="q5"><summary><b>[질문 노트]</b><span class="q">Q5. 반도체 공정의 변천사에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A5. (수정이 필요한 답변) Conventional 즉 과거에는 소재가 바뀌지 않고, 제조 공정이 바뀌었습니다. 그리고 예전에는 무어의 법칙을 따라서 2년마다 집적도가 2배 향상 했습니다. Modification 현재에는 소재가 바뀌고 제조 공정이 바뀌었습니다. Al은 Cu로 바뀌었습니다. 절연체로 Low-k와 High-k를 사용합니다. ALD 공정을 사용합니다.</p></div>
+      </details>
+    </section>
+
+    <section>
+      <h2 id="s3">3. Q6~Q8. 유전체와 High-k / Low-k</h2>
+      <details class="note qa qa-card" id="q6"><summary><b>[질문 노트]</b><span class="q">Q6. 유전체에 대해 설명하시오.</span></summary>
+        <div class="ans"><p>A6. 유전체는 전하를 유기하는 물질입니다. 전기쌍극자를 포함하는 물질로 외부에서 전기장이 가해지면 분극이 발생합니다. 또한 유전체는 절연체의 역할을 합니다. 즉 전류가 통하지 않게 합니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q6-1"><summary><b>[질문 노트]</b><span class="q">Q6-1. Capacitance 공식에 대해 설명하고, Capacitance를 늘리기 위해서는 어떻게 해야하는지 설명하시오.</span></summary>
+        <div class="ans"><p>A6-1. Capacitance는 전압을 가했을 때 전하를 저장할 수 있는 능력을 말합니다. C=Q/V 입니다.</p><p>여기에서 평행판 Capacitor에서 정전용량은 유전상수, 면적에 비례합니다. 그리고 평행판 사이 거리에 반비례합니다.</p><p>단, 지나치게 유전체가 얇아지면 절연 파괴 현상이 생길 수 있습니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q7"><summary><b>[질문 노트]</b><span class="q">Q7. High k 물질과 Low k 물질에 대해 설명하시오.</span></summary>
+        <div class="ans"><p>A7. 과거에는 절연체로 Oxide와 Nitride를 사용했습니다. 이 때 Oxide가 주로 절연체로 사용되었는데, Oxide의 유전상수 값은 3.9 입니다. 따라서 유전상수가 3.9보다 크면 High, 3.9보다 작으면 Low가 됩니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q7-1"><summary><b>[질문 노트]</b><span class="q">Q7-1. MOSFET에서 High-k 물질을 도입한 이유에 대해 설명하시오.</span></summary>
+        <div class="ans"><p>A7-1. MOSFET에서 High-k 물질을 도입한 것은 절연체의 두께가 얇아지며 양자 터널링 효과에 의해서 누설전류가 증가하게 되었습니다. 따라서 물리적인 두께를 확보하고서도 Gate의 정전용량을 확보하기 위해 High-k 물질을 도입하게 되었습니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q7-2"><summary><b>[질문 노트]</b><span class="q">Q7-2. 양자 터널링 효과가 무엇인가요?</span></summary>
+        <div class="ans"><p>A7-2. 양자 터널링은 전자가 자신의 에너지보다 높은 에너지 장벽을 확률적으로 통과하는 현상입니다. 전자는 입자와 파동의 성질 함께 가집니다. 장벽의 두께가 얇아지는 경우 반대편에서 전자를 발견할 확률이 커지게 됩니다. MOSFET에서 절연체의 두께가 매우 얇아지는 경우 전자가 에너지 장벽을 터널링하여 누설전류가 발생할 수 있습니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q8"><summary><b>[질문 노트]</b><span class="q">Q8. Modification 즉 현재 공정에서는 왜 Low k, High k를 사용하는지 설명하시오.</span></summary>
+        <div class="ans"><p>A8. High k 물질은 분극이 잘 일어나서 전하 유기를 많이 합니다. Low k를 사용한다면 분극이 잘 일어나지 않아서 전하 유기를 적게 합니다.</p><p>사용 용도를 정리하면 다음과 같습니다.</p><p>High k를 사용한다면 capacitance를 키우고자 할 때 사용합니다. MOS에서 반도체를 잘 제어하기 위해, DRAM의 Capacitor의 Capacitance를 키우기 위해 사용합니다. Low k를 사용한다면 전하누설이 되는 것을 방지하고, 전기전도도를 좋게 하기 위해서 사용합니다.</p></div>
+      </details>
+    </section>
+
+    <section>
+      <h2 id="s4">4. Q9~Q15. 8대 공정과 Photo 공정 기초</h2>
+      <details class="note qa qa-card" id="q9"><summary><b>[질문 노트]</b><span class="q">[최종 Boss] Q9. 8대 공정에 대해서 설명하시오. [나중에 답안 작성하기]</span></summary>
+        <div class="ans"><p>A9. 우문현답형 질문인데, 결국 강사님이 바라는건 아마 Oxidation과 Metallization을 메인이라고 설명하진 않길 바라는 것 아닐까?</p><p>Photo 공정을 통해서 회로 패턴을 형성하거나 불순물을 주입할 수 있습니다. 회로 패턴을 형성하고자 한다면 Dry etch를 통해서 식각을 진행합니다. 식각을 진행하고 나서는 증착을 진행합니다. PVD, CVD, Diffusion 방식을 사용합니다.</p><p>불순물을 주입하고자 한다면 Ion implantation을 진행하여 Impurity를 주입합니다.</p><p>Photo 공정을 진행하고나면 Photo mask는 더 이상 필요 없기 때문에 PR을 제거해줍니다. 따라서 Ashing이나 PR strip을 진행합니다.</p><p>다음 Photo 공정을 진행하기 위해서는 CMP를 통해서</p></div>
+      </details>
+      <details class="note qa qa-card" id="q10"><summary><b>[질문 노트]</b><span class="q">Q10. Photo 공정의 PR Mask의 용도에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A10. Photo 공정에서의 PR Mask는 protection과 prevent하는 역할을 가지고 있습니다. Photo 공정이 끝나면 Mask의 역할은 다한 것입니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q11"><summary><b>[질문 노트]</b><span class="q">Q11. Photo 공정을 진행하는 이유에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A11. Photo 공정을 진행하는 이유는 Dry etch와 Ion implantation을 진행하기 위해서입니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q12"><summary><b>[질문 노트]</b><span class="q">Q12. Photo 공정에서 Development가 제대로 되지 않으면 Underdevelopment 라고 한다. 그러면 어떤 문제가 생기는지 설명하시오.</span></summary>
+        <div class="ans"><p>A12. PR Mask가 제대로 만들어지지 않아서 회로 Pattern을 형성하기 Dry etch를 진행하거나, Ion Implantation을 진행해서 Impurity를 주입할 수 없습니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q13"><summary><b>[질문 노트]</b><span class="q">Q13. Dry Etch에서 Under Etch가 생기면 무슨 문제가 있나요?</span></summary>
+        <div class="ans"><p>A. 우리가 원하는 회로 pattern 형성을 할 수가 없습니다. 왜냐하면 우리가 원하는 회로 패턴을 증착할 수 없기 때문입니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q14"><summary><b>[질문 노트]</b><span class="q">Q14. 반도체에서 Wet 공정과 Dry 공정의 차이를 설명하시오.</span></summary>
+        <div class="ans"><p>A14. Wet은 Liquid에 해당합니다. Dry는 Gas, Vapor, Plasma에 해당합니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q15"><summary><b>[질문 노트]</b><span class="q">Q15. Conventional 공정과 Modification 공정에서 PR의 마스크 역할의 차이를 설명하시오</span></summary>
+        <div class="ans"><p>A15. 과거에는 PR의 두께가 충분했을 때는 Mask의 역할을 하면서 회로 패턴을 새기고 Impurity를 주입할 수 있었다. 하지만 회로의 미세화로 너비가 줄어들게 되면서 A/R이 너무 커지게 되니, 높이를 낮춰야 했다. 하지만 그렇게 되면서 현재에는 더 이상 회로패턴을 형성하거나 Impurity를 주입하는데 사용할 수 없다. 그래서 이제는 1차 Hard Mask로 사용하게 되었다.</p></div>
+      </details>
+    </section>
+
+    <section>
+      <h2 id="s5">5. Q16~Q20. 해상도, Yellow Room, 스넬의 법칙·간섭·회절</h2>
+      <details class="note qa qa-card" id="q16"><summary><b>[질문 노트]</b><span class="q">Q16. 파장이 짧아질수록 해상도가 좋아지는 이유에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A16. 빛은 회절 특성을 갖고 있습니다. 따라서 광원으로부터 빛이 나와 Mask를 통과할 때 회절 현상이 생깁니다. 이 때 파장이 길수록 되돌아가는 파장이 많고, 짧은 파장일수록 직진성이 높아집니다. 따라서 회절 현상이 적을수록 되돌아가는 정도가 작아서 패턴의 해상도가 좋습니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q17"><summary><b>[질문 노트]</b><span class="q">Q17. Photo 공정에서 PR Mask로 사용되는 부분은 빛을 받은 부분인가? 아닌가?</span></summary>
+        <div class="ans"><p>A17. Photo 공정에서 Mask로 사용된다는 것은 빛을 받지 않은 부분이 현상액에 용해되지 않아 남아있게 되어 사용할 수 있습니다. 따라서 Photo 공정에서 빛을 받지 않은 부분을 사용해서 회로 패턴을 dry etch을 통해 형성하거나, Ion Implantation을 통해 Impurity를 주입합니다.</p><p>*PR mask를 가지고 Photo mask라고 혼용해서 헷갈렸음</p></div>
+      </details>
+      <details class="note qa qa-card" id="q18"><summary><b>[질문 노트]</b><span class="q">Q18. Photo 공정이 진행되는 곳이 왜 Yellow Room인지 설명하시오.</span></summary>
+        <div class="ans"><p>A18. PR은 가시광선 영역의 보라색 정도만 되어도 빛의 간섭 현상이 일어납니다. 따라서 가시광선에서 가장 긴 파장은 빨간색이지만 심리적인 이유로 Yellow Room을 사용하게 되었습니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q19"><summary><b>[질문 노트]</b><span class="q">Q19. 스넬의 법칙에 대해 설명하고 ArFi 공정에서 빛의 굴절을 그림으로 그리면서 설명하시오.</span></summary>
+        <div class="ans"><p>A19. 스넬의 법칙 n₁ sin θ₁ = n₂ sin θ₂ 굴절 상수가 큰 매질을 지날수록 굴절각은 줄어들게 된다. 이 말은 빛을 더 잘 모아준다는 말이다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q20"><summary><b>[질문 노트]</b><span class="q">Q20. 포토 공정에서의 스넬의 법칙, 간섭, 회절을 설명하시오.</span></summary>
+        <div class="ans"><p>A20. 포토 공정에서 스넬의 법칙은 다음과 같습니다. 따라서 굴절 상수가 큰 매질을 통과할 때 굴절각이 작아지게 됩니다. 따라서 빛이 모아지게 됩니다.</p><p>간섭은 보강 간섭과 상쇄 간섭이 있습니다. 가장 Intensity가 강한 빛은 0차광입니다. 간섭현상에 의해 0차광  1차광  2차광 … 이런식으로 커지게 됩니다. 1차광에서는 위치에 따라 +1, -1 값을 가질 수도 있습니다. 0차광, +1, -1차광을 사용하는 것을 3-beam Imaging이라고 합니다.</p><p>회절은 빛이 장애물 뒤로 되돌아가는 현상을 말합니다. 긴 파장일수록 되돌아가는 파장이 많고, 짧은 파장일수록 직진성이 높아집니다. 따라서 파장이 짧은 경우 회절이 최소화되어 해상도가 좋아집니다. (해상도가 단순이 Resolution 공식에 의해 좋아지는 것은 결과론적 이야기)</p></div>
+      </details>
+    </section>
+
+    <section>
+      <h2 id="s6">6. Q21~Q23-3. PR (Negative PR, 흡광계수, NUV 구성·용해)</h2>
+      <details class="note qa qa-card" id="q21"><summary><b>[질문 노트]</b><span class="q">Q21. Negative PR을 사용하지 않는 이유에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A21. Negative PR은 Swelling 현상에 의해 해상도가 2~3μm으로 제한되었습니다. Swelling 현상은 현상시에 현상액이 PR속으로 들어가 부푸는 현상을 의미합니다. 그럼에도 사용했던 이유는 열적 특성과 내화학성이 우수했기 때문입니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q22"><summary><b>[질문 노트]</b><span class="q">Q22. Positive PR에서 흡광계수가 높다/낮다는 말은 무슨 의미이며 어떤 결과로 이어지는지 설명하시오.</span></summary>
+        <div class="ans"><p>A22. 흡광계수가 높다는 것은 PR이 빛을 잘 흡수한다는 의미이지만 바닥까지 빛이 충분하지 도달하지 못할 수 있습니다. 흡광계수가 낮다는 것은 PR의 바닥까지 빛이 잘 도달하지만, 너무 낮으면 감광 성분이 충분히 빛을 흡수하지 못해 반응성이 떨어지고 민감도가 떨어질 수 있습니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q23"><summary><b>[질문 노트]</b><span class="q">Q23. NUV의 구성 물질에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A23. NUV에는 Solvent, Resin, Sensitizer, Additive가 있습니다. Resin에는 Novarac, Sensitizer에는 DNQ, Additive에는 Dye, Surfactant(계면활성제), Adhesion promoter를 사용합니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q23-1"><summary><b>[질문 노트]</b><span class="q">Q23-1. NUV에서 빛을 받은 부분이 용해되는 원리를 설명하시오.</span></summary>
+        <div class="ans"><p>A23-1. DNQ가 빛과 물에 반응해서 카복실기를 갖게 됩니다. 현상액은 TMAH를 사용하는데, 알칼리 용액입니다. 따라서 산-염기 반응이 일어나며 물과 염이 생기게 됩니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q23-2"><summary><b>[질문 노트]</b><span class="q">Q23-2. NUV, DUV 에서 현상을 진행하고 Hard Bake를 진행하는 이유에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A23-2. NUV, DUV 종류와 상관없이 PAC, PAG도 상관없이 Exposure 이후에 현상 과정을 거치게 되면 물이 촉촉하게 있는 상태이다. 현상 과정에서 산-염기 반응이 일어나기 때문이다. 따라서 수분을 제거해줘야 한다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q23-3"><summary><b>[질문 노트]</b><span class="q">Q23-3. Novorac과 DNQ는 Exposure 이후에 어떻게 되는지 설명하시오.</span></summary>
+        <div class="ans"><p>A23-3. Novorac이 벽돌이라고 한다면 DNQ는 시멘트와 같은 느낌입니다. 하지만 빛에 노출되면 DNQ가 화학반응을 통해 산이 되기 때문에 DNQ만 존재할 때보다 더 잘 용해되게 됩니다.</p><p>솔직히 왜 더 잘 용해된다는 것인지는 제대로 이해하지 못했음.</p></div>
+      </details>
+    </section>
+
+    <section>
+      <h2 id="s7">7. Q24~Q25-1. Wafer</h2>
+      <details class="note qa qa-card" id="q24"><summary><b>[질문 노트]</b><span class="q">Q24. 12인지 실리콘 Wafer의 두께는 775μm 입니다. 하지만 실제로 사용하는 것은 100μm 정도입니다. 그러면 실 사용보다 Wafer의 두께가 두꺼운 이유에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A24. 12인 Wafer는 Fab에서 모두 기계로 운반됩니다. 따라서 hold, suction, vacuum 과정을 진행해도 Wafer가 stress에 의해 파단이 일어나면 안된다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q25"><summary><b>[질문 노트]</b><span class="q">Q25. Si wafer로는 Single crystal 만 사용합니다. 그 이유에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A25. 단결정은 규칙적인 배열로 이루어져 결정립계가 없고, 전기적 특성이 균일합니다. 따라서 웨이퍼 위에 성능이 일정하고 신뢰성이 높은 반도체 소자를 구현하는 데 유리합니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q25-1"><summary><b>[질문 노트]</b><span class="q">Q25-1. 그렇다면 Amorphous 물질이나 Poly-Si을 사용하지 못하는 이유에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A25-1.</p></div>
+      </details>
+    </section>
+
+    <section>
+      <h2 id="s8">8. Q26~Q28. NA, k1, 회로 선폭</h2>
+      <details class="note qa qa-card" id="q26"><summary><b>[질문 노트]</b><span class="q">Q26. NA(Numerical Aperture)에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A26. NA는 개구수로 빛을 잘 모을 수 있는 능력을 나타내며 NA = nsinθ로 정의됩니다. NA가 커질수록 미세한 패터닝이 가능해지지만 DOF와 반비례 관계에 있습니다. 결론적으로 Wafer에서 Focus 공정 마진이 줄어들게 됩니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q27"><summary><b>[질문 노트]</b><span class="q">Q27. k1을 바꾼다는 것이 어떤 의미이며, 각각 집광렌즈와 마스크 중 어디에 해당되는지 설명하시오.</span></summary>
+        <div class="ans"><p>A27. k1을 바꾼다는 것은 OAI, OPC, PSM를 조절한다는 뜻입니다. OAI는 집광렌즈에, OPC와 PSM은 마스크에 해당됩니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q27-1"><summary><b>[질문 노트]</b><span class="q">Q27-1. OAI, OPC, PSM에 대해 간단히 설명하시오.</span></summary>
+        <div class="ans"><p>A27-1.</p><p>OAI(Off-Axis Illumination, 비축 조명): 빛을 마스크에 비스듬히 입사시켜 패턴 형성에 필요한 회절광이 투영 렌즈에 들어오도록 하는 기술입니다.</p><p>OPC(Optical Proximity Correction, 광근접효과 보정): 빛의 회절 현상과 주변 패턴의 영향으로 발생하는 패턴 왜곡을 줄이기 위해 마스크 모양을 미리 보정하는 기술입니다.</p><p>PSM(Phase Shift Mask, 위상변이 마스크): 마스크를 통과하는 빛의 위상 차이로 간섭을 조절하여 패턴의 명암 대비와 해상도를 높이는 기술입니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q28"><summary><b>[질문 노트]</b><span class="q">Q28. 회로 선폭은 어디를 의미하는 지 설명하시오.</span></summary>
+        <div class="ans"><p>A28. 회로 선폭은 gate 간의 거리, metal 간의 거리를 이야기합니다.</p></div>
+      </details>
+    </section>
+
+    <section>
+      <h2 id="s9">9. Q29~Q31-4. Bake, PEB, HMDS, Adhesion</h2>
+      <details class="note qa qa-card" id="q29"><summary><b>[질문 노트]</b><span class="q">Q29. Photo 공정을 진행할 때 Bake 공정을 진행한다. 이 때 Bake 온도가 130도(특정 고온)을 넘지 않아야 하는 이유에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A29. NUV 기준으로 PR에 존재하는 PAC는 DNQ입니다. DNQ는 빛을 받아 용해가 되는 영역으로 바뀌고 현상액과 반응해 용해됩니다. 하지만 130도가 넘는 열이 가해진다면 용해가 되지 않는 억제 기능이 떨어져 노광이 되지 않은 부분이 용해될 수 있습니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q30"><summary><b>[질문 노트]</b><span class="q">Q30. Exposure 이후 PEB 공정을 진행하는 이유에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A30. 빛은 파동의 성질을 갖고 있습니다. 빛이 표면에 도달했을 때 반사광(Reflected Ray)이 생기고 입사광과 반사광이 간섭하게 되면 Standing wave가 생깁니다. BARC를 통해 반사를 줄여서 Standing Wave 발생을 억제합니다. PEB는 이미 Standing Wave에 의해 생긴 영향을 완화해주는 역할을 합니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q31"><summary><b>[질문 노트]</b><span class="q">Q31. HMDS 처리를 하는 이유에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A31. PR는 소수성입니다. 하지만 Si Wafer 표면에는 자연산화막이 생기면서 -OH를 갖게 되어 친수성 성질을 갖게 됩니다. 따라서 Adhesion을 높이기 위해 HMDS 처리를 하여 Si Wafer 표면을 소수성으로 개질합니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q31-1"><summary><b>[질문 노트]</b><span class="q">Q31-1. 친수성, 소수성 물질의 접촉각에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A31-1. 친수성은 접촉각이 90도 이하일 때를 의미합니다. 소수성은 접촉각이 90도 이상일 때를 의미합니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q31-2"><summary><b>[질문 노트]</b><span class="q">Q31-2. Adhesion이 제대로 되지 않아 PR이 들떠있으면 어떻게 되는지 설명하시오.</span></summary>
+        <div class="ans"><p>A31-2. 현상을 하면서도 Spin을 하며 현상액을 뿌리게 됩니다. 이 때 PR이 들떠있으면 PR이 날라갈 수도 있습니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q31-3"><summary><b>[질문 노트]</b><span class="q">Q31-3. Photo 공정 이후 후속 공정할 때 PR이 Adhesion이 제대로 되지 않으면 어떻게 되는지 설명하시오.</span></summary>
+        <div class="ans"><p>A31-3. Dry Etch를 진행할 때 PR이 너덜거리면 Mask 역할을 하기 어렵습니다. 또한 Impurity를 주입하기 위한 Ion Implantation 공정을 진행하기 어렵습니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q31-4"><summary><b>[질문 노트]</b><span class="q">Q31-4. SiO₂가 Si 기판에서 살짝 떠있게 되면 어떤 현상이 나타나는지 설명하시오.</span></summary>
+        <div class="ans"><p>A31-4. 사이가 살짝 뜨게 되면 전자가 흘러갈 것이다. 그러면 전류가 흐르게 되니 소자의 동작에 영향을 줄 수 있다. 몇 nm라도 뜨더라도 이러한 문제가 생길 수 있다.</p></div>
+      </details>
+    </section>
+
+    <section>
+      <h2 id="s10">10. Q32~Q33-1. PMOS, Passivation</h2>
+      <details class="note qa qa-card" id="q32"><summary><b>[질문 노트]</b><span class="q">Q32. DRAM의 Cell 영역 PMOS를 사용하지 않는 이유에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A32. PMOS는 N-type 기판에 P channel을 사용합니다. 따라서 전하 캐리어가 정공입니다. 정공은 전자에 비해 Carrier Mobility가 2.7배 정도 느립니다. 따라서 Cell의 스위칭 속도가 빨라야하기 때문에 N channel 을 사용하는 CMOS를 사용합니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q33"><summary><b>[질문 노트]</b><span class="q">Q33. Si Wafer 바로 위에 PR 도포하는 식으로 공정이 진행되지는 않는다. 그 이유에 대해서 설명하시오.</span></summary>
+        <div class="ans"><p>A33. Si Wafer 표면은 Si의 공유결합이 끊겨 있는 Dangling Bond가 존재합니다. 따라서 불안정하기 때문에 particle이나 다른 물질과 반응하기 쉽습니다. 따라서 Passivation Layer로 SiO₂를 사용하여 표면을 보호해줍니다.</p></div>
+      </details>
+      <details class="note qa qa-card" id="q33-1"><summary><b>[질문 노트]</b><span class="q">Q33-1. Wafer 전체를 보호할 때는 어떤 소재를 이용하는지 설명하시오.</span></summary>
+        <div class="ans"><p>A33-1. 공정을 진행하고 맨 위에 Passivation Layer로 Si₃N₄ Nitride를 사용합니다.</p></div>
+      </details>
+    </section>
+
+    <footer class="site-footer">
+      <p>질문과 답변은 사용자가 Word에 정리한 원문 그대로입니다.</p>
+      <p><span id="updatedAt"></span> · <a href="../../index.html">홈으로</a></p>
+    </footer>
+  </main>
+</div>
+
+<button id="toTop" class="to-top" aria-label="맨 위로" hidden>↑</button>
+
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="이미지 확대">
+  <button class="lb-close" aria-label="닫기">✕</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</div>
+
+<script src="../../topics.js"></script>
+<script src="../../assets/common.js"></script>
+<script src="../../assets/topic.js"></script>
+<script>
+(function () {
+  var all = function () { return document.querySelectorAll('details.qa-card'); };
+  var set = function (v) { Array.prototype.forEach.call(all(), function (d) { d.open = v; }); };
+  document.getElementById('openAll').addEventListener('click', function () { set(true); });
+  document.getElementById('closeAll').addEventListener('click', function () { set(false); });
+  /* 주소의 #q31 처럼 질문으로 바로 이동하면 그 질문은 펼쳐 둔다 */
+  function openHash() { var h = location.hash; if (h.indexOf('#q') === 0) { var e = document.getElementById(h.slice(1)); if (e && e.tagName === 'DETAILS') e.open = true; } }
+  openHash(); window.addEventListener('hashchange', openHash);
+})();
+</script>
+</body>
+</html>

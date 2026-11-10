@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KOCW 세종대 이원준 교수님 (SIO 02 & OXIDATION 01)</title>
+<meta name="description" content="KOCW 세종대 이원준 교수님의 SiO₂와 Oxidation 강의 정리 노트: 산화막의 종류와 용도, 산화 메커니즘, Dry vs Wet, Deal-Grove 모델">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-root="../../" data-topic="kocw-oxidation">
+
+<div id="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <button id="menuBtn" class="icon-btn menu-btn" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <a id="brand" class="brand" href="../../index.html">나의 공부 공간</a>
+  <nav id="tabs" class="tabs" aria-label="영역"></nav>
+  <button id="themeBtn" class="icon-btn" aria-label="다크 모드 전환">◐</button>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="목차">
+    <div class="sidebar-head">
+      <a href="#top" class="sidebar-title">KOCW 산화 (이원준)</a>
+    </div>
+    <nav id="toc"></nav>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <main id="top" class="content">
+
+    <header class="cover">
+      <h1>KOCW 세종대 이원준 교수님 (SIO 02 & OXIDATION 01)</h1>
+      <p class="meta">날짜: 2026-11-07 · 종류: 강의 · 상태: 진행 중 (Oxidation2 ~15분까지 봤음) · <a href="http://www.kocw.net/home/search/kemView.do?kemId=1321155" target="_blank" rel="noopener">KOCW 강의 링크</a></p>
+      <p class="meta">원본: 사용자 노션 필기 (KOCW 세종대 이원준 교수님 (SIO 02 & OXIDATION 01))</p>
+
+      <div class="toc-box">
+        <b>목차</b>
+        <p><a href="#s1">Structure of SiO₂</a> · <a href="#s2">Application of SiO₂</a> · <a href="#s3">Application 1: Diffusion Masking Layer</a> · <a href="#s4">Application 2: Device Isolation (LOCOS)</a> · <a href="#s5">Application 3: Surface Passivation (Pad · Screen · Sacrificial · Barrier Oxide)</a> · <a href="#s6">Application 4: Device Dielectric (Gate Oxide)</a> · <a href="#s7">Pre-oxidation RCA Clean</a> · <a href="#s8">Oxidation Mechanism</a> · <a href="#s9">Oxide Growth Rate</a> · <a href="#s10">Process Parameters</a> · <a href="#s11">Oxidizing Species</a> · <a href="#s12">Dry vs. Wet</a> · <a href="#s13">The Deal-Grove Model</a></p>
+        <p class="meta small">[사용자 노트 필기] 표시 = 사용자가 노션에 직접 정리한 원본 노트(내용·말투·감상은 원문 그대로). [질문 노트] = 사용자의 질문과 답. [댓글] = 사용자가 노션에 남긴 댓글. 회색 캡션은 이미지 설명.</p>
+      </div>
+    </header>
+
+    <section>
+      <h2 id="s1">1. Structure of SiO₂</h2>
+      <figure><img src="images/fig01.png" width="934" height="639" alt="Structure of SiO₂ — 용융 실리카 유리의 구조 (KOCW 슬라이드 15)" loading="lazy"><figcaption>Structure of SiO₂ — 용융 실리카 유리의 구조 (KOCW 슬라이드 15) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- SiO₂ 이렇게 생겼고, 비정질 구조를 이루고 있다.</p>
+        <p>- SiO₂ 한 층이 대충 3Å 정도 된다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s2">2. Application of SiO₂</h2>
+      <figure><img src="images/fig02.png" width="936" height="639" alt="Application of SiO₂ — 목적별 산화막 이름·두께·용도(Native · Masking · Field and LOCOS · Pad · Sacrificial · Screen · Barrier · Gate) (KOCW 슬라이드 16)" loading="lazy"><figcaption>Application of SiO₂ — 목적별 산화막 이름·두께·용도(Native · Masking · Field and LOCOS · Pad · Sacrificial · Screen · Barrier · Gate) (KOCW 슬라이드 16) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- SiO₂는 이렇듯 목적에 따라서 이름이 다르다.</p>
+        <p>- 제일 두꺼운 Masking이나 LOCOS 같은 곳에는 더 이상 쓰지 않고 있다.</p>
+        <p>- Si는 엔탈피가 0이고, SiO₂가 더 에너지가 낮다. 따라서 발열 반응이고, 더 안정해지는 반응이다.</p>
+        <p>- 자연 산화막은 HF으로 Cleaning 할 수 있다. 그리고 DI water로 세척하고 딱 두면 바로 0.5nm, 1nm 자라고 냅두면 2nm 정도까지는 자란다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s3">3. Application 1: Diffusion Masking Layer</h2>
+      <figure><img src="images/fig03.png" width="934" height="640" alt="Application 1: Diffusion Masking Layer — SiO₂를 확산 마스크로 사용 (KOCW 슬라이드 17)" loading="lazy"><figcaption>Application 1: Diffusion Masking Layer — SiO₂를 확산 마스크로 사용 (KOCW 슬라이드 17) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이제는 없어졌다. 옛날에는 SiO₂를 Mask로 사용해서 Diffusion을 시켜서 B이나 P 분위기에서 확산을 시켜서 도핑했다.</p>
+        <p>- 두께는 매우 두꺼웠다. 5000Å 정도 되니까.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s4">4. Application 2: Device Isolation (LOCOS)</h2>
+      <figure><img src="images/fig04.jpg" width="1400" height="958" alt="Application 2: Device Isolation — 소자 간 절연, Blanket field oxide, LOCOS, 3,000~10,000 Å의 두꺼운 산화막 (KOCW 슬라이드 18)" loading="lazy"><figcaption>Application 2: Device Isolation — 소자 간 절연, Blanket field oxide, LOCOS, 3,000~10,000 Å의 두꺼운 산화막 (KOCW 슬라이드 18) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig05.png" width="934" height="643" alt="LOCOS Process — Pad oxide, Silicon nitride 패터닝, LOCOS oxidation, Bird’s Beak (KOCW 슬라이드 19)" loading="lazy"><figcaption>LOCOS Process — Pad oxide, Silicon nitride 패터닝, LOCOS oxidation, Bird’s Beak (KOCW 슬라이드 19) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 여기에서 사용되는 SiO₂는 소자 간의 절연을 시켜주기 위한 목적으로 3000~10000Å으로 두께가 두꺼웠다.</p>
+        <p>- Si₃N₄를 열어준다음 확산을 통해 SiO₂를 만드는데 Si₃N₄는 훌륭한 확산 방지막으로 사용되고 SiO₂가 성장되는데 이 때 Bird’s Beak가 생기더라.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s5">5. Application 3: Surface Passivation (Pad · Screen · Sacrificial · Barrier Oxide)</h2>
+      <figure><img src="images/fig06.png" width="937" height="643" alt="Application 3: Surface Passivation — Pad · Screen · Sacrificial · Barrier Oxide, 약 150 Å의 얇은 산화막 (KOCW 슬라이드 20)" loading="lazy"><figcaption>Application 3: Surface Passivation — Pad · Screen · Sacrificial · Barrier Oxide, 약 150 Å의 얇은 산화막 (KOCW 슬라이드 20) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 표면을 보호해주는 역할로 사용된다. 오염이나 stress로부터 보호해주는 역할.</p>
+        <p>- 두께는 얇아졌다. 현재도 사용된다.</p>
+      </div>
+      <figure><img src="images/fig07.jpg" width="1400" height="963" alt="Pad Oxide — nitride의 인장 응력 완화, stress에 의한 실리콘 결함 방지 (KOCW 슬라이드 21)" loading="lazy"><figcaption>Pad Oxide — nitride의 인장 응력 완화, stress에 의한 실리콘 결함 방지 (KOCW 슬라이드 21) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Pad oxide가 있으면 nitride의 stress를 많이 완화해준다. (오! 이래서 까는거구나)</p>
+      </div>
+      <figure><img src="images/fig08.png" width="934" height="633" alt="Pad and Barrier Oxides in STI Process — Trench Etch, USG Trench Fill, USG CMP · Anneal · Nitride and Pad Oxide Strip (KOCW 슬라이드 22)" loading="lazy"><figcaption>Pad and Barrier Oxides in STI Process — Trench Etch, USG Trench Fill, USG CMP · Anneal · Nitride and Pad Oxide Strip (KOCW 슬라이드 22) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Si wafer를 Etch를 진행하고나면 defect이 많기 때문에 SiO₂를 통해 defect을 없애준다.</p>
+      </div>
+      <figure><img src="images/fig09.png" width="931" height="639" alt="Screen Oxide — 이온주입 시 Photoresist 아래의 산화막 (KOCW 슬라이드 23)" loading="lazy"><figcaption>Screen Oxide — 이온주입 시 Photoresist 아래의 산화막 (KOCW 슬라이드 23) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig10.png" width="936" height="637" alt="Sacrificial Oxide — 희생 산화로 실리콘 표면 결함 제거 후 Gate Oxidation (KOCW 슬라이드 24)" loading="lazy"><figcaption>Sacrificial Oxide — 희생 산화로 실리콘 표면 결함 제거 후 Gate Oxidation (KOCW 슬라이드 24) (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s6">6. Application 4: Device Dielectric (Gate Oxide)</h2>
+      <figure><img src="images/fig11.png" width="936" height="642" alt="Application 4: Device Dielectric — Gate oxide는 가장 얇고 중요한 층, 16 Å 산화막 단면 (KOCW 슬라이드 25)" loading="lazy"><figcaption>Application 4: Device Dielectric — Gate oxide는 가장 얇고 중요한 층, 16 Å 산화막 단면 (KOCW 슬라이드 25) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 가장 중요한 Gate oxide이다.</p>
+        <p>- 실제로 16Å이면 1.6nm 만큼 되었을 정도로 매우 얇아졌다. 지금은 High-k 물질을 사용해서 HfO₂ 같은걸로 일부 대체 되긴했다.</p>
+        <p>- SiO₂의 원자층 한 층이 3Å 정도되는데 16Å 정도 되니까 절연체의 역할을 잘 못하더라. 실제로 이렇게 박막이 얇아지니까 전류가 질질 샜고 전력 소모량이 너무 커졌다. 이게 2010년도 살짝 전쯤 얘기이다.</p>
+        <p>- 2008년부터 Intel에서 만든 CPU에는 OXide 대신 HfO₂를 사용하기 시작했고 다시 16Å 보다 두꺼워졌고 전력 소모가 줄었다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s7">7. Pre-oxidation RCA Clean</h2>
+      <figure><img src="images/fig12.png" width="934" height="642" alt="Pre-oxidation RCA Clean — SC-1(NH₄OH:H₂O₂:H₂O), SC-2(HCl:H₂O₂:H₂O), HF dip (KOCW 슬라이드 27)" loading="lazy"><figcaption>Pre-oxidation RCA Clean — SC-1(NH₄OH:H₂O₂:H₂O), SC-2(HCl:H₂O₂:H₂O), HF dip (KOCW 슬라이드 27) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Oxidation을 진행하기 전에 cleaning을 진행해야 한다. 그래서 SC-1을 하고, SC-2하고, HF dip까지 진행해준다. 암모니아 수용액 → 염산 → 불산</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s8">8. Oxidation Mechanism</h2>
+      <figure><img src="images/fig13.png" width="933" height="645" alt="Oxidation Mechanism — O₂ 확산(55%)과 계면 반응(45%) (KOCW 슬라이드 28)" loading="lazy"><figcaption>Oxidation Mechanism — O₂ 확산(55%)과 계면 반응(45%) (KOCW 슬라이드 28) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Fe나 Cu는 O₂와 계속 반응하고 산화해서 산화막이 두꺼워진다.</p>
+        <p>- Al는 O₂가 계속 자라지 않고 얇게 생기고 끝난다.</p>
+        <p>→ 이 차이는 O₂가 다공성이 많은 곳에서는 계속 침투해서 자라게 되고, Al처럼 치밀하면 얇게 생기고 끝나는 것이다.</p>
+        <p>- 상온에서는 Si가 SiO₂로 성장할 때 굉장히 치밀하게 자란다. 그래서 얇게 생길 수 밖에 없다. 그래서 두껍게 성장시키려면 온도를 올려야한다.</p>
+        <p>- 산화가 일어날 때는 Si가 소모되면서 부풀게 된다. 당연히 O가 들어갔으니 SiO₂의 부피가 더 커지겠지. 원자도 많아지고 구조도 엉성해지니까 당연한 결과 (근데 이건 설명을 안들으면 생각을 못해본다 이거야)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s9">9. Oxide Growth Rate</h2>
+      <figure><img src="images/fig14.png" width="934" height="636" alt="Oxide Growth Rate — Linear Growth Regime(X = B/A·t)과 Diffusion-limited Regime(X = √(Bt)) (KOCW 슬라이드 29)" loading="lazy"><figcaption>Oxide Growth Rate — Linear Growth Regime(X = B/A·t)과 Diffusion-limited Regime(X = √(Bt)) (KOCW 슬라이드 29) (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s10">10. Process Parameters</h2>
+      <figure><img src="images/fig15.png" width="939" height="643" alt="Process Parameters — 온도·시간, Oxidizing species, 산화제 압력, 결정면 (100) vs (111), 도핑, Additional gas (KOCW 슬라이드 38)" loading="lazy"><figcaption>Process Parameters — 온도·시간, Oxidizing species, 산화제 압력, 결정면 (100) vs (111), 도핑, Additional gas (KOCW 슬라이드 38) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 결국 저온에서 공정을 진행하는게 유리하다. 그렇게 하기 위해서는 압력을 높이게 된다면 온도를 낮출 수도 있다고 한다. 그렇지만 안전 이슈로 연구만 되었다고 한다.</p>
+        <p>- 결정면에 따라서도 성장 속도가 다른데 이건 초반에만 그렇다고 한다.</p>
+        <p>- (111)이 (100)보다 성장속도가 빠르긴 하지만 Si원자가 더 많기 때문에 결함이 더 많다. 어쨌거나 (111)을 쓰지는 않는다고 한다.</p>
+        <p>- 도핑을 한 Si는 B나 P를 도핑한 경우이다. 그러면 도핑한 쪽에서 Oxidation 속도가 조금 더 빠르다고 한다.</p>
+        <p>- Additional gas는 O₂ 넣어줄 때 같이 넣어주는 애들이다. 왜냐하면 Cl₂, HCl 이런 것 넣으면 금속 이온과 만나서 이온 착화합물을 만들면서 표면에 이온들이 줄어든다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s11">11. Oxidizing Species</h2>
+      <figure><img src="images/fig16.png" width="936" height="640" alt="Oxidizing Species — Dry oxidation of Si(100)과 Wet oxidation of Si(100)의 온도별 성장 곡선 (KOCW 슬라이드 39)" loading="lazy"><figcaption>Oxidizing Species — Dry oxidation of Si(100)과 Wet oxidation of Si(100)의 온도별 성장 곡선 (KOCW 슬라이드 39) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 동일한 온도에서 비교해보면 Dry Oxidation과 Wet Oxidation의 속도차이가 확실하게 보인다. Wet oxidation에서는 더 낮은 온도에서도 성장시킬 수 있다. 그리고 빠르기도 하다.</p>
+        <p>- H₂O가 더 잘 녹을 수 있고, 잘 녹을 수 있으니까 농도 기울기가 커져서 더 많이 녹을 수 있게 된다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s12">12. Dry vs. Wet</h2>
+      <figure><img src="images/fig17.jpg" width="1400" height="964" alt="Dry vs. Wet — Dry O₂ oxidation, Wet oxygen oxidation, Pyrogenic steam oxidation 장비 구성 (KOCW 슬라이드 40)" loading="lazy"><figcaption>Dry vs. Wet — Dry O₂ oxidation, Wet oxygen oxidation, Pyrogenic steam oxidation 장비 구성 (KOCW 슬라이드 40) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Dry 에서는 1000도에서 진행한다고 한다면 1000도에 도달하기 전까지는 N₂ gas를 계속 blowing 해준다. 그리고 O₂를 넣고 산화를 시켜준다.</p>
+        <p>- 설정한 시간동안 O₂랑 반응시키고 (이미 알고 있음 얼마나 자라는지) 그리고 끝나면 N₂ gas를 blowing 해준다.</p>
+        <p>- Wet 에서는 O₂ 가 나갈 때 H₂O가 묻어서 나갈 수 있게 해준다. 그러면 H₂O가 100%가 아니더라도 속도는 빨라진다.</p>
+        <p>- Pyrogenic(불을 사용하는?)에서는 확실하게 100%로 만들기 위한 방법이다. H₂ : O₂를 2:1의 비율로 넣어준다.</p>
+        <p>- 결국 저온에서 공정을 진행하는게 유리하다. 그렇게 하기 위해서는 압력을 높이게 된다면 온도를 낮출 수도 있다고 한다.</p>
+        <p>- HCl, Cl₂ 이런것들을 같이 넣어주면 표면 특성이 더 좋아지고, 1~5% 정도 속도가 빨라진다고 한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s13">13. The Deal-Grove Model</h2>
+      <figure><img src="images/fig18.png" width="936" height="639" alt="The Deal-Grove Model — 산화제 농도(C_G · C_S · C₀ · Cᵢ)와 Flux(F₁ · F₂ · F₃) (KOCW 슬라이드 30)" loading="lazy"><figcaption>The Deal-Grove Model — 산화제 농도(C_G · C_S · C₀ · Cᵢ)와 Flux(F₁ · F₂ · F₃) (KOCW 슬라이드 30) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 여기에서 X0 는 산화막의 두께를 의미한다.</p>
+        <p>- CG → Cs로 올 때 표면의 O₂ 농도가 살짝 낮아진다. 그건 약간 당연한 건데 오른쪽으로 계속 O₂가 이동해서 계면에서 반응하면서 소모 되잖아? 그러니까 농도가 낮아지겠지.</p>
+        <p>- CG는 Gas 상태에서의 농도, Cs는 SiO₂ 표면에서의 Gas 상태의 농도이다.</p>
+        <p>- C0과 Ci는 고체 안에 녹아 들어간 산소의 농도이다. (바로 앞 문장과 구분된다. Gas이냐 아니면 고체 안에 녹아 들어갔는지 여부의 차이가 있다.)</p>
+        <p>- CG→Cs는 기체 상태에서의 확산이, Co→Ci는 고체 상태에서의 확산이 일어난다. 그리고 Ci(interface)에서는 화학 반응이 일어난다. 화학반응은 Ci의 농도와 비례하게 일어날 것이다.</p>
+        <p>- 이제 F에 대해서 알아보자. F는 Flux이다. 단위 시간당 움직이는 입자의 양을 의미한다. F1는 Gas 상태에서의 Flux이다. F2는 고체 상태에서의 Flux이다. (Fick’s first law). F3는 화학반응에 의해 없어지는 Flux를 얘기한다.</p>
+        <p>- F1, F2, F3가 물론 처음에는 값이 다르더라도 정상 상태이고, 연쇄적으로 일어나기 때문에 결국 시간이 지나면 같아지게 된다. 결국 가장 느린애한테 맞춰질 것이다.</p>
+        <p>- 그래서 F1, F2, F3에 대한 식을 각각 만들고 같다고 두면 그게 정상 상태일 때 같다고 두고 푸는 것이다. (Steady state라고 해서 평형 상태라는 것은 아니다. → 뭔가 그런거 같긴해 확실하게는 몰라도)</p>
+      </div>
+      <figure><img src="images/fig19.png" width="669" height="444" alt="Oxidation Mechanism — O₂ 확산과 계면 반응 (KOCW 슬라이드, 확대) " loading="lazy"><figcaption>Oxidation Mechanism — O₂ 확산과 계면 반응 (KOCW 슬라이드, 확대)  (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 다시 이 그림에서 고체 SiO₂ 안에 들어갈 수 있는 O₂의 양은 용해도와 관련이 있고, 외부 기체 분압이 크면(Gas의 압력) 클수록 많이 들어갈 것이다.</p>
+        <p>- 당연하게도 Si + O₂ → SiO₂가 되어 O₂ 가 사용되니까 농도가 낮아지겠지? 그러면 농도 차이가 발생해서 확산이 일어날 것이다. (쉬운건데 왜 확산이 일어나?라고 하면 당황할 수 있다.)</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 헨리의 법칙이란?</p>
+        <p>A. 기체가 고체나 액체에 녹아 들어가는 양(평형 농도)이 그 기체의 분압에 비례한다는 법칙이다. 그래서 외부 기체의 압력이 클수록 SiO₂ 안에 더 많은 O₂가 녹아 들어간다. (C₀ = Kₕ·Pₛ, Kₕ: 헨리 상수)</p>
+      </div>
+      <figure><img src="images/fig20.png" width="936" height="639" alt="F₁ — Flux in the Gas Phase: F₁ = h_G(C_G − C_S), 이상기체 법칙과 Henry의 법칙 (KOCW 슬라이드 31)" loading="lazy"><figcaption>F₁ — Flux in the Gas Phase: F₁ = h_G(C_G − C_S), 이상기체 법칙과 Henry의 법칙 (KOCW 슬라이드 31) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- F1 에서 CG와 Cs는 기상에서의 O₂의 농도차이다. hG는 확산 계수 같은 느낌.</p>
+      </div>
+      <figure><img src="images/fig21.png" width="933" height="639" alt="F₂ &amp; F₃ — Flux in the Solid: F₂ = −D(dC/dx), F₃ = k_s·C_i (KOCW 슬라이드 32)" loading="lazy"><figcaption>F₂ &amp; F₃ — Flux in the Solid: F₂ = −D(dC/dx), F₃ = k_s·C_i (KOCW 슬라이드 32) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- F2는 고체 상태에서의 확산이니까 Fick’s first law로 계산하면 된다.</p>
+        <p>- F3는 확산해서 온 산소와 Si가 반응하는 것이다. Si의 농도는 일정하다고 보니까 결국 확산해서 온 산소의 농도에 의해 결정된다.</p>
+        <p>- 단 문제가 있는게 Gas에 관한 식과 Solid에 관한 식으로 구분되어 있다는 것이다. 그래서 Gas에 관한식으로 Solid에 관한식으로 바꾼다.</p>
+      </div>
+      <figure><img src="images/fig22.png" width="930" height="631" alt="F₁ — Flux in the Gas Phase: 기체 농도식을 고체 농도식으로 바꾸어 F₁ = h(C* − C₀)로 정리 (KOCW 슬라이드 31)" loading="lazy"><figcaption>F₁ — Flux in the Gas Phase: 기체 농도식을 고체 농도식으로 바꾸어 F₁ = h(C* − C₀)로 정리 (KOCW 슬라이드 31) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>Oxidation2 ~15분까지 봤음</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>필기는 사용자가 노션에 정리한 원문 그대로이며, 이미지는 교재·강의 슬라이드·판서 촬영본입니다.</p>
+      <p><span id="updatedAt"></span> · <a id="notionLink" href="#" target="_blank" rel="noopener" hidden>Notion 원본 보기</a> · <a href="../../index.html">홈으로</a></p>
+    </footer>
+  </main>
+</div>
+
+<button id="toTop" class="to-top" aria-label="맨 위로" hidden>↑</button>
+
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="이미지 확대">
+  <button class="lb-close" aria-label="닫기">✕</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</div>
+
+<script src="../../topics.js"></script>
+<script src="../../assets/common.js"></script>
+<script src="../../assets/topic.js"></script>
+</body>
+</html>

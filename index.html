@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>나의 공부 공간</title>
+<meta name="description" content="노션에 정리한 공부 내용을 영역별·주제별로 쌓아두는 개인 학습 공간">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-root="./">
+
+<header class="site-header">
+  <a id="brand" class="brand" href="index.html">나의 공부 공간</a>
+  <nav id="tabs" class="tabs" aria-label="영역"></nav>
+  <button id="themeBtn" class="icon-btn" aria-label="다크 모드 전환">◐</button>
+</header>
+
+<main class="home">
+  <section class="home-hero">
+    <h1>나의 공부 공간</h1>
+    <p class="meta">노션에 정리한 공부 내용을 영역별로 쌓아두는 곳입니다. 위 탭에서 영역을 고르거나 아래 카드에서 주제를 열어 보세요.</p>
+    <p id="homeStat" class="meta small"></p>
+  </section>
+
+  <div class="home-tools">
+    <input id="homeSearch" type="search" placeholder="주제 검색 (제목·키워드)" aria-label="주제 검색" autocomplete="off">
+    <div id="chips" class="chips" role="group" aria-label="영역"></div>
+  </div>
+
+  <div id="areas"></div>
+  <p id="homeEmpty" class="meta" hidden>조건에 맞는 주제가 없습니다.</p>
+</main>
+
+<script src="topics.js"></script>
+<script src="assets/common.js"></script>
+<script src="assets/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<!--
+  새 주제 템플릿.
+  사용법: 이 파일을 topics/ID/index.html 로 복사하고, [[...]] 자리를 채운 뒤,
+  주석 처리된 컴포넌트 중 필요한 것의 주석 표시만 풀어서 씁니다.
+  (이 위치에서는 경로가 ../../ 기준이라 직접 열면 스타일이 깨집니다. 정상입니다.)
+  자세한 규칙은 프로젝트 루트의 CLAUDE.md 를 보세요.
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[[주제 제목]]</title>
+<meta name="description" content="[[한 줄 설명]]">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-root="../../" data-topic="[[id]]">
+
+<div id="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <button id="menuBtn" class="icon-btn menu-btn" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <a id="brand" class="brand" href="../../index.html">나의 공부 공간</a>
+  <nav id="tabs" class="tabs" aria-label="주제"></nav>
+  <button id="themeBtn" class="icon-btn" aria-label="다크 모드 전환">◐</button>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="목차">
+    <div class="sidebar-head">
+      <a href="#top" class="sidebar-title">[[짧은 제목]]</a>
+    </div>
+    <nav id="toc"></nav> <!-- h2/h3 로 자동 생성. 각 h2/h3 에 id 필수 -->
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <main id="top" class="content">
+
+    <header class="cover">
+      <h1>[[주제 제목]]</h1>
+      <p class="meta">[[부제 / 한 줄 설명]]</p>
+      <p class="meta">[[출처: 강의명·책·영상 등]]</p>
+      <!-- 선택: 목차 박스
+      <div class="toc-box"><b>목차</b>
+        <p><a href="#s1">1. ...</a> — ...</p>
+      </div> -->
+      <!-- 선택: 안내/주의 박스
+      <div class="callout"><b>안내</b>: ...</div> -->
+    </header>
+
+    <!-- 선택: 큰 구분 배너 (PART). id 필수, 목차에 구분 제목으로 표시됨
+    <div class="part-banner" id="part1">PART 1 — ...</div> -->
+
+    <section>
+      <h2 id="s1">1. [[첫 번째 섹션]]</h2>
+      <p>본문. <b class="k">파란 강조</b>, <b>굵게</b>, <span class="hl">주황 강조</span>.</p>
+
+      <h3 id="s1-1">1-1. [[소제목]]</h3>
+      <ul>
+        <li>글머리 목록</li>
+      </ul>
+      <ol>
+        <li>번호 목록
+          <ul class="sub"><li>하위 항목</li></ul>
+        </li>
+      </ol>
+
+      <!-- 이미지: 폭·높이(픽셀)를 꼭 적어야 앵커 이동이 어긋나지 않습니다. 클릭하면 확대됩니다. -->
+      <!-- <figure><img src="images/fig01.png" width="880" height="490" alt="설명" loading="lazy"><figcaption>캡션</figcaption></figure> -->
+
+      <!-- 내 필기 -->
+      <div class="note"><b>[노트 필기]</b>
+        <p>- 직접 정리한 내용</p>
+      </div>
+
+      <!-- 질문과 답 -->
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 질문?</p>
+        <p>A. 답.</p>
+      </div>
+
+      <!-- 표 -->
+      <!-- <div class="table-wrap"><table>
+        <thead><tr><th>항목</th><th>내용</th></tr></thead>
+        <tbody><tr><td>...</td><td>...</td></tr></tbody>
+      </table></div> -->
+
+      <!-- 흐름 칩 (c1 진한 파랑 / c2 연한 파랑) -->
+      <!-- <div class="flow"><span class="chip c1">A</span><span class="arrow">→</span><span class="chip c2">B</span></div> -->
+
+      <!-- 인용 -->
+      <!-- <blockquote>인용문</blockquote> -->
+    </section>
+
+    <!-- 선택: 용어 정리표 (검색 지원). id 가 glossSearch / glossCount / glossary / glossEmpty 여야 동작
+    <section>
+      <h2 id="gloss">용어 정리표</h2>
+      <div class="search-row">
+        <input id="glossSearch" type="search" placeholder="용어 검색" aria-label="용어 검색" autocomplete="off">
+        <span id="glossCount" class="meta small"></span>
+      </div>
+      <div class="table-wrap"><table id="glossary" class="gloss">
+        <thead><tr><th>용어</th><th>의미</th></tr></thead>
+        <tbody><tr><td>용어</td><td>의미</td></tr></tbody>
+      </table></div>
+      <p id="glossEmpty" class="meta" hidden>검색 결과가 없습니다.</p>
+    </section> -->
+
+    <footer class="site-footer">
+      <p>[[출처·주의사항]]</p>
+      <p><span id="updatedAt"></span> · <a id="notionLink" href="#" target="_blank" rel="noopener" hidden>Notion 원본 보기</a> · <a href="../../index.html">홈으로</a></p>
+    </footer>
+  </main>
+</div>
+
+<button id="toTop" class="to-top" aria-label="맨 위로" hidden>↑</button>
+
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="이미지 확대">
+  <button class="lb-close" aria-label="닫기">✕</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</div>
+
+<script src="../../topics.js"></script>
+<script src="../../assets/common.js"></script>
+<script src="../../assets/topic.js"></script>
+</body>
+</html>

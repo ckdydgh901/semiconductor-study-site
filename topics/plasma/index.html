@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>플라즈마와 식각 정리</title>
+<meta name="description" content="DC/RF 플라즈마와 Sheath, RIE 식각 원리, HDP(ICP·ECR), DRIE, ALE, Cryogenic·펄스 플라즈마 정리 노트">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-root="../../" data-topic="plasma">
+
+<div id="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <button id="menuBtn" class="icon-btn menu-btn" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <a id="brand" class="brand" href="../../index.html">나의 공부 공간</a>
+  <nav id="tabs" class="tabs" aria-label="영역"></nav>
+  <button id="themeBtn" class="icon-btn" aria-label="다크 모드 전환">◐</button>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="목차">
+    <div class="sidebar-head">
+      <a href="#top" class="sidebar-title">플라즈마와 식각 정리</a>
+    </div>
+    <nav id="toc"></nav>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <main id="top" class="content">
+
+    <header class="cover">
+      <h1>플라즈마와 식각 정리</h1>
+      <p class="meta">「플라즈마와 식각」 영상 1(플라즈마 원리와 식각 메커니즘) + 영상 2(차세대 플라즈마 식각) 정리 노트</p>
+      <p class="meta">원본: YouTube 강의 영상 · 사용자 노션 필기 기반</p>
+      <p class="meta small">영상 1 <a href="https://youtu.be/CkJtbOcgJ7U" target="_blank" rel="noopener">https://youtu.be/CkJtbOcgJ7U</a> · 영상 2 <a href="https://www.youtube.com/watch?v=wnqJYhctJQQ&amp;list=PLLJpDE5BXOXAOMRBhG6no-j5CJUHuD_qV&amp;index=9" target="_blank" rel="noopener">https://www.youtube.com/watch?v=wnqJYhctJQQ</a></p>
+
+      <div class="toc-box">
+        <b>목차</b>
+        <p><a href="#part1">PART 1. 플라즈마와 식각의 원리</a> — 습식식각의 한계 · 플라즈마 · DC/RF 플라즈마 · Sheath · Glow Discharge · 스퍼터링 · 화학 식각 · RIE</p>
+        <p><a href="#part2">PART 2. 차세대 플라즈마 식각</a> — HDP(ICP·ECR) · Source/Bias RF · DRIE(Bosch) · ALE · Cryogenic Etching · 펄스 플라즈마</p>
+        <p class="meta small">[사용자 노트 필기] 표시 = 사용자가 노션에 직접 정리한 원본 노트(내용·말투·감상은 원문 그대로). 회색 캡션은 이미지 설명.</p>
+      </div>
+    </header>
+
+    <div class="part-banner" id="part1">PART 1 — 플라즈마와 식각의 원리</div>
+    <p class="meta">원본 영상: <a href="https://youtu.be/CkJtbOcgJ7U" target="_blank" rel="noopener">반도체 식각의 심장, 플라즈마란 무엇인가? : DC/RF 플라즈마부터 시스와 식각 메커니즘까지</a></p>
+
+    <section>
+      <h2 id="s1">1. 습식식각의 한계</h2>
+      <figure><img src="images/fig01.png" width="1173" height="672" alt="습식식각의 실태 — 식각 전(Before Etching) / 식각 후(After Wet Etching)" loading="lazy"><figcaption>습식식각의 실태 — 식각 전(Before Etching) / 식각 후(After Wet Etching) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 습식식각은 등방성 식각이기 때문에 미세화에는 한계가 존재한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s2">2. 플라즈마란 무엇인가</h2>
+      <figure><img src="images/fig02.png" width="1174" height="676" alt="플라즈마의 정체" loading="lazy"><figcaption>플라즈마의 정체 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 플라즈마는 부분적으로 이온화되어 있기 때문에 기체처럼 흐르면서도 이온이 있어 전기장에 반응하게 된다. 하지만 모든 기체 분자가 이온화 되어 있는 것은 아니다.</p>
+      </div>
+      <figure><img src="images/fig03.png" width="1176" height="666" alt="불꽃 vs 플라즈마 (에너지 원)" loading="lazy"><figcaption>불꽃 vs 플라즈마 (에너지 원) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 플라즈마는 전기 에너지에 의해서 발현되며 진공 상태에서 진행되어야 한다. m.f.p가 확보되어야 강하게 충돌할 수 있다</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s3">3. 전자와 이온의 응답 차이: Sheath의 탄생</h2>
+      <figure><img src="images/fig04.png" width="1168" height="660" alt="전자 vs 이온 시간 응답 (Electron vs. Ion Time Response)" loading="lazy"><figcaption>전자 vs 이온 시간 응답 (Electron vs. Ion Time Response) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 전자와 양이온의 질량 차이가 응답 속도의 차이를 발생시키고, 이 현상에 의해 Sheath 영역이 생기게 되는 것이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s4">4. DC 플라즈마의 한계</h2>
+      <figure><img src="images/fig05.png" width="1177" height="663" alt="DC 플라즈마 구조와 한계 — 절연체 charging으로 인한 전기장 붕괴와 구동력 상실" loading="lazy"><figcaption>DC 플라즈마 구조와 한계 — 절연체 charging으로 인한 전기장 붕괴와 구동력 상실 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 웨이퍼는 주로 음극 쪽에 존재하는데,  절연체가 사용되는 공정에서는 양이온들이 쌓이게 된다. 양이온들이 쌓이게 되면 전압이 상승되어서 전기장이 상쇄되고 플라즈마가 꺼져버리게 된다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s5">5. RF 플라즈마</h2>
+      <figure><img src="images/fig06.png" width="1170" height="670" alt="RF 플라즈마 기본 구조 — 극성 반전과 포텐셜 분포" loading="lazy"><figcaption>RF 플라즈마 기본 구조 — 극성 반전과 포텐셜 분포 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이러한 문제가 있기 때문에 교류 RF 파워를 사용하게 된다.</p>
+        <p>- 전자는 왔다갔다 빠르게 응답되는데, 양이온들은 무겁기 때문에 잘 움직이지 못하고 중앙부에 몰려있게 된다. 그래서 전압을 보면 가운데에 높은 Voltage를 갖게 된다.</p>
+      </div>
+
+      <h3 id="s5-1">5-1. 전극 면적과 전압 강하</h3>
+      <figure><img src="images/fig07.png" width="1173" height="658" alt="RF 플라즈마 시스템에서의 포텐셜 분포 — Equal area vs Unequal area electrodes" loading="lazy"><figcaption>RF 플라즈마 시스템에서의 포텐셜 분포 — Equal area vs Unequal area electrodes (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 그래서 파란색처럼 전극의 두 면적이 동일하다면 한쪽으로 치우칠 이유가 없다.</p>
+        <p>- 하지만 한쪽의 면적이 작은 경우에는 면적이 작은 쪽으로 전압의 강하가 일어나게 된다.</p>
+        <p><span class="mark-red">*전압 강하가 일어나는 이유에 대해서는 설명해주시지 않았고, 결과론적으로 전극이 작으면=전압 강하라고 알려주셨다. </span></p>
+      </div>
+      <figure><img src="images/fig08.png" width="1179" height="661" alt="CCP 챔버에서의 전류 밀도와 전압 강하" loading="lazy"><figcaption>CCP 챔버에서의 전류 밀도와 전압 강하 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Chamber 쪽 그러니까 위쪽은 면적이 넓고, Wafer를 올려놓는 전극 쪽은 면적이 매우 좁다. 그래서 집중적인 전압 강하가 면적이 좁은 wafer 영역에서 일어나게 된다.</p>
+        <p>- 그래서 Sheath 영역이 생기게 되는 것이다.</p>
+      </div>
+      <figure><img src="images/fig09.png" width="448" height="379" alt="전압 강하(ΔV) — 면적이 작은 전극(target) 쪽" loading="lazy"><figcaption>전압 강하(ΔV) — 면적이 작은 전극(target) 쪽 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 그래서 빨간색 영역을 보면 전압강하가 일어나서 뚝 떨어지게 되고, 그래서 이 부분에서 양이온들이 맹렬하게 달려가서 박게 되는 것이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s6">6. Glow Discharge와 Dark Space</h2>
+      <figure><img src="images/fig10.png" width="1168" height="673" alt="Plasma glow discharge — 들뜸(Excitation)과 광자 발생(Photon Emission)" loading="lazy"><figcaption>Plasma glow discharge — 들뜸(Excitation)과 광자 발생(Photon Emission) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 플라즈마가 밝은 광채를 띠는 것을 Glow discharge라고 한다. 들뜬 상태에서 바닥 상태가 되면서 에너지를 방출하게 되고, 그게 빛의 형태로 방출되는 것이다.</p>
+      </div>
+      <figure><img src="images/fig11.png" width="1192" height="673" alt="Dark Space in CCP Plasma Chamber" loading="lazy"><figcaption>Dark Space in CCP Plasma Chamber (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Dark Space가 일어나는 영역은 주로 양이온들만 존재하니 Glow discharge가 일어나지 않아 검은색으로 보이는 것이다. 그래서 Sheath 영역은 검은색으로 보인다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s7">7. 이온은 왜 수직으로 날아오는가</h2>
+      <figure><img src="images/fig12.png" width="1173" height="661" alt="이온은 왜 수직으로 날아오는가? — Plasma Sheath의 강한 수직 전기장과 비등방성 식각" loading="lazy"><figcaption>이온은 왜 수직으로 날아오는가? — Plasma Sheath의 강한 수직 전기장과 비등방성 식각 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이 비등방성(이방성) 식각이 가능해지는 이유는 바로 Sheath 영역에서의 전압강하로 인한 양이온들의 웨이퍼 방향으로의 전기장에 따른 웨이퍼로의 수직 충돌 때문이다.</p>
+        <p>- 근데 이걸 스퍼터링 식각이라고도 한다고 함. 수직 식각인데.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s8">8. 식각 메커니즘</h2>
+
+      <h3 id="s8-1">8-1. 물리적 식각: 스퍼터링</h3>
+      <figure><img src="images/fig13.png" width="1179" height="667" alt="스퍼터링: 가장 원초적인 식각" loading="lazy"><figcaption>스퍼터링: 가장 원초적인 식각 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Ar⁺ 애들이 수직방향에서 때리면 실리콘 원자를 때리면 격자에서 원자가 뛰쳐 나가게 된다.</p>
+        <p>- 그렇지만 선택비가 없고 매우 강한 힘으로 때려서 결정구조에 손상이 일어난다.</p>
+        <p>- 그래서 Sputtering 식각 자체는 Plasma를 통해 가능한 것이지만(이전에 헷갈렸던 부분) 현대에 선택비가 중요한 이 시점에서는 사용하기 어렵다.</p>
+      </div>
+
+      <h3 id="s8-2">8-2. 화학적 식각</h3>
+      <figure><img src="images/fig14.png" width="1179" height="663" alt="화학 식각: 플라즈마가 만드는 반응성" loading="lazy"><figcaption>화학 식각: 플라즈마가 만드는 반응성 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 화학적인 식각으로는 반응성이 높은 gas를 사용하는데 주로 불소와 염소를 사용한다.</p>
+        <p>- CF₄ 같은 Gas를 넣어주게 되면 충돌에 의해 반응성 라디칼 원자들이 생겨나게 된다. 그 이후에 Si 표면에 흡착되게 되고, 그러면 SiF₄가 형성되는데 이게 휘발성이 강해서 날라가게 된다.</p>
+        <p>- 수직 식각이 안되고 화학 반응에만 맡기기 때문에 등방성 식각이 일어나서 사용하기가 어렵다.</p>
+      </div>
+
+      <h3 id="s8-3">8-3. Ion Enhanced Etching (RIE)</h3>
+      <figure><img src="images/fig15.png" width="1176" height="658" alt="Ion Enhanced Etching의 탄생 — 이온-라디칼 시너지" loading="lazy"><figcaption>Ion Enhanced Etching의 탄생 — 이온-라디칼 시너지 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 그래서 식각을 제대로 하기 위해서는 물리적, 화학적 방식을 모두 사용해야한다. 그리고 이 둘 방법을 같이 사용하는게 Ion Enhanced Etching 이라고 한다. 다른 말로는 RIE라고도 한다.</p>
+      </div>
+
+      <h3 id="s8-4">8-4. RIE가 비등방성 식각이 되는 이유</h3>
+      <figure><img src="images/fig16.png" width="1174" height="652" alt="왜 옆면은 덜 깎일까? — Inhibitor 보호막" loading="lazy"><figcaption>왜 옆면은 덜 깎일까? — Inhibitor 보호막 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 해당 RIE 방식은 왜 수직 방향으로의 비등방성 식각이 가능한 것일까?</p>
+        <p>- Ar⁺ 양이온들이 수직방향으로 Si 을 때려서 격자에 결합된 Si의 결합을 약하게 하고, 보호막(유기물 찌꺼기)이 있어도 물리적으로 쳐주기 때문에 Radical 자체는 이곳저곳 붙겠지만 반응이 일어날 수 있는 곳은 수직 방향 쪽인 것이다. (더 지배적 100%는 아닐테니~)</p>
+        <p>- 측벽에는 Etching을 하고 나서 찌꺼기처럼 남게 된다. 이에 따라 생긴 유기물 찌꺼기가 마치 보호막처럼 기능해서 측벽을 라디칼로부터 보호해주게 된다.</p>
+      </div>
+      <figure><img src="images/fig17.png" width="1174" height="664" alt="힘이 아니라 방향이 문제다 — 라디칼(등방성 확산)과 이온(수직 가속)" loading="lazy"><figcaption>힘이 아니라 방향이 문제다 — 라디칼(등방성 확산)과 이온(수직 가속) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 비등방성 Ethcing은 플라즈마에 의해 생성되는 라디칼과, 양이온이 있고, 그 중에 양이온들이 Sheath 영역에서 수직으로 강하게 웨이퍼를 타격할 때 함께 라디칼의 화학반응이 일어나면 비등방성 수직 식각이 가능해진다.</p>
+      </div>
+
+      <h3 id="s8-5">8-5. 식각이 나아갈 방향</h3>
+      <figure><img src="images/fig18.png" width="1173" height="670" alt="정밀 제어를 향해 — Ultra-Low Ion Energy · High Plasma Reactivity" loading="lazy"><figcaption>정밀 제어를 향해 — Ultra-Low Ion Energy · High Plasma Reactivity (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 식각이 발전해야하는 방향성은 무식하게 때려주는 애가 아니라 원하는 곳만 국부적으로 하지만 선택비는 높게끔 하는 플라즈마 식각 방식을 기대한다.</p>
+        <p>- 그래서 뒤 내용에서는 플라즈마의 형성과 이온의 타격을 구분하기 위한 노력을 어떻게 해가는지 그리고 차세대 식각 기술은 무엇인지에 대해 배우게 된다.</p>
+      </div>
+      <figure><img src="images/fig19.png" width="1177" height="657" alt="플라즈마 식각의 발전 — High Density Plasma Sources(ICP &amp; ECR), Future Technologies(ALE &amp; Cryogenic Etching)" loading="lazy"><figcaption>플라즈마 식각의 발전 — High Density Plasma Sources(ICP &amp; ECR), Future Technologies(ALE &amp; Cryogenic Etching) (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <div class="part-banner" id="part2">PART 2 — 차세대 플라즈마 식각</div>
+    <p class="meta">원본 영상: <a href="https://www.youtube.com/watch?v=wnqJYhctJQQ&list=PLLJpDE5BXOXAOMRBhG6no-j5CJUHuD_qV&index=9" target="_blank" rel="noopener">차세대 플라즈마 식각의 진화: High Density Plasma에서 ALE, Cryogenic Etching까지</a></p>
+
+    <section>
+      <h2 id="s9">9. CCP의 한계와 HDP</h2>
+      <figure><img src="images/fig20.png" width="830" height="466" alt="플라즈마 밀도와 이온 에너지 별도제어 — 일반적 CCP 방식 vs 소스·바이어스 분리 시스템" loading="lazy"><figcaption>플라즈마 밀도와 이온 에너지 별도제어 — 일반적 CCP 방식 vs 소스·바이어스 분리 시스템 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- CCP에서는 플라즈마 밀도를 높이려면 RF bias를 높일 수 밖에 없다. 그러면 밀도는 높아지겠지만, 이온이 웨이퍼를 때리는 세기가 강해져서 손상이 생긴다. 그렇다고 에너지를 낮추면 플라즈마 밀도가 줄어들고 공정 속도가 줄어든다.</p>
+      </div>
+      <figure><img src="images/fig21.png" width="827" height="462" alt="HDP 소스의 분류 — ICP · ECR · 마이크로파 플라즈마" loading="lazy"><figcaption>HDP 소스의 분류 — ICP · ECR · 마이크로파 플라즈마 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 그래서 HDP 플라즈마를 만드는 방식이 나왔고, 그 방법에 이렇게 세가지가 있는 것이다.</p>
+        <p>- 양산에서 가장 많이 사용하는 것은 ICP 라고 함</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s10">10. HDP 소스: ICP와 ECR</h2>
+
+      <h3 id="s10-1">10-1. ICP 플라즈마</h3>
+      <figure><img src="images/fig22.png" width="826" height="460" alt="ICP 플라즈마의 원리" loading="lazy"><figcaption>ICP 플라즈마의 원리 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Coil 에 RF 파워를 가하면, 수직 방향으로 자기장이 형성되고, 전자는 빙글빙글 회전하며 올라간다. 따라서 더 많은 Gas 입자들과 부딪히며 플라즈마의 밀도가 더 높아지게 된다. 300mm 웨이퍼에도 균일하게 식각이 가능하다고 한다</p>
+        <p>- (내 말로 정리) Coil에 RF 파워를 걸어주면 변하는 자기장이 전기장을 유도한다. 그 전기장을 따라서 전자가 회전 운동 하게 된다. 전극 사이에는 RF 파워를 걸어주면 전극에 수직인 방향으로 전기장이 생기고 Sheath 영역 생기고 이온들이 웨이퍼를 가격하게 된다.</p>
+      </div>
+
+      <h3 id="s10-2">10-2. ECR 플라즈마</h3>
+      <figure><img src="images/fig23.png" width="832" height="466" alt="ECR 플라즈마의 원리" loading="lazy"><figcaption>ECR 플라즈마의 원리 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이것도 자기장에 의해 전자가 회전한다. 주파수가 2.45GHz(20억)로 매우 높다.</p>
+        <p>- 그와 동시에 마이크로파 발전기에서 동일한 주파수가 나오게 되어서 진동끼리 더해져서 상승간섭이 일어나서 공명 현상이 일어나게 된다.</p>
+        <p>- 이론적으로는 이상적이지만, 장비가 복잡하고 크게 만들 수가 없다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s11">11. Source RF와 Bias RF</h2>
+      <figure><img src="images/fig24.png" width="825" height="461" alt="Source RF와 Bias RF의 분리" loading="lazy"><figcaption>Source RF와 Bias RF의 분리 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Inductor 쪽에 Source RF가 인가되면 플라즈마를 발생시키는 데만 사용한다.</p>
+        <p>- Bias RF가 인가되면 Sheath 영역을 만들고 Bias를 만들어내는 전용이다.</p>
+        <p>- 여기에서 Bias는 치우치는 것이니까 Wafer를 때리는 부분에 전위차가 걸려서 당긴다고 생각하면 됨. 그리고 Source는 플라즈마를 만들어내는 원천이라고 생각하면 될 듯</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s12">12. 고종횡비 식각: DRIE와 Bosch 공정</h2>
+      <figure><img src="images/fig25.png" width="833" height="462" alt="DRIE: 깊이를 파는 기술" loading="lazy"><figcaption>DRIE: 깊이를 파는 기술 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- DEEP RIE 를 하려면 HDP가 필수이다.</p>
+        <p>- HBM에서는 TSV(Through Silicon Via), NAND에서는 수백층의 산화막과 질화막이 쌓여있는 것에 구멍을 팔 때도 사용한다.</p>
+        <p>- 그러면 이렇게 종횡비가 큰 애들을 식각할 때는 어떻게 해야하는지 배워보자.</p>
+      </div>
+      <figure><img src="images/fig26.png" width="831" height="466" alt="Bosch 공정의 핵심 — 식각 단계(SF6) · 보호막 증착 단계(C4F8)의 반복" loading="lazy"><figcaption>Bosch 공정의 핵심 — 식각 단계(SF<sub>6</sub>) · 보호막 증착 단계(C<sub>4</sub>F<sub>8</sub>)의 반복 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Bosch 공정이라고 한댄다.</p>
+        <p>- 폴리머가 측벽을 보호해주게 되고, 이온들은 수직으로만 때리게 되니까 결과적으로 측벽은 계속 보호되고 수직으로 계속 식각이 된다.</p>
+        <p>→ 여기에서 Polymer는 C₄F₈ gas를 사용하고, 플라즈마에 의해서 어쩌구저쩌구 해서 (CH₂)ₓ polymer가 된다.</p>
+      </div>
+      <figure><img src="images/fig27.png" width="825" height="462" alt="Bosch 공정의 실제 단면 — 측벽 요철" loading="lazy"><figcaption>Bosch 공정의 실제 단면 — 측벽 요철 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 실제로는 이런 느낌으로 생김. 이렇게 보니까 와닿는 것 같기도 하고.</p>
+        <p>- 뒤에서도 다루지만 울퉁불퉁한 형상이 실제로 문제가 된다. 그래서 이걸 해결하기 위해서 ALE가 등장했다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s13">13. ALE (Atomic Layer Etching)</h2>
+      <figure><img src="images/fig28.png" width="830" height="464" alt="ALE — GAA MBCFET SiGe Pull-Back · Self-Aligned Contact(SAC)" loading="lazy"><figcaption>ALE — GAA MBCFET SiGe Pull-Back · Self-Aligned Contact(SAC) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 원자층 한 개씩 정밀하게 제거해나가는 방식이다. 따라서 선택비가 매우 좋다.</p>
+        <p>- GAA을 만들때 Si와 SiGe를 적층 구조로 만들고, 살짝 파인 곳에 Oxide 절연체를 넣어야하는데, 이 때 SiGe만 식각해 낼 수 있어야한다. 이 때 선택비는 무한이어야 한다.</p>
+        <p><i>*GAA가 어떻게 만들어지는 지 왜 저 구조인지는 해당 유튜버의 다른 강의를 보면서 이해 할 예정</i></p>
+        <p>- Contact이 만들어질 때 Gate를 갉아먹지 않게 Spacer에 의해 Self-aligned 되는 것을 SAC이라고 부른다.</p>
+      </div>
+      <figure><img src="images/fig29.png" width="831" height="463" alt="ALE의 추가 응용 — EUV 패턴 거칠기 개선 · 3D NAND 고종횡비 컨택 잔여물 제거" loading="lazy"><figcaption>ALE의 추가 응용 — EUV 패턴 거칠기 개선 · 3D NAND 고종횡비 컨택 잔여물 제거 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- EUV 하고 나서 표면이 이렇게 거칠거칠하게 된다. 이 때 표면을 다듬어주는 용도로 ALE를 사용할 수 있다.</p>
+        <p>- 고 종횡비의 Contact을 뚫고 나서 잔여물들이 존재할 때 ALE를 사용하면 청소가 가능하다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s14">14. Cryogenic Etching</h2>
+      <figure><img src="images/fig30.png" width="832" height="470" alt="Cryogenic Etching — 장비 구성과 저온 식각의 원리" loading="lazy"><figcaption>Cryogenic Etching — 장비 구성과 저온 식각의 원리 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 또 다른 차세대 식각 방법으로 극저온 식각 방법이 존재한다.</p>
+        <p>- Bosch 공정은 수백층을 쌓아야하는 NAND에서 고종횡비를 식각하기 위해 사용하는 방식이지만, 표면이 울퉁불퉁하다는 문제가 있다.</p>
+        <p>- Bosch에서는 의도적으로 가스를 불어넣어서 표면을 보호하는 것이지만, Cryogenic plasma는 냉각을 시키게 되면 식각 Gas들이 그냥 옆면에 얼어버리기 때문에 그 자체로 보호막처럼 거동하게 된다.</p>
+        <p>- 그래서 측벽은 식각이 안되고, 양이온들이 수직으로 때리면서 면이 열리게 되니까 계속 수직으로 식각이 가능하다. 그리고 나서 상온이되면 얼어있는 것들은 기화가 되어버린다.</p>
+      </div>
+      <figure><img src="images/fig31.png" width="828" height="466" alt="왜 3D NAND에게 이 기술(Cryogenic Etching)은 중요할까?" loading="lazy"><figcaption>왜 3D NAND에게 이 기술(Cryogenic Etching)은 중요할까? (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>Cryo가 개꿀인 이유</p>
+        <p>- 일단 수직 식각이 가능하다.</p>
+        <p>- Bosch의 경우 증착(고분자로 측벽 보호)과 식각이 반복되기 때문에 시간이 오래 걸린다.</p>
+        <p>- 상온에서는 Random 했지만 저온이 되면 이온 직진성이 향상된다고 함</p>
+        <p>- Mask가 엄청 두껍지 않아도 된다.</p>
+      </div>
+      <figure><img src="images/fig32.png" width="837" height="465" alt="Cryo 식각 장비 (이미지: Lam Research)" loading="lazy"><figcaption>Cryo 식각 장비 (이미지: Lam Research) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- NAND를 만들 때 이미 사용하고 있는 Lam 사의 Cryo 장비라고 한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s15">15. 펄스 플라즈마</h2>
+      <figure><img src="images/fig33.png" width="830" height="466" alt="초고속 펄스 플라즈마" loading="lazy"><figcaption>초고속 펄스 플라즈마 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 점점 더 미세화 되고 있기 때문에 플라즈마 자체의 밀도가 높아진다고 될 일이 아니다</p>
+        <p>- 펄스의 형태로 하게 되면 질량이 무거운 양이온은 플라즈마에 머물게 되고, 가벼운 전자는 이리저리 부딪혀서 사라지게 된다. 이 효과는 기존의 문제를 해결하게 된다.</p>
+        <p>- 기존에는 Bowing 현상이 일어나는데, 펄스 플라즈마 식각을 사용하게 되면 수직 식각이 가능해진다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s16">16. 차세대 식각의 응용과 방향</h2>
+      <figure><img src="images/fig34.png" width="1173" height="676" alt="차세대 식각 킬러 애플리케이션 — 3D NAND · 2D DRAM 극한 미세화 · Advanced Logic(GAA &amp; CFET)" loading="lazy"><figcaption>차세대 식각 킬러 애플리케이션 — 3D NAND · 2D DRAM 극한 미세화 · Advanced Logic(GAA &amp; CFET) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 3D NAND의 contact hole은 층수가 늘어남에 따라 엄청 길어진다. 3~5μm</p>
+        <p>- DRAM에서도 Capacitor가 가늘고 깊어지고 있다. Contact hole의 Aspect Ratio 100에 수렴한다.</p>
+        <p>*HARC: High Aspect Ratio Contact 을 의미함</p>
+        <p>- GAA 랑 CFET에서 선택비가 거의 무한에 가깝게 Etching이 되어야 하는데 이 때도 ALE 를 사용하도록 연구 중이다.</p>
+        <p>- 차세대 식각은 데미지를 줄이고, 최소한의 타격으로 원하는 부분만 깊게 혹은 선택비가 좋게 식각하는 쪽이 목표이다.</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>필기는 사용자가 노션에 정리한 원문 그대로이며, 이미지는 영상 슬라이드 캡처입니다.</p>
+      <p><span id="updatedAt"></span> · <a id="notionLink" href="#" target="_blank" rel="noopener" hidden>Notion 원본 보기</a> · <a href="../../index.html">홈으로</a></p>
+    </footer>
+  </main>
+</div>
+
+<button id="toTop" class="to-top" aria-label="맨 위로" hidden>↑</button>
+
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="이미지 확대">
+  <button class="lb-close" aria-label="닫기">✕</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</div>
+
+<script src="../../topics.js"></script>
+<script src="../../assets/common.js"></script>
+<script src="../../assets/topic.js"></script>
+</body>
+</html>

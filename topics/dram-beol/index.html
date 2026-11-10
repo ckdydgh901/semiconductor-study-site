@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10nm급 DRAM BEOL 공정 정리</title>
+<meta name="description" content="10nm급 DRAM BEOL 공정: PMD, M1~M4 금속 배선, Passivation과 Bump까지 정리 노트">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-root="../../" data-topic="dram-beol">
+
+<div id="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <button id="menuBtn" class="icon-btn menu-btn" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <a id="brand" class="brand" href="../../index.html">나의 공부 공간</a>
+  <nav id="tabs" class="tabs" aria-label="주제"></nav>
+  <button id="themeBtn" class="icon-btn" aria-label="다크 모드 전환">◐</button>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="목차">
+    <div class="sidebar-head">
+      <a href="#top" class="sidebar-title">DRAM BEOL 공정 정리</a>
+    </div>
+    <nav id="toc"></nav>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <main id="top" class="content">
+
+    <header class="cover">
+      <h1>10nm급 DRAM BEOL 공정 정리</h1>
+      <p class="meta">「10nm급 DRAM BEOL 공정」 PMD · M1~M4 금속 배선 · Passivation 정리 노트 (1a DRAM 사례)</p>
+      <p class="meta">원본: YouTube 강의 영상 · 사용자 노션 필기 기반</p>
+
+      <div class="toc-box">
+        <b>목차</b>
+        <p><a href="#s1">BEOL 전체 구조</a> · <a href="#s2">PMD 형성</a> · <a href="#s3">M1</a> · <a href="#s4">M2</a> · <a href="#s5">듀얼 다마신</a> · <a href="#s6">M3</a> · <a href="#s7">M4</a> · <a href="#s8">Passivation과 Bump</a> · <a href="#s9">전체 공정 요약 흐름</a></p>
+        <p class="meta small">[사용자 노트 필기] 표시 = 사용자가 노션에 직접 정리한 원본 노트(내용·말투·감상은 원문 그대로). 회색 캡션은 이미지 설명.</p>
+      </div>
+    </header>
+
+    <section>
+      <h2 id="s1">1. BEOL 전체 구조 개요</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 1a dram 사례를 가지고 살펴볼 예정</p>
+      </div>
+      <figure><img src="images/fig01.png" width="1245" height="687" alt="DRAM BEOL 전체 구조 개요 — PMD · M1(W) · M2/M3(Cu Dual Damascene) · M4(Al)" loading="lazy"><figcaption>DRAM BEOL 전체 구조 개요 — PMD · M1(W) · M2/M3(Cu Dual Damascene) · M4(Al) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 저항값, 배선 간 capacitance, electromigration과 같은 배선의 신뢰성이 여기에서 결정된다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s2">2. PMD(Pre-Metal Dielectric) 형성</h2>
+
+      <h3 id="s2-1">2-1. PMD 증착</h3>
+      <figure><img src="images/fig02.png" width="1242" height="693" alt="Pre-Metal Dielectric (PMD): Step 1 — PMD 증착(~2 μm)" loading="lazy"><figcaption>Pre-Metal Dielectric (PMD): Step 1 — PMD 증착(~2 μm) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- PMD(Pre-metal Dielectric) 층을 먼저 증착하게 된다. 얘는 Cell 영역과 금속배선을 완벽하게 분리한다.</p>
+        <p>- 2μm의 산화막을 증착하게 되면 Cell 지역의 Capacitor 때문에 Peri 부분과 큰 단차가 존재하게 된다. 따라서 이대로는 공정을 진행할 수 없다.</p>
+      </div>
+
+      <h3 id="s2-2">2-2. 단차 해소: Cell 영역 산화막 식각</h3>
+      <figure><img src="images/fig03.png" width="1242" height="691" alt="Pre-Metal Dielectric (PMD): Step 2 — Cell mask · Cell oxide recess" loading="lazy"><figcaption>Pre-Metal Dielectric (PMD): Step 2 — Cell mask · Cell oxide recess (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이 경우에는 PMD 층에 산화막을 매우 두껍게 증착하기 때문에 CMP로 갈아서 해결할 수 없다. 그래서 식각을 진행한다.</p>
+      </div>
+
+      <h3 id="s2-3">2-3. PMD CMP 평탄화</h3>
+      <figure><img src="images/fig04.png" width="1237" height="682" alt="Pre-Metal Dielectric (PMD): Step 2 — PMD CMP" loading="lazy"><figcaption>Pre-Metal Dielectric (PMD): Step 2 — PMD CMP (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 식각을 진행하고 나서 약간 울퉁불퉁 한 것은 CMP를 통해 평탄화를 진행한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s3">3. M1 공정</h2>
+
+      <h3 id="s3-1">3-1. M1C(Metal1 Contact) 형성</h3>
+      <figure><img src="images/fig05.png" width="1245" height="691" alt="M-1 Process: Step 1 — M1C(10~15 nm CD, AR &gt; 20) · Ti/TiN + W CVD · W CMP" loading="lazy"><figcaption>M-1 Process: Step 1 — M1C(10~15 nm CD, AR &gt; 20) · Ti/TiN + W CVD · W CMP (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 가장 처음 하는 작업은 Peri 지역의 Transistor와 금속 배선을 연결하는 것이다.</p>
+        <p>- M1의 Contact을 진행하게 되는데, M1C라고 한다.</p>
+        <p>- 이때 Metal1 contact의 CD는 10~15nm, Aspect Ratio는 20이 넘어갈만큼 크다.</p>
+        <p>- Contact의 패턴을 형성하기 위해서는 EUV Single exposure를 진행하던가, ArF multi patterning을 진행한다.</p>
+        <p>- 원하는 Contact의 CD를 얻는 것도 중요하지만, CD의 변화폭이 크지 않게 잘 제어하는 것이 더 중요하다.</p>
+        <p>- 식각을 한 이후에는 CVD로 Ti, TiN을 증착하고 W를 증착해준다. WF₆와 H₂를 사용해서 CVD를 진행하고 CMP를 통해 평탄화 시켜준다.</p>
+      </div>
+
+      <h3 id="s3-2">3-2. M1 배선과 다마신 공정</h3>
+      <figure><img src="images/fig06.png" width="1239" height="693" alt="M-1 Process: Step 2 — Etch stop layer · IMD1 · M1 리소그래피 · Trench etch · W 증착 · W CMP" loading="lazy"><figcaption>M-1 Process: Step 2 — Etch stop layer · IMD1 · M1 리소그래피 · Trench etch · W 증착 · W CMP (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- M1의 pitch가 작아짐에 따라 다마신 공정을 사용하게 됨</p>
+        <p>- 그래서 다마신 공정을 진행하기 위해 IMD를 먼저 깔아주게 된다.</p>
+      </div>
+
+      <h3 id="s3-3">3-3. M1 형성 후 단면</h3>
+      <figure><img src="images/fig07.png" width="1242" height="709" alt="M-1 Process — M1 배선 측면 구조(IMD1 · PMD)" loading="lazy"><figcaption>M-1 Process — M1 배선 측면 구조(IMD1 · PMD) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 측면에서 봤을 때는 이렇게 생김</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s4">4. M2 공정</h2>
+
+      <h3 id="s4-1">4-1. IMD2A / IMD2B와 듀얼 다마신 패터닝</h3>
+      <figure><img src="images/fig08.png" width="1239" height="697" alt="M-2 Process: Step 1 — Etch-stop layer · IMD2A/IMD2B · Via1 · Trench1" loading="lazy"><figcaption>M-2 Process: Step 1 — Etch-stop layer · IMD2A/IMD2B · Via1 · Trench1 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- IMD2A는 안정적인 Oxide를 사용한다고 함</p>
+        <p>- IMD2B는 저 위에 배선이 달리기 때문에 low-k 물질로 제작한다.</p>
+        <p>- 듀얼 다마신 패터닝을 진행하게 된다.</p>
+        <p>- Via1은 좌측에 M1까지 연결되는 금속임.</p>
+      </div>
+
+      <h3 id="s4-2">4-2. 배리어 · Cu Seed · 전기도금</h3>
+      <figure><img src="images/fig09.png" width="1246" height="706" alt="M-2 Process: Step 2 — Barrier(Ta/TaN) · Cu seed · Cu 전기도금 · Cu CMP" loading="lazy"><figcaption>M-2 Process: Step 2 — Barrier(Ta/TaN) · Cu seed · Cu 전기도금 · Cu CMP (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Ta, TaN을 먼저 깔고, 전기 도금법으로 채우게 된다. 그래서 구리는 채울 때 seed deposition을 사용한다.</p>
+        <p>*W 에서도 Ti, TiN을 먼저 까는데 Ti는 접착력을 높여주고, TiN는 확산을 막아준다. Cu도 마찬가지로 Ta는 Cu seed가 잘 성장할 수 있게 해주고, TaN는 확산을 막아준다.</p>
+        <p>- 이후 열처리를 통해 grain growth를 시키고 stress를 완화해서 electro migration 신뢰성 특성을 높인다.</p>
+        <p>- 여기 설명도 조금 날렸음</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s5">5. 듀얼 다마신: Trench First vs Via First</h2>
+
+      <h3 id="s5-1">5-1. 두 방식의 식각 순서</h3>
+      <figure><img src="images/fig10.png" width="1236" height="691" alt="Dual Damascene 공정 — Trench first / Via first" loading="lazy"><figcaption>Dual Damascene 공정 — Trench first / Via first (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Trench가 먼저인 것과, Via가 먼저인 것이 다른 것이다.</p>
+        <p>- Trench first에서는 먼저 Trench를 Etch stop layer까지 식각을 진행한다. 그리고나서 Via를 식각해준다.</p>
+        <p>- Via 먼저인 경우는 Via를 식각하고, 그 다음 Trench를 식각하는 메커니즘이다.</p>
+      </div>
+
+      <h3 id="s5-2">5-2. Via First를 택하는 이유</h3>
+      <figure><img src="images/fig11.png" width="1240" height="685" alt="Dual Damascene 공정: 3D view" loading="lazy"><figcaption>Dual Damascene 공정: 3D view (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Trench를 먼저 제작하고 Via를 제작하면 생기는 문제 → overylay오차, Via 바닥의 손상 문제, CD 변동에 취약한 문제가 있다. 변동성에 취약하다는 것은 곧 수율 저하로 이어진다는 의미이다.</p>
+        <p>- Via를 먼저 제작하면 얻는 이점 → 변동성이 큰 Via를 먼저 식각한다. Trench가 그래도 그나마 Via보단 쉽기 때문에 변동성 측면에서 이득이다.</p>
+        <p>- 각각의 장단이 있지만, 10nm 급의 DRAM 제작시에 수율을 확보하기에는 Via를 먼저 만드는 편이 낫다고 한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s6">6. M3 공정</h2>
+      <figure><img src="images/fig12.png" width="1240" height="703" alt="M-3 Process — Cu dual damascene로 형성한 M3" loading="lazy"><figcaption>M-3 Process — Cu dual damascene로 형성한 M3 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- M3 층 역시 구리 dual 다마신 공정을 통해 제작한다고 함.</p>
+        <p>- 추가적인 설명이 있었지만 일단 Pass</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s7">7. M4(Top Metal) 공정</h2>
+      <figure><img src="images/fig13.png" width="1246" height="687" alt="Top Metal (M-4) Process — IMD4 · Via(W-plug) · Al(Cu) sputter · M4 리소그래피·식각" loading="lazy"><figcaption>Top Metal (M-4) Process — IMD4 · Via(W-plug) · Al(Cu) sputter · M4 리소그래피·식각 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 일단 IMD4라는 절연막을 깔게 된다.</p>
+        <p>- Metal3와 Metal4를 연결시켜줄 Via를 리소그래피 공정과 식각 통해 뚫어주게 된다.</p>
+        <p>- 이때 전형적인 텅스텐 배선 공정 방식이 쓰인다. Ti, TiN을 깔아주고, W or Al를 사용해서 Via를 채워주고 CMP를 진행한다.</p>
+        <p>- M4 금속은 Al or Cu를 sputter 증착한 다음 리소 및 식각을 진행한다.</p>
+        <p>- M4 자체에는 미세화가 중요한건 아니고 안정적인 것이 중요해서 Al을 사용하는 것이라고 함.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s8">8. Passivation과 Bump</h2>
+      <figure><img src="images/fig14.png" width="1243" height="691" alt="Passivation — SiN/SiON 다층 증착 · Pad open · Micro-bump/wire bonding" loading="lazy"><figcaption>Passivation — SiN/SiON 다층 증착 · Pad open · Micro-bump/wire bonding (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 칩을 외부 환경으로부터 보호해주는 층을 형성하고, SiN이나 SiON으로 이루어진다.</p>
+        <p>- 충격, 오염으로부터 보호해서 DRAM의 장기적인 신뢰성을 보장해준다.</p>
+        <p>- Micro Bump를 위해 Al Pad를 살짝 노출시킨다.  예전에는 Bump가 아니라 Wire bonding을 사용했지만 최근에는 Micro Bump를 사용한다.</p>
+      </div>
+      <figure><img src="images/fig15.png" width="1245" height="696" alt="BEOL 완료 — Bump까지 포함한 DRAM 3D 단면" loading="lazy"><figcaption>BEOL 완료 — Bump까지 포함한 DRAM 3D 단면 (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s9">9. 전체 공정 요약 흐름</h2>
+      <div class="flow"><span class="chip c1">PMD 증착(~2 μm)</span><span class="arrow">→</span><span class="chip c2">Cell 산화막 식각(Cell mask)</span><span class="arrow">→</span><span class="chip c2">PMD CMP 평탄화</span><span class="arrow">→</span><span class="chip c1">M1C(EUV/ArF, Ti/TiN + W CVD, CMP)</span><span class="arrow">→</span><span class="chip c1">IMD1·M1 다마신 배선</span><span class="arrow">→</span><span class="chip c2">M2: IMD2A/2B · Via1 · Trench</span><span class="arrow">→</span><span class="chip c2">Ta/TaN · Cu seed · 전기도금 · Cu CMP</span><span class="arrow">→</span><span class="chip c2">M3: Cu dual damascene</span><span class="arrow">→</span><span class="chip c1">IMD4 · Via(W) · M4(Al/Cu sputter)</span><span class="arrow">→</span><span class="chip c1">Passivation(SiN/SiON) · Pad open · Micro bump</span></div>
+    </section>
+
+    <footer class="site-footer">
+      <p>필기는 사용자가 노션에 정리한 원문 그대로이며, 이미지는 영상 슬라이드 캡처입니다.</p>
+      <p><span id="updatedAt"></span> · <a id="notionLink" href="#" target="_blank" rel="noopener" hidden>Notion 원본 보기</a> · <a href="../../index.html">홈으로</a></p>
+    </footer>
+  </main>
+</div>
+
+<button id="toTop" class="to-top" aria-label="맨 위로" hidden>↑</button>
+
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="이미지 확대">
+  <button class="lb-close" aria-label="닫기">✕</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</div>
+
+<script src="../../topics.js"></script>
+<script src="../../assets/common.js"></script>
+<script src="../../assets/topic.js"></script>
+</body>
+</html>

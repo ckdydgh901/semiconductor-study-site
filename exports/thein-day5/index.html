@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>더인 교육 5일차</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+  /* PDF 출력용 보정 — 사이트 스타일 위에 얹는 부분 */
+  @page { size: A4; margin: 14mm 13mm; }
+  body { font-family: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", system-ui, sans-serif; }
+  .content { max-width: none; margin: 0; padding: 0; }
+  .layout { display: block; }
+  h2 { break-after: avoid; margin-top: 1.8em; }
+  h3 { break-after: avoid; }
+  figure { break-inside: avoid; margin: 1em 0; }
+  figure img { max-height: 118mm; width: auto; max-width: 100%; box-shadow: none; cursor: default; }
+  .note, blockquote { break-inside: avoid; }
+  .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .cols2 .note { margin: .8em 0; }
+  .cover { break-after: auto; }
+  @media print {
+    body { font-size: 12.2px; line-height: 1.7; }
+    .cover h1 { font-size: 1.9rem; }
+    h2 { font-size: 1.15rem; }
+    h3 { font-size: 1rem; }
+    .note { font-size: .93rem; }
+    figcaption { font-size: .7rem; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <main id="top" class="content">
+
+    <header class="cover">
+      <h1>더인 교육 5일차</h1>
+      <p class="meta">날짜: 2026-11-06 · 종류: 교육</p>
+      <p class="meta">원본: 사용자 노션 필기 (더인 교육 5일차)</p>
+
+      <div class="toc-box">
+        <b>목차</b>
+        <p><a href="#s1">HRR(High Resolution Resist): 흡광계수 (Absorption Coefficient)</a> · <a href="#s2">PR의 종류와 구성</a> · <a href="#s3">[eV] 단위와 Photon Energy</a> · <a href="#s4">NUV PR의 현상 메커니즘 (Coating → Exposure)</a> · <a href="#s5">포토마스크와 Wafer 두께 (교재 2slide)</a> · <a href="#s6">Amorphous Si - Poly Si - Single crystal (비정질 / 다결정 / 단결정)</a> · <a href="#s7">NA(Numerical Aperture)와 해상도</a> · <a href="#s8">회로 선폭이 의미하는 것</a> · <a href="#s9">Memory 반도체와 비Memory 반도체</a> · <a href="#s10">슬라이드별 메모 (5 · 8 · 9 · 10 Slide)</a> · <a href="#s11">Soft Bake &amp; Hard Bake</a> · <a href="#s12">PEB와 Standing Wave</a> · <a href="#s13">HMDS 처리</a> · <a href="#s14">Carrier Mobility</a> · <a href="#s15">슬라이드별 메모 (11 · 12 · 13 Slide)</a> · <a href="#s16">Passivation (15Slide)</a> · <a href="#s17">PR Coating과 공정 변동 (16 Slide)</a> · <a href="#s18">발표 피드백</a></p>
+        <p class="meta small">[사용자 노트 필기] 표시 = 사용자가 노션에 직접 정리한 원본 노트(내용·말투·감상은 원문 그대로). [질문 노트] = 사용자의 질문과 답. 회색 캡션은 이미지 설명.</p>
+      </div>
+      <div class="callout"><b>안내</b>: 노션 페이지의 "Presentation (13:20-15:50)" 이후 내용 중 발표 연습과 FLASH MEMORY 발표 내용은 제외했고, 마지막의 "발표 피드백"만 포함했습니다.</div>
+    </header>
+
+    <section>
+      <h2 id="s1">1. HRR(High Resolution Resist): 흡광계수 (Absorption Coefficient)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 어떤 PR을 쓸거야! 라고 했을 때 이 PR은 빛을 얼마나 흡수해? 가 흡광계수가 된다는 것이다.</p>
+        <p>- 빛이 투과를 잘하기 위해서는 빛의 흡광계수가 낮아야한다.</p>
+        <p>→ High Resolution Resist를 사용한다는 것은 흡광계수가 낮은 물질을 사용한다는 것이다.</p>
+        <p>Ref) Positivie PR은? 빛을 받은 부분만 용해될 수 있는 부분으로 바뀌는 PR을 말한다</p>
+      </div>
+      <figure><img src="images/fig01.png" width="472" height="373" alt="판서 — PR과 그 아래 A-Film 구조 (빛이 위에서 입사)"><figcaption>판서 — PR과 그 아래 A-Film 구조 (빛이 위에서 입사) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig02.png" width="793" height="427" alt="판서 — 광원 파장 표시 (436 · 365nm / 248 · 193nm)"><figcaption>판서 — 광원 파장 표시 (436 · 365nm / 248 · 193nm) (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s2">2. PR의 종류와 구성</h2>
+
+      <h3 id="s2-1">1. NUV(Near UV) PR - 436nm G-Line, 365nm I-Line</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><b>(1) Resin(~10%): Novolac (Polymer)</b></p>
+        <p><b>(2) Sensitizer: PAC(Photo Active Compound) - DNQ(Diazo Naphtho Quinones)</b></p>
+        <p><b>(3) Solvent(~70%): PR의 점도 조절 - Acetate type</b></p>
+        <p><b>(4) Additive</b></p>
+        <p>[1] Dye</p>
+        <p>[2] Surfactant</p>
+        <p>[3] Adhesion promoter</p>
+      </div>
+
+      <h3 id="s2-2">2. DUV PR(Deep) - 248, 193nm</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 여기에서는 Sensitizer를 PAG(Photo Acid Generator) 사용</p>
+      </div>
+
+      <h3 id="s2-3">3. EUV PR - 13.5nm</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이때도 PAG를 사용하지만 PAG와 직접 충돌하면 EUV는 높은 에너지를 갖고 있기 때문에(앞에서 배웠잖아?) 분해가 되어버린다. 그래서 PAG와 엄밀하게 보면 메커니즘이 다르다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s3">3. [eV] 단위와 Photon Energy</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 전자 1개를 1V를 올리는데 필요한 에너지이다.</p>
+        <p>- 1eV에 대응하는 온도는 약 11600K이다. (Ref: 철을 녹이는 온도는 1700도이다)</p>
+        <p>- 이 얘기는 Photon의 에너지를 구하라고 할 때 사용된다.</p>
+      </div>
+
+      <h3 id="s3-1">Photon Energy(eV)</h3>
+      <figure><img src="images/fig03.png" width="222" height="111" alt="Photon Energy 식 — E(eV) = 1.24 / λ(μm)"><figcaption>Photon Energy 식 — E(eV) = 1.24 / λ(μm) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- EUV의 경우 13.5nm 인데, E(eV)를 계산하면 91.8 eV</p>
+      </div>
+      <figure><img src="images/fig04.png" width="427" height="193" alt="EUV(13.5nm)의 Photon Energy 계산 — 약 91.85 eV"><figcaption>EUV(13.5nm)의 Photon Energy 계산 — 약 91.85 eV (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 빛의 파장이 짧을 수록 광자의 에너지는 커진다. (그리고 온도도 106만 K)</p>
+      </div>
+      <figure><img src="images/fig05.png" width="561" height="112" alt="Photon Energy에 대응하는 온도 — 약 1.066×106 K"><figcaption>Photon Energy에 대응하는 온도 — 약 1.066×10<sup>6</sup> K (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이 Photon이 빛이 대기 중의 입자나 particle과 부딪히면 대기 중에 산란되거나 흡수됩니다.</p>
+        <p>- 그래서 진공이 필요한 것이다. (오마이갓 이런 스토리가)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s4">4. NUV PR의 현상 메커니즘 (Coating → Exposure)</h2>
+      <div class="cols2"><div class="note"><b>[사용자 노트 필기]</b><p><b>&lt;Coating&gt;</b><br>Resin + PAC<br>→ Dissolution Inhibitor</p></div><div class="note"><b>[사용자 노트 필기]</b><p><b>&lt;Exposure&gt;</b><br>Resin + PAC<br>→ Dissolution 되는 물질로 바뀜</p></div></div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 그렇기 때문에 빛을 받지 않은 부분에는 Dissolution Inhibitor가 남는다</p>
+        <p>- 원래라면 현상은 Dissolution 되는 부분이 용해 되는게 맞는데, 빛을 받지 않은 부분의 Resin도 용해가 되긴 한다는 것이지. 그게 100:1 1000:1 정도 되니까 무시하는 것이지.</p>
+        <p>- PAC는 DNQ이고 있고 빛을 받으면 ICA(Indene Carboxylic Acid, -COOH)로 바뀌면서 용해 됩니다.</p>
+      </div>
+      <figure><img src="images/fig06.jpg" width="1400" height="965" alt="Decomposition by Light — DNQ가 빛을 받아 Carboxylic acid(현상액에 용해)로 변하는 과정 (강의 슬라이드)"><figcaption>Decomposition by Light — DNQ가 빛을 받아 Carboxylic acid(현상액에 용해)로 변하는 과정 (강의 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 기존 DNQ은 중성이라 알칼리(염기성) 용액[현상액]에 잘 녹지 않지만 치환기가 -COOH 카복실산으로 바뀌게 된다면 산성이 되어 잘 녹게 된다.</p>
+        <p>- 여기에 빛과 H2O가 들어오면 DNQ가 ICA: Inden Carboxylic Acid[-COOH] 가 됩니다.</p>
+        <p>- TMAH(Tetramethylammonium hydroxide)가 대표적인 염기성 용액이고, Acid와 만나서 물과 염이 생기게 된다. 산-염기 반응이라는 것이지.</p>
+        <p>- 그래서 <u>현상액에 담겨서 나오게 되면 흐물흐물한 상태, 경화되지 않은 상태</u>가 된다. 그래서 이 수분을 제거해주는 Bake 과정이 필요한 것이다. (각 공정에서 Bake 단계가 왜 필요한지 확실히 이해했음)</p>
+        <p>- 그래서 결국 PAC를 사용하던 PAG를 사용하건 Acid가 생겨서 현상액인 TMAH와 만나서 산-염기 반응으로 염과 물이 생기고 Bake를 통해서 H2O를 날려주는 메커니즘은 같은 것이다.</p>
+        <p>- 이걸 신소재 공학 관점에서 이 정도 깊이까지 들어와서 이해할 필요가 있다.</p>
+      </div>
+
+      <h3 id="s4-1">&lt;추가공부 KOCW 261107(토)&gt;</h3>
+      <figure><img src="images/fig07.jpg" width="1400" height="965" alt="Dissolution Mechanism — Novolac과 DNQ의 용해 속도 변화, Stone-wall model (KOCW 슬라이드)"><figcaption>Dissolution Mechanism — Novolac과 DNQ의 용해 속도 변화, Stone-wall model (KOCW 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- DNQ는 PAC에 대한 얘기였다. Resin인 Novorac은 어떻게 되는지 살펴보자.</p>
+        <p>- PR에서 Novorac이 DNQ와 함께 있을 때 DNQ는 잘 안녹다보니 녹는 속도가 느려진다. 하지만 빛에 노출되면 DNQ가 산이 되니까 Novorac 혼자 있을 때 보다 더 빠르게 녹게된다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s5">5. 포토마스크와 Wafer 두께 (교재 2slide)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>Photo Mask 자체는 빛을 차광 시켜주는 역할로 PR pattern과 다르다. PR pattern은 Protection, prevent의 역할이다. 하지만 Photo Mask는 Quartz 부분으로 차광을 시켜준다.</p>
+        <p>Ref) Si 12인치 Wafer는 775마이크로미터.</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 1Å 정도는 1을 100억개로 쪼갠 스케일</p>
+      </div>
+      <figure><img src="images/fig08.png" width="790" height="193" alt="판서 — 12인치 Wafer 두께 775 μm와 사용 두께 약 100 μm"><figcaption>판서 — 12인치 Wafer 두께 775 μm와 사용 두께 약 100 μm (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Wafer의 두께 전체를 사용하지 않고 12인 wafer의 기준으로 100um 정도만 사용한다. 이건 스펙이 정해져 있다고 함.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 그런데 왜 불필요하게 후공정에서 갈아낼 부분까지 포함해서 두께를 산정하는가?</p>
+        <p>A. 지금은 당연하게도 Wafer는 모두 기계로 운반한다. 그러기 때문에 잡을 때, hold, suction, vacuum 과정을 진행해도 Wafer가 stress에 의해 파단되는 것을 방지하기 위함이다. 그래서 100마이크로미터가 아니라 775마이크로미터 정도 되는 두께가 필요한 것이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s6">6. Amorphous Si - Poly Si - Single crystal (비정질 / 다결정 / 단결정)</h2>
+      <figure><img src="images/fig09.jpg" width="1400" height="1050" alt="판서 — Amorphous Si · Poly Si · Single Crystal"><figcaption>판서 — Amorphous Si · Poly Si · Single Crystal (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 왜 Single Crystal Si만 Si wafer 기판으로 사용하는가?</p>
+        <p>A.</p>
+        <p>(1) 비정질 Si</p>
+        <p>장거리 규칙성도 없고, dangling bond가 많다.</p>
+        <p>(2) Poly Si</p>
+        <p>Grain들 간에 Grain Boundary가 생긴다. 물론 결정립 안에서는 특성이 같을 수 있다. 하지만 결정립마다 특성이 다르고, 결정립계를 넘어갈 때 저항을 느끼게 된다. 또한 Grain Boundary는 빠른 확산 경로가 될 수도 있다.</p>
+        <p><b>결론: 우리는 동일한 Input에 동일한 Output이 나오길 바란다. 하지만 비정질 Si과 Poly Si은 적절하지 않다.</b></p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>Ref) Ion Implant 공정이 끝나고나서 Si 단결정 특성으로 돌리기 위해서 annealing 공정을 진행해야하는 이유이다. 단결정 특성을 회복하기 위해서이다. (Ion Implantation 을 진행하며 결정 구조가 변형되거든)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s7">7. NA(Numerical Aperture)와 해상도</h2>
+      <figure><img src="images/fig10.jpg" width="1400" height="1867" alt="판서 — 노광 장치 개략도(조명·마스크·렌즈·웨이퍼)와 R = k1λ / NA"><figcaption>판서 — 노광 장치 개략도(조명·마스크·렌즈·웨이퍼)와 R = k<sub>1</sub>λ / NA (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig11.jpg" width="1400" height="1867" alt="판서 — NA = n sinθ 유도 (sinθ ≈ tanθ = r/d)"><figcaption>판서 — NA = n sinθ 유도 (sinθ ≈ tanθ = r/d) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>NA 에서 Numerical Aperture 를 시중에서는 개구수 라고 표현한다. 초점 심도를 조정할 때는 조리개의 개수?(크기?)를 컨트롤한다. 조리개가 작으면 빛이 적게 들어가고 초점은 잘 맞고, 조리개 크기가 크면 빛이 많이 들어가고 초점은 잘 맞지 않는다. (Trade-off 확실하게 이해하고 넘어가기)</p>
+        <p>→ 그래서 NA 를 물어보면 카메라 용어 자체로 개구수라고 이해하지 말고 <u>빛이 들어왔을 때 Wafer에 Focus를 얼마나 잘 맞출 수 있어? 집광능력 (nsinθ)</u> 라고 대답할 수 있어야 한다.</p>
+        <p><b>우측에 나와있는 식은 유도 된 값이다. 따라서 한 번 따라가보면서 생각하면 될 것 같다.</b></p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- projection 거리인 d가 작아질수록, 렌즈의 크기가 커질수록, 파장이 작아질수록, k1 값이 작아질수록 해상도가 좋아진다.</p>
+        <p>- 렌즈 크기가 현미경처럼 크지는 않다. 그렇게 크면 좋겠지만 어렵다. 그만큼 커지는 것이 중요하다.</p>
+      </div>
+      <blockquote>NA = n sinθ이고, θ가 작을 때는 sinθ ≈ tanθ = r/d이므로 NA ≈ n·r/d로 볼 수 있다. 그래서 렌즈가 크고 가까울수록(r↑, d↓) NA가 커진다.</blockquote>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><b>k1을 바꾼다는 것은 (1) OAI, (2) OPC, (3) PSM을 조절한다는 것이고 L과 M 각각에 대해서 저렇게 바꾼다고 한다.</b></p>
+        <p><i>L: Light - Off-Axis Illumination으로 빛이 들어가는 방식을 바꾸는 조명 기술</i></p>
+      </div>
+      <figure><img src="images/fig12.jpg" width="1400" height="1867" alt="판서 — k1을 낮추는 방법: L [OAI] · M [OPC, PSM]"><figcaption>판서 — k<sub>1</sub>을 낮추는 방법: L [OAI] · M [OPC, PSM] (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s8">8. 회로 선폭이 의미하는 것</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><b>회로 선폭의 의미하는 것은?</b></p>
+        <p>1. Gate to Gate</p>
+        <p>2. Metal to Metal</p>
+      </div>
+      <figure><img src="images/fig13.jpg" width="1400" height="1867" alt="판서 — 회로 선폭(Gate to Gate, Metal to Metal)과 Memory / 비Memory 반도체"><figcaption>판서 — 회로 선폭(Gate to Gate, Metal to Metal)과 Memory / 비Memory 반도체 (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s9">9. Memory 반도체와 비Memory 반도체</h2>
+
+      <h3 id="s9-1">&lt;Memory 반도체&gt;</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>구조: 8F2 → 6F2 → 4F2 (여기서는 입체구조)</p>
+        <p>Ref) 어제 했던 100 → 70 → 49 → 34nm 이 얘기가 선폭에 대한 얘기였음</p>
+        <p>DRAM에서 1x, 1y, 1z → 1a, 1b, 1c라고 얘기하는 이유는 더 이상 스케일 다운이 안되기 때문이다.</p>
+      </div>
+      <div class="cols2"><div class="note"><b>[사용자 노트 필기]</b><p><b>1x, 1y, 1z : 10nm 중,후반</b></p></div><div class="note"><b>[사용자 노트 필기]</b><p><b>1a, 1b, 1c: 10nm 초,중반</b></p></div></div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>어쨌거나 x,y,z와 a,b,c는 세대 체인지</p>
+        <p>EUV 광원을 사용해서 10nm 를 만든다고 했을 때 EUV 30대가 필요하다. 하나당 2500억이면 7조 5천억. 그래서 공식적으로 메모리 반도체에는 EUV를 사용 하지않지만, 1y 에서는 6개의 step에서는 EUV 장비를 사용한다.</p>
+        <p>현재 1a, 1b까지 왔고, 1c는 차세대이다.</p>
+      </div>
+
+      <h3 id="s9-2">&lt;비Memory 반도체&gt;</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>여기는 10nm 이하 → 7nm → 5nm → 3nm → 1nm</p>
+        <p>구조: FinFET→GAA→MBC-FET</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s10">10. 슬라이드별 메모 (5 · 8 · 9 · 10 Slide)</h2>
+
+      <h3 id="s10-1">5Slide</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이건 과거의 방식이고, 지금은 칩 하나로, 그러니까 사각형 틀 하나를 스캔하는 방식이다.</p>
+        <p>- Mask 제조업체 반도체산업협회에서 검색해보기 (알짜배기 회사) CAD 툴 같은 것을 사용한다고 함</p>
+      </div>
+
+      <h3 id="s10-2">8Slide</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이건 8인치 장비이다. 12인치 장비는 공개가 안되어 있다.</p>
+        <p>- Main ARM Track 위치에서 기계가 움직이면서 공정을 진행한다.</p>
+        <p>- Main ARM Track에서 움직이는 것과 Exposure을 하는 장비는 구분된다. ASML은 노광장비만 파는 것이다.</p>
+        <p>- EUV는 1년에 Max로 60까지밖에 생산이 안되고 있다. TSMC, Intel, 삼성은 Foundary 업체니까 치열하게 경쟁하고 있고, 하이닉스는 메모리이다보니 이제 막 사고 그랬던 것.</p>
+      </div>
+
+      <h3 id="s10-3">9Slide</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 타워처럼 생긴 곳이 열처리 하는 곳이다.</p>
+        <p>- 그리고 웨이퍼를 하나씩 옮기면서 진행하겠지.</p>
+      </div>
+
+      <h3 id="s10-4">10Slide</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 해당 각각의 공정이</p>
+        <p>- Soft bake는 90~110도, Hard Bake 120도 온도 차이</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s11">11. Soft Bake &amp; Hard Bake</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><b>NUV 기준으로 설명 (Solvent + resin + PAC)</b></p>
+        <p><b>Soft Bake &amp; Hard Bake</b></p>
+        <p>PR coating 을 진행하고 나서 PR coating의 점도를 조절했던 Solvent는 Soft Bake 공정을 통해서 제거</p>
+        <p>현상을 진행하고 나서 H2O가 촉촉하게 생기니까 Hard Bake를 통해서 제거</p>
+        <p>130도 넘지 않는 이유는 PAC 분해 온도가 130도가 넘으면 안되기 때문이다.</p>
+        <p>PAC이 분해되면 Dissolution inhibitor가 안된다?? → 조금 더 정리</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s12">12. PEB와 Standing Wave</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>PEB는 Standing Wave를 해결하기 위해 진행하는 공정이다</p>
+      </div>
+      <figure><img src="images/fig14.png" width="591" height="618" alt="판서 — 반사광에 의한 Standing Wave"><figcaption>판서 — 반사광에 의한 Standing Wave (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>서로 다른 면에서는 반사광이 생기게 된다. 입사각이 90도 입사하는데 반사각이 예각으로 퍼져나가는 그림으로 표현될 수가 없다.</p>
+        <p>빛은 파동인데 직진으로 표현한다고 해서 직진성을 갖는게 아니다. 빛은 파동의 성질을 갖고 있다는 점을 반영해서 그림을 그리면 다음과 같다.</p>
+        <p>노란색은 빛이 파동의 형태로 입사하기 때문에 반사광이 주황색 처럼 된다.</p>
+      </div>
+      <blockquote>불량현상: Standing Wave<br>원인: Reflection Ray</blockquote>
+      <figure><img src="images/fig15.png" width="346" height="583" alt="판서 — 파동으로 본 입사광과 반사광 (Resin · PAC)"><figcaption>판서 — 파동으로 본 입사광과 반사광 (Resin · PAC) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>원래 존재하고 있던 부분은 Resin, PAC가 존재한다. 그런데 기본 원리는 빛을 받으면 dissolution 되는 물질로 바뀐다. 그래서 해결하기 위해서 PEB를 진행하자. 그리고 BARC를 통해서 이 현상을 막자.</p>
+      </div>
+      <blockquote>현상: PEB<br>원인: BARC (Bottom Anti-Reflective Coating)</blockquote>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>현실에서는 뜨거운 상태로 다음 공정을 진행하기 전에 Track 장비 내에서 Hot Plate를 진행하고 나서는 Cool Plate위에 올려둬야 한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s13">13. HMDS 처리</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Hydrophilic: 친수성 → Dielectric(SiO₂/Si₃N₄)</p>
+        <p>- Hydrophobic: 소수성 → Si, Poly-Si, PR</p>
+      </div>
+      <figure><img src="images/fig16.png" width="369" height="538" alt="판서 — 접촉각: 친수성(90° 이하)과 소수성(90° 이상)"><figcaption>판서 — 접촉각: 친수성(90° 이하)과 소수성(90° 이상) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 접촉각 90도 이하면 친수성, 접촉각 90도 이상이면 소수성</p>
+        <p>- 실제로 친수성과 소수성을 따질 때는 H와 OH기가 동시에 존재하고, OH기가 더 많이 존재하면 친수성이라고 하는 것이다.</p>
+        <p>- 그래서 결국 Surface Treatment를 통해서 친수성-친수성 or 소수성-소수성으로 바꿔줘야 한다. 근데 Si랑 PR은 소수성이니까 소수성쪽으로 극성을 갖게 만들어줘야지</p>
+        <p>- 친수성, 소수성을 논할 때는 Adhesion을 논하고 있는 것이다. 극성을 맞춰준다는 것은 “Adhesion이 좋게 만들어준다” 라는 말이다.</p>
+        <p>- Adhesion이 제대로 안되어 있으면 들떠있고, 현상을 진행할 때도 웨이퍼를 돌리면 분사하기 때문에 PR이 떨어져 나갈 수 있다. (과거 공정에 대해서 얘기하고 있다.)</p>
+        <p>- Dry Etch에서 PR이 너덜거리면 Mask 역할을 못하고, Ion Implantation을 제대로 진행하지 못해서 Impurity 주입도 어렵다</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- SiO₂가 Si 기판에서 살짝 떠있게 되면 전자가 흘러간다. 이게 우리가 인식할 수 없지만 몇 nm라도 떠있으면 문제가 생긴다 (이런게 진짜 배워가야하는 시점임. 나는 감이 없으니까)</p>
+        <p>- 기본적으로 전류는 + → - / 전자는 그 반대 : 결국 전자의 흐름으로 전류의 흐름을 얘기한다. 그리고 전자의 움직임으로 전류의 움직임을 얘기한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s14">14. Carrier Mobility</h2>
+      <figure><img src="images/fig17.jpg" width="1400" height="1867" alt="판서 — Carrier Mobility (NMOS 채널, 전자와 정공)"><figcaption>판서 — Carrier Mobility (NMOS 채널, 전자와 정공) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- MOSFET에서 NMOS Channel은 N-channel이 형성되어서 NMOS channel 인 것이다. Source drain이 N type으로 도핑된 트렌지스터를 사용한다. 일반적으로 교육할 때는. 그리고 S → D로 이동하는 것은 전자이고, 이게 다수 캐리어이다. 이때 전류는 D → S로 흐른다.</p>
+        <p>- DRAM Cell 영역에서는 스위칭 속도가 빨라야하기 때문에 전자를 다수캐리어로 사용하고, 정공을 다수캐리어로 사용하는 PMOS는 사용하지 않는다. (확실히 이해가 된다. Cell 영역이 몰랐으면 몰랐겠지)</p>
+        <p>- 그러면 왜 Cell 영역에서는 PMOS를 사용하지 않는 이유는? Carrier Mobility가 정공은 느려서.</p>
+        <p>- 실제로 Carrier Mobility를 비교하면 Electron은 1350 cm^2/V s 이고 Hole은 480 cm^2/V s (이 정도는 외워라!)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s15">15. 슬라이드별 메모 (11 · 12 · 13 Slide)</h2>
+
+      <h3 id="s15-1">11Slide</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- EFEM이 내려오면 FOUP 앞쪽으로 탁 세팅되면 열려서 웨이퍼가 들어가는 구조이다.</p>
+        <p>- 아까도 말했듯이 장비를 뜯어보면 Hot plate module, cool plate module이 다 들어가 있다.</p>
+      </div>
+
+      <h3 id="s15-2">12Slide</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- HDMS는 90도의 온도에서 Vapor 형태로 나오게 된다. R.T는 27도 정도 되기 때문에 Wafer는 증기로 인해 50도 이상의 뜨거운 상태이기 때문에 Cool plate에 올려둬야 한다. (OMG 이제 머릿속에서 그려진다)</p>
+      </div>
+
+      <h3 id="s15-3">13Slide</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 황산이 반도체 공정에서 사용할 때 Four nine이면 99.99% 이면 순도가 매우 높다.</p>
+        <p>- 황산이 하는 역할은 수분 제거이다. (염산은 단백질 제거한다)</p>
+        <p>- Si-OH기가 잔뜩 있는데 H가 붙으면 H2O가 촉촉하게 생기고 친수성 상태이기 때문에 황산을 사용해서 촉촉한 물을 제거해준다.</p>
+        <p>- 황산은 폐액으로 뒀다가 화장품 회사에 판다고 한다. 그리고 알아서 공정에서 잘쓰겠지</p>
+        <p>ex. 공업산 황산은 60%이다. 피부 조직에 있는 수분이 제거되어서 마치 불에 탄 것처럼 된다 . 염산은 단백질을 제거한다. 그래서 뼈가 드러난다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s16">16. Passivation (15Slide)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Wafer 바로 위에 PR을 도포하는 경우는 없다! Wafer가 아무 이유없이 드러난채로 공정을 진행하지 않는다.</p>
+        <p>- Si 표면은 공유결합으로 이루어져있고, 맨 위는 공유결합 끊겨 있어서 Dangling-Bond 가 생겨있다. (공유결합은 8개 옥텟 규칙이 가장 안정하니까)</p>
+        <p>- 그래서 맨 위에 Si는 불안정하니까 뭐든 와서 붙으려고 하니까 particle도 붙을 수 있고 그렇다. 따라서 세정공정은 진행할 수 있지만 원칙적으로 이런 불안정한 Si Wafer 표면을 보호하는 Passivation layer 가 필요하고 그게 SiO₂ 인 것이다.</p>
+      </div>
+      <figure><img src="images/fig18.jpg" width="1400" height="1867" alt="판서 — Dangling bond와 Passivation layer (SiO₂)"><figcaption>판서 — Dangling bond와 Passivation layer (SiO₂) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><b>Passivation (보호하는 주체에 따라서 보호하는 소재도 달라진다)</b></p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Wafer Passivation: Wafer 전체 보호 - Si₃N₄</p>
+        <p>- Surface : Si 표면 보호 - SiO₂</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s17">17. PR Coating과 공정 변동 (16 Slide)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- PR Coating이 1000~6000rpm 정도라고 한다.</p>
+        <p>ex) 차로 비유하면 60km로 갈 때 1800~2000rpm 이다. 100km 으로 달리면 2500~3000rpm 그러면 6000rpm 정도면 시속 200km (대충 감잡기)</p>
+        <p>- 그래서 이게 밑에서 진공으로 제대로 잡지 않으면 Si wafer 믹서기가 되는 것이다.</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><b>문제 상황: A 레시피에서 1000A (목표 PR두께) 인데 2000rpm으로 돌린 상황이라고 해보자. 그리고 온도, 압력, 분사량을 일정하게 했다.</b></p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 근데 800A 만 되었다면? 왜 잘못 되었을까?</p>
+        <p>A.</p>
+        <p>(1) 대기중의 습도가 높다. PR이 건조한 상태보다 잘 흐르는 상태가 되었을 것이다.</p>
+        <p>(2) 분사 노즐을 보니까 4개의 노즐 중에서 2개가 막혔다. 그러면 PR 분사가 덜 되었을테니 PR 두께가 감소했을 것이다.</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>레시피를 맹신하면 안된다. 전부 다 동일하게 해도 결과가 달라지기 때문이다.</p>
+        <p>→ 공정 기술 엔지니어는 Input Output 퍼포먼스가 균일하게 나올 수 있게 하는 역할이다.</p>
+        <p><b>더 구체적인 설명</b></p>
+        <p>A 레시피에서 1000 +- 10A 을 타겟 했다고 하자.</p>
+      </div>
+      <figure><img src="images/fig19.jpg" width="1400" height="1867" alt="판서 — A 레시피 1000±10Å의 관리도 (USL · UCL · LCL · LSL)"><figcaption>판서 — A 레시피 1000±10Å의 관리도 (USL · UCL · LCL · LSL) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 실제 USL과 LSL에 가깝게 한다면 저기에 딱 맞게 하면 위험하니까 UCL, LCL이라는 기준 선을 둔다.</p>
+        <p>- 추세가 변하기 시작하는 때(트렌드가) 혹은 범위를 벗어나기 시작할 때 문제 발생 지점으로 가서 변경점, 이상점을 파악해서 공정기술엔지니어가 트렌드를 다시 원상복기 시키는 일이다.</p>
+        <p>- 그래서 문제를 보고 노즐이 하나가 부서져서 안나오고 있었네? 이걸 고쳐서 Output performance를 다시 spec in 시키는 것이 설비 공정엔지니어의 일이다.</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><b>기존의 잘못된 관점</b></p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 여러가지 공정변수 최적의 레시피 엔지니어가 되겠습니다! (X)</p>
+        <p>→ 그냥 공정 레시피를 건드린다는 것은 50년간 삼성이 쌓아온 공정 조건이고, 데이터인데 이걸 고친다고 말하고 있는 것이다.</p>
+        <p>- 그래서 공정의 Output performance 가 문제가 생겼을 때 다시 Spec in 할 수 있게 만드것이 진짜 공정/설비 기술엔지니어가 하는 일이다. (다시 말하면 Output performance가 균일할 수 있도록 만드는 것이다.)</p>
+      </div>
+      <blockquote>전공정, 앞공정의 변경점 이상점을 파악해서 유지보수한다 → 공정기술<br>설비 쪽에서 이슈를 찾고 고친다 → 설비기술</blockquote>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><u>그래서 맨날 가서 할 일은 트렌드를 보고 문제를 파악하는 것이다.</u></p>
+        <p>- Photo 공정에는 못해도 70개의 레시피, 수많은 제품(최소 40개), 설비 …. → 이걸 다 곱하면 수많은 경우의 수가 발생하기 때문에 빅데이터가 쌓이는 것이지 빅데이터가 먼저인게 아니라니까?</p>
+        <p>- 그래서 이렇게 데이터가 쏟아져 나오기 때문에 빅데이터 시스템을 알아야하고, 그래서 빅데이터를 알아야하는 것이라는 거지. 이러한 배경에서 빅데이터가 필요한 것이지, 공정보다 먼저 빅데이터일 수는 없다. ADsP를 왜 어필하냐는거지</p>
+        <p>- SET Value 와 Real Value 에 차이가 나면 알람이 울린다. 그게 rpm 이던, 온도 이던 왜 rpm이 왜 온도가 떨어졌는지 이유를 찾고 고치는 maintanance를 진행하는게 설비엔지니어의 일이다.</p>
+        <p>- 레시피는 고정 값이 아니다!</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>자소서의 방향성을 다시 되짚어보기. 내가 엉뚱한 소리를 하고 있는게 아닌지.</p>
+        <p>그리고 노트를 만들 때 남들 다 할 수 있는 정도로 말할 거면 의미가 없다. 그리고 전공쪽으로 깊이 파봐라</p>
+        <p>진짜 제대로 보려면 원서를 확인해봐라. 이미 잘못된 것들이 너무 많다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s18">18. 발표 피드백</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 5분동안 면접관을 내 편으로 만들기 위해서는 먼저 어떤 항목을 설명할지 목차를 설명하고 들어가야 한다. 이제부터 A, B, C에 대해서 설명드리겠습니다. → 10초도 안걸리지만 목차를 말하는게 중요하다.</p>
+        <p>- 반도체 용어와 발음, 그리고 의미를 잘 알고 잘 말할 수 있어야 한다.</p>
+        <p>- 면접관님들에게 약어를 먼저 말하는게 아니라 풀로 단어를 먼저 한 번 말하고 나중에 약어로 설명하는게 좋다.</p>
+        <p>- 5분동안 암기한 것을 얘기하는게 아니라, Keyword를 잡고 언제 말할지, 그리고 이걸 설명하면서 다음 keyword를 무엇을 말할지 머릿속으로 생각해서 말하는 것이다. 대본이 아니라 Keyword로 연상해서 말해라</p>
+        <p>- 면접관님들이 가장 많이 보는 것은 눈 맞춤이다. 시선처리. 만약에 너무 부담스러우면 면접관님들의 정수리 끝쪽을 본다고 생각해라. 그리고 면접관 님들의 시선을 30:30:30 으로 분배해서 봐라</p>
+        <p>- 이러이러해서 생기는 문제입니다. → 왜? 이유를 알고 발표할 때도 설명할 수 있어야 한다. 반드시 인과관계를 설명할 수 있어야한다. (강사님 수업 때 하셨던 것처럼 반드시 바뀌었다면 그 이유가 있고, 그 이유를 설명할 수 있어야 한다.)</p>
+        <p>- 각기 서로 다른 전공을 갖고 있기 때문에 서로 다른 관점에서 접근할 수 있다.</p>
+        <p>- 내가 알고 있는 지식을 많이 설명하려고 하기보다는 문제에서 주어진 핵심적인 내용을 토대로 어필하는 것이 중요하다.</p>
+        <p>- “그래서, 그리고, …. “ 이러면서 생각이 안날 때 계속 이어가면 지겹게 느낄 수 있다. 그래서 짧은 단문으로 설명하려고 하는게 좋다. 한 문장의 길이는 35~50 글자로. 단문장으로</p>
+        <p>- 어깨 넓이로 서서 가만히 손 모으고 발표해라. 서 있는 자세에 시작.</p>
+        <p>- PT 발표 할 때는 칠판에 시선 30, 면접관님들 70</p>
+        <p>- 판서 발표하면 편리하게 하라고 하는게 아니라 틀리면 지나가는 것임.</p>
+        <p>- 수식이 있으면 비례, 반비례로 설명한다.</p>
+        <p>- 판서를 할 때는 명칭을 약어로 써서 설명한다. 대문자 명칭만 써두고, 여기 저기로 말하는게 아니라 풀네임을 언급해서 설명하면 된다.</p>
+        <p>- 면접관님들 앞에서 설명하듯이 교사처럼 설명하면 안된다.</p>
+        <p>- “그렇다고 합니다” 이렇게 다른 사람의 얘기를 전달하듯이 하면 안된다.</p>
+        <p>- 추임새 “음, 저, 이제..”  <u>Q. 진짜 생각이 안날 때는 어떤 멘트로 떼우는게 좋은지 손 액션은 가볍게는 해도 좋은지?</u></p>
+        <p>- 발표한지 2분이 지나면 호흡이 바뀐다. 혼자서 2분 이상 혼자 떠들어본적이 없기 때문이다.</p>
+        <p>- 호흡 관리도 필요하다. 서로 돌아가면서 5분씩 혼자서 발표해보는 연습이 필요하다.</p>
+        <p>- 스터디 주제에서 5개 중에 하나 빼고 4개를 돌아가면서 해보자! 피드백 해주신 것 적용해보면서 해보자! 각 전공은 어떻게 설명할 수 있어?</p>
+        <p>- 다음 주 목요일, 그 다음 주 목요일 수업 하실 예정이다.</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>필기는 사용자가 노션에 정리한 원문 그대로이며, 이미지는 강의 슬라이드·판서 촬영본입니다.</p>
+    </footer>
+  </main>
+</div>
+</body>
+</html>

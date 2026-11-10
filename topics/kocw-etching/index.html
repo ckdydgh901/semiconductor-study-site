@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KOCW 세종대 이원준 교수님 (Etching)</title>
+<meta name="description" content="KOCW 세종대 이원준 교수님의 Etching 강의 정리 노트: 플라즈마와 Etch 기초, Wet/Dry Etch, RIE·ICP·ECR·HWP, 장비 부품과 에칭 가스">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-root="../../" data-topic="kocw-etching">
+
+<div id="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <button id="menuBtn" class="icon-btn menu-btn" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <a id="brand" class="brand" href="../../index.html">나의 공부 공간</a>
+  <nav id="tabs" class="tabs" aria-label="영역"></nav>
+  <button id="themeBtn" class="icon-btn" aria-label="다크 모드 전환">◐</button>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="목차">
+    <div class="sidebar-head">
+      <a href="#top" class="sidebar-title">KOCW 식각 (이원준)</a>
+    </div>
+    <nav id="toc"></nav>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <main id="top" class="content">
+
+    <header class="cover">
+      <h1>KOCW 세종대 이원준 교수님 (Etching)</h1>
+      <p class="meta">날짜: 2026-11-09 · 종류: 교육 · 상태: 완료</p>
+      <p class="meta">원본: 사용자 노션 필기 (KOCW 세종대 이원준 교수님 (Etching))</p>
+
+      <div class="toc-box">
+        <b>목차</b>
+        <p><a href="#s1">Etching 01 — 플라즈마와 Etch 공정 기초</a> · <a href="#s2">Etching 02 — Loading Effect, Wet Etch, 플라즈마 식각 방식</a> · <a href="#s3">Etching 03 — RIE, 플라즈마 소스, 장비와 가스</a></p>
+        <p class="meta small">[사용자 노트 필기] 표시 = 사용자가 노션에 직접 정리한 원본 노트(내용·말투·감상은 원문 그대로). [질문 노트] = 사용자의 질문과 답. [댓글] = 사용자가 노션에 남긴 댓글. 회색 캡션은 이미지 설명.</p>
+      </div>
+    </header>
+
+    <section>
+      <h2 id="s1">1. Etching 01 — 플라즈마와 Etch 공정 기초</h2>
+
+      <h3 id="s1-1">Plasma = Glow Discharge</h3>
+      <figure><img src="images/fig01.png" width="859" height="643" alt="Plasma — Neutrals · electrons · ions · radicals · excited neutrals · photons, 전기적으로 중성 (KOCW 슬라이드 4)" loading="lazy"><figcaption>Plasma — Neutrals · electrons · ions · radicals · excited neutrals · photons, 전기적으로 중성 (KOCW 슬라이드 4) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig02.png" width="864" height="642" alt="Plasma 또는 Glow Discharge — 가스의 이온화율은 보통 10⁻⁴, electron과 다른 입자들과의 충돌이 중요 (KOCW 슬라이드 5)" loading="lazy"><figcaption>Plasma 또는 Glow Discharge — 가스의 이온화율은 보통 10⁻⁴, electron과 다른 입자들과의 충돌이 중요 (KOCW 슬라이드 5) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- <u>10⁻⁴ 는 10000개 중에 1개꼴이니까 매우 적은 양</u>이지만, 이 정도 양 가지고도 플라즈마를 활용한 공정(Etching, Deposition)이 가능하다.</p>
+        <p>- 전자가 Ar 을 때려서 양이온과 전자를 만들고, 라디칼을 만들기도 한다. 결국 전자의 거동이 중요하다.</p>
+      </div>
+
+      <h3 id="s1-2">Etch Polysilicon (Main Etch · Over Etch)</h3>
+      <figure><img src="images/fig03.png" width="931" height="639" alt="Etch Polysilicon (Main Etch) — Polysilicon 게이트 식각, PR · STI · USG · P-Well (KOCW 슬라이드 8)" loading="lazy"><figcaption>Etch Polysilicon (Main Etch) — Polysilicon 게이트 식각, PR · STI · USG · P-Well (KOCW 슬라이드 8) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Main Etch 공정은 빠르게 진행. 항상 생산량이 중요하니까.</p>
+      </div>
+      <figure><img src="images/fig04.png" width="933" height="634" alt="Etch Polysilicon (Over Etch) — Gate Oxide 위에서의 Over Etch (KOCW 슬라이드 9)" loading="lazy"><figcaption>Etch Polysilicon (Over Etch) — Gate Oxide 위에서의 Over Etch (KOCW 슬라이드 9) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Over etching 을 통해서 조금 더 균일하게(?) 만들어준다.</p>
+        <p>- 이러고 나서 PR을 제거해주면 되지.</p>
+      </div>
+
+      <h3 id="s1-3">Wet vs. Dry, 습식 에칭의 한계</h3>
+      <figure><img src="images/fig05.png" width="940" height="639" alt="“Wet” vs. “Dry” — Wet Etching(화학반응, 등방성, blanket etch)과 Dry Etching(플라즈마, 이방성, pattern etch) (KOCW 슬라이드 11)" loading="lazy"><figcaption>“Wet” vs. “Dry” — Wet Etching(화학반응, 등방성, blanket etch)과 Dry Etching(플라즈마, 이방성, pattern etch) (KOCW 슬라이드 11) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Wet etching는 선택비도 좋고, 속도도 빠르고, 값도 싸다. 하지만 패턴이 작아지게 되면서 등방성 식각은 더 이상 사용할 수가 없다.</p>
+      </div>
+      <figure><img src="images/fig06.png" width="934" height="637" alt="습식 에칭의 한계 — 0.5 μm 두께 박막에서 2 μm 이하 패턴 형성 어려움, Dry etch로 대체 (KOCW 슬라이드 12)" loading="lazy"><figcaption>습식 에칭의 한계 — 0.5 μm 두께 박막에서 2 μm 이하 패턴 형성 어려움, Dry etch로 대체 (KOCW 슬라이드 12) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 선폭이 꽤 넓었을 때는 등방성 식각이 돼도 괜찮은데, 지금은 우측 그림처럼 선폭이 얇아질 수록 점점 패턴이 사라진다. Until ~2 마이크로 미터.</p>
+      </div>
+
+      <h3 id="s1-4">Etching Processes</h3>
+      <figure><img src="images/fig07.png" width="928" height="636" alt="Etching Processes — Oxide, Poly, Metal 식각 단계 (Dielectric bonding pad etch · Oxide via etch · Metal etch · Poly-Si etch 등) (KOCW 슬라이드 13)" loading="lazy"><figcaption>Etching Processes — Oxide, Poly, Metal 식각 단계 (Dielectric bonding pad etch · Oxide via etch · Metal etch · Poly-Si etch 등) (KOCW 슬라이드 13) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 예전 모델을 가지고 설명 해주셨음 (Oxide, Poly, Metal)</p>
+      </div>
+
+      <h3 id="s1-5">식각 특성: Etch Rate · Uniformity · Selectivity</h3>
+      <figure><img src="images/fig08.png" width="933" height="637" alt="1) Etch Rate — 식각 전후 두께 변화로 구하는 Etch Rate = Δd/t (Å/min) (KOCW 슬라이드 15)" loading="lazy"><figcaption>1) Etch Rate — 식각 전후 두께 변화로 구하는 Etch Rate = Δd/t (Å/min) (KOCW 슬라이드 15) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 결국에는 시간당 얼마나 식각할 수 있는 지가 처리량(Troughput)과 관련되어있다. 그게 곧 생산성이다.</p>
+      </div>
+      <figure><img src="images/fig09.png" width="937" height="639" alt="Selectivity – Example — BPSG 대 Poly-Si 선택비 S = E₁/E₂ (KOCW 슬라이드 18)" loading="lazy"><figcaption>Selectivity – Example — BPSG 대 Poly-Si 선택비 S = E₁/E₂ (KOCW 슬라이드 18) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig10.png" width="933" height="643" alt="2) Etch Uniformity — WIW(within-wafer), WTW(wafer-to-wafer) 균일도 (KOCW 슬라이드 16)" loading="lazy"><figcaption>2) Etch Uniformity — WIW(within-wafer), WTW(wafer-to-wafer) 균일도 (KOCW 슬라이드 16) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 결국 웨이퍼의 균일도가 높으면 좋겠다. 이런건 센서를 통해서 온도 균일성도 확인할 수 있다고 했던 것같아.</p>
+      </div>
+      <figure><img src="images/fig11.png" width="931" height="643" alt="3) Selectivity (선택비) — S = E₁/E₂, 화학적 식각은 선택비가 우수하고 물리적 식각은 선택비가 나쁨 (KOCW 슬라이드 17)" loading="lazy"><figcaption>3) Selectivity (선택비) — S = E₁/E₂, 화학적 식각은 선택비가 우수하고 물리적 식각은 선택비가 나쁨 (KOCW 슬라이드 17) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 결국 Etching에서 정말정말 중요하다.</p>
+        <p>- 일반적인 화학적인 에칭은 선택비가 우수한데, 물리적인 에칭은 선택비가 좋지 않다.</p>
+      </div>
+      <figure><img src="images/fig12.png" width="936" height="640" alt="Selectivity – Example — Self-aligned contact(SAC), SAC와 Non-SAC의 Gate–Contact Shift에 따른 % die passing (KOCW 슬라이드 19)" loading="lazy"><figcaption>Selectivity – Example — Self-aligned contact(SAC), SAC와 Non-SAC의 Gate–Contact Shift에 따른 % die passing (KOCW 슬라이드 19) (출처: 사용자 노션 캡처)</figcaption></figure>
+
+      <h3 id="s1-6">Hardmask, Directionality, Etch Profile</h3>
+      <figure><img src="images/fig13.png" width="933" height="640" alt="Hardmask — PR 두께 감소 → Amorphous carbon layer(ACL), SiON · C-HM 적층과 CFx · O₂ plasma 식각 (KOCW 슬라이드 20)" loading="lazy"><figcaption>Hardmask — PR 두께 감소 → Amorphous carbon layer(ACL), SiON · C-HM 적층과 CFx · O₂ plasma 식각 (KOCW 슬라이드 20) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이제 A/R가 커지고 특히 NAND의 경우 몇 마이크로미터를 쭉 파고 들어가야한다. 그런 상황에서 PR의 두께가 무한정 커질 수는 없다. 왜냐하면 PR의 두께가 마냥 커지면 해상도가 떨어질테니까.</p>
+        <p>- 요즘은 PR을 얇게 만들고, 그 아래 Hard mask를 에치한다. 그리고 Etching 할 때 Hard mask로 보호한다.</p>
+        <p>- 이러한 경우에 SiON을 아래에 두고 …</p>
+      </div>
+      <figure><img src="images/fig14.png" width="934" height="642" alt="4) Directionality — 등방성(Isotropic) · 이방성(Anisotropic) · 완벽한 이방성(Completely Anisotropic) (KOCW 슬라이드 21)" loading="lazy"><figcaption>4) Directionality — 등방성(Isotropic) · 이방성(Anisotropic) · 완벽한 이방성(Completely Anisotropic) (KOCW 슬라이드 21) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig15.png" width="937" height="640" alt="5) Etch Profile — 식각 후 단면 모양, Undercut과 I-beam 모양은 후속 박막 매립이 어려움 (KOCW 슬라이드 22)" loading="lazy"><figcaption>5) Etch Profile — 식각 후 단면 모양, Undercut과 I-beam 모양은 후속 박막 매립이 어려움 (KOCW 슬라이드 22) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 실제로는 예쁘게만 Etching이 되는 것은 아니다. Undercut이 생기기도 하고 그러니까.</p>
+      </div>
+      <figure><img src="images/fig16.png" width="937" height="643" alt="Etch Profiles — Anisotropic, Undercut(I-beam), Isotropic, tapered, Foot, reversed tapered, Micro-trenching (KOCW 슬라이드 23)" loading="lazy"><figcaption>Etch Profiles — Anisotropic, Undercut(I-beam), Isotropic, tapered, Foot, reversed tapered, Micro-trenching (KOCW 슬라이드 23) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 직각 90도로 안될 이유가 너무나도 많다.</p>
+        <p>- 그래서 이러한 문제들이 생기는 이유를 미리 알아서 방지할 수 있으면 방지하는게 중요하겠다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s2">2. Etching 02 — Loading Effect, Wet Etch, 플라즈마 식각 방식</h2>
+
+      <h3 id="s2-1">Loading Effect · Over Etch</h3>
+      <figure><img src="images/fig17.png" width="933" height="642" alt="6) Loading Effect — Macro Loading과 Micro Loading, 반응관 압력을 낮추면 byproduct 제거가 촉진됨 (KOCW 슬라이드 24)" loading="lazy"><figcaption>6) Loading Effect — Macro Loading과 Micro Loading, 반응관 압력을 낮추면 byproduct 제거가 촉진됨 (KOCW 슬라이드 24) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Loading Effect는 점점 패턴이 작아짐에 따라 점점 더 중요해지고 있다.</p>
+        <p>- 패턴이 넓게 형성된 지역에서는 반응 부산물이 잘 빠져나갈 수 있다. 그런데 좁은 구역에서는 반응 부산물이 잘 빠져나가기가 어렵다.</p>
+        <p>- 반응 부산물이 빠져나가야 다시 gas가 들어와서 반응해서 나갈테니 말이다.</p>
+        <p>- 왼쪽으로 갈 수록 패턴이 작아지고, 반응 부산물이 빠져나오기 어려운 상태이다.</p>
+        <p>- 그래서 결국 압력이 낮아지면 부산물이 잘 빠져나갈 수 있어서 압력을 낮추려고 한다. 하지만 그에 따라 플라즈마 형성이 어렵기 때문에 Trade-off 관계에 있다고 볼 수 있다.</p>
+      </div>
+      <figure><img src="images/fig18.png" width="936" height="639" alt="7) Over Etch — Main Etch 시작, Over Etch 시작(종말점 신호), Over Etch 종료 (KOCW 슬라이드 25)" loading="lazy"><figcaption>7) Over Etch — Main Etch 시작, Over Etch 시작(종말점 신호), Over Etch 종료 (KOCW 슬라이드 25) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Etching을 진행하다가 기판이 드러나면 그 때부터 Etching 조건을 바꾼다</p>
+        <p>- 그 때부터 남은 박막을 제거하는 데 더 Focus 하지만 그래도 기판에 damage가 가해지긴 한다.</p>
+        <p>- Etching이 진행하다가 기판이 드러나는 시점을 “종말점” 이라고 한다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Etching을 진행하다가 기판이 드러나면 그 때부터 Etching 조건을 바꾼다”</p>
+        <p>이건 전혀 몰랐던 내용</p>
+      </div>
+
+      <h3 id="s2-2">Wet Etch (공정 단계 · 용도 · 3D NAND)</h3>
+      <figure><img src="images/fig19.png" width="931" height="637" alt="Wet Etch Process Steps — Wet Etch → Rinse → Dry (KOCW 슬라이드 27)" loading="lazy"><figcaption>Wet Etch Process Steps — Wet Etch → Rinse → Dry (KOCW 슬라이드 27) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Wet etch는 더 이상 패턴의 etching에는 사용하지 않는다.</p>
+        <p>- 지금도 Wafer위에 있는 박막을 다 없앨 때는 사용한다.</p>
+        <p>- LOCOS에서 Si₃N₄ 를 다 없애는 공정에서도 사용한다.</p>
+        <p>- Cleaning 공정과 어떻게 보면 비슷하다.</p>
+      </div>
+      <figure><img src="images/fig20.png" width="933" height="639" alt="Wet Etch — Pure chemical process, 여전히 쓰이는 곳(Blanket film strip · Test wafers · CVD film quality test), Wet etch rate에 영향을 주는 요인 (KOCW 슬라이드 28)" loading="lazy"><figcaption>Wet Etch — Pure chemical process, 여전히 쓰이는 곳(Blanket film strip · Test wafers · CVD film quality test), Wet etch rate에 영향을 주는 요인 (KOCW 슬라이드 28) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Wet etch는 완전히 화학적인 반응이기 때문에 선택비가 좋다. 화학적으로 녹거나 녹지 않거나이기 때문</p>
+        <p>- CVD를 하고 난 다음 박막의 품질을 Wet etch를 통해 녹여서 필름이 얼마나 빨리 etching 되는지 시간을 측정해 퀄리티를 측정한다. 박막의 퀄리티가 낮으면 상대적으로 더 빠르게 etching 된다.</p>
+      </div>
+      <figure><img src="images/fig21.png" width="936" height="639" alt="Wet Etch — Nitride strip (Isolation)과 Titanium strip (KOCW 슬라이드 29)" loading="lazy"><figcaption>Wet Etch — Nitride strip (Isolation)과 Titanium strip (KOCW 슬라이드 29) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 좌측은 인산을 사용해서 Nitride Strip</p>
+        <p>- 우측은 암모니아수 사용해서 Ti/TiN Strip</p>
+      </div>
+      <figure><img src="images/fig22.png" width="936" height="639" alt="Wet Etch in 3D NAND Flash — Nitride removal 공정 단계 (KOCW 슬라이드 30)" loading="lazy"><figcaption>Wet Etch in 3D NAND Flash — Nitride removal 공정 단계 (KOCW 슬라이드 30) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 지금 이게 간략하게 표현한 것이지만, 실제로는 Nitride가 몇 백층 쌓여져 있고 그렇다.</p>
+        <p>- Si₃N₄를 Wet etching 하는게 더 빠르다. 물론 몇 백층이니까 오래걸리긴 하는데 그래도 Wet etching이 다른 공정에 비해서 빠르다는 의미이다. Si₃N₄니까 인산 H₃PO₄를 사용한다.</p>
+      </div>
+
+      <h3 id="s2-3">Etchant와 HF의 위험성</h3>
+      <figure><img src="images/fig23.png" width="937" height="640" alt="Etchant (1) — SiO₂ · Poly-Si · 단결정 Si의 에칭용액(HF, BOE 등)과 특징 (KOCW 슬라이드 31)" loading="lazy"><figcaption>Etchant (1) — SiO₂ · Poly-Si · 단결정 Si의 에칭용액(HF, BOE 등)과 특징 (KOCW 슬라이드 31) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>(1) SiO₂</p>
+        <p>HF</p>
+        <p>- SiO₂는 HF를 사용한다. 보통 물에 희석해서 사용하고 49% 정도면 엄청 진하다.</p>
+        <p>- 선택적으로 SiO₂만 제거할 수 있다.</p>
+        <p>- SiO₂ → SiF₆²⁻가 되면서 용액 안으로 녹아들어간다.</p>
+        <p>BOE</p>
+        <p>- NH₄F:HF가 6:1로 섞여 있다.</p>
+        <p>(2) Poly-Si</p>
+        <p>- 요즘은 잘 안쓴다.</p>
+        <p>(3) 단결정 Si</p>
+      </div>
+      <figure><img src="images/fig24.png" width="937" height="640" alt="Etchant (2) — Si₃N₄ · Al · Ti · TiN · TiSi₂ · Photoresist의 에칭용액과 특징 (KOCW 슬라이드 32)" loading="lazy"><figcaption>Etchant (2) — Si₃N₄ · Al · Ti · TiN · TiSi₂ · Photoresist의 에칭용액과 특징 (KOCW 슬라이드 32) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 여기 설명은 그냥 편히 들었다…</p>
+      </div>
+      <figure><img src="images/fig25.png" width="931" height="637" alt="Hazards of HF — 접촉해도 느끼지 못함, 칼슘과 결합, 안전 관리 (KOCW 슬라이드 33)" loading="lazy"><figcaption>Hazards of HF — 접촉해도 느끼지 못함, 칼슘과 결합, 안전 관리 (KOCW 슬라이드 33) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- HF는 강산도 아니고, 약산도 아니다. 그래서 피부에 반응해도 바로 반응하지 않는다.</p>
+        <p>- 실제로 F와 Ca은 매우 강한 결합력을 갖고 있다. 뼈에 Ca이 많기 때문에 불산은 뼈와 반응한다.</p>
+      </div>
+
+      <h3 id="s2-4">Wet Etch와 Dry Etch 비교, 플라즈마 건식 에칭</h3>
+      <figure><img src="images/fig26.png" width="937" height="639" alt="Wet Etch와 Dry Etch 비교 — 최소선폭, 방향성, 속도, 선택성, 장비 가격, 처리속도, 화학물질 사용량 (KOCW 슬라이드 35)" loading="lazy"><figcaption>Wet Etch와 Dry Etch 비교 — 최소선폭, 방향성, 속도, 선택성, 장비 가격, 처리속도, 화학물질 사용량 (KOCW 슬라이드 35) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 건식은 100nm가 뭐야 10nm도 가능하지.</p>
+      </div>
+      <figure><img src="images/fig27.png" width="937" height="642" alt="플라즈마를 이용한 건식 에칭 — PE · SE · RIE · MERIE · ICP · ECR · HWP (KOCW 슬라이드 37)" loading="lazy"><figcaption>플라즈마를 이용한 건식 에칭 — PE · SE · RIE · MERIE · ICP · ECR · HWP (KOCW 슬라이드 37) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig28.png" width="936" height="640" alt="1) 플라즈마 에칭 (PE) — 활성종(radical)에 의한 화학적 에칭, 4F + Si → SiF₄ (KOCW 슬라이드 38)" loading="lazy"><figcaption>1) 플라즈마 에칭 (PE) — 활성종(radical)에 의한 화학적 에칭, 4F + Si → SiF₄ (KOCW 슬라이드 38) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Radical의 화학반응을 사용한다.</p>
+        <p>- 플라즈마를 사용하지만 이온 폭격을 쓰는게 아니다.</p>
+        <p>- 화학적인 메커니즘과 동일한데 용액을 쓰지 않는다. 용액을 쓰면 폐수처리를 해야하잖아?</p>
+      </div>
+      <figure><img src="images/fig29.png" width="933" height="643" alt="1) 플라즈마 에칭 — Downstream etcher(remote plasma), Photoresist 제거를 위한 ashing 공정 (KOCW 슬라이드 39)" loading="lazy"><figcaption>1) 플라즈마 에칭 — Downstream etcher(remote plasma), Photoresist 제거를 위한 ashing 공정 (KOCW 슬라이드 39) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><span class="mark-yel">- 그래서 플라즈마에서 라디칼을 이용한 화학반응은 주로 Photoresist를 제거할 때 사용한다. 이걸 ashing 공정이라고 한다.</span></p>
+        <p>- 그래서 플라즈마를 형성하는 곳에서 공정이 이뤄지는 것이 아니라 플라즈마는 특정 공간에서 형성되고, 거기에서 <u>라디칼</u>만 넣어주는 식이다. 아 물론 전자나, 이온들도 생기지만 오래 버티는 것은 라디칼인 것이다.</p>
+        <p>- 플라즈마를 생성할 때는 Microwave 를 사용해서 만들 수도 있다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “그래서 플라즈마에서 라디칼을 이용한 화학반응은 주로 Photoresist를 제거할 때 사용한다. 이걸 a…”</p>
+        <p>플라즈마를 사용하는데 왜 화학적인 반응만 쓰지? 했던게 이렇게 쓰이는 거였네! 유레카</p>
+      </div>
+
+      <h3 id="s2-5">2) 스퍼터 에칭 (SE)</h3>
+      <figure><img src="images/fig30.png" width="937" height="643" alt="2) 스퍼터 에칭 (SE) — 비활성 기체(Ar) 사용, 가속된 이온을 기판에 충돌시키는 물리적 식각 (KOCW 슬라이드 41)" loading="lazy"><figcaption>2) 스퍼터 에칭 (SE) — 비활성 기체(Ar) 사용, 가속된 이온을 기판에 충돌시키는 물리적 식각 (KOCW 슬라이드 41) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이건 그냥 sputtering 물리적인 식각임</p>
+      </div>
+      <figure><img src="images/fig31.png" width="934" height="640" alt="2) 스퍼터 에칭 (SE) — 선택비 매우 나쁨, redeposition · Trenching · Charging and Ion path distortion (KOCW 슬라이드 42)" loading="lazy"><figcaption>2) 스퍼터 에칭 (SE) — 선택비 매우 나쁨, redeposition · Trenching · Charging and Ion path distortion (KOCW 슬라이드 42) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 선택비가 너무 안좋은게 문제이다. 내가 원하는 것만 때리지 않으니까</p>
+        <p>- Mask 를 때리는데, PR Mask에 있는 Polymer의 탄소가 Film에 붙어버리면 휘발성이 낮아서 그냥 그대로 박혀있을 수도 있음. 이걸 Redeposition 이라고 그러네.</p>
+        <p>- 양전하끼리 서로 반발력이 있어서 밀어내는 힘에 의해 측벽이 Etching 될 수도 있다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s3">3. Etching 03 — RIE, 플라즈마 소스, 장비와 가스</h2>
+
+      <h3 id="s3-1">3) 반응성 이온 에칭 (RIE)</h3>
+      <figure><img src="images/fig32.png" width="937" height="648" alt="3) 반응성 이온 에칭 (RIE) — 이온충돌에 의해 화학반응이 활성화됨(물리화학적 식각), XeF₂ 가스와 Ar⁺ 이온 빔 실험 (KOCW 슬라이드 43)" loading="lazy"><figcaption>3) 반응성 이온 에칭 (RIE) — 이온충돌에 의해 화학반응이 활성화됨(물리화학적 식각), XeF₂ 가스와 Ar⁺ 이온 빔 실험 (KOCW 슬라이드 43) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Xe는 비활성 기체이지만 XeF₂가 들어가면 F 라디칼이 분리되어서 나온다. 그 라디칼을 통해서 chemical etching이 되는 것이다.</p>
+        <p>- sputtering을 시켜놓으면 물리적으로 때려넣으니까 결합이 약해지건 느슨해지건 해져있는 상태에서 F 라디칼이 반응을 잘하는 상태가 됨.</p>
+      </div>
+      <figure><img src="images/fig33.png" width="937" height="648" alt="3) RIE Mechanisms — Damaging mechanism(예: Oxide, nitride)과 Blocking mechanism(예: Poly, metal) (KOCW 슬라이드 44)" loading="lazy"><figcaption>3) RIE Mechanisms — Damaging mechanism(예: Oxide, nitride)과 Blocking mechanism(예: Poly, metal) (KOCW 슬라이드 44) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Etching 할 때 탄소가 들어가 있는 gas를 쓰면 CF 계열 폴리머가 만들어진다.</p>
+        <p>- 대표적인 CF 고분자는 테프론으로 상당히 반응성이 낮은 폴리머이다. 그래서 불산도 유리병에 못담는데, 테프론 병에 담고 그러잖아?</p>
+      </div>
+      <figure><img src="images/fig52.png" width="994" height="447" alt="PTFE(테프론) 설명 — 불소와 탄소로 이루어진 고성능 합성 불소수지, 화학적 안정성 · 내열성 및 내한성 · 저마찰 및 비점착성 · 전기적 성질" loading="lazy"><figcaption>PTFE(테프론) 설명 — 불소와 탄소로 이루어진 고성능 합성 불소수지, 화학적 안정성 · 내열성 및 내한성 · 저마찰 및 비점착성 · 전기적 성질 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Polymer가 벽면을 보호해주기 때문에 3마이크로, 5마이크로 이렇게 수직으로 식각할 수 있는 것이다.</p>
+      </div>
+      <figure><img src="images/fig34.png" width="937" height="645" alt="3) Effect of Inhibitor Deposition — Inhibitor가 적을 때 · 적당할 때 · 과도할 때의 식각 단면 (KOCW 슬라이드 45)" loading="lazy"><figcaption>3) Effect of Inhibitor Deposition — Inhibitor가 적을 때 · 적당할 때 · 과도할 때의 식각 단면 (KOCW 슬라이드 45) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- C하고 F 비율이 적당할 때 수직으로 잘 식각된다.</p>
+        <p>- C이 적으면 폴리머가 적게 생겨서 undercut이 생기고, C가 너무 많으면 폴리머가 너무 많이 생겨서 측벽이 점점 좁아진다.</p>
+        <p>- 산소를 넣으면 산소 라디칼이 나와서 C가 잡혀서 C의 실질적인 비율이 적어진다. → CO, CO₂ 이렇게 반응해서 C의 개수를 줄여 폴리머의 양을 줄인다.</p>
+      </div>
+      <figure><img src="images/fig35.png" width="936" height="639" alt="3) RIE System — Process chamber, Plasma, Wafer, Chuck, Magnet coils, RF Power, Helium for backside cooling (KOCW 슬라이드 46)" loading="lazy"><figcaption>3) RIE System — Process chamber, Plasma, Wafer, Chuck, Magnet coils, RF Power, Helium for backside cooling (KOCW 슬라이드 46) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- He으로 Cooling을 해주는 이유는 화학반응도 하고, 이온이 와서 sputtering도 하고 그러면 웨이퍼의 온도가 올라가기 때문이다.</p>
+        <p>- 하지만 온도가 너무 올라가게 되면 PR가 타버릴 수 있기 때문에 wafer 뒤를 Cooling을 시켜주는 것이다.</p>
+        <p>→ 기껏 PR잘 만들어놓고 Etching 하는데 PR mask가 타버리면 어떻게 하겠어</p>
+      </div>
+      <figure><img src="images/fig36.png" width="931" height="639" alt="PE Mode vs. RIE Mode — Plasma Mode와 Reactive-Ion-Etch Mode의 RF Source 위치 (KOCW 슬라이드 48)" loading="lazy"><figcaption>PE Mode vs. RIE Mode — Plasma Mode와 Reactive-Ion-Etch Mode의 RF Source 위치 (KOCW 슬라이드 48) (출처: 사용자 노션 캡처)</figcaption></figure>
+
+      <h3 id="s3-2">RIE의 압력·자기장 효과</h3>
+      <figure><img src="images/fig37.png" width="934" height="637" alt="플라즈마를 이용한 에칭 공정의 비교 — Plasma etch · RIE · Sputter etch의 적용 예, 속도, 선택성, 방향성, 종말점 검출 (KOCW 슬라이드 49)" loading="lazy"><figcaption>플라즈마를 이용한 에칭 공정의 비교 — Plasma etch · RIE · Sputter etch의 적용 예, 속도, 선택성, 방향성, 종말점 검출 (KOCW 슬라이드 49) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig38.png" width="936" height="642" alt="RIE에서 압력의 영향 — 압력이 낮을수록 mean free path 증가, anisotropy 향상, micro-loading 감소 (KOCW 슬라이드 50)" loading="lazy"><figcaption>RIE에서 압력의 영향 — 압력이 낮을수록 mean free path 증가, anisotropy 향상, micro-loading 감소 (KOCW 슬라이드 50) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 압력이 낮아지면 대부분 Etching 공정 능력이 향상된다. <u>이온이 m.f.p이 길어지기 때문에</u> 이온들이 수직으로 와서 때릴 수 있게 된다. 그러면 이방성이 좋아진다.</p>
+      </div>
+      <figure><img src="images/fig39.png" width="934" height="643" alt="자기장의 효과 — 전자의 나선형 운동, 저압에서도 플라즈마 유지 (KOCW 슬라이드 51)" loading="lazy"><figcaption>자기장의 효과 — 전자의 나선형 운동, 저압에서도 플라즈마 유지 (KOCW 슬라이드 51) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 자기장을 사용하면 전자가 이동하면서 원자들하고 더 자주 부딪히게 된다. 이렇게 되면 저압에서도 플라즈마를 켤 수 있다. 회오리 감자처럼 빙글빙글 돌거든</p>
+      </div>
+
+      <h3 id="s3-3">ICP · ECR · HWP 플라즈마 소스</h3>
+      <figure><img src="images/fig40.png" width="936" height="643" alt="5) ICP 에칭 — 저압 고밀도 플라즈마 소스, 무전극형, Plasma 밀도와 ion energy를 독립적으로 조절 (KOCW 슬라이드 53)" loading="lazy"><figcaption>5) ICP 에칭 — 저압 고밀도 플라즈마 소스, 무전극형, Plasma 밀도와 ion energy를 독립적으로 조절 (KOCW 슬라이드 53) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- CCP는 위 아래 전극이 하나씩 있고 그 사이에 전압을 가했다. 그런데 ICP는 바깥에 코일이 감겨져 있는 형태이다.</p>
+        <p>- ICP는 바깥에 코일만 있고 따로 전극은 없다. 여기다가 DC 직류를 흘리면 그냥 전자석이 되는 것이다. 오른손 엄지 법칙. 그래서 어쨌거나 교류를 흘린다.</p>
+        <p>- 그래서 어쨌거나 전자는 빙글빙글 돌게 된다. 그러면서 기체 분자,원자들과 부딪히며 플라즈마가 형성된다.</p>
+        <p>- 플라즈마가 생성된 이후에는 웨이퍼 쪽에 RF 파워를 따로 걸어줘서 Wafer 쪽을 때릴 수 있게 만들어준다.</p>
+      </div>
+      <figure><img src="images/fig41.png" width="933" height="642" alt="5) ICP 에칭 — Planar ICP source, Transformer-coupled plasma(TCP) (KOCW 슬라이드 54)" loading="lazy"><figcaption>5) ICP 에칭 — Planar ICP source, Transformer-coupled plasma(TCP) (KOCW 슬라이드 54) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 바로 앞의 모양에서는 코일이 잡아먹는 공간이 너무 많다보니까 이렇게 모기향처럼 만든다. 그리고 저 부분을 안테나라고 한다.</p>
+        <p>- 지금은 이런 타입이 대부분이라고 한다.</p>
+        <p>- ICP인데 TCP라고 불리기도 한다. 램리서치에서는 TCP라고 한댄다.</p>
+      </div>
+      <figure><img src="images/fig42.png" width="930" height="639" alt="6) ECR 에칭 — 저압 고밀도 플라즈마 소스, 마이크로 파와 자기장 결합, 공진 현상 (KOCW 슬라이드 55)" loading="lazy"><figcaption>6) ECR 에칭 — 저압 고밀도 플라즈마 소스, 마이크로 파와 자기장 결합, 공진 현상 (KOCW 슬라이드 55) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- ECR은 ICP 보다도 더 고밀도 플라즈마를 형성한다고 한다.</p>
+        <p>- 자기장과 Microwave의 주파수를 동일하게 맞춰줘서 공진 현상을 이용한다.</p>
+        <p>- 일본의 히타치에서 제작해서 판다고 한댄다. 인텔에서는 사용한다고 한다.</p>
+      </div>
+      <figure><img src="images/fig43.png" width="934" height="640" alt="7) HWP 에칭 — 저압 고밀도 플라즈마 소스, ECR · ICP에 비해 더 높은 이온화율 (KOCW 슬라이드 56)" loading="lazy"><figcaption>7) HWP 에칭 — 저압 고밀도 플라즈마 소스, ECR · ICP에 비해 더 높은 이온화율 (KOCW 슬라이드 56) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 얘는 ECR보다도 더 고밀도라고 한다.</p>
+        <p>- 양산단에서 사용하는지 여부는 모른다고 하신다.</p>
+      </div>
+
+      <h3 id="s3-4">Wafer Cooling과 ESC</h3>
+      <figure><img src="images/fig44.png" width="934" height="643" alt="Wafer Cooling — Ion bombardment 발열, PR reticulation, Helium backside cooling, wafer 고정 방식 (KOCW 슬라이드 57)" loading="lazy"><figcaption>Wafer Cooling — Ion bombardment 발열, PR reticulation, Helium backside cooling, wafer 고정 방식 (KOCW 슬라이드 57) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 웨이퍼 온도가 올라가면 웨이퍼만 문제가 아니라 PR도 문제가 된다.</p>
+      </div>
+      <figure><img src="images/fig45.png" width="937" height="640" alt="Electrostatic Chuck (ESC) — Helium leakage, Ceramic ring, DC Power 850 V (KOCW 슬라이드 58)" loading="lazy"><figcaption>Electrostatic Chuck (ESC) — Helium leakage, Ceramic ring, DC Power 850 V (KOCW 슬라이드 58) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- He 이 타고 들어가서 Cooling이 되는 형태이다.</p>
+        <p>- 위에는 진공인데 아래에서 He을 주입하면 사실 풍 발싸되는게 맞다. 그래서 옛날에는 옆에서 Clamp로 물리적으로 잡았다. 그렇게 되면 가장자리에 못 쓰게 되고, 그 부분에는 칩을 못만드는 것이 된다.</p>
+        <p>- 그래서 20~30년 전부터는 ESC를 흔하게 사용하고 있다. 밑에다가 전원을 연결하고 정전기를 이용해서 Wafer를 잡고 있는다.</p>
+      </div>
+
+      <h3 id="s3-5">세라믹 부품과 End-point Detection</h3>
+      <figure><img src="images/fig46.png" width="936" height="645" alt="세라믹 소재 부품 — SiO₂(quartz) · Al₂O₃ · SiC · AlN · Y₂O₃ · YF₃ 등, 내열성·내화학성·내플라즈마성 (KOCW 슬라이드 59)" loading="lazy"><figcaption>세라믹 소재 부품 — SiO₂(quartz) · Al₂O₃ · SiC · AlN · Y₂O₃ · YF₃ 등, 내열성·내화학성·내플라즈마성 (KOCW 슬라이드 59) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Etching 장비에는 세라믹 소재들이 많이 사용된다.</p>
+        <p>- Etching 장비에서 사용하니까 Cl, F도 많이 사용하기 때문에 내화학성이 있어야한다.</p>
+        <p>- 내플라즈마성은 Sputter Yield가 낮아야 할 것이고 그러면 결합력이 매우 강해야한다.</p>
+        <p>- 플라즈마를 쓰니까 세라믹 파우더를 살짝 녹여서 내벽 코팅을 해둔다.</p>
+        <p>- 이 자료가 2010년 쯤에 시장 규모가 저랬음.</p>
+      </div>
+      <figure><img src="images/fig47.png" width="934" height="643" alt="End-point Detection — 원자마다 고유한 발광 파장, Optical emission spectroscopy (KOCW 슬라이드 60)" loading="lazy"><figcaption>End-point Detection — 원자마다 고유한 발광 파장, Optical emission spectroscopy (KOCW 슬라이드 60) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Main etch 끝내고 Over etch 들어갈 때 End-point를 잡는다.</p>
+        <p>- Optical emission spectroscopy를 사용한다고 한다.</p>
+      </div>
+
+      <h3 id="s3-6">Dry Etch 기체와 환경</h3>
+      <figure><img src="images/fig48.png" width="933" height="640" alt="Dry Etch 기체 (1) — Poly-Si · 단결정 Si · SiO₂ · Si₃N₄의 에칭 기체와 특징 (KOCW 슬라이드 61)" loading="lazy"><figcaption>Dry Etch 기체 (1) — Poly-Si · 단결정 Si · SiO₂ · Si₃N₄의 에칭 기체와 특징 (KOCW 슬라이드 61) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig49.png" width="931" height="645" alt="Dry Etch 기체 (2) — Al · W · Ti · TiN · TiSi₂ · Photoresist의 에칭 기체와 특징 (KOCW 슬라이드 62)" loading="lazy"><figcaption>Dry Etch 기체 (2) — Al · W · Ti · TiN · TiSi₂ · Photoresist의 에칭 기체와 특징 (KOCW 슬라이드 62) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Al은 F 계열을 사용하지 않는다.</p>
+      </div>
+      <figure><img src="images/fig50.png" width="936" height="640" alt="에칭 반응 부산물 끓는점 비교 — Al · Cu · Si · Ti · W의 염화물과 불화물 끓는점 (KOCW 슬라이드 63)" loading="lazy"><figcaption>에칭 반응 부산물 끓는점 비교 — Al · Cu · Si · Ti · W의 염화물과 불화물 끓는점 (KOCW 슬라이드 63) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Gas를 선택할 때 Etch를 시키면 B.P를 유심히 보겠지?</p>
+      </div>
+      <figure><img src="images/fig51.png" width="937" height="642" alt="친환경 공정가스 → 온실가스 감축 — PFC 해결방안과 온실가스별 온난화지수 (KOCW 슬라이드 64)" loading="lazy"><figcaption>친환경 공정가스 → 온실가스 감축 — PFC 해결방안과 온실가스별 온난화지수 (KOCW 슬라이드 64) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Etching 할 때 사용하는 gas들이 환경에 너무 안좋다.</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>필기는 사용자가 노션에 정리한 원문 그대로이며, 이미지는 교재·강의 슬라이드·판서 촬영본입니다.</p>
+      <p><span id="updatedAt"></span> · <a id="notionLink" href="#" target="_blank" rel="noopener" hidden>Notion 원본 보기</a> · <a href="../../index.html">홈으로</a></p>
+    </footer>
+  </main>
+</div>
+
+<button id="toTop" class="to-top" aria-label="맨 위로" hidden>↑</button>
+
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="이미지 확대">
+  <button class="lb-close" aria-label="닫기">✕</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</div>
+
+<script src="../../topics.js"></script>
+<script src="../../assets/common.js"></script>
+<script src="../../assets/topic.js"></script>
+</body>
+</html>
