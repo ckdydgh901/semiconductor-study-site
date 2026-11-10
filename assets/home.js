@@ -27,7 +27,7 @@
       '<h3>' + esc(t.title) + '</h3>' +
       '<p>' + esc(t.summary || '') + '</p>' +
       '<span class="card-tags">' + (t.tags || []).slice(0, 5).map(function (x) { return '<i>' + esc(x) + '</i>'; }).join('') + '</span>' +
-      '<span class="card-date">' + esc(t.updated || '') + '</span></a>';
+      '<span class="card-date">' + esc(t.date || '') + '</span></a>';
   }
 
   function render() {
@@ -40,7 +40,6 @@
         if (!q) return true;
         return (t.title + ' ' + (t.summary || '') + ' ' + (t.category || '') + ' ' + (t.tags || []).join(' ')).toLowerCase().indexOf(q) > -1;
       });
-      list.sort(function (x, y) { return (y.updated || '').localeCompare(x.updated || ''); });
       var total = topics.filter(function (t) { return t.area === a.id; }).length;
       if (q && !list.length) return;            // 검색 중에는 결과 없는 영역을 숨긴다
       shownTotal += list.length;

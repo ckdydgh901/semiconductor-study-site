@@ -1,7 +1,9 @@
 """Notion(enhanced markdown) -> 사이트 주제 페이지 변환기.
 본문 텍스트는 노션 원문 그대로 쓰고, 구조(제목 승격·삽입)만 규칙으로 지정한다.
 """
-import json, re, os, html as H
+import json, re, os, sys, html as H
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from merge_notes import merge_adjacent_notes
 
 PROJ = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "..", "topics")).replace("\\", "/") + "/"
 
@@ -248,6 +250,7 @@ class Builder:
 # ---------------------------------------------------------------- 페이지
 def render_page(pid, title, side, desc, sub_line, source, secs):
     body = "".join(f'\n    <section>\n      <h2 id="{i}">{t}</h2>\n{b}    </section>\n' for i, t, b in secs)
+    body = merge_adjacent_notes(body)   # 이미지·제목 없이 이어지는 필기 박스는 하나로 (2026-11-10)
     toc = " · ".join(f'<a href="#{i}">{re.sub(r"^\d+\. ", "", t)}</a>' for i, t, _ in secs)
     page = f'''<!doctype html>
 <html lang="ko">
