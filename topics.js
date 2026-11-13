@@ -161,7 +161,7 @@ window.SITE = {
       summary: "반도체 정의(전기전도도·비저항·Energy band gap), 반도체 종류, 유전체와 유전상수(High-k/Low-k), 8대 공정, Photo 공정(Snell 법칙·간섭·회절), Positive/Negative PR을 정리한 노트.",
       tags: ["더인 교육", "4일차", "반도체 정의", "유전체", "High-k", "Low-k", "8대 공정", "Photo", "Snell", "간섭", "회절", "PR"],
       date: "2026-11-05",
-      updated: "2026-11-07",
+      updated: "2026-11-13",
       notion: "https://app.notion.com/p/40f6b8b7c6bb80c8baf2ca4317536f8a"
     },
     {
@@ -173,7 +173,7 @@ window.SITE = {
       summary: "PR(NUV·DUV·EUV)과 현상 메커니즘, DUV 화학 증폭형 레지스트(CAR) 추가 공부, NA와 해상도, Soft/Hard Bake·PEB·HMDS, Carrier mobility, 공정 변동과 엔지니어 역할, Presentation(FLASH MEMORY Program/Erase)과 발표 피드백을 정리한 노트.",
       tags: ["더인 교육", "5일차", "PR", "DNQ", "CAR", "PAG", "PEB", "화학 증폭", "NA", "해상도", "PEB", "HMDS", "Passivation", "FLASH MEMORY", "발표 피드백"],
       date: "2026-11-06",
-      updated: "2026-11-08",
+      updated: "2026-11-13",
       notion: "https://app.notion.com/p/40f6b8b7c6bb80d7a4d4ce3b3ecba790"
     },
     {
@@ -185,8 +185,32 @@ window.SITE = {
       summary: "Dry Etch vs Wet Etch, 식각 파라미터(선택비·이방성·균일도)와 식각 이후 현상, 진공(Conductance·Throughput·Residence Time), ESC, Plasma 조건과 방전·Sheath, RF Plasma와 DC Self-bias(87pg 토론 문제)를 정리한 노트.",
       tags: ["더인 교육", "6일차", "Dry Etch", "Wet Etch", "식각", "이방성", "Conductance", "Throughput", "진공", "ESC", "Plasma", "디바이 차폐", "Sheath", "Presheath", "RF", "DC Self-bias", "Blocking capacitor"],
       date: "2026-11-09",
-      updated: "2026-11-10",
+      updated: "2026-11-13",
       notion: "https://app.notion.com/p/4136b8b7c6bb80d98216dcb107624403"
+    },
+    {
+      id: "thein-day7",
+      area: "thein",
+      title: "더인 교육 7일차 정리",
+      short: "7일차",
+      category: "더인 교육",
+      summary: "Plasma etching 원리(Chemical·Sputter·Ion Enhanced·Inhibitor·DRIE), 식각 장비 분류(CCP·MERIE·ICP·ECR·Helicon), RIE의 Self bias와 Blocking capacitor, Pulsed Plasma, Si·SiO₂·Si₃N₄ 식각 화학과 선택비, Loading effect·ARDE·Uniformity, ALE와 스터디 질문을 정리한 노트.",
+      tags: ["더인 교육", "7일차", "Plasma", "Etch", "RIE", "CCP", "ICP", "MERIE", "ECR", "Helicon", "Pulsed Plasma", "선택비", "Loading effect", "ARDE", "Uniformity", "ALE", "Self bias"],
+      date: "2026-11-10",
+      updated: "2026-11-13",
+      notion: "https://app.notion.com/p/4146b8b7c6bb80979b63ec579225dff0"
+    },
+    {
+      id: "thein-day8",
+      area: "thein",
+      title: "더인 교육 8일차 정리",
+      short: "8일차",
+      category: "더인 교육",
+      summary: "5nm 노드의 의미와 트랜지스터 전류(μ·C_ox·W/L, 단채널 효과, HKMG, FinFET/GAA), Dielectric·Metal·Thin film, CVD(기체상/표면 반응, Film Growth Kinetics, APCVD·LPCVD·PECVD), PVD(Al-Cu, Electromigration), ALD, Step coverage와 Gap fill을 정리한 노트.",
+      tags: ["더인 교육", "8일차", "5nm", "노드", "Thin film", "CVD", "PVD", "ALD", "LPCVD", "PECVD", "Film Growth Kinetics", "Electromigration", "Step coverage", "HDPCVD", "HKMG", "단채널 효과"],
+      date: "2026-11-11",
+      updated: "2026-11-13",
+      notion: "https://app.notion.com/p/4156b8b7c6bb8059adc8fb3b58f31b6a"
     },
     {
       id: "notes-qa",

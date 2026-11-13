@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>더인 교육 7일차</title>
+<meta name="description" content="더인 교육 7일차: Plasma etching 원리, 식각 장비 분류(CCP·MERIE·ICP·ECR·Helicon), RIE와 Self bias, Pulsed Plasma, Si·SiO₂·Si₃N₄ 식각 화학과 선택비, Loading effect·Uniformity 정리 노트">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-root="../../" data-topic="thein-day7">
+
+<div id="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <button id="menuBtn" class="icon-btn menu-btn" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <a id="brand" class="brand" href="../../index.html">나의 공부 공간</a>
+  <nav id="tabs" class="tabs" aria-label="영역"></nav>
+  <button id="themeBtn" class="icon-btn" aria-label="다크 모드 전환">◐</button>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="목차">
+    <div class="sidebar-head">
+      <a href="#top" class="sidebar-title">더인 교육 7일차</a>
+    </div>
+    <nav id="toc"></nav>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <main id="top" class="content">
+
+    <header class="cover">
+      <h1>더인 교육 7일차</h1>
+      <p class="meta">날짜: 2026-11-10 · 종류: 교육</p>
+      <p class="meta">원본: 사용자 노션 필기 (더인 교육 7일차)</p>
+
+      <div class="toc-box">
+        <b>목차</b>
+        <p><a href="#s1">Plasma etching principles</a> · <a href="#s2">Etch chamber</a> · <a href="#s3">RIE 공부하기</a> · <a href="#s4">Classification of Etching Reactors</a> · <a href="#s5">CCP(Capacitively Coupled Plasma)</a> · <a href="#s6">ICP(Inductively Coupled Plasma)</a> · <a href="#s7">RIE vs Sputter vs PECVD</a> · <a href="#s8">MERIE (Magnetically Enhanced Reactive ion Etching)</a> · <a href="#s9">HDP (High Density Plasma)</a> · <a href="#s10">ICP (Inductively Coupled Plasma)</a> · <a href="#s11">TCP(Transformer Coupled plasma) → Ferrite ICP → SWP(Surface Wave-excited Plasma → ECR(Electron Cyclotron Resonance)</a> · <a href="#s12">Helicon Plasma (헤리콘 플라즈마)</a> · <a href="#s13">Pulsed Plasma</a> · <a href="#s14">Etching Species</a> · <a href="#s15">Boiling point of etch product</a> · <a href="#s16">Etch Chemisrty &amp; Reaction Mechanism</a> · <a href="#s17">Si Etching</a> · <a href="#s18">C/F의 비율에 따라 식각되는 정도가 다르다.</a> · <a href="#s19">Doping effect</a> · <a href="#s20">Effects of Process Variables</a> · <a href="#s21">Etch Selectivity를 증가시키는 방법</a> · <a href="#s22">SiO₂ Etching Mechanism</a> · <a href="#s23">Si₃N₄ Etching</a> · <a href="#s24">Dry Etch Critical Parameters</a> · <a href="#s25">Loading Effect</a> · <a href="#s26">ARDE (Aspect Ratio Dependency Effect)</a> · <a href="#s27">Profile Irregularities</a> · <a href="#s28">Etching endpoint dtection by OES</a> · <a href="#s29">가스유량효과</a> · <a href="#s30">기판온도효과</a> · <a href="#s31">RF Power</a> · <a href="#s32">Pressure Effect</a> · <a href="#s33">Frequency Effect</a> · <a href="#s34">Etch Uniformity (균일도)</a> · <a href="#s35">Uniformity의 Major Parameters</a> · <a href="#s36">마무리하며</a> · <a href="#s37">스터디</a></p>
+        <p class="meta small">[사용자 노트 필기] 표시 = 사용자가 노션에 직접 정리한 원본 노트(내용·말투·감상은 원문 그대로). [질문 노트] = 사용자의 질문과 답. [댓글] = 사용자가 노션에 남긴 댓글. 회색 캡션은 이미지 설명.</p>
+      </div>
+    </header>
+
+    <section>
+      <h2 id="s1">1. Plasma etching principles</h2>
+
+      <h3 id="s1-1">Chemical Etching</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 라디칼이 반응해서 Si +4F → SiF₄ 해서 날라가게 된다.</p>
+      </div>
+
+      <h3 id="s1-2">Sputter Etching</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Physical Etching이고 선택비가 낮다.</p>
+        <p>- m.f.p 가 확보 되어야 하기 때문에 저압에서 진행되어야 한다.</p>
+        <p>- Etch Rate이 느린 편이다.</p>
+      </div>
+
+      <h3 id="s1-3">Ion Enhanced Etching</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 물리적으로 화학 결합을 느슨하게 만들고 그곳에 라디칼이 화학적으로 반응하게 됨</p>
+      </div>
+
+      <h3 id="s1-4">Ion Enhanced Inhibitor Etching</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 폴리머를 생성하는 Gas를 사용해서 Etching 을 진행한다. 이러면 식각하는 막이 모든 곳에 다 생기는데, 수직 방향으로 있는 폴리머는 Sputtering에 의해서 제거가 된다. 하지만 측벽에는 남아있다.</p>
+        <p>- SF₆ / CFCl₃ 를 사용하면 SF₆ 만 사용했을 때보다 Undercut을 방지할 수 있다. Undercut은 측벽이 보호되지 않았을 때 일어나는 현상이니까.</p>
+        <p>- CFCl₃를 사용하면 CFₓ 계열 라디칼에 의해 폴리머 형성되고, 이게 측벽에 붙어서 식각 억제 역할을 한다.</p>
+        <p>- 이때 폴리머의 양을 조절하고 싶으면 H₂나 O₂를 사용할 수 있다. O₂를 사용하면 CO₂ 이런식으로 반응하니까 C의 양이 줄고, 폴리머의 양이 줄어든다.</p>
+      </div>
+
+      <h3 id="s1-5">Deep RIE</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Bosch Process Dr.Sammy 영상에서 배웠음</p>
+        <p>- SFₓ 계열을 사용해서 조금 에칭을 해준다. 그리고 폴리머로 증착을 해준다. 그리고 수직 방향은 etching을 진행한다. 그리고 다시 SFₓ를 사용해서 에칭.</p>
+      </div>
+
+      <h3 id="s1-6">&lt;Dr.Sammy 내용></h3>
+      <figure><img src="images/fig01.png" width="958" height="661" alt="Dr.Sammy — DRIE: 깊이를 파는 기술 (HBM의 TSV, 3D NAND 수백 층 구멍 식각)" loading="lazy"><figcaption>Dr.Sammy — DRIE: 깊이를 파는 기술 (HBM의 TSV, 3D NAND 수백 층 구멍 식각) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig02.png" width="958" height="663" alt="Dr.Sammy — Bosch 공정의 핵심: 식각(SF₆) → 보호막 증착(C₄F₈) → 이방성 식각(SF₆ + Bias) → 반복" loading="lazy"><figcaption>Dr.Sammy — Bosch 공정의 핵심: 식각(SF₆) → 보호막 증착(C₄F₈) → 이방성 식각(SF₆ + Bias) → 반복 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig03.png" width="955" height="667" alt="Dr.Sammy — DRIE 단면 SEM: 측벽의 울퉁불퉁한 형상" loading="lazy"><figcaption>Dr.Sammy — DRIE 단면 SEM: 측벽의 울퉁불퉁한 형상 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig04.jpg" width="1400" height="1050" alt="Etch Profile Control — Damaging(Oxide · Nitride)과 Blocking(Epi-silicon · Poly-silicon · Metal) (교재)" loading="lazy"><figcaption>Etch Profile Control — Damaging(Oxide · Nitride)과 Blocking(Epi-silicon · Poly-silicon · Metal) (교재) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Oxide와 Nitride는 이온 폭격 정도가 강해야지 식각이 가능하다.</p>
+        <p>→ Oxide와 Nitride는 결합이 강하기 때문에 라디칼만 사용해서 식각이 잘 안된다. 따라서 이온으로 때려줘야지 라디칼이 반응할 수 있다.</p>
+        <p>- Blocking은 polymer로 측벽을 보호해주지 않으면 이방성 식각이 어렵다. 왜냐하면 얘네는 라디칼만 있어도 식각이 되기 때문이다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Blocking은 polymer로 측벽을 보호해주지 않으면 이방성 식각이 어렵다.”</p>
+        <p>흠…흠??</p>
+      </div>
+      <figure><img src="images/fig05.jpg" width="1400" height="1050" alt="Plasma Etching Techniques and Equipment — 이온 에너지와 압력에 따른 식각 장비 분류 (교재 124pg)" loading="lazy"><figcaption>Plasma Etching Techniques and Equipment — 이온 에너지와 압력에 따른 식각 장비 분류 (교재 124pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Ion Energy는 낮아지는 쪽 압력은 낮아지는 쪽으로 변화하고 있다.</p>
+      </div>
+      <figure><img src="images/fig06.jpg" width="1400" height="1050" alt="High vs Low Density Plasmas — 전자·이온 밀도(10⁸~10¹⁴ cm⁻³)에 따른 저밀도·고밀도 플라즈마 (교재)" loading="lazy"><figcaption>High vs Low Density Plasmas — 전자·이온 밀도(10⁸~10¹⁴ cm⁻³)에 따른 저밀도·고밀도 플라즈마 (교재) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Low Density 일 때는 플라즈마 밀도가 낮으니까 강하게 때려야했는데, 플라즈마 밀도를 높이면 덜 강하게 때려도 된다.</p>
+        <p>- High Density의 경우 bias를 따로 조절할 수 있다는 장점이 있고, 이는 이온 타격에 의해 데미지가 가해지는 것을 줄일 수 있다.</p>
+        <p>→ 예전에는 플라즈마 밀도를 높이기 위해서는 이온 타격의 세기가 강해지는 것을 감수해야했으니까</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s2">2. Etch chamber</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 결국에는 압력을 낮추려고 한다. 압력을 낮춰야지 식각 부산물 제거에도 도움이 되고, 이온 산란도 적어진다. 근데 압력이 낮아지면 gas가 적다는 것은 반응종이 적다는 것이니까 Etch 속도가 느려진다. 따라서 압력을 낮춘다면 플라즈마 밀도를 높여서 상호보완을 해줄 수 있어야 한다.</p>
+        <p>- 그런데 압력을 낮췄을 때 생기는 Trade-off 관계를 고려하지 않으면, 너무 압력이 낮아지면 아예 플라즈마 형성이 안될 수도 있다.</p>
+      </div>
+      <figure><img src="images/fig07.png" width="949" height="861" alt="Electrostatic Chuck (ESC) — Wafer 뒷면 He 냉각과 DC Power (강의 슬라이드)" loading="lazy"><figcaption>Electrostatic Chuck (ESC) — Wafer 뒷면 He 냉각과 DC Power (강의 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 수업 시간에 다시 한 번 언급됨.</p>
+        <p>- 균일도를 조절한다는 것은 온도를 균일하게 만들어주는 것이다.</p>
+        <p>- 그리고 온도는 낮을 수록 좋다. 그래야 폴리머들도 낮아야 잘 붙어있지 너무 높으면 잘 붙어있기 어렵다.</p>
+        <p>ex) 극저온 식각을 하는 이유도 폴리머가 잘 붙어 있을 수 있게 해주는 것이다. 잘 붙어 있어야 보호막의 역할을 해줄 수 있는 것이다.</p>
+        <p>→ Si 기준으로는 SF₆/O₂ 조합을 사용한다고 한다. 그래서 SiF₄가 되어서 gas가 되어 날라간다. 그리고 Si 표면에 SiOxFy 가 만들어주고 이 층이 보호해주는 역할을 한다. 근데 그래서 SiOxFy가 폴리머는 아니잖아? 설명이 맞는걸까?</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “그리고 온도는 낮을 수록 좋다. 그래야 폴리머들도 낮아야 잘 붙어있지 너무 높으면 잘 붙어있기 어렵다.”</p>
+        <p>조금 더 과학적으로 설명을 바꿔서 메모하기</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “→ Si 기준으로는 SF₆/O₂ 조합을 사용한다고 한다. 그래서 SiF₄가 되어서 gas가 되어 날라간다…”</p>
+        <p>나중에 가능하면 다시 확인해보기</p>
+      </div>
+      <figure><img src="images/fig08.jpg" width="1400" height="1050" alt="Etching Reactors Tree — Low/High plasma density와 CCP · MERIE · ICP · M-ICP · ECR · Helicon (교재 130pg)" loading="lazy"><figcaption>Etching Reactors Tree — Low/High plasma density와 CCP · MERIE · ICP · M-ICP · ECR · Helicon (교재 130pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- CCP type에서 RF 코일이 어디쪽에 붙어 있는지에 따라서 Plasma etching, RIE Etching이 구분된다.</p>
+        <p>→ 아마 Plasma etching이 웨이퍼 반대쪽에 코일이 있고, RIE Etching이 웨이퍼 쪽에 코일이 있는 것 아닐까? ㅇㅇ 맞음</p>
+      </div>
+      <figure><img src="images/fig09.png" width="826" height="1422" alt="플라즈마 모드(Plasma mode)와 RIE 모드 — 그림 4-69, 4-70 (렛유인 교재)" loading="lazy"><figcaption>플라즈마 모드(Plasma mode)와 RIE 모드 — 그림 4-69, 4-70 (렛유인 교재) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 렛유인에 있는 교재에서는 그래서 Capacitor가 어디있으면 접지는 어떻게 되어있는지 제대로 나와있지 않아서 공부하면서 이미지를 만들었음. 이미지 조차도 정확하진 않겠지만 적어도 Self bias가 생기는 지 정확히 짚고 넘어가기</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s3">3. RIE 공부하기</h2>
+      <figure><img src="images/fig10.jpg" width="1400" height="933" alt="RIE 시스템: RF 경로와 공통 접지 — Blocking capacitor(CB)와 절연 피드스루 (직접 정리한 그림)" loading="lazy"><figcaption>RIE 시스템: RF 경로와 공통 접지 — Blocking capacitor(C<sub>B</sub>)와 절연 피드스루 (직접 정리한 그림) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- RF는 Wafer 쪽에 걸려있다. Wafer에 들어오는 전자는 Capacitor 전극 쪽 판에 쌓여서 빠져나가지 못한다. 전자가 유전체(절연체)를 뚫고 갈 수가 없잖아? 그렇기 때문에 반대쪽 (+)가 쌓이는건 전자가 쌓인 결과로 일어나는 상황이다.</p>
+        <p>- 반대편은 접지 되어 있어서 전극으로 전자가 들어가도 빠져나갈 것이다. 그러니까 0V가 되는 것이다.</p>
+        <p>- 결국에 전극에 전자가 쌓이게 되는 것은 질량이 가볍고, 그에 따르게 RF 파워가 인가됨에 따라 전기장에 따라 빠르게 움직이기 때문이다. 그리고 Blocking Capacitor가 있어야한다.</p>
+        <p>- 계속 헷갈렸던 Capacitor에 대해서. 웨이퍼 쪽 판은 평균적으로 계속 (-)이고, 맞은편은 평균적으로 계속 (+) 이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s4">4. Classification of Etching Reactors</h2>
+      <figure><img src="images/fig11.jpg" width="1400" height="1050" alt="Classification of Etching Reactors — Pressure와 Plasma Density에 따른 Helicon · ECR · ICP · Magnetron RIE · RF Plasma (교재)" loading="lazy"><figcaption>Classification of Etching Reactors — Pressure와 Plasma Density에 따른 Helicon · ECR · ICP · Magnetron RIE · RF Plasma (교재) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 일단 Low plasma density 일 때부터 제대로 이해하고, How plasma density가 왜 필요한지 안 다음에 각 항목들에 대해서 이해해라!</p>
+        <p>- <u>압력은 낮아지는 쪽 플라즈마 밀도는 높아지는 쪽으로 발전</u>됐다. 이런게 별거 아닌 것 같은데 머릿속에 이런 지식이 있는 사람과 없는 사람은 분명하게 차이가 난다.</p>
+        <p>- 결국에 높은 이방성을 갖고, 높은 선택비를 갖으며, 손상이 적기를 바라기 때문에 이런식으로 발전이 이루어졌다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s5">5. CCP(Capacitively Coupled Plasma)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Coupled 라는 것은 “결합된” 인데, 그냥 앞 뒤를 연결하는 즉 ~를 이용한 Plasma이다 라는 의미이다.</p>
+        <p>- Capacitor 자체도 위 아래 전극이 존재하고, 유전체가 가운데에 있는 구조인데, CCP도 결국 챔버 안에 상부 전극과 하부 전극이 있다. 그리고 그 가운데에 유전체(?)가 있다.</p>
+        <p>- 전극간 거리가 1~10cm로 내 생각보다 가깝다.</p>
+        <p>- CCP는 이온화 에너지도 상당히 크고, 균일한 플라즈마가 형성된다고 한다.</p>
+        <p>- 하지만 RF power가 한 개이다 보니 이온 충격과 밀도가 따로 조절이 어렵다.</p>
+        <p>- 웨이퍼에 충돌하는 이온 에너지는 줄이고 싶고, 플라즈마 밀도는 높기를 원하는 상황인데 이게 연동해서 되기 때문에 잘 안된다.</p>
+        <p>→ 그래서 Dual RF 를 걸어서 개선하려고 하지만 일반적인 CCP는 RF power는 한 개뿐이다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Capacitor 자체도 위 아래 전극이 존재하고, 유전체가 가운데에 있는 구조인데, CCP도 결국 챔버…”</p>
+        <p>유전체는 아닐 것 같은데, 그럼 뭐지? 유전체 일 수도 있나? 공기도 유전상수가 1인 기준이 되긴 하잖아</p>
+        <p>플라즈마가 형성되지 않은 상태에서 Gas만 들어가 있으면 그것도 유전체라고 볼 수 있을 것이다. Claude가 말하기를 플라즈마가 형성되면 그때는 도체?라고 하긴 하는데 애매하다.</p>
+      </div>
+      <figure><img src="images/fig12.png" width="936" height="639" alt="System — Process gases · Magnet coils · Chuck · RF Power (MERIE 구조, 강의 슬라이드)" loading="lazy"><figcaption>System — Process gases · Magnet coils · Chuck · RF Power (MERIE 구조, 강의 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 사실 이 그림은 MERIE로 RIE의 한 예시이다. RIE이긴 하지만 Magent coil이 있으니까!</p>
+        <p>- 실제로 전극 면적의 차를 통해서 접지하는 곳을 크게 해주는데, 그냥 전극만 크게 해주는게 아니라 chamber 자체를 접지 시켜주고 웨이퍼가 올라가는 곳은 작게 만들어준다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s6">6. ICP(Inductively Coupled Plasma)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 코일을 통해서 유도 자기장을 형성하고, 유도 전기장이 형성 → 고밀도 플라즈마 형성</p>
+      </div>
+
+      <h3 id="s6-1">&lt;세종대 이원준 교수님></h3>
+      <figure><img src="images/fig13.png" width="936" height="643" alt="ICP — 저압 고밀도 플라즈마 소스, 무전극형(electrodeless) (강의 슬라이드 53)" loading="lazy"><figcaption>ICP — 저압 고밀도 플라즈마 소스, 무전극형(electrodeless) (강의 슬라이드 53) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig14.png" width="933" height="642" alt="Planar ICP source — Transformer-coupled plasma(TCP) (강의 슬라이드 54)" loading="lazy"><figcaption>Planar ICP source — Transformer-coupled plasma(TCP) (강의 슬라이드 54) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 결국 플라즈마는 코일이 감겨져 있는 곳 위치에서 발생하게 된다.</p>
+        <p>→ 당연한 소리 근데 이원준 교수님이 첫번째 사진처럼 되어있기 보다는 위에 모기향처럼 되어있다고 했음. 실제 클린룸에서는 공간을 덜 차지해야하니까</p>
+        <p>- 결국 저압으로 만들고 싶은데 플라즈마 밀도가 감소하는 문제를 코일을 사용해서 플라즈마 밀도와 이온 충격을 구분해서 나눌 수 있게 되었다. (반복 또 반복..)</p>
+        <p>- CCP에 비해서 플라즈마 자체의 균일도는 떨어진다고 한다. (Trade-off..) 왜냐하면 코일 근처에서만 플라즈마가 형성될 테니까.</p>
+        <p>→ 조금 더 깊이 파보자면 ICP는 <u>Skin 깊이 만큼만 플라즈마가 주로 생성</u>된다고 함</p>
+      </div>
+      <figure><img src="images/fig15.jpg" width="1400" height="1050" alt="Electron heating — CCP는 RF Sheath(~mm), ICP는 Skin depth(~cm) (교재)" loading="lazy"><figcaption>Electron heating — CCP는 RF Sheath(~mm), ICP는 Skin depth(~cm) (교재) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- ICP는 코일에 의해 플라즈마가 이와 같이 형성되기 때문에 스킨 깊이를 깊게 하려고 한다.</p>
+        <p>- CCP 는 RF 파워 하나에 의해서 Self bais도 걸리게 되는 것이고, ICP에서는 RF 파워 한 개는 플라즈마 형성, 나머지 RF 파워에 의해서 Self bias가 걸리게 되는 것이다. (순간 ICP는 Self bias가 안걸린다고 착각)</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “ICP는 코일에 의해 플라즈마가 이와 같이 형성되기 때문에 스킨 깊이를 깊게 하려고 한다.”</p>
+        <p>이런건 전에 생각도 못해봤을 듯</p>
+      </div>
+      <figure><img src="images/fig16.jpg" width="1400" height="1050" alt="Plasma source comparison — CCP · ECR · HWP · ICP의 주파수·압력·플라즈마 밀도·이온에너지 비교 (교재)" loading="lazy"><figcaption>Plasma source comparison — CCP · ECR · HWP · ICP의 주파수·압력·플라즈마 밀도·이온에너지 비교 (교재) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 결국 전체적인 흐름은 플라즈마 밀도를 높이는 방향, 그리고 이온에너지를 낮추는 방향으로 발전했다.</p>
+        <p>- CCP에서 이온에너지가 높을 수 밖에 없는 것은 어쩔 수 없이 RF 파워 한 개로 플라즈마를 형성하는 방법의 한계</p>
+      </div>
+      <figure><img src="images/fig17.jpg" width="1400" height="1050" alt="CCP (Capacitively Coupled Plasmas) — Dual Frequency CCP 구조 (교재)" loading="lazy"><figcaption>CCP (Capacitively Coupled Plasmas) — Dual Frequency CCP 구조 (교재) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 근데 또 웃긴게 CCP에도 RF 파워를 두 개 걸어줄 수도 있다고 함.</p>
+        <p>- 근데 이 때 웨이퍼쪽에 이온충격을 가해주는 쪽은 낮은 주파수가 걸리긴 한다. 위에는 플라즈마를 형성하기 위해 높은 주파수를 사용한다. 결국 따로 조절하기 위함이다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “근데 또 웃긴게 CCP에도 RF 파워를 두 개 걸어줄 수도 있다고 함.”</p>
+        <p>ICP와는 분명 다른데, CCP에서 RF 가 따로 걸리면 둘이 겹치지 않고 가능한거야?</p>
+      </div>
+      <figure><img src="images/fig18.png" width="711" height="478" alt="Dual Frequency CCP — 고주파·저주파 RF의 역할 (설명 캡처)" loading="lazy"><figcaption>Dual Frequency CCP — 고주파·저주파 RF의 역할 (설명 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 결국 예상한 것처럼 CCP 에서는 구분해서 사용하지만 서로가 완전히 독립적이라고 말하기는 어렵다. 서로가 간섭하는 상황이 생긴다는 것이지.</p>
+      </div>
+      <figure><img src="images/fig19.jpg" width="1400" height="1050" alt="Applications of CCP — High Aspect Ratio Contact: 3D NAND Flash와 DRAM Capacitor (교재 146pg)" loading="lazy"><figcaption>Applications of CCP — High Aspect Ratio Contact: 3D NAND Flash와 DRAM Capacitor (교재 146pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 그래서 결국 사용하는 곳은 Metal gate?</p>
+        <p>- DRAM Capacitor가 SiO₂로 길게 서있는데, 이걸 Etching을 잘해줘야 하고, 이 때 SiO₂를 Etching 하기 위해서 필요하다?</p>
+        <p>- Si₃N₄는 왜 필요한지 알고 있고, <u>그게 왜 무너지는지는 세정하고 말리는 과정에서 서로 붙어버리기 때문에 막기 위해 저렇게 물리적으로 잡아주는 것임. 표면 장력이 존재하고, 서로 건조시키면서 표면적을 적게 하려고 하고? 서로 붙어버리게 된다.</u></p>
+        <p>- 각 단위 공정은 세정팀은 초임계유체를 만들자! 라는 cleaning 을 잘하려고 했지만, 결국에는 Si₃N₄ 를 이용해서 잡아주게 되었다. 그러니까 각 단위공정을 잘하는 사람은 자기껏만 잘하려고 한다는 것이지.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “각 단위 공정은 세정팀은 초임계유체를 만들자! 라는 cleaning 을 잘하려고 했지만, 결국에는 Si₃…”</p>
+        <p>아는 만큼 보인다는게 이런 말인 듯하다. 이거 Dr.Sammy 영상 안봤으면 어떻게 아는데?</p>
+      </div>
+
+      <h3 id="s6-2">&lt;Dr.Sammy></h3>
+      <figure><img src="images/fig20.png" width="951" height="811" alt="Dr.Sammy — Stacked Capacitor Process: Step 3 (Supporter 패터닝과 mold 산화막 dip-out)" loading="lazy"><figcaption>Dr.Sammy — Stacked Capacitor Process: Step 3 (Supporter 패터닝과 mold 산화막 dip-out) (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s7">7. RIE vs Sputter vs PECVD</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 전부 CCP type이지만 사용 용도가 다르고, 어떻게 다른지를 설명할 수 있어야한다.</p>
+        <p>- RIE 경우에는 전극 크기 차이를 이용해서 Self Bias를 걸어준다. 그래서 wafer 쪽 말고 반대를 쫙 감싸는 챔버를 Ground 에 접지 시켜둠</p>
+        <p>- Sputtering Wafer 쪽은 챔버를 접지 시킨다. 그리고 Target 쪽 면적이 작고 식각은 아니지만 이온 폭격이 Target 쪽으로 일어날 수 있게 해준다.</p>
+        <p>- PECVD 는 플라즈마를 이용해서 화학 반응을 일으킨다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s8">8. MERIE (Magnetically Enhanced Reactive ion Etching)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- RIE 공정에서 발전시킨 형태</p>
+        <p>- 챔버 위쪽에서 전자를 컨트롤해서 고밀도 플라즈마를 형성하게 해준다.</p>
+        <p>- 균일도를 높이기 위해서 기판을 회전 시켜준다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s9">9. HDP (High Density Plasma)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 공정 압력을 낮추고 싶었고, 낮출 수 있게 되었다. (m.f.p 확보)</p>
+        <p>- 플라즈마 밀도를 높이고 싶었고, 높일 수 있게 되었다.</p>
+        <p>- 이에 따라 식각속도(?), 선택비가 좋아졌다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s10">10. ICP (Inductively Coupled Plasma)</h2>
+      <figure><img src="images/fig21.jpg" width="1400" height="1050" alt="ICP (Inductively Coupled Plasmas) — Cylindrical type과 Planar type (교재 155pg)" loading="lazy"><figcaption>ICP (Inductively Coupled Plasmas) — Cylindrical type과 Planar type (교재 155pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 자기장 전기장에 의해서 전자들이 가속되고 이온화되고 플라즈마가 형성된다.</p>
+      </div>
+
+      <h3 id="s10-1">패러데이 법칙</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 코일에 전류가 흐르게 되고, 유도 전기력이 발생하게 된다.</p>
+        <p>- 이걸 이용한 ICP 방식에는 Cylindrical type(실린더 형)과 Planar type(평면 형)이 존재한다.</p>
+      </div>
+      <figure><img src="images/fig22.jpg" width="1400" height="1050" alt="Applications of ICP — polySi Etching과 High aspect ratio anisotropic nanoscale W etching (교재 159pg)" loading="lazy"><figcaption>Applications of ICP — polySi Etching과 High aspect ratio anisotropic nanoscale W etching (교재 159pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Metal이나 Silicon을 고밀도 플라즈마를 사용해서 Etching 하더라</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s11">11. TCP(Transformer Coupled plasma) → Ferrite ICP → SWP(Surface Wave-excited Plasma → ECR(Electron Cyclotron Resonance)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 기존의 ICP를 개선하기 위해서 사용하는 방법들이다.</p>
+        <p>- Ferrite ICP는 페라이트라는 강자성체를 활용해서 수직인 방향으로 전기장이 발생하게 한다.</p>
+        <p>- SWP는 Microwave를 사용한다? 유전체를 사용한다? 이온 충격 에너지는 줄이고 플라즈마 밀도는 높인다.</p>
+        <p>- ECR이라는 방식은 장비가 엄청 크고 복잡하다고 한다. Microwave를 사용한다. Magnetic coil에 의해서 수직인 전기장이 형성된다. 이것도 결국 고밀도 플라즈마.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s12">12. Helicon Plasma (헤리콘 플라즈마)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 특정 부분에 플라즈마 밀도를 집중시키기 위해서 사용한다.</p>
+        <p>- 이렇게 플라즈마를 형성하려면 안테나를 사용해야한다.</p>
+        <p>- 전자가 자기장에 의해 회전하다가 헬리콘 wave를 타는 듯한 느낌?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s13">13. Pulsed Plasma</h2>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Pulsed Plasma”</p>
+        <p>여기 내용은 책 보면서 다시 천천히 공부하기</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 선택비를 개선하고, 플라즈마 손상을 줄이기 위해</p>
+      </div>
+
+      <h3 id="s13-1">&lt;Dr.Sammy></h3>
+      <figure><img src="images/fig23.png" width="830" height="466" alt="Dr.Sammy — 초고속 펄스 플라즈마: 전원 OFF 때 전자 소멸·이온 생존, 일반 식각의 Bowing과 펄스 플라즈마의 수직 식각" loading="lazy"><figcaption>Dr.Sammy — 초고속 펄스 플라즈마: 전원 OFF 때 전자 소멸·이온 생존, 일반 식각의 Bowing과 펄스 플라즈마의 수직 식각 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 측벽에는 (-) 전하가 쌓이게 되고, 바닥에는 (+)전하가 쌓이게 된다. 이에 따라 양이온이 휘게 되고 Bowing이 생기게 된다. (측벽을 때리게 된다)</p>
+        <p>- 그래서 펄스의 형태로 RF 파워를 걸어주게 되면 RF가 꺼진 사이에 전자들이 무작위로 돌아다니다가 구멍안에 들어오고 그게 바닥에 있는 (+)를 만나서 중화시키게 된다.</p>
+        <p>→ 이 설명은 정확하지 않을 수도 있긴 할 듯 수업 때 놓쳐가지고..</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “그래서 펄스의 형태로 RF 파워를 걸어주게 되면 RF가 꺼진 사이에 전자들이 무작위로 돌아다니다가 구멍안…”</p>
+        <p>이 설명이 맞는지는 다시 한 번 확인해봐야 할 듯</p>
+      </div>
+      <figure><img src="images/fig24.jpg" width="1400" height="1050" alt="Pulsed Plasma — RF ON/OFF에 따른 이온 에너지 분포와 Charging · Neutralization (교재)" loading="lazy"><figcaption>Pulsed Plasma — RF ON/OFF에 따른 이온 에너지 분포와 Charging · Neutralization (교재) (출처: 사용자 노션 캡처)</figcaption></figure>
+
+      <h3 id="s13-2">Bias를 on/off 했을 때</h3>
+      <figure><img src="images/fig25.jpg" width="1400" height="1050" alt="바이어스 on/off — Bias RF ON/OFF에서의 Polymer 증착과 식각 (교재 176pg)" loading="lazy"><figcaption>바이어스 on/off — Bias RF ON/OFF에서의 Polymer 증착과 식각 (교재 176pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 전기장이 꺼진 상태이면 polymer가 많이 쌓인다.</p>
+        <p>- 전기장이 켜진 상태이면 polymer가 쌓여도 이온 폭격으로 인해 etch가 된다.</p>
+        <p class="sub">– pulsing을 하게 되면 더 큰 에너지가 가해지게 할 수 있다. 끄고 나서 켰을 때의 이온화 에너지가 강하다고 한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s14">14. Etching Species</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 도입되는 기체, 라디칼, 반응성 이온</p>
+        <p>- 반응성 이온에는 주로 Positive 이온이 있다.</p>
+        <p></li></p>
+        <p><li></p>
+        <p>항상 식각을 할 때는 대상이 식각이 잘 되는지 뿐만 아니라 선택적으로 식각이 가능해야됨</p>
+        <p></li></p>
+        <p><li></p>
+        <p>끓는 점을 통해 휘발성을 확인해야 한다.</p>
+        <p></li></p>
+        <p><li></p>
+        <p>B.P가 낮다는 것은 식각이 잘되고, 높다는 것은 식각이 잘 되지 않는다는 것이다.</p>
+        <p></li></p>
+        <p></ul></p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “항상 식각을 할 때는 대상이 식각이 잘 되는지 뿐만 아니라 선택적으로 식각이 가능해야됨”</p>
+        <p>당연하지만 이런걸 배워가면 좋다</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s15">15. Boiling point of etch product</h2>
+      <figure><img src="images/fig26.jpg" width="1400" height="1050" alt="Boiling point of etch product — 식각 생성물의 끓는점 표 (교재 183pg)" loading="lazy"><figcaption>Boiling point of etch product — 식각 생성물의 끓는점 표 (교재 183pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 휘발성이 낮거나, 흡열 ΔH>0 반응이면 잘 일어나지 않는다. 휘발성과 열역학적으로 어떻게 되는지 고려해야 한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s16">16. Etch Chemisrty &amp; Reaction Mechanism</h2>
+      <figure><img src="images/fig27.jpg" width="1400" height="1050" alt="Etch Chemistry &amp; Reaction Mechanism — Si + 4F, Si + 4Br, Si + 4Cl 식각 (교재 185pg)" loading="lazy"><figcaption>Etch Chemistry & Reaction Mechanism — Si + 4F, Si + 4Br, Si + 4Cl 식각 (교재 185pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- SiF₄ 같은 경우는 Boiling Temp가 굉장히 낮고 식각이 잘된다.</p>
+        <p>- Si에서 F gas를 쓸 때 Poor anisotropy?</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Si에서 F gas를 쓸 때 Poor anisotropy?”</p>
+        <p>여기 한 번만 다시 찾아서 보기</p>
+      </div>
+      <figure><img src="images/fig28.jpg" width="1400" height="1050" alt="Halogen Species Effect — 할로겐 종류별 Si 식각 속도(이온 유무)와 식각 프로파일 (교재)" loading="lazy"><figcaption>Halogen Species Effect — 할로겐 종류별 Si 식각 속도(이온 유무)와 식각 프로파일 (교재) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이온 폭격 없이 진행하게 되면 이방성을 확보하기가 어렵다. (=라디칼의 화학적인 반응만 이용하면)</p>
+        <p>슬라이드 187pg</p>
+      </div>
+      <figure><img src="images/fig29.jpg" width="1400" height="1050" alt="Dry Etching of Various Thin Films — Fluorocarbon계 Si 식각 파라미터(Pressure · RF Power · Wafer Loading · H₂/O₂ 첨가) (교재 187pg)" loading="lazy"><figcaption>Dry Etching of Various Thin Films — Fluorocarbon계 Si 식각 파라미터(Pressure · RF Power · Wafer Loading · H₂/O₂ 첨가) (교재 187pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>(1) 압력이 높아지면 F atom이 많아지면 이온이 때리는 힘이 낮아지고 이방성이 안좋아진다.</p>
+        <p>(2) RF power가 커지면 F atom도 많아지고 이온이 때리는 힘이 좋아지고 이방성도 좋다.</p>
+        <p>(3) Wafer Loading</p>
+        <p>(4,5) F/C 비율은 조절이 가능하다.</p>
+        <p>- CxFy랑 H₂가 만나면 HF가 많아진다. → C 비율이 커진다.</p>
+        <p>- CxFy랑 O₂랑 만나면 COₙ이 많아진다. → F 비율이 커진다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s17">17. Si Etching</h2>
+      <figure><img src="images/fig30.jpg" width="1400" height="1050" alt="For etching Si — CF₄ gas에 의한 Si 식각 반응 (교재 188pg)" loading="lazy"><figcaption>For etching Si — CF₄ gas에 의한 Si 식각 반응 (교재 188pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- SiF₄는 휘발성이 매우 좋다.</p>
+        <p>- SiF₂는 5~30% 만들어지고 SiF₄가 대부분 만들어진다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s18">18. C/F의 비율에 따라 식각되는 정도가 다르다.</h2>
+      <figure><img src="images/fig31.jpg" width="1400" height="1050" alt="Silicon(Si) Etching — C/F Ratio 효과 (교재 189pg)" loading="lazy"><figcaption>Silicon(Si) Etching — C/F Ratio 효과 (교재 189pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- polymer를 많이 생성할 수 있게 해주면 등방성 식각보다 이방성이 식각이 가능하다. 측벽 passivation이 되기 때문이다.</p>
+        <p>- 근데 C가 너무 많이 생기면 (CHF₃)의 경우 양쪽 측벽을 너무 보호해주기 때문에 식각 프로파일이 맨 오른쪽처럼 된다.</p>
+        <p>- H₂의 양이 늘어나게 되면 HF가 많이 생성되고, C의 비율이 커지게 된다.</p>
+      </div>
+      <figure><img src="images/fig32.jpg" width="1400" height="1050" alt="Silicon(Si) Etching — CF₄ + H₂ plasma에서 SiO₂ 식각과 선택비 (교재 190pg)" loading="lazy"><figcaption>Silicon(Si) Etching — CF₄ + H₂ plasma에서 SiO₂ 식각과 선택비 (교재 190pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Si와 SiO₂가 있을 때 Si가 식각이 잘 안되게 만들고 싶은 상태이다. 그래서 좌측에서 Si의 식각속도가 떨어지는데 이는 H₂를 넣어서 CF₄에서 F를 붙잡아 HF를 형성하게 한다. 그러면 Si는 F 와 반응해서 식각하는데 F의 양이 줄었으니 Si의 식각 속도가 느려지는 것이다.</p>
+        <p>- SiO₂ 자체는 식각속도의 변화가 크지 않다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 왜 SiO₂ 자체의 식각속도 변화는 크지 않은지?</p>
+        <p>A. Si는 F 원자가 식각하고, SiO₂는 이온 충격과 CFₓ가 식각하기 때문입니다. H₂는 F만 줄이니 Si만 크게 느려지고 SiO₂는 별로 영향을 받지 않습니다.<br><br></p>
+      </div>
+      <figure><img src="images/fig33.jpg" width="1400" height="1050" alt="Silicon(Si) Etching — CF₄ + O₂ mixture에서의 선택비 (교재 191pg)" loading="lazy"><figcaption>Silicon(Si) Etching — CF₄ + O₂ mixture에서의 선택비 (교재 191pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- CF와 O₂는 C가 없어지게 되고 F의 양이 늘어나게 된다. SiO₂는 앞에서도 그렇고 여기에서도 그렇고 민감하지 않기 때문에 잘 변하지 않음. But F의 양이 늘어나니까 Si와 식각되어서 사라지는 속도가 빨라짐.</p>
+        <p>- 근데 O₂를 적당히 넣어야지 어느정도 이상되면 Si가 O₂랑 반응해서 SiO₂가 생성되기 때문에 포물선 그림을 그리게 된다. 따라서 최적의 지점을 찾아야 함.</p>
+      </div>
+      <figure><img src="images/fig34.jpg" width="1400" height="1050" alt="Silicon(Si) Etching — SiO₂와 Si 간의 선택비에 대한 F/C 비율의 영향 (교재 192pg)" loading="lazy"><figcaption>Silicon(Si) Etching — SiO₂와 Si 간의 선택비에 대한 F/C 비율의 영향 (교재 192pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 결국 여기에서도 무조건 좋은 건 없고, 적당히 최적의 조건을 찾는 게 중요하다.</p>
+        <p>- 이렇게 Gas 에 따라서 식각비를 조절할 수 있다.</p>
+        <p>- CHF₃에서 H와 반응해서(?) F가 빠져 CF₂가 만들어진다.</p>
+        <p>193pg</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s19">19. Doping effect</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 아 ~ 이런게 있구나</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s20">20. Effects of Process Variables</h2>
+      <figure><img src="images/fig35.jpg" width="1400" height="1050" alt="Effects of Process Variables — F/C 비율 · 압력 · 이온 충격 에너지와 Etching Area (교재 194pg)" loading="lazy"><figcaption>Effects of Process Variables — F/C 비율 · 압력 · 이온 충격 에너지와 Etching Area (교재 194pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Silcon Etching 시에 중요한 파라미터를 알 수 있다.</p>
+        <p>- C가 많아지면 polymer가 많아져서 etching이 잘 안됨. 그래서 polymer가 많아지면 측벽 보호가 되니까 이방성이 좋아진다.</p>
+        <p>- F가 많아지면 식각이 잘되는 것이고. (Si랑 만나서 F가 사라지니까)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s21">21. Etch Selectivity를 증가시키는 방법</h2>
+      <figure><img src="images/fig36.jpg" width="1400" height="1050" alt="Etch Selectivity를 증가시키는 방법 — Carbon Blocking · Etch Product Volatility · Thermodynamics · Ion Bombardment (교재 195pg)" loading="lazy"><figcaption>Etch Selectivity를 증가시키는 방법 — Carbon Blocking · Etch Product Volatility · Thermodynamics · Ion Bombardment (교재 195pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+
+      <h3 id="s21-1">(1) Carbon Blocking</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- F 많 → Si 에칭 많 / F 적 → Si 에칭 적 : 이 자체가 F/C 비율을 변화시키고 있는 것임</p>
+      </div>
+
+      <h3 id="s21-2">(2) Etch Product Volatility</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 반응 부산물의 휘발성을 따져본다.</p>
+      </div>
+
+      <h3 id="s21-3">(3) Thermodynamics</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Cl₂, Br₂는 흡열 반응이라 반응이 자발적으로 잘 일어나지 않는다.</p>
+      </div>
+
+      <h3 id="s21-4">(4) Ion Bombardment</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이온 충격 에너지도 낮추는 방향으로 식각 선택비를 증가시킬 수 있음. 하지만 이온 충격 에너지를 낮춘다는 것은 이방성이 약해진다는 것과 같은 말이다.</p>
+      </div>
+      <figure><img src="images/fig37.jpg" width="1400" height="1050" alt="Etch Selectivity를 증가시키는 방법 — Ion Bombardment를 이용 (교재 196pg)" loading="lazy"><figcaption>Etch Selectivity를 증가시키는 방법 — Ion Bombardment를 이용 (교재 196pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Si는 이온 충격 없이도 etching이 가능하지만 SiO₂는 그렇지 않다. SiO₂는 강한 결합으로 이루어져 있기 때문에 그렇다. 따라서 Ion 폭격을 같이 적용해줘야 한다.</p>
+        <p>- Si의 경우에는 등방성 식각이 일어날 가능성이 크다, 하지만 SiO₂는 크렇지 않다.</p>
+        <p>197pg</p>
+        <p>- 측벽에는 …? 졸아버렸</p>
+        <p>198pg, 199pg</p>
+        <p>- Si₃N₄는 하드마스크로 사용한다.</p>
+        <p>- 그럼왜 F 를 안쓰냐? 라고 하면 Etch 가 너무 잘되어서 등방성 식각이 된다.</p>
+        <p>202pg</p>
+        <p>- SiO₂는 Cl을 써서는 식각이 잘 이루어지지 않는다.</p>
+        <p>- SiO₂를 식각하려면 CFₓ를 사용해서 식각을 해준다. Si와 선택비가 갈린다?</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Si는 이온 충격 없이도 etching이 가능하지만 SiO₂는 그렇지 않다. SiO₂는 강한 결합으로 이…”</p>
+        <p>이 부분도 생각 못해본 부분</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “SiO₂를 식각하려면 CFₓ를 사용해서 식각을 해준다. Si와 선택비가 갈린다?”</p>
+        <p>중간에 흐름이 끊겨서 그런지 헷갈리네 다시 복습하면서 이쪽 파트 사진 추가하고 정리하기</p>
+        <p>결국 폴리머를 생성해서 Si 쪽은 식각이 덜 되게, SiO₂ 쪽이 식각이 잘 되게 세팅하려고 하는 거겠지? (확인 필요)</p>
+      </div>
+      <figure><img src="images/fig38.png" width="766" height="205" alt="SiO₂/Si 선택비 — C가 풍부한 조건에서 Si 표면에 폴리머 보호막이 형성되는 원리 (설명 캡처)" loading="lazy"><figcaption>SiO₂/Si 선택비 — C가 풍부한 조건에서 Si 표면에 폴리머 보호막이 형성되는 원리 (설명 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s22">22. SiO₂ Etching Mechanism</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- CF₄에서 CxFy 라디칼이 형성 → C₂F₄와 같은 폴리머-SiO₂ 결합물이 생김 → 이온 sputtering을 진행하면 CO₂, SiFₙ 기체로 휘발되며 식각이 되는 것이다.</p>
+        <p>- (206pg) Si와 SiO₂ 쪽이 상황이 다른데, SiO₂ 쪽이 더 얇기도 하고, 이쪽이 식각이 된다고 함. Si 쪽은 폴리머 자체가 매우 두껍게 형성되다 보니 식각이 안되는 것이라고 함.</p>
+        <p>207pg</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s23">23. Si₃N₄ Etching</h2>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Si₃N₄ Etching”</p>
+        <p>Si, SiO₂, Si₃N₄ 까지 순차적으로 잘 이해하고 외우면 될 듯함. 이걸 외워두면 식각을 합니다. 라고 할 때 이건 어떤 gas로 etch하면 되고 그 때 선택비를 늘리기 위해서는 어떻게 할 수 있겠다. 이런 걸 생각할 수 있게 될 것임. (아는 만큼 보일테니 공부해라 마치 지구과학)</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Si₃N₄는 S와 SiO₂ 중간 성질을 갖고 있다.</p>
+        <p>- 하하하 집중력 떨어짐;</p>
+        <p>212pg</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s24">24. Dry Etch Critical Parameters</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 여기에서 얼마나 내가 설명할 수 있는지가 곧 엔지니어로서 역량이 되는 것임. 물론 지금 당장은 아니더라도 보고서는 설명할 수 있어야겠지?</p>
+        <p>213pg</p>
+      </div>
+
+      <h3 id="s24-1">(1) Linewidth control</h3>
+
+      <h3 id="s24-2">(2) Directionality control</h3>
+
+      <h3 id="s24-3">(3) Slelectivity control</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 물질 간의 sputter 정도의 차이가 난다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s25">25. Loading Effect</h2>
+
+      <h3 id="s25-1">(1) Macro-Loading Effect</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 식각해야하는 면적이 커지게 되면서 반응물의 농도가 부족하게 되면서 식각속도가 줄어든다.</p>
+        <p>- 해당 현상은 반응물의 농도가 충분해질 수 있게 고압을 가하거나, 높은 소스 파워를 가해준다.</p>
+      </div>
+
+      <h3 id="s25-2">(2) Micro-Loading Effect</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이건 밀도와 관련된 얘기</p>
+      </div>
+
+      <h3 id="s25-3">(3) RIE lag</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 패턴이 좁고 깊은 구조에서는 반응물이 바닥까지 도달한 다음 부산물이 밖으로 빠져나오는게 어렵기 때문에 생기는 현상이다.</p>
+      </div>
+
+      <h3 id="s25-4">(4) Inverse RIE lag</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이건 폴리머가 충분히 보호해주지 못해서 오히려 좁고 깊은데가 더 빨리 식각되는 경우이다.</p>
+        <p>- 그래서 polymer가 잘 증착되지 않는 곳 말고, 잘 증착되는 곳에 쌓이는 폴리머의 양을 줄여서 식각속도 차이를 줄일 수 있음.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s26">26. ARDE (Aspect Ratio Dependency Effect)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 결국 구멍이 작으면 반응물이 들어가기도 어렵고, 반응한 부산물도 나오기 어렵다.</p>
+        <p>- 중성 gas들이 좁은 곳으로 잘 들어가기도 어렵다.</p>
+        <p>- Differential charging 현상은 마스크에 전하가 쌓이고 이에 따라서 문제가 생긴다?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s27">27. Profile Irregularities</h2>
+      <figure><img src="images/fig39.jpg" width="1400" height="1050" alt="Profile Irregularities — Undercut · Tapered · Inversely Tapered · Bowing · Microtrenching · Notching (교재 231pg)" loading="lazy"><figcaption>Profile Irregularities — Undercut · Tapered · Inversely Tapered · Bowing · Microtrenching · Notching (교재 231pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s28">28. Etching endpoint dtection by OES</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 빛의 파장대를 통해 유추해서 알아낸다</p>
+        <p>- 원래 존재했던 intensity가 확 낮아지고 새로운 peak가 발견될 때 원래 있던 Layer가 etching이 되었구나라고 생각할 수 있음</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s29">29. 가스유량효과</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 초기에는 가스 유동속도가 증가함에 따라 식각 속도가 증가하다가, 가스 유동 속도가 과잉 상태가 되면 식각 속도는 감소한다.</p>
+        <p>→ 아마 m.f.p 때문에?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s30">30. 기판온도효과</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 기판의 온도가 높으면 식각속도는 빨라질 수 있어도, 식각선택비는 감소하게 된다.</p>
+        <p>- 기판의 온도가 낮으면 polymer가 잘 부착될 수 있고, 잘 보호해줘서 이방성이 높아지게 된다.</p>
+        <p>- 기판의 온도가 올라가면 PR가 변형될 수 있다. 기판의 온도는 이온 폭격에 의해서 올라갈 수 있다.</p>
+        <p>- F 원자와 같은 경우에는 표면 형상에 영향을 미칠 수 있다?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s31">31. RF Power</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- RF Power가 강해지면 Etch rate은 올라가지만 선택비 측면에서는 안좋아지는 결과</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s32">32. Pressure Effect</h2>
+    </section>
+
+    <section>
+      <h2 id="s33">33. Frequency Effect</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Frequency가 너무 높기 때문에 이온이 Sheath를 통과할 시간이 충분하지 않다.</p>
+        <p><i>Slide 243, 244pg 는 숙제</i></p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s34">34. Etch Uniformity (균일도)</h2>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Etch Uniformity (균일도)”</p>
+        <p>Wafer의 Uniformity를 어떻게 개선할거냐? 라는 면접 질문에 이러한 내용들을 답할 수 있어야 한다 중요!!</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Edge ring이 있는 쪽은 Plasma sheath가 bending이 일어나면서 휘게 된다. 그래서 휜 쪽으로 Etching이 진행된다.</p>
+        <p>→  경계 부위에서 Bending 효과가 일어나서 문제가 생긴다.</p>
+        <p>- 농도나 온도의 변화 역시 Edge 쪽에서 변화가 심하게 변하기 때문에 균일도 유지하기가 어렵다.</p>
+        <p>해결하기 위한 방법으로</p>
+        <p>(1) CCP 에서는 전극 사이의 거리를 가깝게 한다.</p>
+        <p>(2) Gas가 중앙쪽으로 공급될 수 있도록 한다.</p>
+        <p>(3) 부산물들이 Wafer 아래로 빠질 수 있도록 한다.</p>
+        <p>(4) Gas 주입 위치를 세분화해서 주입한다.</p>
+        <p>(5) Wafer 온도도 조금 더 세분화한다.</p>
+        <p>→ 결국에 각각에 대해서 이해뿐만 아니라, 왜 이렇게 해주게 되는 것인지를 설명할 수 있어야한다. 그래야 Etch 공정에 대해 알고 더 나아가서 생기는 문제까지 해결할 수 있는 준비된 사람임을 어필 가능</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “→  경계 부위에서 Bending 효과가 일어나서 문제가 생긴다.”</p>
+        <p>수업 초반에 얘기했던 것처럼 Wafer의 edge 부분은 환경이 다르기 때문에 Uniformity가 좋기 어렵다</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s35">35. Uniformity의 Major Parameters</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Uniformity는 Gap 을 조절 하다가 최적점이 있는 것이고, Etch rate은 줄어들수록 계속 커진다?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s36">36. 마무리하며</h2>
+
+      <h3 id="s36-1">(1) ALE 공정이 필요한 이유</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Etching 을 하게되면 실제로 damage를 입는 정도는 크다. 2Å를 Etch 하겠다고 한다해도 10Å까지도 타격을 준다. 그래서 원자층 단위로 식각을 해야될 필요성이 커지게 된다.</p>
+        <p>- 이건 반응층은 이온 에너지로 때려서 제거를 해줘야 한다. 개질된 층을 이온으로 제거해줘야 한다.</p>
+      </div>
+
+      <h3 id="s36-2">(2) 배우는 과정 중에 구체적인 목표를 세우고 그 목표를 세우는지 체크해라</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 선생님에게 2개씩 매일 질문을 하겠다.</p>
+        <p>- 아니면 팀원들에게 매일 질문 2개씩 던진다……?</p>
+        <p>- 교육과정에서 배운 책을 들고 다니면서 볼 수 없으니 꼭 “요약본”을 만들어라.</p>
+        <p>ex) 매일 공부한 것 요약한 내용 3개 올리기 (팀으로..?)</p>
+        <p></p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s37">37. 스터디</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 나중에 시간되면 소자 기본 동작 원리 같은거 공부해서 서로 공유하기</p>
+      </div>
+
+      <h3 id="s37-1">스터디 때 나왔던 질문</h3>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. RES에서의 k₁과 DOF 에서의 k₂가 다른가?</p>
+        <p>A.</p>
+      </div>
+      <figure><img src="images/fig40.png" width="762" height="178" alt="스터디 질문 — k₁과 k₂의 식과 이론적으로 가질 수 있는 값 (표 캡처)" loading="lazy"><figcaption>스터디 질문 — k₁과 k₂의 식과 이론적으로 가질 수 있는 값 (표 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. Si wafer 위에 HMDS 처리를 하는 것인지, SiO₂ 위에 하는 것인지?</p>
+        <p>A. Si 위에서도, SiO₂ 위에서도 가능하다. 결국에 Si 위에서도 자연산화막이 생기고 그 위에서 H₂O와 반응하는 것이다. 화학반응은 Si-O-Si 에서 H₂O(공기 중의 수분)가 만나서 2 Si-OH 가 되는 반응이다.</p>
+        <p>그리고 HMDS는 Si-OH기가 반응해서 Si-O-Si(CH₃)₃를 만들어서 표면을 소수성으로 바꾼다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. BARC의 정확한 역할이 무엇이며, 위치는 어디인지?</p>
+        <p>A. PR 코팅과 기판 사이에 놓는 반사방지막이다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 정상파가 표면에서 반사되면 정확히 어떻게 되는지?</p>
+        <p>A. 상쇄간섭과 보강간섭이 생긴다..?</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. Negative PR에서 Swelling 현상이 일어나는 이유?</p>
+        <p>A. 가교가 덜 된 곳으로 현상액이 침투해서 부푸는 현상을 의미한다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. ICP에서 코일에 의해 전기장, 자기장이 형성되는 원리?</p>
+        <p>A.</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>필기는 사용자가 노션에 정리한 원문 그대로이며, 이미지는 교재·강의 슬라이드·판서 촬영본입니다.</p>
+      <p><span id="updatedAt"></span> · <a id="notionLink" href="#" target="_blank" rel="noopener" hidden>Notion 원본 보기</a> · <a href="../../index.html">홈으로</a></p>
+    </footer>
+  </main>
+</div>
+
+<button id="toTop" class="to-top" aria-label="맨 위로" hidden>↑</button>
+
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="이미지 확대">
+  <button class="lb-close" aria-label="닫기">✕</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</div>
+
+<script src="../../topics.js"></script>
+<script src="../../assets/common.js"></script>
+<script src="../../assets/topic.js"></script>
+</body>
+</html>

@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>더인 교육 8일차</title>
+<meta name="description" content="더인 교육 8일차: 5nm 노드의 의미와 트랜지스터 전류, Thin film(Dielectric·Metal), CVD(Film Growth Kinetics·LPCVD·PECVD), PVD(Al-Cu·Electromigration), ALD, Step coverage 정리 노트">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-root="../../" data-topic="thein-day8">
+
+<div id="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <button id="menuBtn" class="icon-btn menu-btn" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <a id="brand" class="brand" href="../../index.html">나의 공부 공간</a>
+  <nav id="tabs" class="tabs" aria-label="영역"></nav>
+  <button id="themeBtn" class="icon-btn" aria-label="다크 모드 전환">◐</button>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="목차">
+    <div class="sidebar-head">
+      <a href="#top" class="sidebar-title">더인 교육 8일차</a>
+    </div>
+    <nav id="toc"></nav>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <main id="top" class="content">
+
+    <header class="cover">
+      <h1>더인 교육 8일차</h1>
+      <p class="meta">날짜: 2026-11-11 · 종류: 교육</p>
+      <p class="meta">원본: 사용자 노션 필기 (더인 교육 8일차)</p>
+
+      <div class="toc-box">
+        <b>목차</b>
+        <p><a href="#s1">들어가며</a> · <a href="#s2">반도체에서 달성하고자 하는 목표</a> · <a href="#s3">목차</a> · <a href="#s4">Deposition</a> · <a href="#s5">Thin film에서 요구되는 조건</a> · <a href="#s6">Thin film 의 종류</a> · <a href="#s7">Deposition</a> · <a href="#s8">CVD(Chemical Vapor Deposition)</a> · <a href="#s9">Gas Phase (Homogeneous) Reaction</a> · <a href="#s10">Solid Surface (Heterogeneous) Reaction</a> · <a href="#s11">Growth vs CVD</a> · <a href="#s12">잠깐 Oxidation 공정 복습</a> · <a href="#s13">Oxidation과 CVD의 차이</a> · <a href="#s14">CVD 분류</a> · <a href="#s15">점심 이후</a> · <a href="#s16">PECVD</a> · <a href="#s17">CCP랑 ICP를 비교</a> · <a href="#s18">PECVD</a> · <a href="#s19">APCVD vs PECVD</a> · <a href="#s20">PECVD</a> · <a href="#s21">PVD</a> · <a href="#s22">DC Diode, RF Diode, DC Magnetron(Most Popular)</a> · <a href="#s23">Electormigration</a> · <a href="#s24">PVD는 물리적인 힘을 사용하지만 절대적이지는 않다.</a> · <a href="#s25">공평한 세상인가?</a> · <a href="#s26">Magnetron sputtering</a> · <a href="#s27">CVD vs PVD</a> · <a href="#s28">PVD</a> · <a href="#s29">High Performance?</a> · <a href="#s30">ALD</a> · <a href="#s31">전구체</a> · <a href="#s32">왜 Single wafer로 진행하는가?</a> · <a href="#s33">Flow-type reactor, Shower head reactor</a> · <a href="#s34">Deposition Process Window</a> · <a href="#s35">SEM</a> · <a href="#s36">용어 정리 · 슬라이드별 메모 (86 · 88 · 91 · 98 · 102pg)</a></p>
+        <p class="meta small">[사용자 노트 필기] 표시 = 사용자가 노션에 직접 정리한 원본 노트(내용·말투·감상은 원문 그대로). [질문 노트] = 사용자의 질문과 답. [댓글] = 사용자가 노션에 남긴 댓글. 회색 캡션은 이미지 설명.</p>
+      </div>
+    </header>
+
+    <section>
+      <h2 id="s1">1. 들어가며</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>박형무 강사님</p>
+        <p>- 무엇을 공부해야할지 모르는 것이다.</p>
+        <p>- 교육을 통해서 많은 것을 배워 갈 것이라고 기대하지 X . 본인한테 달렸다.</p>
+        <p>- 무어의 법칙: 2년 동안 패턴 density가 2배 증가한다. (반도체 개발이 되어온 역사)</p>
+      </div>
+      <figure><img src="images/fig01.png" width="850" height="705" alt="판서 — 면적을 절반으로 줄이기 위한 한 변의 길이 (a → 0.7a, a² → a²/2)" loading="lazy"><figcaption>판서 — 면적을 절반으로 줄이기 위한 한 변의 길이 (a → 0.7a, a² → a²/2) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Wafer에 10억개를 20억개의 Die를 넣고 싶은 것</p>
+        <p>- 그래서 면적을 50% 만큼 줄여야 하고, 면적을 50%만큼 줄여야 하니까 한 변의 길이가 0.7 만큼 되는 것이다.</p>
+        <p>- Linear 하게 면적을 반으로 줄이기 위해 한 변의 길이가 이렇게 줄어들었다는 것이다. 20nm → 14nm → 10nm → 7nm → 5nm → 3nm</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 5nm 가 어디를 얘기하는 것인가? (항상 궁금해하고, 그냥 받아들이지X,  이런 태도로 공부할 것)</p>
+        <p>A.</p>
+        <p>지금 얘기하는 길이는 실제 gate나 channel의 길이가 아니다. 일단 위에서 말하고 있는 길이는 로직 칩의 특정 부분을 말하는 것이다. DRAM 에서는 아직 10nm 공정이 진행되고 있으니까.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Q. 5nm 가 어디를 얘기하는 것인가? (항상 궁금해하고, 그냥 받아들이지X,  이런 태도로 공부할 것)”</p>
+        <p>숙제임!</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 그럼 왜 DRAM보다 Logic에서 칩이 더 작아야 하는데?</p>
+        <p>그러면 로직 반도체 얘기인데, 로직 반도체 결국 노드 이름과 gate 길이가 다른 상태이다. Claude에 따르면 1990년대 중반부터 달라지기 시작했다고 한다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 그럼 왜 1990년대부터 달라졌는데?</p>
+        <p>A. 옛날에는 실제 노드에서 말하는 길이보다 실제 gate는 짧게 만들었다. 왜냐하면 gate 길이가 짧아져야 전류가 커지고, 전류가 크면 트랜지스터가 더 빨리 동작하기 때문이다. 그리고 이제는 작게 만들고 싶어도 만들 수 없는 한계에 도달했다. (그 이유는 뒤에서 자세하게 살펴볼 예정)</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 왜 전류가 크면 트랜지스터가 더 빨리 동작하지?</p>
+        <p>A. MOSFET의 구조에서 Metal-oxide-semiconductor 구조잖아? 여기에서 트렌지스터를 켠다는 것과 트랜지스터가 빨리 동작하는 것은 구분이 필요하다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 트랜지스터를 켠다는 것은 무슨 말인데?</p>
+        <p>A. 트랜지스터를 켠다는 것은 Metal에 양의 전압을 가했을 때 P-type 실리콘 기반으로 다수 캐리어인 정공이 밀린다. 그러면서 공핍층이 먼저 형성된다. 그 다음 소수 캐리어인 전자가 반도체 표면에 도달한다. 이 때 반전이 일어나며 V-I 그래프에서 I가 증가하게 된다. 그리고 이렇게 채널이 형성되었기 때문에 n-type으로 도핑된 Drain에서 Source로 전류(전자는 S→D)가 흐를 수 있게 되었다. 그래서 이걸 트랜지스터를 켠다고 말한다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 그러면 속도는 무엇을 얘기하는건데?</p>
+        <p>A. 속도는 결국 Metal에 전압을 가해주고, Capacitor에서 전하가 쌓여서 반대쪽에 반도체 표면에서 전자가 쌓일 수 있게 한다. 이 때 V=Q/C의 공식을 갖고 있고 정전용량 C가 중요하다.</p>
+        <p>전류 자체는 단위 시간당 흐르는 전하의 양이므로 I = Q / t 라고 쓸 수 있다. 근데 앞에서 Q = CV 식이 있었고, 여기에서 t = Q / I로 바꿔서 쓰게 되면 t = CV / I가 된다. 그러면 속도가 빨라지려면 전류가 커져야하고 그래서 전류가 커지면 시간이 짧아지게 된다는 것이지.</p>
+        <p>정리하자면 우리는 트랜지스터를 켜는데 빨리 키고 싶다 이거지. 그러니까 빨리 켜기 위해서는 트랜지스터의 capacitor를 얼마나 빨리 채우냐에 따라 달렸다는 것이지. 그리고 그 때 전류가 클수록 capacitor에 전하를 빨리 채울 수 있게 된다. 그렇게 capacitor에 전하가 빨리 채워지면 반도체 표면에 전자가 모이는 속도도 더 빨라진다. 그러면 회로가 더 빨리 동작하게 된다 이거지.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 해당 식에서 전류가 커지려면 어떻게 되어야지?</p>
+      </div>
+      <figure><img src="images/fig02.png" width="186" height="39" alt="식 — ID ∝ μCoxW/L" loading="lazy"><figcaption>식 — I<sub>D</sub> ∝ μC<sub>ox</sub>W/L (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>A. Gate 길이 관점에서 보면 gate(L)가 짧아지면 전류가 커진다. 그렇지만 지금은 더 이상 gate가 짧아질 수 없다. Gate가 짧아지면 누설전류가 생기기 때문이다. 그래서 실제 gate의 길이와 Node의 길이가 같지 않다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. Gate가 짧아지면 왜 전류 누설이 생기지?</p>
+        <p>A. 전류 누설이 생긴다고 이해하는게 맞나? 아닌 것 같은게 조금 더 근본적인 이유가 있을 것이다.</p>
+        <p>“채널이 짧아지면 소스 쪽 공핍 영역과 드레인 쪽 공핍 영역이 채널의 큰 비율을 차지하게 됩니다.”</p>
+        <p>이렇게 말한다. 그러면 어떠한 이유에 의해서 게이트가 책임질(?) 전하가 줄어드니 더 낮은 전압에서도 켜진다. 더 낮은 전압에서 켜지니까 전류 누설이 발생하게 된다.</p>
+        <p>“채널이 짧으면 드레인의 공핍 영역이 장벽 근처까지 와서 드레인 전압이 높을수록 장벽이 낮아집니다.”</p>
+        <p>여기는 완전히 소자 부분이라서 잘은 모르겠지만 결국 전류 누설이 MOS에서 Oxide에 의해 생기는 상황과 다르다는 것은 구분할 수 있어야 하겠지?</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 그러면 Gate가 짧아지는 방식이 아니라 어떤 방식으로 제어하는데?</p>
+        <p>A. 그러면 다시 수식으로 돌아와야 한다.</p>
+      </div>
+      <figure><img src="images/fig03.png" width="186" height="39" alt="식 — ID ∝ μCoxW/L" loading="lazy"><figcaption>식 — I<sub>D</sub> ∝ μC<sub>ox</sub>W/L (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>더 이상 channel 간 거리인 L을 줄여서 I를 높일 수는 없다. 그 이외에 이동도를 높이거나, 산화막의 두께를 얇게 하거나, 채널 폭을 늘리는 방향성이 된다.</p>
+        <p>이동도를 높이기 위해서는 Strained Si, SiGe 채널을 사용한다? (여기는 공부가 아예 안됐다.)</p>
+        <p>Cox가 커지기 위해서 High-k 유전체를 사용한다. 그리고 Gate에 Poly-Si가 아니라 어떤 금속? 근데 절연체를 High k로 바꾸면 gate도 금속 gate로 바꿔야한다고 하는데? 그리고 이걸 하나의 세트로 HKMG (High-k Metal Gate) 라고 하는데?</p>
+        <p>W가 커지기 위해 FinFET, GAA 구조를 사용한다. 즉 Gate를 감싸는 면적을 점차 늘려가고 있다.</p>
+        <p>결론</p>
+        <p>5nm는 실제 게이트나 채널의 길이를 말하는 것은 아니다. 로직 반도체에서의 세대 이름표이다. (옆 동네 DRAM은 1x,y,z 1a,b,c 사용중)</p>
+        <p>옛날에는 명칭과 게이트 길이가 비슷했고, 90년대 중반에는 속도를 위해 게이트를 이름보다 줄였고, 지금은 게이트가 짧아지면 제어가 어렵기 때문에 실질적인 게이트 길이가 곧 노드 이름이 아닌 상태이다.</p>
+        <p>따라서 지금은 채널의 길이를 줄이기 보다 아래 식에서 이동도, Capacitor, 너비를 키워서 전류를 키우는 방향으로 간다. (전류를 키우는 건 결국 for 스피드 뭐 결국에 전류누설을 줄이는건 power와도 관련있지)</p>
+      </div>
+      <figure><img src="images/fig04.png" width="186" height="39" alt="식 — ID ∝ μCoxW/L" loading="lazy"><figcaption>식 — I<sub>D</sub> ∝ μC<sub>ox</sub>W/L (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s2">2. 반도체에서 달성하고자 하는 목표</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>(1) Speed</p>
+        <p>(2) Power</p>
+        <p>- 누설전류를 줄인다.</p>
+        <p>1. Dielectric → Isolation → Device to Device, Layer to Layer</p>
+        <p>- D to D는 소자끼리 절연을 시켜주는게 - LOCOS(Activation Area 침범), STI</p>
+        <p class="sub">– LOCOS Active 영역이 줄어들면 어떤 일이 벌어지는데?  STI</p>
+        <p>- L to L - MOS, IMD, ILD, PMD</p>
+        <p>MOS</p>
+        <p class="sub">– MOSFET에서 Source Drain 사이에 channel을 형성하기 위해서 Oxide 사용</p>
+        <p class="sub">– M 쪽에서 + 전압이 걸리지만 oxide를 통과하면 X</p>
+        <p class="sub">– V<sub>DS</sub> 쪽에도 양의 포텐셜이 걸리고?</p>
+        <p class="sub">– Oxide 두께가 12Å 정도 되면 터널링 현상이 생김 → High K 사용</p>
+        <p class="sub">– I<sub>D</sub> ∝ μC<sub>ox</sub>W/L 에서 I가 커지기 위해서는 μ(이동도) 커지고, C<sub>ox</sub> 커지고, W 커지고, L 작아지고</p>
+        <p class="sub">– C<sub>ox</sub> = εA/d → d를 더 이상 줄이기 어려우니까, 유전상수를 키우고자 한다. (High k)</p>
+        <p>2. Metal → Interconnection → Contact (Metal 간의 contact Via), Al/Cu, Silicide</p>
+        <p>목표: Dielectric 전류가 잘 흐르지 않게 만들어주는 것, Metal은 전류가 잘 흐르게 만들어주는 것 (=비저항이 낮은 소재를 사용)</p>
+        <p>→ 그래서 이걸 Thin film을 통해서 만들고자 하는 것이다. 그 Thin film 공정에는 CVD, PVD, ALD가 있는 것이고, Metal 공정은 따로 빼서 존재하는 것이다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “LOCOS Active 영역이 줄어들면 어떤 일이 벌어지는데?  STI”</p>
+        <p>숙제!</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “I<sub>D</sub> ∝ μC<sub>ox</sub>W/L”</p>
+        <p>수식에서 각각의 값들을 커지게 하기 위해서는 어떻게 해야하는지 각 기호별로 충분히 설명할 수 있게 공부하기</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s3">3. 목차</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Input → Output 을 제대로 하고 싶은데 그 중간에서 장비들 수 백개가 존재. 걔네들간의 상관관계를 정확히 규명하기가 어려움 (AI, 빅데이터 사용)</p>
+        <p>- Al는 pure할 때 660도 정도에서 녹더라. 그래서 Poly-Si을 사용한 것이다. (이것도 이래서 그렇구나)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s4">4. Deposition</h2>
+
+      <h3 id="s4-1">(1) PVD</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 물리적. 금속 증착에 사용</p>
+      </div>
+
+      <h3 id="s4-2">(2) CVD</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 저온에서 형성이 가능하다. (저온에서 형성하길 원해서 그렇게 만들었다.)</p>
+        <p>- 플라즈마를 쓰면 저온에서 가능한 것이다.</p>
+      </div>
+
+      <h3 id="s4-3">(3) ALD</h3>
+    </section>
+
+    <section>
+      <h2 id="s5">5. Thin film에서 요구되는 조건</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 다시 돌아와서 Thin Film에서 요구되는 것은 Dielectric이 전류가 새지 않기를 Metal에서는 저항이 낮기를 원한다.</p>
+        <p>- Metal 불순물이 들어가면 저항이 커진다</p>
+        <p>- Metal에서 빈 공간이 생기면, 주변의 막질이 얇아짐 → 저항이 높아짐 → Migration이 일어남</p>
+        <p>- Oxide 두께가 얇아지면 Breakdown voltage가 낮아지겠지?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s6">6. Thin film 의 종류</h2>
+
+      <h3 id="s6-1">Conversion</h3>
+
+      <h3 id="s6-2">(1) Thermal oxide</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Si이 45% 소모되어서 SiO₂가 만들어진다. Si가 45만큼 소모되어서 전체 100이 형성된다. (외워라!!)</p>
+        <p>이 둘은 다른 것이다. 위에는 Si wafer가 소모되는 것이고, 밑에는 두 gas를 불어넣어서 SiO₂를 만드는 것이다. Wafer 표면에서 두 gas가 반응해서 SiO₂가 생긴다.</p>
+      </div>
+      <blockquote>Si + O₂ → SiO₂<br>SiH₄ + O₂ → SiO₂</blockquote>
+
+      <h3 id="s6-3">(2) Doping</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Intrinsic</p>
+        <p>- Extrinsic</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s7">7. Deposition</h2>
+
+      <h3 id="s7-1">(1) PVD</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Evaporation</p>
+        <p>- Sputter</p>
+      </div>
+
+      <h3 id="s7-2">(2) CVD</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- CVD</p>
+      </div>
+
+      <h3 id="s7-3">LPCVD</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Epitaxy</p>
+        <p>- ALD</p>
+      </div>
+
+      <h3 id="s7-4">(3) Other</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Electrochemical</p>
+        <p class="sub">– 구리 전기화학 도금</p>
+        <p>- Spin-on</p>
+        <p class="sub">– SiO₂를 점도가 낮은 물질을 써서 도포하고 Annealing 한 다음 CMP 하는 것음 Spin On Glass라고 한다. 여기에서 SiO₂가 Glass니까.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s8">8. CVD(Chemical Vapor Deposition)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- A(g) + B(g) → C(s) + D(g)</p>
+        <p>- A랑 B는 전구체</p>
+        <p>- 이렇게 되어서 D가 부산물로 날라가야한다. 그래서 휘발성이 높아야한다. 만약에 날라가지 못하면 defect이 되는 것이다.</p>
+        <p>- 용융점이 높아서 가공하기 어려운 재료들을 증착할 수 있다.</p>
+        <p>- W는 녹는점이 3000도 정도 되는데, 이걸 PVD 방식으로 할 수가 없다. 그런데 CVD에서는 WF₆ 처럼 화학반응을 이용해서 만들 수 있다는 얘기이다.</p>
+        <p>- Step Coverage</p>
+        <p>- Step과 Step 사이에 증착이 될때 bottom이나 side 쪽에 제대로 되지 않는 것을 말함</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s9">9. Gas Phase (Homogeneous) Reaction</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 기체상에서 일어나는 반응. 그렇게 반응하고 나서 wafer 위로 떨어지는 것이다.</p>
+        <p>- 균일도가 낮고 particle이 많아서 우리가 원하지 않는 방향이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s10">10. Solid Surface (Heterogeneous) Reaction</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Wafer 표면까지 내려가서 그곳에서 반응한다.</p>
+        <p>- 그래서 박막이 wafer 위에서 반응한다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 그러면 어떻게 Gas 상태에서 반응하지 않고 표면에서 가서 반응할까?</p>
+        <p>A. 압력 낮추면, m.f.p 키워지고, Gas 상에서 충돌하지 않고 잘 가서 wafer 위로 안착한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s11">11. Growth vs CVD</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Oxide growth는 Si의 결합을 깨고 SiO₂가 형성되어야 하니까 높은 온도가 필요할 것이다.</p>
+        <p>- CVD 방식은 그것보다는 낮은 온도에서 가능하다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Oxide growth는 Si의 결합을 깨고”</p>
+        <p>높은 온도에서 하는 건 알겠는데, 이 이유에 대해서 이렇게 설명할 수 있어야겠지?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s12">12. 잠깐 Oxidation 공정 복습</h2>
+      <figure><img src="images/fig05.png" width="714" height="565" alt="판서 — 산화 성장 그래프 (두께–시간, t와 √t)" loading="lazy"><figcaption>판서 — 산화 성장 그래프 (두께–시간, t와 √t) (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s13">13. Oxidation과 CVD의 차이</h2>
+      <figure><img src="images/fig06.png" width="730" height="789" alt="판서 — Oxidation(위)과 CVD(아래)의 농도 분포 (CG · CS · Ci, hG)" loading="lazy"><figcaption>판서 — Oxidation(위)과 CVD(아래)의 농도 분포 (C<sub>G</sub> · C<sub>S</sub> · C<sub>i</sub>, h<sub>G</sub>) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- ref) Flux는 단위시간당, 면적당 입자 수</p>
+        <p>- CVD에서는 확산해서 들어가는 SiO₂가 없는 상황에서라고 생각하면 된다.</p>
+        <p>- 근데 C<sub>i</sub>는 필요없는거 아닌가? → ㅇㅇ 필요 없으니까 수정해놓기</p>
+        <p>여기서부터는 천천히 복습하기</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “CVD에서는 확산해서 들어가는”</p>
+        <p>조금 더 공부해서 정리해놓기</p>
+      </div>
+      <figure><img src="images/fig07.jpg" width="1400" height="1050" alt="Film Growth Kinetics — F1 = hG(CG − CS), F2 = kSCS (교재 슬라이드)" loading="lazy"><figcaption>Film Growth Kinetics — F<sub>1</sub> = h<sub>G</sub>(C<sub>G</sub> − C<sub>S</sub>), F<sub>2</sub> = k<sub>S</sub>C<sub>S</sub> (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- F=F₁=F₂ 두고 계산하기</p>
+      </div>
+      <figure><img src="images/fig08.jpg" width="1400" height="1050" alt="Film Growth Kinetics — 정상 상태 F = F1 = F2와 성장 속도 g (교재 슬라이드)" loading="lazy"><figcaption>Film Growth Kinetics — 정상 상태 F = F<sub>1</sub> = F<sub>2</sub>와 성장 속도 g (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- F는 단위면적 단위시간 당 지나가는 입자의 개수를 말하는 것</p>
+        <p>- N라는 것은 단위면적을 성장시키기 위해 필요한 입자의 개수</p>
+        <p>- 그래서 g는 성장 두께를 말한다.</p>
+      </div>
+
+      <h3 id="s13-1">(1) k<sub>s</sub> ≪ H<sub>G</sub></h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 가스 공급은 잘되는 데 표면에서의 반응이 느린 경우</p>
+        <p>- 따라서 반응은 k<sub>s</sub>에 의해서 결정된다.</p>
+      </div>
+
+      <h3 id="s13-2">(2) k<sub>s</sub> ≫ H<sub>G</sub></h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 반응은 잘 일어나는데 Gas 공급이 잘 안되는 경우</p>
+        <p>- 따라서 반응은 H<sub>G</sub>에 의해 결정된다.</p>
+      </div>
+      <figure><img src="images/fig09.jpg" width="1400" height="1050" alt="Film Growth Kinetics — kS ≪ hG(표면 반응 지배)와 hG ≪ kS(물질 전달 지배), 1/T에 따른 성장 속도 (교재 슬라이드)" loading="lazy"><figcaption>Film Growth Kinetics — k<sub>S</sub> ≪ h<sub>G</sub>(표면 반응 지배)와 h<sub>G</sub> ≪ k<sub>S</sub>(물질 전달 지배), 1/T에 따른 성장 속도 (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- k<sub>s</sub>와 H<sub>G</sub> 결정 구간 각각의 식을 다시 구해보며 복습하기!</p>
+        <p>- 오른쪽은 표면 반응 / 왼쪽은 Mass transfer에 의해 결정</p>
+      </div>
+
+      <h3 id="s13-3">(1) k<sub>s</sub></h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이때는 반응속도에 의해 결정되니까 온도에 민감하게 반응한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s14">14. CVD 분류</h2>
+      <blockquote>ref) Etch에서도 Plasma 사용해서 HDP 형성<br>CCP 이온화 정도 10⁻⁵~10⁻⁶<br>ICP 이온화 정도 10⁻²~10⁻³</blockquote>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “CCP 이온화 정도”</p>
+        <p>이런 이온화 정도도 외우자</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Pressure 낮 → m.f.p → 직진성 좋아짐 → Step coverage 좋아짐</p>
+        <p>- Pressure 낮 → Gas 양이 줄어들면 depo rate이 줄어든다. 이건 또 Temp를 높여서 해결하려고 한다. (LPCVD)</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. Metal은 왜 PVD로 증착하는가?</p>
+        <p>A.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Q. Metal은 왜 PVD로 증착하는가?”</p>
+        <p>질문에 대한 답이 조금 이상한데?</p>
+      </div>
+      <figure><img src="images/fig10.png" width="576" height="480" alt="판서 — Contact(W)의 깊이 H와 간격 S, CVD로 채움" loading="lazy"><figcaption>판서 — Contact(W)의 깊이 H와 간격 S, CVD로 채움 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- PVD는 step coverage가 낮기 때문에 contact 처럼 깊은 곳을 채우기가 어렵다. 그래서 CVD로 진행하려고 한다.</p>
+        <p>- 실제로 W 같은 경우 CVD로 바꿔서 증착을 진행하게 된 것이다. 왜? PVD로는 높은 종횡비를 갖는 곳을 채울 수 없으니까</p>
+        <p>→ 모든 Metal 이 CVD라는 소리는 아니고, PVD로 해야하는게 있지</p>
+        <p>- APCVD는 900도 정도에서 진행한다. 상압에서 진행하니까 defect도 많이 생기겠지. 그래서 LPCVD를 사용하게 된다.</p>
+        <p>- 상압에서 0.1Torr ~ 1Torr까지 줄이게 되면 LPCVD로 사용하는 것. 아까 말했던 것처럼 압력이 낮으니까 온도를 높여서 Depo rate를 확보한다. (Gas 량 자체가 줄어드니까 온도를 높여서 입자 간 반응성을 높인다)</p>
+        <p>- Step coverage가 좋아지고, 균일도가 좋아진다.</p>
+        <p>- LPCVD로 만드는 물질들</p>
+        <p>(1) Poly-Si</p>
+        <p>(2) Si₃N₄</p>
+        <p>(3) SiO₂</p>
+        <p>- PECVD</p>
+        <p>- HDPCVD</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “상압에서 0.1Torr ~ 1Torr까지 줄이게 되면 LPCVD로 사용하는 것.”</p>
+        <p>이런 실질적인 압력 범위를 외우자</p>
+        <p>대기압의 1/760, 1/7600</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s15">15. 점심 이후</h2>
+
+      <h3 id="s15-1">&lt;외국계></h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>ASML</p>
+        <p>AMAT</p>
+        <p>LAM R</p>
+        <p>TEL</p>
+        <p>KLA</p>
+        <p>- 문제가 생기면 HQ(본사)로 간다</p>
+        <p>- C/S 엔지니어 들은 문제가 생기면 본사에서 문제를 해결해주면 그걸 전달해주는 역할 5년 뒤? 10년 뒤는?</p>
+      </div>
+
+      <h3 id="s15-2">&lt;한국></h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>SEMES</p>
+        <p>Wonik</p>
+        <p>Jusung</p>
+        <p>Eugene</p>
+        <p>PSK</p>
+        <p>KCT</p>
+        <p>- 문제가 생기면 본사로 가고 거기에서 의논하면서 경쟁력이 생기는 것이다.</p>
+        <p>- 개인도 경쟁력을 확보해야한다. → 커리어 패스를 어떻게 할 것인지? C/S로만 계속 있을건지?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s16">16. PECVD</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 1~10 Torr 이 정도 된다는 의미가 Gas량이 이정도이다.</p>
+        <p>- 반응성이 좋은 라디칼들에 의해서 반응이 빨리 일어나게 한다.</p>
+        <p>- SiH₄, O₂가 들어간다는 말은 Depo gas가 들어간다고 말하면 된다. 그림은 CCP type</p>
+        <p class="sub">– 여기에서 Gas를 무엇을 집어넣는가에 따라서 Depo인지, Etch인지가 결정되는 것이다</p>
+        <p>- “원하지 않는 부산물 필름이 남는다”</p>
+        <p class="sub">– SiH₄ → SiH₃ + H</p>
+        <p class="sub">– SiH₂ + H + H</p>
+        <p class="sub">– Si + H + H + H</p>
+        <p>→ 이렇게 다양하게 생기게 되는데, SiH₃ + H가 제일 많다.</p>
+        <p>→ SiH₃ 여도 여기에 남는 공유 결합에 O가 붙을 수도 있는 것이다. 우리가 원하는건 SiO₂인데, 실제로는 그렇지 않다는 것이지.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. RF 플라즈마 사용하는 이유?</p>
+        <p>A. 절연체를 제작하려고 하지만 DC를 걸어주면 플라즈마가 형성되지 않고 죽어버린다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s17">17. CCP랑 ICP를 비교</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- CCP에서 Depo는 위쪽 전극에 건다</p>
+        <p>- ICP에서 RF 파워를 두 개 사용</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s18">18. PECVD</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 주파수가 높을 때는 Tensile stress가 걸린다.</p>
+        <p>- 주파수가 낮을 때는 Compressive가 걸린다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “주파수가 높을 때는 Tensile stress가 걸린다.”</p>
+        <p>왜 그런지 찾아보기</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s19">19. APCVD vs PECVD</h2>
+
+      <h3 id="s19-1">(1) APCVD</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Si₃ 로 고정이 된다.</p>
+      </div>
+
+      <h3 id="s19-2">(2) PECVD</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Siₓ 로 위에 봤던 것처럼 고정되지 않는다.</p>
+        <p>- 반도체 back-end에 많이 사용하는 것을</p>
+        <p>- Tetra ethyl ortho silicate - 4개의 에틸기 (-C₂H₅) ortho는 반대 위치</p>
+        <p>- 원래는 액체인데 기화시켜서 사용한다.</p>
+      </div>
+
+      <h3 id="s19-3">(3) MOCVD</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- W 같은걸 CVD를 통해서 제작</p>
+      </div>
+
+      <h3 id="s19-4">APCVD</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 여기에 있는 Low temperatue는 지워라?</p>
+      </div>
+
+      <h3 id="s19-5">LPCVD</h3>
+    </section>
+
+    <section>
+      <h2 id="s20">20. PECVD</h2>
+    </section>
+
+    <section>
+      <h2 id="s21">21. PVD</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 저항이 낮아야한다 = 전류가 빠르게 흐른다. 순도가 요구되기 때문에 금속은 CVD가 아니라 PVD를 선호하는 것이다.</p>
+        <p>- 반도체에서 99.9999% 의 순도를 요구한다.</p>
+        <p>- Al target에 요즘은 0.5% 정도 Cu가 들어간다. 이걸 화학 반응으로 컨트롤이 가능한가? 여기에서 하는말은 target 자체는 PVD의 재료라서 target을 만드는 것은 가능하다는 것이지. 근데 이걸 Gas 상태에서 반응해서 99.9999% 의 순도를 갖게 만들 수는 없다는 것이다.</p>
+        <p>- 결국에는 Sputtering을 통해서 순도를 얻을 수 밖에 없다. <u>왜? 저항이 낮아야하니까 어떻게? 불순물이 적어야 해 왜? 전류가 빨리 흘러야 하니까 왜? 반도체는 빨라야하니까. (반복)</u></p>
+        <p>- 요약: Target의 순도는 조절 가능하지만, Gas에서 반응물의 순도는 컨트롤하기 어렵다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “저항이 낮아야한다 = 전류가 빠르게 흐른다. 순도가 요구되기 때문에 금속은 CVD가 아니라 PVD를 선호…”</p>
+        <p>잘 챙겨가기. 이걸 위에서 대답 못했음</p>
+      </div>
+      <figure><img src="images/fig11.png" width="502" height="403" alt="판서 — Al + 0.5% Cu 타깃과 Ar⁺ 스퍼터링, wafer" loading="lazy"><figcaption>판서 — Al + 0.5% Cu 타깃과 Ar⁺ 스퍼터링, wafer (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Cu를 0.5% 섞어주는 것은 electromigration을 방지하기 위해서이다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Cu를 0.5% 섞어주는 것은 electromigration을 방지하기 위해서이다.”</p>
+        <p>왜 Cu를 섞어주면 Electromigration이 방지되는데?</p>
+      </div>
+      <figure><img src="images/fig12.png" width="726" height="408" alt="Cu 첨가 효과 정리 (설명 캡처)" loading="lazy"><figcaption>Cu 첨가 효과 정리 (설명 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><span class="mark-red">→ 아직 전혀 답변이 완벽하지도 않고 이해도 안됐다. 신소재공학과라면 이런 부분들을 잘 이해하고 있는게 맞다. 세라믹공학을 살펴보던, 금속공학을 살펴보던 전공책 꼭 다시 펴서 해당 내용 다시 정리해라</span></p>
+        <p>- PVD의 단점은 step coverage가 안좋다는 점이다. Collimator를 사용해서 보완해주려고 하지만 근본적으로 Step coverage가 안좋다.</p>
+        <p>- 그리고 CVD는 공유결합이지만 PVD는 아니다보니 접착력도 안좋고, 증착속도도 느리다.</p>
+        <p class="sub">– PVD에서 운동에너지를 갖고 충돌해도 튕겨져서 원자가 떨어져 나갈 때 자유낙하 하면서 에너지를 잃는다?</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “하지만 근본적으로 Step coverage가 안좋다.”</p>
+        <p>이걸 정확히 설명할 수 있어야겠지?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s22">22. DC Diode, RF Diode, DC Magnetron(Most Popular)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Magnetron을 사용하는 것은 증착 속도를 높이기 위한 방법이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s23">23. Electormigration</h2>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Electormigration”</p>
+        <p>여기는 전공책 펼쳐서 다시 공부해보자</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 단결정: 원자가 결합하고 있는게 전체 단위에서 반복된다.</p>
+        <p>- 다결정: 반복단위가 짧은 거리까지만 유지</p>
+        <p>- 무정형: 반복단위가 전혀 없는 경우</p>
+      </div>
+      <figure><img src="images/fig13.png" width="514" height="276" alt="판서 — 결정립계를 따라 이동하는 경로 (Electromigration)" loading="lazy"><figcaption>판서 — 결정립계를 따라 이동하는 경로 (Electromigration) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>저항 = 전자가 이동하기 어려운 정도</p>
+        <p>- 결정립계를 따라서 이동할 때 어려운 정도를 생각하면 구불구불 한 정도가 심한 결정립이 작은 쪽에서 이동하기가 더 어렵다.</p>
+        <p>- Annealing을 하는 이유는 결정립 자체를 키우기 위해서이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s24">24. PVD는 물리적인 힘을 사용하지만 절대적이지는 않다.</h2>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “PVD는 물리적인 힘을 사용하지만 절대적이지는 않다.”</p>
+        <p>이번에 처음 알았음. TiN을 이렇게 만들고, 그렇기 때문에 화학적이라는 것이라는걸</p>
+      </div>
+      <figure><img src="images/fig14.png" width="820" height="514" alt="판서 — Ti / TiN 장벽층이 깔린 W 콘택 구조" loading="lazy"><figcaption>판서 — Ti / TiN 장벽층이 깔린 W 콘택 구조 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig15.png" width="474" height="433" alt="판서 — 스퍼터링 입자 스케치 (Ti · Al)" loading="lazy"><figcaption>판서 — 스퍼터링 입자 스케치 (Ti · Al) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Ti를 증착하는 Chamber가 있고, TiN도 진행하는 Chamber가 있을 수도 있겠지만 Ti 를 증착해놓고 N을 반응 시키면 TiN이 형성된다.</p>
+        <p>- 그래서 이걸 Reactive Sputtering 이라고 하며, Ti에 N이 화학적으로 TiN을 만들기 때문에 화학 작용이 포함되어 있는 것이다.</p>
+        <p>- Ti를 때릴 때 N을 화학반응으로 만들게 되면 Wafer 쪽에서만 얌전하게 TiN이 형성되는게 아니고 Target 물질에서도 TiN을 형성하며, 이에 따라 sputtering 효율이 떨어질 수 있다.</p>
+        <p>- Sputtering 을 진행할 때 target 도 갈아줘야한다. 소모품이라는 점</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s25">25. 공평한 세상인가?</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 투입 대비 반응이 있는 사회이지 않은가? 왜 열심히 하는데? 돌아오는 걸 생각하라는 것이지. 노력을 안하고 보상을 바라면 그게 문제가 있는 것이지.</p>
+        <p>- 남들보다 공부하는 데 시간이 오래 걸리면 인정하고 남들보다 더 하면 되는 것이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s26">26. Magnetron sputtering</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Sputtering 을 진행할 때 target 도 갈아줘야한다. 소모가 빨리 된다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s27">27. CVD vs PVD</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>CVD</p>
+        <p>- CVD에서는 Step coverage가 좋다.</p>
+        <p>- Alloy (아까 앞에서 봤던 Al+Cu) 이런걸 Gas 형태로 만들기가 어렵다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s28">28. PVD</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- PVD에서 화학적인 반응이 아예없는 건 아니지만 물리적 반응이 대부분이다.</p>
+        <p>- Target을 Alloy target으로 만들면 된다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s29">29. High Performance?</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- uniformity는 사실 uniform 하지 않은 정도를 의미한다. (언제 들었던 얘기)</p>
+        <p>- Wafer to Wafer / Wafer in Wafer</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “uniformity는 사실 uniform 하지 않은 정도를 의미”</p>
+        <p>Uniformity가 3% 라고 하면 3% 균일한게 아니라 3%만큼 불균일하다는 뜻이지만 Uniformity라는 용어 자체는 균일도를 의미해서 그렇다</p>
+      </div>
+      <figure><img src="images/fig16.png" width="442" height="418" alt="판서 — Notch가 위로 향한 Wafer를 세정 용액에 넣었다 빼는 방향" loading="lazy"><figcaption>판서 — Notch가 위로 향한 Wafer를 세정 용액에 넣었다 빼는 방향 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Cleaning 할 때도 Notch가 위로 향해 있는 채로 넣었다가 뺌. 이 때 웨이퍼 안에서도 세정 용액에 머무는 시간이 다르다.</p>
+        <p>- Pattern Density에 따른 Loading effect (이거 Etching 말고도 Photo 에서도 얘기하는건가?)</p>
+      </div>
+      <figure><img src="images/fig17.png" width="393" height="261" alt="판서 — O₂, N₂의 분리(라디칼)와 이온화 (N₂⁺ + 2e⁻)" loading="lazy"><figcaption>판서 — O₂, N₂의 분리(라디칼)와 이온화 (N₂⁺ + 2e⁻) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 라디칼은 분자가 공유결합이 끊겨서 해리되어 만들게 된다. 물론 한쪽에 몰려서 갈 수도 있음.</p>
+        <p>- 그리고 N₂가 분리될 때 라디칼로 쪼개질 수도 있고, 이온화될 수 있는 것임. 플라즈마 안에서는 그렇게 다양하게 존재하는 것이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s30">30. ALD</h2>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “ALD”</p>
+        <p>이건 그냥 기본 중에 기본 내용이고, 조금 더 자세하게 알고 있어야지</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><b>A(g) + B(g) → C(s) + D(g)</b><b> </b></p>
+        <p>- 전구체 A가 갈 수 있는 곳이 한정되어 있으니까, A가 붙을 자리에 가서 자리에 위치하고 있는 것이다. 1000개가 붙었다고 해보자. 남은 것은 purge를 통해서 불어낸다.</p>
+        <p>- B는 A의 자리에 가서 붙는다. 그리고 나서 남거나 부산물은 purge를 통해서 불어낸다.</p>
+        <p>- 그래서 이걸 Self-Limiting process라고 한다. 왜 A가 붙을 수 있는 자리가 저장되어있으니까.</p>
+        <p>신소재공학과</p>
+        <p>- 머터리얼을 하는 나라는 일본에도 있고, 미국에도 있다. 넓게 봐라</p>
+        <p>Ref) Pulsed plasma</p>
+        <p>- Etching 할 때 high A/R을 위해서 사용한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s31">31. 전구체</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Al(CH₃)₃ 를 사용</p>
+        <p>- 한 cycle을 돌리면 1.2Å 만큼 쌓인다. 시간이 오래걸리겠지?</p>
+        <p>- CVD에 비해서도 Pulse 하느라고 소모되는 gas 량이 늘어나겠지?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s32">32. 왜 Single wafer로 진행하는가?</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 결국에는 균일도를 좋게 만들어주기 위해서 batch type보다는 single type을 선호하고 있다. 그렇지만 TAT 가 느려진다. 그래서 생산성이 낮아지니까 다시 semi batch type 같은 것을 고려하고 있다.</p>
+        <p>- cleaning도 균일도를 높여주려고 single type을 사용한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s33">33. Flow-type reactor, Shower head reactor</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 어떤게 더 효율이 좋은가? 퍼포먼스가 좋은가?</p>
+        <p>- 그냥 잘 만드는 회사에 달렸다. 방법 자체가 절대적으로 좋다 그런건 없다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s34">34. Deposition Process Window</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Incomplete Rxn은 반응이 충분히 일어나지 않는다. 온도가 낮으니까?</p>
+        <p>- 온도가 높으면 붙었던게 떨어져 나갈 수 있다.</p>
+        <p>- Condensation은 그냥 쌓인다고 되는게 아니라 실질적으로 막이 형성되었는가임</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s35">35. SEM</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 광학계는 렌즈를 사용해서 Focusing 하고, SEM은 자기장을 이용해서 Focusing?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s36">36. 용어 정리 · 슬라이드별 메모 (86 · 88 · 91 · 98 · 102pg)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>용어 정리 한 번 깔끔하게 하고 가자</p>
+        <p>측벽에서의 Poor step coverage를 말하고 있다. PVD의 Step coverage.</p>
+        <p>우측의 사진을 주고 사진 주고 어떤 문제가 있는지 물어본다고 함.</p>
+        <p>- Metal 간의 거리(=space)가 좁아짐에 따라서 Void가 생겼을 것이다.</p>
+        <p>- 그리고 Void 크기 자체도 왼쪽의 거리가 좁을 때 더 크다.</p>
+        <p>- Overhang이 일어나서 닫혀버리면서</p>
+        <p>그 다음 슬라이드로 이어지는데, 각도가 커질수록 더 많이 증착되게 된다.</p>
+        <p>그래서 80g에서 slope이 기울어져 있을 때가 90도보다 크니까 완전 90도 일 때보다 더 증착이 잘 된다 라는 것이다.</p>
+        <p>R = ρL/A</p>
+        <p>단면적이 줄어들면 저항이 증가 그래서 Contact이 어떤 디자인을 갖고 있냐가 저항을 결정하기 때문에 잘 고려해서 생각해야한다. Slope을 주면 잘 들어갈 수 있는데, 그게 Contact의 전기적인 저항과 어떻게 연결되는지를 생각해봐야한다.</p>
+        <p>남아있는 부분의 저항의 단면적을 Overhang을 막기 위해서 작게 만들어버리면 공식에 의해 저항이 커지는 결과로 이어지니 우리가 원하는 상황이 아니다. (저항 증가 → 전류가 흐르는 속도 감소)</p>
+        <p>그래서 Overhang이 되려고 하면 Etch를 시켜주는 것이다. Void가 생기기 전에 Etch를 진행하면서 Depo를 진행하는 것이다. 그래서 실제로 Depo-etch 를 반복하는 방식이 있는 것이다.</p>
+        <p>그리고 앞서서 얘기했던 SOG 방법도 사용하는 것이다. 하고 CMP</p>
+      </div>
+
+      <h3 id="s36-1">86pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 여기에서 short가 난다고? 이게 contact 끼리 만난 그림이라는 이해가 안돼.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “여기에서 short가 난다고? 이게 contact 끼리 만난 그림이라는 이해가 안돼.”</p>
+        <p>다시 보고 이해해보기</p>
+      </div>
+
+      <h3 id="s36-2">88pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Depo - Etch - Depo 가 반복해서 사용하는 것은 conformity가 좋은 그리고 gap fill을 잘하기 위함임.</p>
+        <p>- 이걸 HDPCVD라고 한다.</p>
+        <p>- 플라즈마를 사용할 때 Ar⁺에 의해 Etch가 되면서 증착이 되는 것이다. 그래서 gas는 depo gas가 나오고 Ar⁺가 Etch 해주고 있는 것이다.</p>
+      </div>
+
+      <h3 id="s36-3">91pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 초크랄스키 방법으로 Si 단결정은 무슨 문제가 있는지?</p>
+        <p>- SiO₂를 녹여서 만드는데, 1414도 높은 온도에서 진행하고, 여기에서 산소가 Si 안에 녹아 들어갈 수 있지 (용해도만큼 고용한계만큼) 그 때 실온에서 식히게 되면 산소가 빠져나가면서 공공이 생기고 SiOₓ가 생긴다는 것이다. 그래서 Si crystal을 만들고 나서 Epi 층을 기르는 것은 그냥 Wafer 를 사용하면 저런 이슈가 있으니까 고성능을 내기 위해서는 P-epi를 깔아주는 것이다.</p>
+        <p>- “PWP 10775” Poly silicon Wafer 의 P type의 비저항이 10 이고 775μm 라는 의미이다.</p>
+        <p>- 공정을 진행하고 나서 Wafer 뒷면은 갈아주게 되고 40~50μm만 남기게 된다.</p>
+      </div>
+
+      <h3 id="s36-4">98pg,99pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- SOG 방법에 대해서 다시 언급</p>
+      </div>
+
+      <h3 id="s36-5">102pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 여기서부터는 미래에 대한 얘기??</p>
+        <p>- Selective Dielectric</p>
+        <p>- Thiol Molecule가 Cu와 쉽게 반응할 수 있다.</p>
+        <p>- ALD가 무조건 Shower type도 아닌게, Gas를 사이드에서 넣어주는 형태가 될 수도 있다.</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>필기는 사용자가 노션에 정리한 원문 그대로이며, 이미지는 교재·강의 슬라이드·판서 촬영본입니다.</p>
+      <p><span id="updatedAt"></span> · <a id="notionLink" href="#" target="_blank" rel="noopener" hidden>Notion 원본 보기</a> · <a href="../../index.html">홈으로</a></p>
+    </footer>
+  </main>
+</div>
+
+<button id="toTop" class="to-top" aria-label="맨 위로" hidden>↑</button>
+
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="이미지 확대">
+  <button class="lb-close" aria-label="닫기">✕</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</div>
+
+<script src="../../topics.js"></script>
+<script src="../../assets/common.js"></script>
+<script src="../../assets/topic.js"></script>
+</body>
+</html>
