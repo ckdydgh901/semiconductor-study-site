@@ -168,7 +168,7 @@ class Builder:
         self.insert = list(insert or [])          # [(prefix, kind, title)]
         self.first_title, self.drop_first = first_title, drop_first
         self.secs = []; self.cur = None; self.h3n = 0
-        self.run = []; self.qa = None; self.used_cmt = set()
+        self.run = []; self.qa = None; self.qa_cont = False; self.used_cmt = set()
 
     # ---- 출력 조각
     def figure(self, n):
@@ -218,6 +218,8 @@ class Builder:
         if not self.qa: return
         ps = []; anchors = []
         for k, it in enumerate(self.qa):
+            if it[0] == "img":
+                ps.append(self.figure(it[1]).rstrip(chr(10))); continue
             html_s = inline(it[1], anchors)
             if k == 0:
                 html_s = re.sub(r"^\s*<b>(.*)</b>\s*$", r"\1", html_s, flags=re.S)
@@ -227,10 +229,18 @@ class Builder:
             else:
                 ps.append(f"        <p>{html_s}</p>")
         self.emit('      <div class="note qa"><b>[질문 노트]</b>\n' + "\n".join(ps) + "\n      </div>\n" + self.cmt_boxes(anchors))
-        self.qa = None
+        self.qa = None; self.qa_cont = False
 
     def flush(self):
         self.flush_run(); self.flush_qa()
+
+    def qa_spans_image(self):
+        """질문(+빈 'A.' 줄 또는 'A. …' 도입 줄) 바로 뒤에 이미지가 오면 그 이미지와 이미지 뒤의 답(첫 빈 줄까지)을
+        같은 [질문 노트]에 넣는다. 답이 이미 본문으로 시작한 뒤의 이미지는 질문 노트를 끝낸다."""
+        if self.qa is None or self.qa_cont: return False
+        if len(self.qa) == 1: return True
+        last = self.qa[-1]
+        return last[0] == "line" and plain(inline(last[1])).startswith("A.")
 
     # ---- 항목 키(삽입 규칙용)
     def key_of(self, it):
@@ -276,7 +286,7 @@ class Builder:
                         break
             if kind == "sp":
                 sp_run += 1
-                if sp_run >= 2: self.flush_qa()
+                if sp_run >= 2 or self.qa_cont: self.flush_qa()
                 continue
             sp_run = 0
             if first and self.drop_first and kind == "line" and plain(inline(it[1])) == self.drop_first:
@@ -287,6 +297,8 @@ class Builder:
             if kind == "hr":
                 self.flush(); continue
             if kind == "img":
+                if self.qa_spans_image():
+                    self.qa.append(it); self.qa_cont = True; continue
                 self.flush(); self.emit(self.figure(it[1])); continue
             if kind == "table":
                 self.flush(); self.emit(table_html(it[1])); continue

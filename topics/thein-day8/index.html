@@ -91,9 +91,7 @@
       </div>
       <div class="note qa"><b>[질문 노트]</b>
         <p class="q">Q. 해당 식에서 전류가 커지려면 어떻게 되어야지?</p>
-      </div>
       <figure><img src="images/fig02.png" width="186" height="39" alt="식 — ID ∝ μCoxW/L" loading="lazy"><figcaption>식 — I<sub>D</sub> ∝ μC<sub>ox</sub>W/L (출처: 사용자 노션 캡처)</figcaption></figure>
-      <div class="note"><b>[사용자 노트 필기]</b>
         <p>A. Gate 길이 관점에서 보면 gate(L)가 짧아지면 전류가 커진다. 그렇지만 지금은 더 이상 gate가 짧아질 수 없다. Gate가 짧아지면 누설전류가 생기기 때문이다. 그래서 실제 gate의 길이와 Node의 길이가 같지 않다.</p>
       </div>
       <div class="note qa"><b>[질문 노트]</b>
@@ -107,19 +105,23 @@
       <div class="note qa"><b>[질문 노트]</b>
         <p class="q">Q. 그러면 Gate가 짧아지는 방식이 아니라 어떤 방식으로 제어하는데?</p>
         <p>A. 그러면 다시 수식으로 돌아와야 한다.</p>
-      </div>
       <figure><img src="images/fig03.png" width="186" height="39" alt="식 — ID ∝ μCoxW/L" loading="lazy"><figcaption>식 — I<sub>D</sub> ∝ μC<sub>ox</sub>W/L (출처: 사용자 노션 캡처)</figcaption></figure>
-      <div class="note"><b>[사용자 노트 필기]</b>
         <p>더 이상 channel 간 거리인 L을 줄여서 I를 높일 수는 없다. 그 이외에 이동도를 높이거나, 산화막의 두께를 얇게 하거나, 채널 폭을 늘리는 방향성이 된다.</p>
         <p>이동도를 높이기 위해서는 Strained Si, SiGe 채널을 사용한다? (여기는 공부가 아예 안됐다.)</p>
         <p>C<sub>ox</sub>가 커지기 위해서 High-k 유전체를 사용한다. 그리고 Gate에 Poly-Si가 아니라 어떤 금속? 근데 절연체를 High k로 바꾸면 gate도 금속 gate로 바꿔야한다고 하는데? 그리고 이걸 하나의 세트로 HKMG (High-k Metal Gate) 라고 하는데?</p>
         <p>W가 커지기 위해 FinFET, GAA 구조를 사용한다. 즉 Gate를 감싸는 면적을 점차 늘려가고 있다.</p>
-        <p>결론</p>
+      </div>
+
+      <h3 id="s1-1">Ref) 평면형  MOSFET에서 W 길이</h3>
+      <figure><img src="images/fig04.jpg" width="1400" height="717" alt="Ref) 평면형 MOSFET의 채널 길이 L과 폭 W — 옆에서 본 단면과 위에서 본 모습 (정리 그림)" loading="lazy"><figcaption>Ref) 평면형 MOSFET의 채널 길이 L과 폭 W — 옆에서 본 단면과 위에서 본 모습 (정리 그림) (출처: 사용자 노션 캡처)</figcaption></figure>
+
+      <h3 id="s1-2">결론</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
         <p>5nm는 실제 게이트나 채널의 길이를 말하는 것은 아니다. 로직 반도체에서의 세대 이름표이다. (옆 동네 DRAM은 1x,y,z 1a,b,c 사용중)</p>
         <p>옛날에는 명칭과 게이트 길이가 비슷했고, 90년대 중반에는 속도를 위해 게이트를 이름보다 줄였고, 지금은 게이트가 짧아지면 제어가 어렵기 때문에 실질적인 게이트 길이가 곧 노드 이름이 아닌 상태이다.</p>
         <p>따라서 지금은 채널의 길이를 줄이기 보다 아래 식에서 이동도, Capacitor, 너비를 키워서 전류를 키우는 방향으로 간다. (전류를 키우는 건 결국 for 스피드 뭐 결국에 전류누설을 줄이는건 power와도 관련있지)</p>
       </div>
-      <figure><img src="images/fig04.png" width="186" height="39" alt="식 — ID ∝ μCoxW/L" loading="lazy"><figcaption>식 — I<sub>D</sub> ∝ μC<sub>ox</sub>W/L (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig05.png" width="186" height="39" alt="식 — ID ∝ μCoxW/L" loading="lazy"><figcaption>식 — I<sub>D</sub> ∝ μC<sub>ox</sub>W/L (출처: 사용자 노션 캡처)</figcaption></figure>
     </section>
 
     <section>
@@ -306,12 +308,12 @@
 
     <section>
       <h2 id="s14">14. 잠깐 Oxidation 공정 복습</h2>
-      <figure><img src="images/fig05.png" width="714" height="565" alt="판서 — 산화 성장 그래프 (두께–시간, t와 √t)" loading="lazy"><figcaption>판서 — 산화 성장 그래프 (두께–시간, t와 √t) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig06.png" width="714" height="565" alt="판서 — 산화 성장 그래프 (두께–시간, t와 √t)" loading="lazy"><figcaption>판서 — 산화 성장 그래프 (두께–시간, t와 √t) (출처: 사용자 노션 캡처)</figcaption></figure>
     </section>
 
     <section>
       <h2 id="s15">15. Oxidation과 CVD의 차이</h2>
-      <figure><img src="images/fig06.png" width="730" height="789" alt="판서 — Oxidation(위)과 CVD(아래)의 농도 분포 (CG · CS · Ci, hG)" loading="lazy"><figcaption>판서 — Oxidation(위)과 CVD(아래)의 농도 분포 (C<sub>G</sub> · C<sub>S</sub> · C<sub>i</sub>, h<sub>G</sub>) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig07.png" width="730" height="789" alt="판서 — Oxidation(위)과 CVD(아래)의 농도 분포 (CG · CS · Ci, hG)" loading="lazy"><figcaption>판서 — Oxidation(위)과 CVD(아래)의 농도 분포 (C<sub>G</sub> · C<sub>S</sub> · C<sub>i</sub>, h<sub>G</sub>) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- ref) Flux는 단위시간당, 면적당 입자 수</p>
         <p>- CVD에서는 확산해서 들어가는 SiO₂가 없는 상황에서라고 생각하면 된다.</p>
@@ -322,11 +324,11 @@
         <p class="cmt-ctx">대상: “CVD에서는 확산해서 들어가는”</p>
         <p>조금 더 공부해서 정리해놓기</p>
       </div>
-      <figure><img src="images/fig07.jpg" width="1400" height="1050" alt="Film Growth Kinetics — F1 = hG(CG − CS), F2 = kSCS (교재 슬라이드)" loading="lazy"><figcaption>Film Growth Kinetics — F<sub>1</sub> = h<sub>G</sub>(C<sub>G</sub> − C<sub>S</sub>), F<sub>2</sub> = k<sub>S</sub>C<sub>S</sub> (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig08.jpg" width="1400" height="1050" alt="Film Growth Kinetics — F1 = hG(CG − CS), F2 = kSCS (교재 슬라이드)" loading="lazy"><figcaption>Film Growth Kinetics — F<sub>1</sub> = h<sub>G</sub>(C<sub>G</sub> − C<sub>S</sub>), F<sub>2</sub> = k<sub>S</sub>C<sub>S</sub> (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- F=F₁=F₂ 두고 계산하기</p>
       </div>
-      <figure><img src="images/fig08.jpg" width="1400" height="1050" alt="Film Growth Kinetics — 정상 상태 F = F1 = F2와 성장 속도 g (교재 슬라이드)" loading="lazy"><figcaption>Film Growth Kinetics — 정상 상태 F = F<sub>1</sub> = F<sub>2</sub>와 성장 속도 g (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig09.jpg" width="1400" height="1050" alt="Film Growth Kinetics — 정상 상태 F = F1 = F2와 성장 속도 g (교재 슬라이드)" loading="lazy"><figcaption>Film Growth Kinetics — 정상 상태 F = F<sub>1</sub> = F<sub>2</sub>와 성장 속도 g (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- F는 단위면적 단위시간 당 지나가는 입자의 개수를 말하는 것</p>
         <p>- N라는 것은 단위면적을 성장시키기 위해 필요한 입자의 개수</p>
@@ -344,7 +346,7 @@
         <p>- 반응은 잘 일어나는데 Gas 공급이 잘 안되는 경우</p>
         <p>- 따라서 반응은 H<sub>G</sub>에 의해 결정된다.</p>
       </div>
-      <figure><img src="images/fig09.jpg" width="1400" height="1050" alt="Film Growth Kinetics — kS ≪ hG(표면 반응 지배)와 hG ≪ kS(물질 전달 지배), 1/T에 따른 성장 속도 (교재 슬라이드)" loading="lazy"><figcaption>Film Growth Kinetics — k<sub>S</sub> ≪ h<sub>G</sub>(표면 반응 지배)와 h<sub>G</sub> ≪ k<sub>S</sub>(물질 전달 지배), 1/T에 따른 성장 속도 (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig10.jpg" width="1400" height="1050" alt="Film Growth Kinetics — kS ≪ hG(표면 반응 지배)와 hG ≪ kS(물질 전달 지배), 1/T에 따른 성장 속도 (교재 슬라이드)" loading="lazy"><figcaption>Film Growth Kinetics — k<sub>S</sub> ≪ h<sub>G</sub>(표면 반응 지배)와 h<sub>G</sub> ≪ k<sub>S</sub>(물질 전달 지배), 1/T에 따른 성장 속도 (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- k<sub>s</sub>와 H<sub>G</sub> 결정 구간 각각의 식을 다시 구해보며 복습하기!</p>
         <p>- 오른쪽은 표면 반응 / 왼쪽은 Mass transfer에 의해 결정</p>
@@ -379,7 +381,7 @@
         <p>- Pressure 낮 → m.f.p → 직진성 좋아짐 → Step coverage 좋아짐</p>
         <p>- Pressure 낮 → Gas 양이 줄어들면 depo rate이 줄어든다. 이건 또 Temp를 높여서 해결하려고 한다. (LPCVD)</p>
       </div>
-      <figure><img src="images/fig10.png" width="576" height="480" alt="판서 — Contact(W)의 깊이 H와 간격 S, CVD로 채움" loading="lazy"><figcaption>판서 — Contact(W)의 깊이 H와 간격 S, CVD로 채움 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig11.png" width="576" height="480" alt="판서 — Contact(W)의 깊이 H와 간격 S, CVD로 채움" loading="lazy"><figcaption>판서 — Contact(W)의 깊이 H와 간격 S, CVD로 채움 (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- PVD는 step coverage가 낮기 때문에 contact 처럼 깊은 곳을 채우기가 어렵다. 그래서 CVD로 진행하려고 한다.</p>
         <p>- 실제로 W 같은 경우 CVD로 바꿔서 증착을 진행하게 된 것이다. 왜? PVD로는 높은 종횡비를 갖는 곳을 채울 수 없으니까</p>
@@ -469,17 +471,15 @@
       <div class="note qa"><b>[질문 노트]</b>
         <p class="q">Q. 왜 주파수가 높을 때는 Tensile stress가 걸리고, 낮을 때는 Compressive stress가 걸리는가?</p>
         <p>A.</p>
+      <figure><img src="images/fig12.jpg" width="1400" height="1050" alt="PECVD – Stress — 압축·인장 응력과 저주파 사용 비율에 따른 응력 변화 (교재 슬라이드 30/103)" loading="lazy"><figcaption>PECVD – Stress — 압축·인장 응력과 저주파 사용 비율에 따른 응력 변화 (교재 슬라이드 30/103) (출처: 사용자 노션 캡처)</figcaption></figure>
+        <p>- 주파수가 낮을 때는 이온도 전기장의 변화를 따라가게 된다. 따라서 이온이 웨이퍼에 더 큰 에너지로 부딪히며 막 안으로 들어가게 된다. 이에 따라 원자가 격자 사이로 들어가게 된다. 따라서 막은 늘어나고 싶은데 아래 기판이 잡고 있어서 Compression stress가 걸리게 된다.</p>
+        <p>- 주파수가 높을 때는 전자만 전기장을 따라가고 이온은 거의 제자리에 있다. 그래서 앞선 상황과 다르다. 그리고 분자가 막 밖으로 빠져 나가면서 Tensile Stress가 걸린다.</p>
       </div>
       <div class="note cmt"><b>[댓글]</b>
         <p class="cmt-ctx">대상: “Q. 왜 주파수가 높을 때는 Tensile stress가 걸리고, 낮을 때는 Compressive str…”</p>
         <p>이 답변이 맞는지는 물어봐야 할 듯</p>
       </div>
-      <figure><img src="images/fig11.jpg" width="1400" height="1050" alt="PECVD – Stress — 압축·인장 응력과 저주파 사용 비율에 따른 응력 변화 (교재 슬라이드 30/103)" loading="lazy"><figcaption>PECVD – Stress — 압축·인장 응력과 저주파 사용 비율에 따른 응력 변화 (교재 슬라이드 30/103) (출처: 사용자 노션 캡처)</figcaption></figure>
-      <div class="note"><b>[사용자 노트 필기]</b>
-        <p>- 주파수가 낮을 때는 이온도 전기장의 변화를 따라가게 된다. 따라서 이온이 웨이퍼에 더 큰 에너지로 부딪히며 막 안으로 들어가게 된다. 이에 따라 원자가 격자 사이로 들어가게 된다. 따라서 막은 늘어나고 싶은데 아래 기판이 잡고 있어서 Compression stress가 걸리게 된다.</p>
-        <p>- 주파수가 높을 때는 전자만 전기장을 따라가고 이온은 거의 제자리에 있다. 그래서 앞선 상황과 다르다. 그리고 분자가 막 밖으로 빠져 나가면서 Tensile Stress가 걸린다.</p>
-      </div>
-      <figure><img src="images/fig12.jpg" width="1400" height="1050" alt="CVD Process의 장단점 — AP CVD · LP CVD · PE CVD의 장점·단점·사용 (교재 슬라이드)" loading="lazy"><figcaption>CVD Process의 장단점 — AP CVD · LP CVD · PE CVD의 장점·단점·사용 (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig13.jpg" width="1400" height="1050" alt="CVD Process의 장단점 — AP CVD · LP CVD · PE CVD의 장점·단점·사용 (교재 슬라이드)" loading="lazy"><figcaption>CVD Process의 장단점 — AP CVD · LP CVD · PE CVD의 장점·단점·사용 (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
 
       <h3 id="s21-1">(1) APCVD</h3>
       <div class="note"><b>[사용자 노트 필기]</b>
@@ -511,7 +511,7 @@
         <p class="cmt-ctx">대상: “저항이 낮아야한다 = 전류가 빠르게 흐른다.”</p>
         <p>잘 챙겨가기. 이걸 위에서 대답 못했음</p>
       </div>
-      <figure><img src="images/fig13.png" width="502" height="403" alt="판서 — Al + 0.5% Cu 타깃과 Ar⁺ 스퍼터링, wafer" loading="lazy"><figcaption>판서 — Al + 0.5% Cu 타깃과 Ar⁺ 스퍼터링, wafer (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig14.png" width="502" height="403" alt="판서 — Al + 0.5% Cu 타깃과 Ar⁺ 스퍼터링, wafer" loading="lazy"><figcaption>판서 — Al + 0.5% Cu 타깃과 Ar⁺ 스퍼터링, wafer (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- Cu를 0.5% 섞어주는 것은 electromigration을 방지하기 위해서이다.</p>
         <p>→ Electromigration이 일어나면 전자가 원자에 운동량을 가해 원자들이 이동하게 된다. 밀려간 곳은 Void가 생기고, 원자가 쌓인 곳에는 Hillock이 생긴다. <br><br>이때 Cu가 섞이게 되면 주로 결정립계에 위치하게 된다. Al은 결정립계를 따라 이동하게 되는데 Cu가 결정립계에서 길을 막고 있으니 이동이 억제된다.</p>
@@ -520,7 +520,7 @@
         <p class="cmt-ctx">대상: “Cu를 0.5% 섞어주는 것은 electromigration을 방지하기 위해서이다.”</p>
         <p>왜 Cu를 섞어주면 Electromigration이 방지되는데?</p>
       </div>
-      <figure><img src="images/fig14.png" width="726" height="408" alt="Cu 첨가 효과 정리 (설명 캡처)" loading="lazy"><figcaption>Cu 첨가 효과 정리 (설명 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig15.png" width="726" height="408" alt="Cu 첨가 효과 정리 (설명 캡처)" loading="lazy"><figcaption>Cu 첨가 효과 정리 (설명 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p><span class="mark-red">→ 아직 전혀 답변이 완벽하지도 않고 이해도 안됐다. 신소재공학과라면 이런 부분들을 잘 이해하고 있는게 맞다. 세라믹공학을 살펴보던, 금속공학을 살펴보던 전공책 꼭 다시 펴서 해당 내용 다시 정리해라</span></p>
         <p>- PVD의 단점은 step coverage가 안좋다는 점이다. Collimator를 사용해서 보완해주려고 하지만 근본적으로 Step coverage가 안좋다.</p>
@@ -552,7 +552,7 @@
         <p>- 다결정: 반복단위가 짧은 거리까지만 유지</p>
         <p>- 무정형: 반복단위가 전혀 없는 경우</p>
       </div>
-      <figure><img src="images/fig15.png" width="514" height="276" alt="판서 — 결정립계를 따라 이동하는 경로 (Electromigration)" loading="lazy"><figcaption>판서 — 결정립계를 따라 이동하는 경로 (Electromigration) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig16.png" width="514" height="276" alt="판서 — 결정립계를 따라 이동하는 경로 (Electromigration)" loading="lazy"><figcaption>판서 — 결정립계를 따라 이동하는 경로 (Electromigration) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>저항 = 전자가 이동하기 어려운 정도</p>
         <p>- 결정립계를 따라서 이동할 때 어려운 정도를 생각하면 구불구불 한 정도가 심한 결정립이 작은 쪽에서 이동하기가 더 어렵다.</p>
@@ -566,8 +566,8 @@
         <p class="cmt-ctx">대상: “PVD는 물리적인 힘을 사용하지만 절대적이지는 않다.”</p>
         <p>이번에 처음 알았음. TiN을 이렇게 만들고, 그렇기 때문에 화학적이라는 것이라는걸</p>
       </div>
-      <figure><img src="images/fig16.png" width="820" height="514" alt="판서 — Ti / TiN 장벽층이 깔린 W 콘택 구조" loading="lazy"><figcaption>판서 — Ti / TiN 장벽층이 깔린 W 콘택 구조 (출처: 사용자 노션 캡처)</figcaption></figure>
-      <figure><img src="images/fig17.png" width="474" height="433" alt="판서 — 스퍼터링 입자 스케치 (Ti · Al)" loading="lazy"><figcaption>판서 — 스퍼터링 입자 스케치 (Ti · Al) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig17.png" width="820" height="514" alt="판서 — Ti / TiN 장벽층이 깔린 W 콘택 구조" loading="lazy"><figcaption>판서 — Ti / TiN 장벽층이 깔린 W 콘택 구조 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig18.png" width="474" height="433" alt="판서 — 스퍼터링 입자 스케치 (Ti · Al)" loading="lazy"><figcaption>판서 — 스퍼터링 입자 스케치 (Ti · Al) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- Ti를 증착하는 Chamber가 있고, TiN도 진행하는 Chamber가 있을 수도 있겠지만 Ti 를 증착해놓고 N을 반응 시키면 TiN이 형성된다.</p>
         <p>- 그래서 이걸 Reactive Sputtering 이라고 하며, Ti에 N이 화학적으로 TiN을 만들기 때문에 화학 작용이 포함되어 있는 것이다.</p>
@@ -618,12 +618,12 @@
         <p class="cmt-ctx">대상: “uniformity는 사실 uniform 하지 않은 정도를 의미”</p>
         <p>Uniformity가 3% 라고 하면 3% 균일한게 아니라 3%만큼 불균일하다는 뜻이지만 Uniformity라는 용어 자체는 균일도를 의미해서 그렇다</p>
       </div>
-      <figure><img src="images/fig18.png" width="442" height="418" alt="판서 — Notch가 위로 향한 Wafer를 세정 용액에 넣었다 빼는 방향" loading="lazy"><figcaption>판서 — Notch가 위로 향한 Wafer를 세정 용액에 넣었다 빼는 방향 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig19.png" width="442" height="418" alt="판서 — Notch가 위로 향한 Wafer를 세정 용액에 넣었다 빼는 방향" loading="lazy"><figcaption>판서 — Notch가 위로 향한 Wafer를 세정 용액에 넣었다 빼는 방향 (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- Cleaning 할 때도 Notch가 위로 향해 있는 채로 넣었다가 뺌. 이 때 웨이퍼 안에서도 세정 용액에 머무는 시간이 다르다.</p>
         <p>- Pattern Density에 따른 Loading effect (이거 Etching 말고도 Photo 에서도 얘기하는건가?)</p>
       </div>
-      <figure><img src="images/fig19.png" width="393" height="261" alt="판서 — O₂, N₂의 분리(라디칼)와 이온화 (N₂⁺ + 2e⁻)" loading="lazy"><figcaption>판서 — O₂, N₂의 분리(라디칼)와 이온화 (N₂⁺ + 2e⁻) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig20.png" width="393" height="261" alt="판서 — O₂, N₂의 분리(라디칼)와 이온화 (N₂⁺ + 2e⁻)" loading="lazy"><figcaption>판서 — O₂, N₂의 분리(라디칼)와 이온화 (N₂⁺ + 2e⁻) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- 라디칼은 분자가 공유결합이 끊겨서 해리되어 만들게 된다. 물론 한쪽에 몰려서 갈 수도 있음.</p>
         <p>- 그리고 N₂가 분리될 때 라디칼로 쪼개질 수도 있고, 이온화될 수 있는 것임. 플라즈마 안에서는 그렇게 다양하게 존재하는 것이다.</p>
@@ -691,14 +691,14 @@
 
     <section>
       <h2 id="s36">36. 용어 정리 · 슬라이드별 메모 (86 · 88pg)</h2>
-      <figure><img src="images/fig20.jpg" width="1400" height="1050" alt="Conformality — (a) Poor step coverage, (b) IMD 안의 Void (교재 슬라이드 77/103)" loading="lazy"><figcaption>Conformality — (a) Poor step coverage, (b) IMD 안의 Void (교재 슬라이드 77/103) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig21.jpg" width="1400" height="1050" alt="Conformality — (a) Poor step coverage, (b) IMD 안의 Void (교재 슬라이드 77/103)" loading="lazy"><figcaption>Conformality — (a) Poor step coverage, (b) IMD 안의 Void (교재 슬라이드 77/103) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>전공 PT에 가면 우측의 사진을 주고 사진 주고 어떤 문제가 있는지 물어본다고 함.</p>
         <p>- Metal 간의 거리(=space)가 좁아짐에 따라서 Void가 생겼을 것이다.</p>
         <p>- 그리고 Void 크기 자체도 왼쪽의 거리가 좁을 때 더 크다.</p>
         <p>- Overhang이 일어나서 닫혀버리면서 Void가 생기게 된다.</p>
       </div>
-      <figure><img src="images/fig21.jpg" width="1400" height="1050" alt="Arriving Angle – Contact Hole — Larger / Smaller arriving angle (교재 슬라이드)" loading="lazy"><figcaption>Arriving Angle – Contact Hole — Larger / Smaller arriving angle (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig22.jpg" width="1400" height="1050" alt="Arriving Angle – Contact Hole — Larger / Smaller arriving angle (교재 슬라이드)" loading="lazy"><figcaption>Arriving Angle – Contact Hole — Larger / Smaller arriving angle (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- 각도가 커질수록 더 많이 증착되게 된다.</p>
         <p>- 그래서 80g에서 slope이 기울어져 있을 때가 90도보다 크니까 완전 90도 일 때보다 더 증착이 잘 된다.</p>
@@ -728,7 +728,7 @@
 
     <section>
       <h2 id="s37">37. Epi 층을 깔아주는 이유 (처음 배움)</h2>
-      <figure><img src="images/fig22.jpg" width="1400" height="1050" alt="Dielectric Thin Film Application — P-epi 위의 STI · PMD · IMD · W plug 구조 (교재 슬라이드 90/103)" loading="lazy"><figcaption>Dielectric Thin Film Application — P-epi 위의 STI · PMD · IMD · W plug 구조 (교재 슬라이드 90/103) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig23.jpg" width="1400" height="1050" alt="Dielectric Thin Film Application — P-epi 위의 STI · PMD · IMD · W plug 구조 (교재 슬라이드 90/103)" loading="lazy"><figcaption>Dielectric Thin Film Application — P-epi 위의 STI · PMD · IMD · W plug 구조 (교재 슬라이드 90/103) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note qa"><b>[질문 노트]</b>
         <p class="q">Q. 초크랄스키 방법으로 Si 단결정은 무슨 문제가 있는지? </p>
         <p>- Si를 만들 때 SiO2 도가니에서 녹여서 만든다. 이에 따라 열처리가 진행되는 온도에서 산소가 Si안으로 녹아들어간다. 그리고 식히는 과정에서 산소가 빠져나가게 되면 공고이 생기고 SiOₓ가 생긴다.</p>
@@ -740,7 +740,7 @@
 
     <section>
       <h2 id="s38">38. TEOS (Tetraethyloxysilane)</h2>
-      <figure><img src="images/fig23.jpg" width="1400" height="1050" alt="TEOS — Tetraethyloxysilane, Si(OC₂H₅)₄의 구조와 특징 (교재 슬라이드)" loading="lazy"><figcaption>TEOS — Tetraethyloxysilane, Si(OC₂H₅)₄의 구조와 특징 (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig24.jpg" width="1400" height="1050" alt="TEOS — Tetraethyloxysilane, Si(OC₂H₅)₄의 구조와 특징 (교재 슬라이드)" loading="lazy"><figcaption>TEOS — Tetraethyloxysilane, Si(OC₂H₅)₄의 구조와 특징 (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- TEOS는 사용하는 화학 물질의 이름이다.</p>
         <p>- PECVD 공정을 했다면 PECVD, LPCVD 공정을 했다면 LPCVD, O3을 사용했다면 O3-TEOS이다.</p>
@@ -750,7 +750,7 @@
 
     <section>
       <h2 id="s39">39. SOG(Spin on Glass)</h2>
-      <figure><img src="images/fig24.jpg" width="1400" height="1050" alt="SOG(Spin on Glass) — PECVD USG barrier → Spin-on glass → SOG cure → SOG etchback → PECVD USG cap (교재 슬라이드 98/103)" loading="lazy"><figcaption>SOG(Spin on Glass) — PECVD USG barrier → Spin-on glass → SOG cure → SOG etchback → PECVD USG cap (교재 슬라이드 98/103) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig25.jpg" width="1400" height="1050" alt="SOG(Spin on Glass) — PECVD USG barrier → Spin-on glass → SOG cure → SOG etchback → PECVD USG cap (교재 슬라이드 98/103)" loading="lazy"><figcaption>SOG(Spin on Glass) — PECVD USG barrier → Spin-on glass → SOG cure → SOG etchback → PECVD USG cap (교재 슬라이드 98/103) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- 액체 SiO2를 웨이퍼 위에 떨어트리게 되면 좁은 틈까지 흘러 들어가게 된다.</p>
         <p>- 열에 가해서 SiO2 으로 만들어준다.</p>
