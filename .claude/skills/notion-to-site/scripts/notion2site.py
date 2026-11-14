@@ -38,6 +38,19 @@ def parse(lines, ctx):
         if s.startswith("<image "):
             ctx["img"] += 1; items.append(("img", ctx["img"])); continue
         if s == "---": items.append(("hr",)); continue
+        if s.startswith("<table"):
+            buf = []
+            while i < n and lines[i].strip() != "</table>":
+                buf.append(lines[i]); i += 1
+            i += 1
+            items.append(("table", buf)); continue
+        if s == "$$":
+            buf = []
+            while i < n and lines[i].strip() != "$$":
+                if lines[i].strip(): buf.append(lines[i].strip())
+                i += 1
+            i += 1
+            items.append(("eq", " ".join(buf))); continue
         if s.startswith("#### "): items.append(("h4", s[5:])); continue
         if s == "<p>":
             buf = []
@@ -98,6 +111,55 @@ def parse(lines, ctx):
         items.append(("line", s))
     return items
 
+# ---------------------------------------------------------------- 별도 줄 수식($$…$$)·표
+def _brace(s, i):
+    d = 0
+    for j in range(i, len(s)):
+        if s[j] == "{": d += 1
+        elif s[j] == "}":
+            d -= 1
+            if d == 0: return s[i + 1:j], j + 1
+    raise ValueError("중괄호가 닫히지 않음: " + s)
+
+def eq_html(tex):
+    r"""별도 줄 TeX 수식을 사이트용 HTML로 (\frac, 아래·위첨자, \propto, \exp 지원)."""
+    def conv(s):
+        out = ""; i = 0
+        while i < len(s):
+            if s.startswith(r"\frac", i):
+                a, j = _brace(s, i + 5); b, j = _brace(s, j)
+                out += f'<span class="frac"><span>{conv(a)}</span><span>{conv(b)}</span></span>'; i = j; continue
+            if s.startswith(r"\propto", i): out += " ∝ "; i += 7; continue
+            if s.startswith(r"\exp", i): out += "exp"; i += 4; continue
+            if s.startswith(r"\mathrm", i):
+                c, j = _brace(s, i + 7); out += conv(c); i = j; continue
+            ch = s[i]
+            if ch in "_^":
+                tag = "sub" if ch == "_" else "sup"
+                if i + 1 < len(s) and s[i + 1] == "{": c, j = _brace(s, i + 1)
+                else: c, j = s[i + 1], i + 2
+                out += f"<{tag}>{conv(c)}</{tag}>"; i = j; continue
+            out += "−" if ch == "-" else ch; i += 1
+        return out
+    s = tex.strip().replace(r"\left", "").replace(r"\right", "")
+    return re.sub(r"\s+", " ", conv(s)).strip()
+
+def table_html(lines):
+    rows = []; cur = None; cell = None
+    for ln in lines:
+        t = ln.strip()
+        if t.startswith("<tr"): cur = []
+        elif t == "</tr>": rows.append(cur); cur = None
+        elif t.startswith(("<td", "<th")): cell = []
+        elif t in ("</td>", "</th>"): cur.append(inline(" ".join(cell))); cell = None
+        elif cell is not None and t: cell.append(t)
+    head = "".join(f"<th>{c}</th>" for c in rows[0])
+    body = "".join("<tr>" + "".join((f"<td><b>{c}</b></td>" if k == 0 else f"<td>{c}</td>") for k, c in enumerate(r)) + "</tr>" for r in rows[1:])
+    return ('      <div class="table-wrap"><table>\n'
+            f'        <thead><tr>{head}</tr></thead>\n'
+            f'        <tbody>{body}</tbody>\n'
+            '      </table></div>\n')
+
 # ---------------------------------------------------------------- 빌더
 class Builder:
     def __init__(self, items, meta, caps, comments, h2=(), h3=(), rename=None, insert=None, first_title="", drop_first=None):
@@ -141,6 +203,8 @@ class Builder:
         if not self.run: return
         ps = []; anchors = []
         for it in self.run:
+            if it[0] == "eq":
+                ps.append(f'        <p class="eq">{eq_html(it[1])}</p>'); continue
             html_s = inline(it[1], anchors)
             if it[0] == "bullet":
                 lvl = it[2]
@@ -170,6 +234,7 @@ class Builder:
 
     # ---- 항목 키(삽입 규칙용)
     def key_of(self, it):
+        if it[0] == "img": return f"@IMG{it[1]}"
         if it[0] in ("line", "bullet", "quote"): return plain(inline(it[1]))
         if it[0] == "cols": return plain(inline(it[1][0]))
         if it[0] == "h4": return plain(inline(it[1]))
@@ -223,6 +288,10 @@ class Builder:
                 self.flush(); continue
             if kind == "img":
                 self.flush(); self.emit(self.figure(it[1])); continue
+            if kind == "table":
+                self.flush(); self.emit(table_html(it[1])); continue
+            if kind == "eq":
+                self.flush_qa(); self.run.append(it); continue
             if kind == "callout":
                 self.flush(); self.emit(self.render_callout(it[1])); continue
             if kind == "quote":
