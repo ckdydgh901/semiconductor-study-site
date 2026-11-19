@@ -60,7 +60,7 @@ window.SITE = {
       summary: "ILD1·Direct Contact·W 플러그·Bit Line(Air gap)·Landing Pad까지와, Mold·Supporter·하부전극·High-k·상부전극으로 이어지는 캐패시터 형성 과정을 정리한 노트.",
       tags: ["DRAM", "MEOL", "Bit Line", "Capacitor", "Landing Pad", "Air gap", "ILD", "High-k", "ZAZ", "Supporter", "텅스텐"],
       date: "2026-10-29",
-      updated: "2026-11-07",
+      updated: "2026-11-19",
       notion: "https://app.notion.com/p/4086b8b7c6bb80fc9ff8ddb40c429b10"
     },
     {
@@ -108,7 +108,7 @@ window.SITE = {
       summary: "KOCW 세종대 이원준 교수님 강의(SIO 02 & OXIDATION 01): 산화막의 종류와 용도(LOCOS·Pad·Sacrificial·Gate), 산화 메커니즘, Dry vs Wet, Deal-Grove 모델의 Flux(F₁·F₂·F₃)를 정리한 노트. (Oxidation2 15분까지 시청)",
       tags: ["KOCW", "산화", "Oxidation", "SiO2", "LOCOS", "Pad oxide", "Gate oxide", "Dry", "Wet", "Deal-Grove", "Flux", "RCA Clean"],
       date: "2026-11-07",
-      updated: "2026-11-09",
+      updated: "2026-11-19",
       notion: "https://app.notion.com/p/4116b8b7c6bb80c098f1e9b9c842db40"
     }
     ,{
@@ -120,7 +120,7 @@ window.SITE = {
       summary: "KOCW 세종대 이원준 교수님 Etching 강의(01~03): 플라즈마와 Etch 기초, Etch Rate·균일도·선택비·이방성, Loading Effect, Wet Etch와 Etchant, PE·SE·RIE, ICP·ECR·HWP, ESC·세라믹 부품, 에칭 가스를 정리한 노트.",
       tags: ["KOCW", "Etching", "식각", "Wet Etch", "Dry Etch", "RIE", "ICP", "ECR", "HWP", "ESC", "Loading Effect", "선택비", "이방성", "플라즈마"],
       date: "2026-11-09",
-      updated: "2026-11-10",
+      updated: "2026-11-19",
       notion: "https://app.notion.com/p/4136b8b7c6bb801b8d20c5c72fab4480"
     },
     {
@@ -132,7 +132,7 @@ window.SITE = {
       summary: "오리엔테이션·팀 스터디, 반도체 역사, HBM·미세화·기술 방향, FinFET/GAA, Photo 공정 맛보기, 메모리/비메모리, Wafer, Particle 예습과 수업 질문(EUV 확률적 결함 등)을 정리한 노트.",
       tags: ["더인 교육", "1일차", "반도체 역사", "HBM", "미세화", "EUV", "FinFET", "GAA", "Wafer", "Particle", "수율"],
       date: "2026-11-02",
-      updated: "2026-11-07",
+      updated: "2026-11-19",
       notion: "https://app.notion.com/p/40b6b8b7c6bb801ebb44d081e95a8fbd"
     },
     {
@@ -251,7 +251,7 @@ window.SITE = {
       category: "반도체 정리노트",
       summary: "Word로 정리한 반도체 질문 47개와 답변. 질문만 보고 먼저 답해 본 뒤 눌러서 답을 확인하는 연습용 페이지.",
       tags: ["반도체 정리노트", "Q&A", "면접 연습", "질문", "답변", "반도체 정리노트", "Word"],
-      updated: "2026-11-07"
+      updated: "2026-11-19"
     },
     {
       id: "thein-insider",
@@ -261,7 +261,7 @@ window.SITE = {
       category: "더인 교육",
       summary: "강사님들이 풀어 주신 현직 이야기와 실제 현장에서 발생하는 문제들을 한 곳에 모아 두는 페이지. 강사님1(노하우·혼자 일하는 경험·엔지니어의 성장), 강사님2(공정/설비 엔지니어가 하는 일) 썰을 정리했다.",
       tags: ["더인 교육", "현직자", "현장", "썰", "실제 문제", "공정기술", "설비기술", "Spec in", "레시피", "트렌드"],
-      updated: "2026-11-07"
+      updated: "2026-11-19"
     },
     {
       id: "thein-homework",
@@ -271,7 +271,7 @@ window.SITE = {
       category: "더인 교육",
       summary: "더인 교육의 숙제, 토론 등 과제 내용을 한 곳에 모아 두는 페이지. ①반도체의 역사(반도체 개론 5pg) ②Particle이 미치는 영향(반도체 개론 111pg, 정답 슬라이드 포함) ③SiO₂ 성장은 Si/SiO₂ 계면에서 발생하는 이유(8대공정 1 교재 29pg) ④SiO₂ 두께-시간 그래프(교재 56pg) ⑤산화공정이란? 5분 발표 준비(대본 포함) ⑥조별과제: FLASH MEMORY의 동작원리(Program/Erase) 발표 내용·대본.",
       tags: ["더인 교육", "과제", "숙제", "토론", "반도체 역사", "트랜지스터", "VLSI", "SoC", "TSMC", "엘피다", "Particle", "산화공정", "SiO₂", "Deal-Grove", "발표 준비", "조별과제", "FLASH MEMORY", "Program", "Erase"],
-      updated: "2026-11-07"
+      updated: "2026-11-19"
     }
   ]
 };
