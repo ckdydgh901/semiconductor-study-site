@@ -26,7 +26,7 @@ description: 노션 페이지(Semi Study 정리 DB 등)를 이 공부 사이트�
 ## 2. 절차 (변환 스크립트 사용)
 스크립트는 `scripts/`에 있다(경로는 파일 위치 기준 상대경로라 그대로 실행 가능). 작업용 폴더는 세션 scratchpad를 쓴다(`<W>`).
 
-1. **노션 읽기** — `ToolSearch`로 `notion-fetch`, `notion-get-file-download-urls`, `notion-get-comments`를 불러온다. `notion-fetch`(include_file_urls: true, include_discussions: true)로 페이지를 읽는다. 응답이 파일로 저장되면 그 파일(JSON: `text`, `references`)을 쓴다. **이미지 URL은 5분 만에 만료**되니 읽은 직후 같은 턴에 받는다.
+1. **노션 읽기** — `ToolSearch`로 `notion-fetch`, `notion-get-file-download-urls`, `notion-get-comments`를 불러온다. `notion-fetch`(include_file_urls: true, include_discussions: true)로 페이지를 읽는다. 응답이 파일로 저장되면 그 파일(JSON: `text`, `references`)을 쓴다. **이미지 URL은 5분 만에 만료**되니 읽은 직후 같은 턴에 받는다. 응답이 작아서(이미지 약 20장 이하) 파일로 저장되지 않고 화면에 그대로 오면 `dl_all.py`를 쓸 수 없으므로, 공통 토큰(`X-Amz-Credential`·`X-Amz-Date`·`X-Amz-Security-Token`)을 한 번만 옮기고 이미지마다 파일 id와 `X-Amz-Signature`만 옮겨 적은 임시 스크립트로 병렬 다운로드하고(스크래치패드 `dl11.py` 참고), 본문(`<content>…</content>`)도 `<tag>_raw.txt`로 직접 저장한다. 이 경우 본문을 손으로 옮기게 되므로 빌드 후 노션 본문과 줄 수·이미지 수를 한 번 더 대조한다.
 2. **이미지 병렬 다운로드** — `python scripts/dl_all.py <fetch결과.json> <tag> <W>` → `<W>/<tag>_raw.txt`, `<W>/<tag>/raw01.bin…`. (단일 순차 다운로드는 큰 사진에서 멈춘다.) 응답이 화면으로 그대로 오는 작은 페이지는 공통 토큰만 옮겨 이미지별 id·서명만 바꿔 병렬로 받는다.
 3. **이미지 변환** — `python scripts/make_images.py <W> <tag> <id>` → `topics/<id>/images/figNN.(jpg|png)` + `<W>/<tag>_meta.json`.
 4. **댓글** — `notion-get-comments`(page_id, `include_resolved: true`)로 읽고, 앵커(`discussion-urls`의 끝 12자리)별로 댓글 텍스트를 딕셔너리로 만든다(`build_example.py`의 `cm4` 참고). 원문 그대로, 줄바꿈은 `<br>`.
@@ -38,7 +38,8 @@ description: 노션 페이지(Semi Study 정리 DB 등)를 이 공부 사이트�
 10. **브라우저 검증** — 로컬 서버(`python -m http.server`, 프로젝트 폴더에서)로 열어 ① 상단/하위 탭 ② 사이드바 목차·스크롤 추적 ③ 이미지 전부 로드(깨진 것 0) ④ 375px 가로 스크롤 없음 ⑤ 다크모드 ⑥ `[댓글]` 박스 수가 노션 댓글 수와 같은지. 끝나면 서버를 반드시 종료한다(Windows: PowerShell `Stop-Process`; Git Bash `pkill`로는 안 죽는다. 서버가 폴더를 잡고 있으면 이름 변경이 막힌다).
 
 ## 3. 변환기가 처리하는 노션 문법
-`inline()`이 마크다운 이스케이프(`\~ \* \^` 등) 해제, `<br />`, `<span discussion-urls>`, 색 span을 처리한다. `parse()`는 이미지·`---`·`####`·`<p>`·불릿·`<columns>`·`<callout>`·`<quote>`를 읽고, `Builder`가 제목 승격, `Q.` 줄 기반 질문 노트 묶기, 댓글 박스 삽입을 한다. `<table>`은 `.table-wrap` 표로, 별도 줄 `$$…$$` 수식은 `.note p.eq`(분수·첨자·∝·exp 지원)로 옮긴다(2026-11-14 추가). 삽입 규칙의 키에 `@IMG<번호>`를 쓰면 그 이미지 앞에 제목을 넣을 수 있다. 굵은 글씨 여러 개로 쪼개진 제목(`<b>(1) </b><b>$k_s$</b>…`)은 `</b><b>`를 지워 하나로 합친 뒤 비교한다. 새 문법이 나오면 `notion2site.py`를 고치고 누락 검사로 확인한다.
+`inline()`이 마크다운 이스케이프(`\~ \* \^` 등) 해제, `<br />`, `<span discussion-urls>`, 색 span을 처리한다. `parse()`는 이미지·`---`·`####`·`<p>`·불릿·`<columns>`·`<callout>`·`<quote>`를 읽고, `Builder`가 제목 승격, `Q.` 줄 기반 질문 노트 묶기, 댓글 박스 삽입을 한다. `<table>`은 `.table-wrap` 표로, 별도 줄 `$$…$$` 수식은 `.note p.eq`(분수·첨자·∝·exp 지원)로 옮긴다(2026-11-14 추가). 삽입 규칙의 키에 `@IMG<번호>`를 쓰면 그 이미지 앞에 제목을 넣을 수 있다. 굵은 글씨 여러 개로 쪼개진 제목(`<b>(1) </b><b>$k_s$</b>…`)은 `</b><b>`를 지워 하나로 합친 뒤 비교한다. 2026-11-19 추가: `<columns>` 안의 이미지는 번호를 매겨 `.cols2` 안에 나란히 놓는다(`imgcols`). `Q10.`처럼 두 자리 번호 질문도 질문 노트로 묶는다. 문장 속 `$…$` 인라인 수식은 `notion2site.tex_inline()`이 유니코드 첨자·`<sub>`·`<sup>`로 바꾸고(`\mathrm{}`·`\times`·`\mu`·`\,`·`\tau` 지원), 별도 줄 수식 `eq_html()`은 그리스 문자·곱셈·얇은 공백도 처리한다. 하나의 span에 댓글이 둘 이상 붙은 경우(`discussion-urls="a,b"`)는 빌드 스크립트에서 첫 댓글만 본문에 두고 나머지는 빈 span으로 나눠 앵커를 살린다(`build_d101112.py`의 `_multi`). **빌드 스크립트 예: `scripts/build_d101112.py`(10~12일차, 경로 W는 세션 스크래치패드로 바꿔 쓴다)처럼 `load`(TeX 변환·`</b><b>` 합치기·색 span 통일·다중 댓글 분리)와 `add_q_breaks`(Q 앞에 빈 줄 두 개를 넣어 질문마다 박스를 따로 만듦)를 쓴다.**
+새 문법이 나오면 `notion2site.py`를 고치고 누락 검사로 확인한다.
 
 ## 4. 끝낼 때 사용자에게 알릴 것
 섹션 수·이미지 수·댓글 수, 누락 검사 결과, 건너뛴 페이지와 이유, 원문에서 오류로 보이지만 그대로 둔 부분, 승인을 기다리는 첨자·단위 목록.

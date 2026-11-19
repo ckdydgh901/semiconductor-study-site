@@ -82,11 +82,22 @@ def parse(lines, ctx):
             while i < n and lines[i].strip() != "</columns>":
                 t = lines[i].strip()
                 if t.startswith("<column"): cur = []
-                elif t == "</column>": cols.append("<br>".join(cur)); cur = None
+                elif t == "</column>": cols.append(cur); cur = None
                 elif cur is not None and t: cur.append(t)
                 i += 1
             i += 1
-            items.append(("cols", cols)); continue
+            if any(x.startswith("<image ") for c in cols for x in c):
+                nums = []
+                for c in cols:
+                    ids = []
+                    for x in c:
+                        if x.startswith("<image "):
+                            ctx["img"] += 1; ids.append(ctx["img"])
+                    nums.append(ids)
+                items.append(("imgcols", nums))
+            else:
+                items.append(("cols", ["<br>".join(c) for c in cols]))
+            continue
         if s.startswith("<callout"):
             inner = []
             while i < n and lines[i].strip() != "</callout>":
@@ -121,6 +132,9 @@ def _brace(s, i):
             if d == 0: return s[i + 1:j], j + 1
     raise ValueError("중괄호가 닫히지 않음: " + s)
 
+EQ_CMD = [(r"\varepsilon", "ε"), (r"\epsilon", "ε"), (r"\mu", "μ"), (r"\tau", "τ"), (r"\rho", "ρ"), (r"\cdot", "·"),
+          (r"\times", "×"), (r"\approx", "≈"), (r"\rightarrow", "→"), (r"\,", "\u2009"), (r"\ ", " "), (r"\;", " ")]
+
 def eq_html(tex):
     r"""별도 줄 TeX 수식을 사이트용 HTML로 (\frac, 아래·위첨자, \propto, \exp 지원)."""
     def conv(s):
@@ -133,6 +147,11 @@ def eq_html(tex):
             if s.startswith(r"\exp", i): out += "exp"; i += 4; continue
             if s.startswith(r"\mathrm", i):
                 c, j = _brace(s, i + 7); out += conv(c); i = j; continue
+            hit = False
+            for cmd, r_ in EQ_CMD:
+                if s.startswith(cmd, i):
+                    out += r_; i += len(cmd); hit = True; break
+            if hit: continue
             ch = s[i]
             if ch in "_^":
                 tag = "sub" if ch == "_" else "sup"
@@ -143,6 +162,37 @@ def eq_html(tex):
         return out
     s = tex.strip().replace(r"\left", "").replace(r"\right", "")
     return re.sub(r"\s+", " ", conv(s)).strip()
+
+_SUB = {**{str(i): "₀₁₂₃₄₅₆₇₈₉"[i] for i in range(10)}, "x": "ₓ"}
+_SUP = {**{str(i): "⁰¹²³⁴⁵⁶⁷⁸⁹"[i] for i in range(10)}, "+": "⁺", "-": "⁻", "−": "⁻"}
+_TEXCMD = [(r"\varepsilon", "ε"), (r"\epsilon", "ε"), (r"\propto", " ∝ "), (r"\times", "×"), (r"\mu", "μ"), (r"\tau", "τ"),
+           (r"\rho", "ρ"), (r"\ll", " ≪ "), (r"\gg", " ≫ "), (r"\rightarrow", " → "), (r"\cdot", "·"), (r"\approx", "≈"),
+           (r"\,", "\u2009"), (r"\ ", " ")]
+
+def _tex_conv(s):
+    out = ""; i = 0
+    while i < len(s):
+        if s.startswith(r"\mathrm", i) and i + 7 < len(s) and s[i + 7] == "{":
+            c, j = _brace(s, i + 7); out += _tex_conv(c); i = j; continue
+        hit = False
+        for cmd, r_ in _TEXCMD:
+            if s.startswith(cmd, i):
+                out += r_; i += len(cmd); hit = True; break
+        if hit: continue
+        ch = s[i]
+        if ch in "_^" and i + 1 < len(s):
+            tag = "sub" if ch == "_" else "sup"; tbl = _SUB if ch == "_" else _SUP
+            if s[i + 1] == "{": c, j = _brace(s, i + 1)
+            else: c, j = s[i + 1], i + 2
+            cc = _tex_conv(c)
+            out += "".join(tbl[x] for x in cc) if cc and all(x in tbl for x in cc) else f"<{tag}>{cc}</{tag}>"
+            i = j; continue
+        out += {"<": "&lt;", ">": "&gt;", "-": "−"}.get(ch, ch); i += 1
+    return out
+
+def tex_inline(line):
+    """한 줄 안의 $…$ 수식을 사이트용으로 바꾼다(아래·위첨자는 가능하면 유니코드, 아니면 <sub>/<sup>)."""
+    return re.sub(r"\$([^$\n]+)\$", lambda m: re.sub(r" {2,}", " ", _tex_conv(m.group(1).strip())), line)
 
 def table_html(lines):
     rows = []; cur = None; cell = None
@@ -309,6 +359,10 @@ class Builder:
             if kind == "quote":
                 self.flush(); anchors = []
                 self.emit(f"      <blockquote>{inline(it[1], anchors)}</blockquote>\n" + self.cmt_boxes(anchors)); continue
+            if kind == "imgcols":
+                self.flush()
+                figs = "".join(self.figure(k).strip() for ids in it[1] for k in ids)
+                self.emit(f'      <div class="cols2">{figs}</div>\n'); continue
             if kind == "cols":
                 self.flush(); anchors = []
                 boxes = "".join(f'<div class="note"><b>[사용자 노트 필기]</b><p>{inline(c, anchors)}</p></div>' for c in it[1])
@@ -322,7 +376,7 @@ class Builder:
                 self.heading("h3", it[1]); continue
             if self.qa is not None:
                 self.qa.append(it); continue
-            if kind == "line" and re.match(r"^Q\d?\.", txt):
+            if kind == "line" and re.match(r"^Q\d{0,2}\.", txt):
                 self.flush_run(); self.qa = [it]; continue
             self.run.append(it)
         self.flush()

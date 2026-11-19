@@ -213,6 +213,42 @@ window.SITE = {
       notion: "https://app.notion.com/p/4156b8b7c6bb8059adc8fb3b58f31b6a"
     },
     {
+      id: "thein-day10",
+      area: "thein",
+      title: "더인 교육 10일차 정리",
+      short: "10일차",
+      category: "더인 교육",
+      summary: "반도체 상식 Quiz(원소 구성비, 메모리 점유율, 8대 공정, V·I·P와 PPA, HKMG, SoC·SiP·Chiplet과 수율, HBM·TSV, 수직 적층 NAND, Planar·Fin·GAA), 교재 정리(Wafer 구조와 Scribe line, DRAM·Flash), 페르미 준위, 옴의 법칙·MOSFET 원리·PN 접합·MOS·C-V·CMOS Inverter를 정리한 노트.",
+      tags: ["더인 교육", "10일차", "Quiz", "HKMG", "SoC", "SiP", "Chiplet", "수율", "HBM", "TSV", "NAND", "GAA", "Scribe line", "페르미 준위", "MOSFET", "PN 접합", "CMOS Inverter", "문턱전압"],
+      date: "2026-11-16",
+      updated: "2026-11-19",
+      notion: "https://app.notion.com/p/4156b8b7c6bb80379575d0e8e0c3824e"
+    },
+    {
+      id: "thein-day11",
+      area: "thein",
+      title: "더인 교육 11일차 정리",
+      short: "11일차",
+      category: "더인 교육",
+      summary: "온도에 따른 문턱전압·I_Dsat·I_off, 메모리와 비메모리 반도체(SRAM·DRAM Refresh/Read 동작·ROM·EPROM·EEPROM·Flash, NAND vs NOR, FN Tunneling), 스마트폰 반도체 부품(AP·CIS·PMIC·DDI), Short Channel Effect, 반도체 스터디 질문 18개를 정리한 노트.",
+      tags: ["더인 교육", "11일차", "문턱전압", "Idsat", "SRAM", "DRAM", "Refresh", "Charge sharing", "ROM", "Flash", "NAND", "NOR", "FN Tunneling", "AP", "CIS", "PMIC", "DDI", "Short Channel Effect", "스터디"],
+      date: "2026-11-17",
+      updated: "2026-11-19",
+      notion: "https://app.notion.com/p/41b6b8b7c6bb80dcaa3fc41335b3f9b4"
+    },
+    {
+      id: "thein-day12",
+      area: "thein",
+      title: "더인 교육 12일차 정리",
+      short: "12일차",
+      category: "더인 교육",
+      summary: "Diffusion과 CVD의 변천, Metal 배선(Contact/Via, Al→Cu 다마신, Cu etch, Capping layer), 금속 박막 조건과 PVD·CVD·ALD 비교(SOD·SOH), 오믹 컨택(Silicide), 이온 주입(Rp·Dose·하드마스크와 확산), 플라즈마(Sheath·Self bias)와 진공도 분류를 정리한 노트.",
+      tags: ["더인 교육", "12일차", "Diffusion", "CVD", "Contact", "Via", "다마신", "Cu", "Al", "Barrier Metal", "Silicide", "오믹 컨택", "PVD", "ALD", "SOD", "SOH", "이온 주입", "Rp", "하드마스크", "플라즈마", "Sheath", "Self bias", "진공"],
+      date: "2026-11-19",
+      updated: "2026-11-19",
+      notion: "https://app.notion.com/p/41d6b8b7c6bb8035b482f815d071b0fc"
+    },
+    {
       id: "notes-qa",
       area: "notes",
       title: "반도체 정리노트 Q&A 연습",

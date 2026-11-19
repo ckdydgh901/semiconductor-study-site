@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>더인 교육 12일차</title>
+<meta name="description" content="더인 교육 12일차: Diffusion과 CVD의 변천, Metal 배선(Contact·Via, Al→Cu 다마신 공정), PVD·CVD·ALD 비교, 오믹 컨택(Silicide), 이온 주입(Rp·Dose·하드마스크), 플라즈마·Sheath·Self bias, 진공도 분류 정리 노트">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-root="../../" data-topic="thein-day12">
+
+<div id="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <button id="menuBtn" class="icon-btn menu-btn" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <a id="brand" class="brand" href="../../index.html">나의 공부 공간</a>
+  <nav id="tabs" class="tabs" aria-label="영역"></nav>
+  <button id="themeBtn" class="icon-btn" aria-label="다크 모드 전환">◐</button>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="목차">
+    <div class="sidebar-head">
+      <a href="#top" class="sidebar-title">더인 교육 12일차</a>
+    </div>
+    <nav id="toc"></nav>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <main id="top" class="content">
+
+    <header class="cover">
+      <h1>더인 교육 12일차</h1>
+      <p class="meta">날짜: 2026-11-19 · 종류: 교육</p>
+      <p class="meta">원본: 사용자 노션 필기 (더인 교육 12일차)</p>
+
+      <div class="toc-box">
+        <b>목차</b>
+        <p><a href="#s1">B.D</a> · <a href="#s2">들어가며</a> · <a href="#s3">Metal 공정</a> · <a href="#s4">정리하자</a> · <a href="#s5">Metal의 Work function을 공부해보자</a> · <a href="#s6">Al 을 사용하다가 Cu를 사용하게 된 이유 (다마신 공정을 설명하기 위해)</a> · <a href="#s7">Al 배선 공정 (한 번 짚고 넘어가자)</a> · <a href="#s8">Cu 다마신 공정</a> · <a href="#s9">Cu etch에 대한 얘기</a> · <a href="#s10">Metal 을 열처리 했을 때 (14pg)</a> · <a href="#s11">금속 배선의 역할</a> · <a href="#s12">패드란?</a> · <a href="#s13">과거의 수율과 지금의 수율</a> · <a href="#s14">B.D</a> · <a href="#s15">R! PR의 사용조건</a> · <a href="#s16">금속의 박막 조건</a> · <a href="#s17">Metal 공정</a> · <a href="#s18">PVD 공정</a> · <a href="#s19">CVD 공정</a> · <a href="#s20">ALD 공정</a> · <a href="#s21">PVD vs CVD vs ALD</a> · <a href="#s22">SOD, SOH</a> · <a href="#s23">다시 내 말로 정리해보기</a> · <a href="#s24">SiO₂를 CF₄ gas로 etch 하는 메커니즘</a> · <a href="#s25">결국에 다양한 Metal과 Semi, Metal과 Metal 사이에 오믹 컨택을 어떻게 시키는지에 대한 얘기이다.</a> · <a href="#s26">Ion Implantatiion</a> · <a href="#s27">메모리 반도체</a> · <a href="#s28">R! PR Mask의 용도</a> · <a href="#s29">Mask는 이온주입시에 Mask 자체도 이온주입이 된다!</a> · <a href="#s30">★진공 &amp; 플라즈마★</a> · <a href="#s31">Vacuum (진공): 기체 분자수의 감소</a> · <a href="#s32">플라즈마를 사용하는 공정은 다시 생각해봐야한다?</a> · <a href="#s33">스터디</a></p>
+        <p class="meta small">[사용자 노트 필기] 표시 = 사용자가 노션에 직접 정리한 원본 노트(내용·말투·감상은 원문 그대로). [질문 노트] = 사용자의 질문과 답. [댓글] = 사용자가 노션에 남긴 댓글. 회색 캡션은 이미지 설명.</p>
+      </div>
+    </header>
+
+    <section>
+      <h2 id="s1">1. B.D</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 요즘에는 Fact check를 중요하게 생각한다. (이건 당장 졸논에도 해당되니 광촉매 반드시 공부)</p>
+        <p>- 자소서에 쓴 내용 중에 이 사람 이걸 잘 못할 것 같은 것 위주로 물어본다.</p>
+        <p>- Photo 공정을 했으면 물론 플라즈마를 물어볼 수도 있지만 자소서에 타겟했는데 관련된 원리나 그런걸 물어본다는 얘기이다. 그러니까 Etch를 준비했으면 플라즈마를 알아야지</p>
+        <p>- 복습할 때 여기에 적힌건 문어체니까 구어체로 바꿔서 정리 노트에 반드시 정리하기</p>
+        <p>- 플라즈마 &amp; 진공 내용은 반드시 잘 정리해라</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s2">2. 들어가며</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>Samsung: PHOTO, Etch, IIP, Diffusion, CVD, PVD(→Metal), Clean, CMP</p>
+        <p>- 부서 자체는 PVD는 없어졌다. 그리고 Metal이 됐다.</p>
+        <p>SK: P(Photo)기술, E(Etch)기술, D(Diffusion)기술, C(Clean/CMP)기술, Metal</p>
+        <p>- 삼성의 8대 공정에 있는 Diffusion이 SK 하이닉스에 있는 Diffusion 팀이 아니다. 이제는 SK 하이닉스에서는 ALD가 맡는다.</p>
+      </div>
+
+      <h3 id="s2-1">(1) Conventional (과거에는)</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>→ 과거에는 Diffusion과 CVD가 분명하게 달랐다.</p>
+      </div>
+
+      <h3 id="s2-2">Diffusion</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Diffusion: Si(s) + O₂(g) → SiO₂(s)</p>
+        <p>- Si위에 SiO₂가 일부 생기면 그때부터는 확산이다. 산화 공정인데 확산이란 말이지.</p>
+        <p>- 사용하는 장비: Furnace (1200~1400°C)</p>
+      </div>
+
+      <h3 id="s2-3">CVD</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 원하는 Film을 형성하기 까지 여러 기체를 “동시에” 넣어주는 것이 목표이다.</p>
+        <p>- A(g) + B(g) → C(s) + D(g)</p>
+        <p>- SiH₄(g) + O₂(g) → SiO₂(s) + 2H₂(g)</p>
+      </div>
+
+      <h3 id="s2-4">(2) Modification (현재에는)</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>→ 현재에는 Diffusion과 CVD가 사용하는 메커니즘 자체는 같다.</p>
+      </div>
+
+      <h3 id="s2-5">Diffusion</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- A(g) + B(g) → C(s) + D(g)</p>
+        <p>- 사용하는 장비: Furnace(Vertical)</p>
+        <p>- 여전히 Furnace니까 고온 적용이 가능하다.</p>
+        <p>- 사용하는 장비가 과거와 다르게 Vertical이다.</p>
+        <p></li></p>
+        <p><li></p>
+        <p>이제 ALD는 Diffusion 에서 진행한다.</p>
+        <p>- ALD가 등장한 배경은 HDPCVD로도 더 이상 Depo가 어려워지고, Void가 생긴다. Step Coverage가 좋지 않기 때문에 ALD가 현재에 등장했고, Diffusion 공정이 진행되고 있다.</p>
+        <p>- 결국 ALD 도 표면에 확산이 되어야 하는 것이다.</p>
+        <p>- CVD의 메커니즘이니까 ALD도 해당되겠네</p>
+      </div>
+      <figure><img src="images/fig01.png" width="582" height="268" alt="판서 — 기체 A · B가 표면에 닿은 뒤 표면을 따라 확산" loading="lazy"><figcaption>판서 — 기체 A · B가 표면에 닿은 뒤 표면을 따라 확산 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p></li></p>
+        <p></ul></p>
+      </div>
+
+      <h3 id="s2-6">CVD</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- A(g) + B(g) → C(s) + D(g)</p>
+        <p>- 사용하는 장비: Single Type</p>
+        <p>- 저온 적용이 가능하다.</p>
+        <p>- 저온 적용하기 때문에 퀄리티가 낮고, 절연체로만 사용해, 중요한 공정에서는 사용할 수 없다.</p>
+        <p>- 그래서 이젠 CVD 공정 갈래요! 하면 의미가 없다는 것이다. 별로 중요하지 않은 공정이기 때문이다.</p>
+        <p>→ 결국 현재에는 Diffusion가 CVD의 차이는 고온/저온 공정 여부 차이</p>
+        <p>- 결국 고온 공정과 저온 공정의 차이는 패턴의 밀도를 얘기한다.</p>
+        <p>- 현재에는 고온 공정을 진행한다고 하면 Diffusion을 진행한다.</p>
+      </div>
+
+      <h3 id="s2-7">반도체에서 400°C 기준이 저온 고온 공정의 개념</h3>
+      <figure><img src="images/fig02.png" width="760" height="670" alt="판서 — 400°C 기준 고온·저온 공정 비교: Wafer(Thermal stress)와 Film(Density)의 장단점" loading="lazy"><figcaption>판서 — 400°C 기준 고온·저온 공정 비교: Wafer(Thermal stress)와 Film(Density)의 장단점 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 고온공정은 Al 정도면 660°C의 m.p 를 갖는다.</p>
+        <p>- 고온 공정의 기준은 400°C 인 것이고, 고온 공정이라고 해서 막 온도가 높으면 결국 이전 금속 배선들에도 영향을 줄테니까 그렇게 못한다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 열팽창계수가 크면 왜 밀도가 좋아지는가?</p>
+        <p>A. 크게 늘었다가 크게 응축되는데, 그 과정에서 크게 응축되는 소재가 더 밀도가 좋아진다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s3">3. Metal 공정</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Metal의 배선은 외부로부터 들어온 전기를 전달해주는 신호 선</p>
+        <p>- Metal 배선 얘기가 나오기 전까지가 FEOL 공정 이고, Metal 배선이 나오고 나서는 BEOL</p>
+      </div>
+
+      <h3 id="s3-1">BEOL</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Conductivity는 Resistivity를 낮추는 게 중요하다. 전기전도도를 높이는 건 저항을 낮추는 것이다? (Resistiviy는 비저항 아니야?)</p>
+        <p class="sub">– 비저항을 낮추기 위해서 하고 있는 활동은? (물론 과거 기준)</p>
+        <p>1. Barrier Metal 적용</p>
+        <p>2. Silicide 형성</p>
+        <p>- Contact 형성, Via 형성, 층간절연막(IMD) 형성, Passivation 형성</p>
+      </div>
+      <figure><img src="images/fig03.jpg" width="1400" height="1867" alt="판서 — FEOL · BEOL 구조 (Contact · Via · ILD · IMD, HARC) (화이트보드 사진)" loading="lazy"><figcaption>판서 — FEOL · BEOL 구조 (Contact · Via · ILD · IMD, HARC) (화이트보드 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- FEOL 공정에서는 ILD, Contact이라는 이름을 사용한다.</p>
+        <p>- BEOL 공정에서는 IMD, Via라는 이름을 사용한다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. FEOL에서는 왜 Contact, BEOL에서는 왜 Via를 사용하는가?</p>
+        <p>A. 첫 번째 금속층(M1)을 기준으로 FEOL과 BEOL이 나눠지는 것이고 그것에 따라 같은 목적이지만 이름이 달라지는 것이다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 그러면 첫 번째 금속층은 무슨 역할을 하는가?</p>
+        <p>A. M1은 소자의 단자(Source, Drain, Gate)에서 나온 신호를 처음으로 받아 연결하는 층</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s4">4. 정리하자</h2>
+      <figure><img src="images/fig04.jpg" width="1400" height="1050" alt="판서 — BEOL / FEOL별 PR strip · 층간절연막(IMD / ILD) · 배선 금속 · FOUP clean 정리표 (화이트보드 사진)" loading="lazy"><figcaption>판서 — BEOL / FEOL별 PR strip · 층간절연막(IMD / ILD) · 배선 금속 · FOUP clean 정리표 (화이트보드 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 과거에는 Fume 제거를 안했는데 지금은 BEOL 공정이나 FEOL 공정이나 해준다? </p>
+        <p>A.</p>
+        <p>- 아 그러니까 Fume 제거는 목적인거고, FOUP cleaning을 진행한다는 것이네. 그러고 예전에는 그렇게 까지 안했는데 요즘은 미세화 되면서 이 Cleaning을 여러번 진행한다.</p>
+        <p>→ 과거에는 fume를 신경 쓰지 않았지만, 선폭이 좁아지고 금속과 민감한 막이 많아지면서 미세한 잔류물도 불량으로 이어져서 지금은 FEOL과 BEOL 모두에서 해준다는 설명</p>
+        <p>- 층간 절연막에 사용하는 SiO₂는 전부 같은 소재이다. 왜냐하면 1~30층에서 Nitride 안쓰잖아? 하지만 SiO₂에서 사고 났어? 라고 물어보면 어딘지 모르니 네이밍을 해준 것이다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. Metal과 Semiconductor가 온도가 증가함에 따라 저항이 왜 이렇게 되는지 설명하시오.</p>
+      <figure><img src="images/fig05.png" width="531" height="339" alt="판서 — 온도(T)에 따른 저항(R): Metal은 증가, Semi는 감소" loading="lazy"><figcaption>판서 — 온도(T)에 따른 저항(R): Metal은 증가, Semi는 감소 (출처: 사용자 노션 캡처)</figcaption></figure>
+        <p>A.</p>
+        <p>- Metal은 격자 산란에 의해서 전자의 m.f.p가 줄어들고, Semi는 온도가 올라감에 따라서 전자가 에너지를 받아 점프하기가 쉬워진다.</p>
+      </div>
+      <figure><img src="images/fig06.png" width="363" height="210" alt="판서 — Conduction Band(C.B)와 Valence Band(V.B)" loading="lazy"><figcaption>판서 — Conduction Band(C.B)와 Valence Band(V.B) (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s5">5. Metal의 Work function을 공부해보자</h2>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 페르미 레벨이란?</p>
+        <p>A.</p>
+        <p>- 설명할 수 있어야겠지?</p>
+        <p>- 반도체의 경우에는 C.B와 V.B의 중간지점 전자가 존재할 수 있는 ….</p>
+        <p>[Claude 답변]</p>
+        <p><b>페르미 준위(Fermi level)는 전자가 그 에너지 상태를 차지할 확률이 정확히 50%가 되는 에너지 준위</b>입니다.</p>
+        <p>(참고: 0 K에서는 전자가 채워진 가장 높은 에너지 준위와 같습니다. 반도체에서는 밴드갭 안에 있어도 되고, 그 자리에 실제 전자 상태가 없어도 정의됩니다.)</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Q. 페르미 레벨이란?”</p>
+        <p>혼자 공부하면서 정리하기</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Metal의 페르미레벨이라고 하는 것은 Conduction Band의 가장 높은 에너지 준위를 갖고 있는 곳이 페르미 레벨이다.</p>
+      </div>
+      <figure><img src="images/fig07.png" width="610" height="367" alt="판서 — p-type과 n-type의 C.B · V.B와 Fermi level(EF)" loading="lazy"><figcaption>판서 — p-type과 n-type의 C.B · V.B와 Fermi level(E<sub>F</sub>) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- P-type에서 적혀 있는 E<sub>F</sub>는 실제로 갖게 되는 에너지 준위고, N-type에서 적혀있는 E<sub>F</sub>도 실제로 갖게 되는 에너지 준위이다. 진성 반도체에서 E<sub>F</sub>는 그 자체로 페르미 디락 분포에 따르며 1/2지점에 찍히는 것임.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “P-type에서 적혀 있는”</p>
+        <p>이해가 안되네 진성일 때는 확률이고 나머지는 실제 준위라는 거면 Ea랑 Ed는?</p>
+      </div>
+      <figure><img src="images/fig08.png" width="586" height="529" alt="판서 — n-type의 에너지 밴드: C.B 아래의 EF와 V.B" loading="lazy"><figcaption>판서 — n-type의 에너지 밴드: C.B 아래의 E<sub>F</sub>와 V.B (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Work function은 페르미레벨 준위에서 진공(?)까지이다.</p>
+      </div>
+      <figure><img src="images/fig09.jpg" width="1400" height="1050" alt="교재 메모 — 0 K에서 300 K로 올라갈 때 공유결합이 끊어지는 모습과 ni = 1.45 × 1010 (cm³)" loading="lazy"><figcaption>교재 메모 — 0 K에서 300 K로 올라갈 때 공유결합이 끊어지는 모습과 n<sub>i</sub> = 1.45 × 10<sup>10</sup> (cm³) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 얌전히 0K 일때는 공유결합을 잘 하고 있겠지. 상온 (300K)에서 Si는 공유결합을 끊고 전자가 튀어나오고, 정공을 갖게 되는데 이 때 nᵢ=1.45×10¹⁰cm³ 만큼 을 갖는다는 얘기이다. Electron이나 hole이나 똑같다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s6">6. Al 을 사용하다가 Cu를 사용하게 된 이유 (다마신 공정을 설명하기 위해)</h2>
+      <figure><img src="images/fig10.png" width="622" height="285" alt="판서 — Al 배선의 결정립과 결정립계, 결정립이 빠져나가는 모습 (Electromigration)" loading="lazy"><figcaption>판서 — Al 배선의 결정립과 결정립계, 결정립이 빠져나가는 모습 (Electromigration) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 전자들이 이동을 하다가 Al 결정립 하나가 빠져나가면 지나가는 배선의 폭이 줄어들고 저항이 커지는 결과로 이어진다.</p>
+        <p>- 그러면 RC delay가 커지게 된다.</p>
+        <p>- 결국 이러한 이유 때문에 Al 에서 Cu로 바뀐이유이다.</p>
+        <p>- 과거(70~90년대 중반) 에는 소재나 공정이 안바뀌는데, 이렇게 바뀐건</p>
+        <p></li></p>
+        <p></ul></p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s7">7. Al 배선 공정 (한 번 짚고 넘어가자)</h2>
+      <figure><img src="images/fig11.png" width="664" height="310" alt="판서 — Al 배선 공정: Al 패턴 위의 Dielectric과 PR" loading="lazy"><figcaption>판서 — Al 배선 공정: Al 패턴 위의 Dielectric과 PR (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>(1) Al 증착 → (2) Photo → (3) Etch → (4) PR 제거 공정(Ahsing+PR Strip) → (5) Dielectric 증착</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s8">8. Cu 다마신 공정</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 고려상감청자 문양 기법 (양각은 찍고자 하는 것만 남겨두는 것이고, 음각은 찍고자 하는 것을 파내는 것이다) 고려 청자는 음각 기법을 사용했다.</p>
+        <p>→ 이건 면접 때 얘기할게 아니다. 그냥 반도체 용도로 다마신 공정이 있다는 것을 알면 된다. 어원은 고려상감청자에서 온 것이지만 실제로 반도체와 관련 X</p>
+        <p><b>다마신 공정: Dielectric을 Etch하고 Metal을 채워 넣는 공정</b></p>
+        <p>(1) Dielectric 증착 → (2) Photo → (3) Dielectric Etch → (4) PR 제거 공정(Ahsing+PR Strip) → (5) Barrier Metal 증착 (Ta/TaN) → (6) Seed Cu 증착 (PVD) → (7) Main Cu 증착 (Electro-plating)</p>
+      </div>
+      <figure><img src="images/fig12.png" width="486" height="373" alt="판서 — Cu 다마신 공정: PR 패턴, Dielectric에 식각한 홈과 아래 Metal" loading="lazy"><figcaption>판서 — Cu 다마신 공정: PR 패턴, Dielectric에 식각한 홈과 아래 Metal (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig13.png" width="463" height="427" alt="판서 — 식각한 홈 안쪽에 Barrier Metal과 Cu를 채우는 모습" loading="lazy"><figcaption>판서 — 식각한 홈 안쪽에 Barrier Metal과 Cu를 채우는 모습 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 우리는 오믹 컨택을 만들어야 한다. ↔ 으로 움직일 수 있게. 근데 애초부터 오믹 컨택이 아니면 Barrier Metal을 사용해야하고, 그 얘기가 Ta/TaN 인 것이다.</p>
+        <p>- 오믹 컨택을 만든다는 얘기를 할 때는 머릿속에 일함수가 들어와 있어야 한다.</p>
+        <p>- Ta는 오믹컨택을 만들어주는 것이다.</p>
+        <p>- Cu는 상온에서 진행하는게 아니다. 저온 공정(~400°C)이어도 못해도 200°C는 된다. 그러면 이 온도에서 Cu가 확산이 될 수 있기 때문에 TaN을 사용하는 것이다.</p>
+        <p>- Seed Cu를 증착한 다음 Main Cu는 전해도금 방식으로 증착한다고 한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s9">9. Cu etch에 대한 얘기</h2>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Cu etch에 대한 얘기”</p>
+        <p>책 다시 펴고 녹는점, 사용 gas 차분하게 정리하고 천천히 찾아보기</p>
+      </div>
+      <figure><img src="images/fig14.png" width="469" height="405" alt="판서 — 식각 부산물의 녹는점: CuCl2 1490°C · CuF2 1100°C, AlCl3 177 · AlF3 1291" loading="lazy"><figcaption>판서 — 식각 부산물의 녹는점: CuCl<sub>2</sub> 1490°C · CuF<sub>2</sub> 1100°C, AlCl<sub>3</sub> 177 · AlF<sub>3</sub> 1291 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 우리가 Gas로 Cl과 F를 사용하고자 하는 이유가 전기음성도가 높아서라고? ㄹㅈㄷ 이걸 어캐아누</p>
+        <p>→ 아 다른 material의 전자를 빠르게 끌어 당겨 → 반응해! → 날라가!</p>
+        <p>- Etch를 진행하게 되면 부산물과 Polymer 가 안생길 수가 없다.</p>
+        <p>- Cu는 Etch를 할 수는 있는데, Etch를 하고 나서 나오는 반응 부산물의 녹는점이 너무 높기 때문에 사용할 수 없다.</p>
+        <p>→ 그래서 절연체를 미리 깎아두고 채워넣을 생각을 한 것이다.</p>
+        <p>- Al도 그래서 Cl gas를 쓰는 것이다. 왜? F gas를 사용하면 생기는 부산물의 녹는점이 너무 높잖아?</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “→ 아 다른 material의 전자를 빠르게 끌어 당겨 → 반응해! → 날라가!”</p>
+        <p>걍 반응성이 높다고 퉁치면 안되나?</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Al도 그래서 Cl gas를 쓰는 것이다. 왜? F gas를 사용하면 생기는 부산물의 녹는점이 너무 높잖아?”</p>
+        <p>녹는점이 높으면 못날려서 그런거지? 부산물도 없애야하는데 못없애서 문제가 생기는거야?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s10">10. Metal 을 열처리 했을 때 (14pg)</h2>
+      <figure><img src="images/fig15.png" width="469" height="420" alt="판서 — A-Film 위의 Capping layer와 Compressive stress (Metal 열처리, 14pg)" loading="lazy"><figcaption>판서 — A-Film 위의 Capping layer와 Compressive stress (Metal 열처리, 14pg) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Si의 열팽창계수가 Al보다 크기 때문에 Al에 Compressive stress가 걸리고, 그에 따라서 Hillock이 생긴다.</p>
+        <p>- 그래서 이걸 방지하기 위해서 Capping Layer를 사용했다. 그래서 Capping layer을 선정할 때 Young’s Modulus를 고려한다 (사진추가하기 15pg)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s11">11. 금속 배선의 역할</h2>
+      <figure><img src="images/fig16.png" width="469" height="462" alt="판서 — B/L · W/L과 트랜지스터(G · S · D): 신호는 Metal 배선으로 전달" loading="lazy"><figcaption>판서 — B/L · W/L과 트랜지스터(G · S · D): 신호는 Metal 배선으로 전달 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 결국 B/L도 신호를 줘야하고 그건 Metal 배선으로 부터 전류를 흘려주겠지.</p>
+        <p>- Contact이나 Via나 결국 하는 역할을 같다.</p>
+      </div>
+      <blockquote>FEOL 공정에서는 ILD, Contact이라는 이름을 사용한다.<br>BEOL 공정에서는 IMD, Via라는 이름을 사용한다.</blockquote>
+      <figure><img src="images/fig17.png" width="574" height="462" alt="판서 — 깊은 Via 구멍: Not open과 식각 문제" loading="lazy"><figcaption>판서 — 깊은 Via 구멍: Not open과 식각 문제 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Via를 먼저 열어주고 그 위에 수평적으로 배선을 연결을 해줘야 한다.</p>
+        <p>- Via가 Not open 되는 문제가 많았다고 한다.</p>
+        <p>- Modification 현재에는 이제 ALD, ALE 공정을 사용한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s12">12. 패드란?</h2>
+      <figure><img src="images/fig18.png" width="205" height="240" alt="판서 — 칩 가장자리의 패드" loading="lazy"><figcaption>판서 — 칩 가장자리의 패드 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 패드라는게 칩 안과 밖이랑 연결되어 있다고 한다. 거미줄처럼 되어있는 부분이 밖에서 전류를 흘려주면 안까지 연결되어 있는 구조</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s13">13. 과거의 수율과 지금의 수율</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 성숙 공정 기준 92~94%는 되어야하지만 예전에는 70~80% 수율도 허다했다.</p>
+        <p>- 이런건 설계 미스가 많았다고 한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s14">14. B.D</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 공부할 때 왜 삼성과 하이닉스가 왜 세계 1등을 할 수 밖에 없었는지 삼성은 이러한 선언 그리고 하이닉스는 2013년부터의 HBM의 개발을 정말 왜 성공할 수 밖에 없었는지 발췌하고 내 생각을 추가해서 지원 동기에 적어라.</p>
+        <p>- 최근 인터넷 기사만 보고 얘기하지 말고.</p>
+      </div>
+      <figure><img src="images/fig19.png" width="1035" height="654" alt="이건희 회장의 프랑크푸르트 선언 — 배경과 핵심 내용 정리 (Claude 답변 캡처)" loading="lazy"><figcaption>이건희 회장의 프랑크푸르트 선언 — 배경과 핵심 내용 정리 (Claude 답변 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 내년을 더 긍정적으로 바라보고 있다. 용인 팹이 지어지고 있고, 그곳으로 경력직들이 넘어갈 수 있다. 그 경력직들이 넘어간 자리에 채우는 것이다.</p>
+        <p>- 정리노트 해라. 안해서 안되는거지 해서 안되는 건 없다.</p>
+        <p>- 취업을 실제로 하게 되어도 본인 직무에 대한 깊이는 깊어지지만 결국 그 분야밖에 모르게 된다. 그래서 정리노트는 당장의 취업을 위해서만이 아니다. 가서도 승진하는 실력자가 되는 방법.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s15">15. R! PR의 사용조건</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- HRR (PR의 빛이 박막 하부까지 잘 들어가야한다.)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s16">16. 금속의 박막 조건</h2>
+      <figure><img src="images/fig20.jpg" width="1400" height="1050" alt="교재 17pg — Metallization: 금속 박막의 요구 조건 (전기적 특성 · 박막 형성 · 신뢰성)" loading="lazy"><figcaption>교재 17pg — Metallization: 금속 박막의 요구 조건 (전기적 특성 · 박막 형성 · 신뢰성) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig21.png" width="544" height="651" alt="판서 — Contact과 Silicide: Ohmic contact" loading="lazy"><figcaption>판서 — Contact과 Silicide: Ohmic contact (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 왼쪽 contact을 만들 때 Barrier Metal을 만드는게 아니라 silicide를 사용해서 오믹 컨택이 가능하게 해준다.</p>
+        <p>- Al을 과거에 계속 썼던 건 결국 가격 때문인 것도 크다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 왜 Step coverage를 신경쓰는가?</p>
+      <figure><img src="images/fig22.png" width="799" height="403" alt="판서 — 홈 안에 생긴 Void(단면과 입체)와 저항 R의 식" loading="lazy"><figcaption>판서 — 홈 안에 생긴 Void(단면과 입체)와 저항 R의 식 (출처: 사용자 노션 캡처)</figcaption></figure>
+        <p>A.</p>
+        <p>- Void Free한 Gap Fill을 채우기 위해서이다.</p>
+        <p>- Void가 뚫리면 신뢰성의 문제가 생긴다. 신뢰성의 문제는 Void가 생기면 저항이 커지게 된다. (전기적 특성이 달라진다.)</p>
+        <p>- 빵구가 뚫리면 금속에서 지름이 작아지는 결과(면적) 따라서 저항이 커지게 되기 대문이다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 그러면 Dielectric 관점에서는?</p>
+      <figure><img src="images/fig23.png" width="436" height="285" alt="판서 — Dielectric 내부의 Void (절연파괴 관점)" loading="lazy"><figcaption>판서 — Dielectric 내부의 Void (절연파괴 관점) (출처: 사용자 노션 캡처)</figcaption></figure>
+        <p>- 절연파괴를 신경쓰는데, 테스트를 할 때 절연파괴전압을 체크한다고 한다.</p>
+        <p>- Void가 생기면 절연파괴가 낮아지고 신뢰성에 문제가 생깁니다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s17">17. Metal 공정</h2>
+      <figure><img src="images/fig24.jpg" width="1400" height="1050" alt="교재 18pg — Metallization [Metal Process]: PVD(Evaporation · Sputtering) · CVD · ALD의 종류" loading="lazy"><figcaption>교재 18pg — Metallization [Metal Process]: PVD(Evaporation · Sputtering) · CVD · ALD의 종류 (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s18">18. PVD 공정</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- PVD 공정을 사용한건 순도가 높기 때문이다. 순도가 높아야 비저항이 낮고 전기전도도가 높다.</p>
+        <p>- 밑에서 정리한 것처럼 Adhesion이 부족해도 순도가 높기 때문에 사용했다.</p>
+        <p>- <u>결국 PVD는 에너지를 얼마나 공급해줄 것인가가 Adhesion과 연관되어서 중요하다!!</u></p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “PVD 공정을 사용한건 순도가 높기 때문이다. 순도가 높아야 비저항이 낮고 전기전도도가 높다.”</p>
+        <p>여기를 쫙 말할 수 있어야겠지?</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. Evaporation 하고 Sputter에는 무슨 차이가 있는가?</p>
+        <p>A. 이들은 Precursor Energy를 전구체가 갖고 있는 힘이 곧 Wafer에 도달해서 얼마나 잘 붙어 있게 하는지가 중요하다. Evaporation 같은 경우는 Wafer 쪽에 나폴나폴 가는 것이고, Sputter는  빵 때리는 것이다.<br>결국 Step coverage를 논하기 전에 이것들은 얼마나 Adhesion이 잘되는지가 중요하다. 접착이 얼마나 잘 되는지는 또 전류 누설과 관련되어 있다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “접착이 얼마나 잘 되는지는 또 전류 누설과 관련되어 있다.”</p>
+        <p>이 생각 꼭 내걸로 만들기</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s19">19. CVD 공정</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Adhesion이 좋아지긴 하지만 Purity가 떨어진다. 그러면 또 전기전도도가 안좋아지는 걸로 연결된다.</p>
+        <p>→ 그래서 PVD와 CVD의 각각 장단점이 있기 때문에 증착하는 박막에 특성에 맞게 공정을 사용한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s20">20. ALD 공정</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Gap fill을 해주기 위해 ALD까지 발전을 했다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s21">21. PVD vs CVD vs ALD</h2>
+      <figure><img src="images/fig25.jpg" width="1400" height="1050" alt="교재 19pg — PVD · CVD · ALD의 장점과 단점" loading="lazy"><figcaption>교재 19pg — PVD · CVD · ALD의 장점과 단점 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- PVD는 전구체와 관련된거지 녹는점과는 관련 없다. PVD는 에너지에 의해서 증착이 달려있는 것이다. 예전에 Evaporation 일때는 녹는점이 관련 있었지</p>
+        <p>- Bulk 영역을 따질거면 어떤 공정을 쓰는지가 의미가 있는가? 실질적으로 문제가 생기는건 Step 구조나, Trench가 있거나, Trench가 밀집되어 있을 때 문제가 생긴다.</p>
+        <p>- Void 구조나 이런걸 논하는건 Step coverage 와 관련이 있는 것이다. Bulk Area는 그냥 쭉 증착되는데 Void를 논할게 없다는 것이지. Trench 같이 구덩이에 증착이 될 때 Step coverage를 논하고, Void가 생기네마네를 논하는 것이다.</p>
+      </div>
+      <figure><img src="images/fig26.png" width="924" height="318" alt="판서 — Step 구조와 Trench (단차 100 Å)" loading="lazy"><figcaption>판서 — Step 구조와 Trench (단차 100 Å) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig27.png" width="394" height="187" alt="판서 — SiO2 100 Å 박막 (Bulk 영역)" loading="lazy"><figcaption>판서 — SiO<sub>2</sub> 100 Å 박막 (Bulk 영역) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- SiH₄는 독성이 높은 Gas이다. CVD 공정을 할 때 SiO₂를 만드는데 사용. 그런데 너무 위험해서 Fab에 문이 다 열린다고 한다.</p>
+      </div>
+      <figure><img src="images/fig28.jpg" width="1400" height="1050" alt="판서 — Heterogeneous / Homogeneous Reaction(Cluster)과 SOD · SOH, ALD (화이트보드 사진)" loading="lazy"><figcaption>판서 — Heterogeneous / Homogeneous Reaction(Cluster)과 SOD · SOH, ALD (화이트보드 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. CVD 공정의 단점은?</p>
+        <p>A.</p>
+        <p>- 기체 상태의 A, B 반응물(두 종류 이상일 수도 있음. 그냥 여러가지 기체 동시에로 기억)을 넣어주면 우리가 원하는 Heterogeneous nulceation 만 일어나는게 아니라, Homo 도 생기게 된다.</p>
+        <p>- 기체 상태의 A, B 반응물을 넣어주게 되면 반응성이 너무 커서 Homogeneous nucleation이 일어나서 기체 상에서 만나서 박막위에 떨어지게 된다.</p>
+        <p>- 그러면 CVD 공정의 메커니즘은 Hetero, Homo 이고 여기에서 Homo를 줄이려면 어떻게 해야하는가? (Homo로 인해 Cluster가 형성된다.)</p>
+        <p>→ 여기에서 ALD요! 라고 하면 안된다. ALD 자체는 Step coverage를 늘려주는 것이다. CVD의 이런 단점을 극복하기 위해서는 SOD와 SOH 방법을 사용한다. 아 물론 어닐링 공정을 진행해야 하지만 그래도 Homo 반응을 줄일 수 있어서 step이 늘어나도 채택 했겠지</p>
+        <p>→ 그래서 이건 Modification (현재)에 일어나는 반응이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s22">22. SOD, SOH</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Spin-on Dielectric</p>
+        <p>- Spin-on Hardmask</p>
+        <p>- 액체 상태의 재료를 웨이퍼 위에 떨어뜨리고 웨이퍼를 회전해서 펼친다. 그 과정에서 작은 틈새로 들어가며 Gap Fill 이 된다.</p>
+        <p>- 이 들은 CVD 대신 사용하는 방법이지만, Annealing을 통해 막을 고체로 만들고 치밀화를 시켜줘야 한다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. ALD 에서 왜 Purge를 하는가?</p>
+        <p>- CVD에서 Cluster가 생기는 게 문제라매 그래서 purge를 해주는 건 A랑 B가 같이 들어가서 cluster를 생기는 상황이나, A가 제대로 날라가지 않고 남은 상태에서 B가 들어가서 반응하는 상황이나 비슷한 cluster를 만드는 상황이 된다는 것이다.</p>
+        <p>- 단, 원자층 한 층씩 까는 것이다보니 시간이 너무 오래걸린다라는 것이다. (이건 또 batch type 같이 어떤 방법을 써서 개선하려고 했겠지?)</p>
+        <p>- 결론은 ALD 자체는 원자층 하나씩 깐다는 생각으로부터 Step Coverage를 늘릴려고 했던 것이지만, 실질적으로 ALD 과정을 진행하려고 하다보니 CVD처럼 두 gas를 반응하지 않게 해줄 수 있어야 했다. 그래서 A gas를 넣어주고 purge를 해주고 B gas를 넣어주는 일련의 과정은 CVD에서 Homo반응이 일어나서 cluster가 생기는 상황을 방지하기 위함이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s23">23. 다시 내 말로 정리해보기</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>PVD 공정이 Purity는 가장 베스트입니다. 그렇지만 접착이 곧 이온 에너지와 관련이 있어서 가장 중요한 파라미터입니다. 접착이 제대로 되지 않으면 전류 누설이 생길 수 있기 때문에 CVD 공정이 도입됩니다.</p>
+        <p>CVD 공정은 화학적인 방법을 사용하기 때문에 접착이 좋습니다. 하지만 gas 들의 반응성이 크기 때문에 homogeneous nucleation 반응이 일어납니다. 이에 따라 cluster가 생겨 원하지 않는 반응물들이 생기고, 증착되어 문제가 생깁니다. 이에 따라 Cluster가 생기는 방식에서 SOD, SOH를 통해 개선했습니다. 물론 어닐링 공정이 추가되었음에도 말이죠.</p>
+        <p>ALD 공정 자체는 S/C를 높이기 위해서 만들어진 공정입니다. 그렇지만 공정을 진행할 때 A 다음 purge를 진행하지 않으면 A와 B가 만나면 클러스터가 생기니 Purge를 하는 것이지. CVD의 cluster가 생기는 해결 방법으로 ALD가 등장한 것은 아니다. 다만 ALD는 속도가 너어무 느리니까 특정 공정에만 쓰인다는 것이지.</p>
+        <p>Ref) 메틸기를 쓴다 위험하다 = 술이 에탄올이고 메탄올 먹으면 죽는 원리랑 같은거지</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s24">24. SiO₂를 CF₄ gas로 etch 하는 메커니즘</h2>
+      <figure><img src="images/fig29.png" width="403" height="337" alt="판서 — CF4 가스로 SiO2 식각: Mask(M) 아래의 SiO2와 B-Film" loading="lazy"><figcaption>판서 — CF<sub>4</sub> 가스로 SiO<sub>2</sub> 식각: Mask(M) 아래의 SiO<sub>2</sub>와 B-Film (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>SiO₂(s)+CF₄(g) → SiF₄(g) + O₂(g)</p>
+        <p>- SiO₂ target으로 Etch</p>
+        <p>- SiF₄ 는 부산물로 -86°C 이 말은 상온에서는 톡 쳐주면 날라간다라는 말. 휘발성이 높은거지. m.p가 -86°C인 것임</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s25">25. 결국에 다양한 Metal과 Semi, Metal과 Metal 사이에 오믹 컨택을 어떻게 시키는지에 대한 얘기이다.</h2>
+      <figure><img src="images/fig30.jpg" width="1400" height="1050" alt="판서 — Metal–Semi, Metal–Metal 오믹 컨택: Si + Metal → Silicide(Anneal), Ti / Ni / Co (화이트보드 사진)" loading="lazy"><figcaption>판서 — Metal–Semi, Metal–Metal 오믹 컨택: Si + Metal → Silicide(Anneal), Ti / Ni / Co (화이트보드 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Si + Metal → Silicide를 통해 오믹 컨택을 만들어준다.</p>
+        <p>- Si와 Metal은 Annealing을 시켜준다.</p>
+        <p>- 빗금을 안친 부분만 Ti/Ni/Co 를 사용한다고 한다.</p>
+        <p>- 결국에 오믹은 저항을 낮추는 것, 전자가 잘 넘어갈 수 있게 해주는 것, 전류가 잘 넘어갈 수 있게 해주는 것이다.</p>
+        <p>- 체크한 표시한 곳은 Ti/Ni/Co ?</p>
+      </div>
+
+      <h3 id="s25-1">122pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Ti는 오믹 컨택을 형성하기 위해서 사용한다 - 옅은 녹색</p>
+        <p>- TiN는 Diffusion Barrier의 역할 - 찐한 녹색</p>
+      </div>
+
+      <h3 id="s25-2">123pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- W는 Nucleation을 통해 Seed를 넣어두고 Bulk W를 증착 시킨다.</p>
+        <p>- Bulk Area에 Metal을 증착하는 경우에는 R<sub>s</sub>를 측정해서 특성을 체크하고 넘어간다. 그렇지만 Bulk Area에 금속을 증착하는 경우가 그렇게 많지 않다. 따라서</p>
+      </div>
+
+      <h3 id="s25-3">124pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이건 Transistor만 나와있는 NAND flash 단면도 이다.</p>
+        <p>- 가운데에 있는 Metal 층을 기준으로 FEOL과 BEOL이 구분된다!</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “가운데에 있는 Metal 층을 기준으로 FEOL과 BEOL이 구분된다!”</p>
+        <p>그림을 보면서 다시 확인해보자</p>
+      </div>
+
+      <h3 id="s25-4">125pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- R: Cu를 Etch를 못하는게 아니라 부산물이 m.p이 높아서이다.</p>
+      </div>
+
+      <h3 id="s25-5">126pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Al는 SiO₂와의 접착력이 좋다. Adhesion이 좋은건 전류 누설이 안생겨 → 전기전도도가 좋아!</p>
+        <p>- Al 단점은 hillock이 생기고, 결정립계를 타고 삐죽 튀어나오게 된다.</p>
+        <p>- Cu의 장점은 Electro-Migration이 안생기는게 가장 큰 장점.</p>
+        <p>- Cu의 단점은 또 반복 계속 반복</p>
+        <p>- 전해 도금 할 때도 Seed-Cu는 PVD를 통해서 진행한다. (책 보면서 다시 복습해보기)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s26">26. Ion Implantatiion</h2>
+
+      <h3 id="s26-1">132pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Furnace의 개발은 Diffusion을 위한 것이었다.</p>
+        <p>- 그렇지만 Diffusion은 확산 방향성이 없기 때문에 제어가 안된다.</p>
+        <p>- Mask로 막아주는 곳 아래는 확산이 안되길 바라는 건데 확산이 되니까 문제가 생기는 것이다.</p>
+      </div>
+
+      <h3 id="s26-2">(1) Deep Junction - 확산</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 그냥 열을 줘서 확산이 되고 깊게 들어갈 수 있는데 그러면 Mask (R: Prevent, Protect의 의미)가 막아주질 못한다.</p>
+        <p>- 우리가 원하는 원하는 깊이만큼 이온을 주입할 수 있도록 하는 장비를 만들 생각을 했다.</p>
+      </div>
+
+      <h3 id="s26-3">(2) Shallow Junction - 이온 주입</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이온이 에너지를 갖고 움직이다가 에너지가 다써서 격자에 위치하는 것을 말한다.</p>
+        <p>- 실제로 이온 주입을 하며 격자가 망가지기 때문에 Annealing이 필요하다.</p>
+        <p>1963년</p>
+        <p>- 비정질이면 이온 주입이 결정질 일 때보다 공유결합을 끊고 가는 정도가 적어서 같은 에너지로도 더 깊은 곳까지 주입된다?</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “비정질이면 이온 주입이 결정질 일 때보다 공유결합을 끊고 가는 정도가 적어서 같은 에너지로도 더 깊은 곳…”</p>
+        <p>설명이 조금 이상한데? 비정질이라고 공간이 비어 있는건 아니잖아..</p>
+      </div>
+
+      <h3 id="s26-4">133pg</h3>
+
+      <h3 id="s26-5">Ion Implantation에서 사용하는 용어 정리</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>(1) Dose: Ions/cm³ or Atoms/cm³</p>
+        <p>- 단위면적당 주입된 이온의 양</p>
+        <p>(2) Junction Depth</p>
+        <p>- Wafer 표면으로부터 주입된 이온의 깊이</p>
+        <p>(3) Projected Range (R<sub>p</sub>)</p>
+        <p>- 주입된 이온의 농도가 가장 높은 지점</p>
+      </div>
+      <figure><img src="images/fig31.png" width="748" height="595" alt="판서 — Mask와 이온 주입, 0.5 μm 깊이(Junction depth)의 농도 분포와 Rp" loading="lazy"><figcaption>판서 — Mask와 이온 주입, 0.5 μm 깊이(Junction depth)의 농도 분포와 R<sub>p</sub> (출처: 사용자 노션 캡처)</figcaption></figure>
+
+      <h3 id="s26-6"><span class="mark-yel">Si 격자 크기 - 암기하기!</span></h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>100: 5.43 Å<br>111: 3.13 Å</p>
+      </div>
+
+      <h3 id="s26-7"><span class="mark-yel">Si-Si 활성화 에너지 (Bonding이 끊어지는 에너지) - 암기하기!</span></h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>1.83 eV</p>
+      </div>
+
+      <h3 id="s26-8">계산 (100 기준)</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>(1) 0.5 μm = 5000 Å 깊이에 들어 있는 격자 수</p>
+        <p>- 5000 Å ÷ 5.43 Å = 920.8</p>
+        <p>(2) 그 깊이까지 가면서 끊어내야 하는 결합의 에너지 합</p>
+        <p>- 920.8 × 1.83 eV = 1685 eV = 1.685 keV</p>
+      </div>
+
+      <h3 id="s26-9">정리</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이건 결국 이온에 약 1.7 keV(1.685 keV)를 주입하면, 0.5 μm 깊이까지 가면서 결합을 끊어낼 수 있는 에너지를 갖고 있고, 그 에너지를 다 소모하면 그 깊이에 위치하게 된다는 계산이다.</p>
+        <p>실제 이온주입을 하면 10¹²~10¹⁸ 정도를 넣는다고 한다.</p>
+      </div>
+
+      <h3 id="s26-10">ex) 3가 B⁺을 주입한다고 해보자. (P도 마찬가지겠지?)</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Si는 10¹⁰ (이건 Intrinsic 반도체가 갖고 있는 수) 만큼 있는데, B가 10¹⁵만큼 있다고 한다면 10¹⁰은 100억개, 10¹⁵ 1000조개가 된다. 그러면 100억개 + 1000조개가 되는 것이다.</p>
+        <p>- 이 말은 이미 상온에서 갖고 있던 Si의 원자는 소수 캐리어가 되고, 주입해주는 이온 여기에서는 B⁺가 다수 캐리어가 되는 것이다.</p>
+        <p>- 그러면 이온주입을 할 때는 다수 캐리어를 쓰는 것이지만 채널을 형성할 때는 10¹⁰, 10¹⁵ 중에 소수 캐리어인 10¹⁰을 사용하는 것이다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “그러면 이온주입을 할 때는 다수 캐리어를 쓰는 것이지만 채널을 형성할 때는 10¹⁰, 10¹⁵ 중에 소수…”</p>
+        <p>와 이런거였네 ;;</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s27">27. 메모리 반도체</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 메모리는 CMOS, Cell에는 NMOS 가 있다.</p>
+        <p>- Cell과 Core Peri 영역이 있는데, Core Peri 영역은 28% 정도가 된다고 한다.</p>
+      </div>
+      <figure><img src="images/fig32.png" width="1030" height="768" alt="판서 — Cell(NMOS)과 Core / Peri의 층별 이온 주입: LDD · S/D · Vth adjust · Pinch-off · Halo · p-well · Deep well" loading="lazy"><figcaption>판서 — Cell(NMOS)과 Core / Peri의 층별 이온 주입: LDD · S/D · V<sub>th</sub> adjust · Pinch-off · Halo · p-well · Deep well (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig33.jpg" width="1400" height="1050" alt="판서 — Cell(NMOS)과 Core / Peri의 층별 이온 주입 (화이트보드 사진)" loading="lazy"><figcaption>판서 — Cell(NMOS)과 Core / Peri의 층별 이온 주입 (화이트보드 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- LDD와 Halo 영역은 Short channel Effect을 줄여주는 역할이다.</p>
+        <p>- 우리는 지금까지 S/D Region, Substrate만 생각했던 것이지만 이렇게 Substrate 안의 낮은 층부터 지하 8층까지 Ion implantation이 진행되어야 한다.</p>
+        <p>- Vth Adjust, Pinch-Off는 트렌지스터 동작과 관련 있다.</p>
+        <p>- 결국 Ion Implantation도 배울게 너무 많고, 결국 트렌지스터의 동작과 전류 전압과도 모두 관련 있기 때문에 공부할 파트가 많다고 한다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Vth Adjust, Pinch-Off는 트렌지스터 동작과 관련 있다.”</p>
+        <p>I-V Curve에 대한 얘기, Saturation이 생기고 그렇게 되는게 해당 영역에 의해 결정되고 동작할 수 있다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “결국 Ion Implantation도 배울게 너무 많고, 결국 트렌지스터의 동작과 전류 전압과도 모두 관…”</p>
+        <p>소자 수업에서 제대로 못 듣고 넘어갔던 동작 특성에 대해서 세종대 교수님 수업을 들으면서 복습할 때 오늘 배웠던 내용들을 생각하면서 공부하자. 연결지으면서</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 이중에서 도핑 농도가 제일 높아야 되는 영역은? Source Drain</p>
+        <p>A. Source, Drain이다. Source랑 Drian는 실체가 없다. 점처럼 찍힌 곳이지 편의를 위해서 네모 모양으로 표현한 것이다.</p>
+      <figure><img src="images/fig34.png" width="364" height="369" alt="판서 — 트랜지스터의 S / D는 네모가 아니라 점처럼 찍힌 영역" loading="lazy"><figcaption>판서 — 트랜지스터의 S / D는 네모가 아니라 점처럼 찍힌 영역 (출처: 사용자 노션 캡처)</figcaption></figure>
+      </div>
+
+      <h3 id="s27-1">136pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Diffusion은 고온에서 진행해야 하기 때문에 PR을 사용하면 안되지만 예전에는 몰라서 그채로 PR 마스크를 사용했다고 함. PR - PAC 분해 온도가 130°C 이고 Duffusion은 1000°C 이런식이니까 Furnace 내부가 난리가 난다고 한다.</p>
+        <p>- 결국 Diffusion은 PR Mask 사용하지 못한다.</p>
+        <p>- Diffusion 공정 자체는 70년대에 없어졌다고 한다. 그렇지만 SiO₂ 산화 공정은 막 증착이 되는 것이다. 그 이외에는 Furnace는 열처리하는 용도로 사용했다고 한다.</p>
+        <p>- AP 시스템이 원래는 Furnace 장비였다고 한다.</p>
+      </div>
+
+      <h3 id="s27-2">137pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 우리가 주입하고자 하는 Dopant 들의 순도가 좋아야한다. 그래서 질량 분석기를 통해 우리가 원하는 이온만 뽑아내야한다.</p>
+        <p>- 같은 불순물을 R<sub>p</sub>를 여러번 중첩해서 주입하게 되면 원하는 영역에 넣을 수 있다.</p>
+      </div>
+      <figure><img src="images/fig35.png" width="519" height="741" alt="판서 — 같은 불순물의 Rp를 여러 번 중첩해 원하는 깊이(0.1 ~ 0.9 μm)에 주입" loading="lazy"><figcaption>판서 — 같은 불순물의 R<sub>p</sub>를 여러 번 중첩해 원하는 깊이(0.1 ~ 0.9 μm)에 주입 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이온 에너지가 너무 강하면 PR Mask를 사용할 수가 없다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s28">28. R! PR Mask의 용도</h2>
+      <blockquote>Photo: Light Source<br>Etch: Etch Gas<br>IIP: Ion Energy</blockquote>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>→ 근데 최근 공정에서는 Etch 공정이랑 IIP는 사용 못해! 왜? 더 이상 버티지 못해</p>
+        <p>⇒ 더 이상 못쓰기 때문에 안써! 가 아니라 버틸 수 있는 Hard mask를 사용한다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “⇒ 더 이상 못쓰기 때문에 안써! 가 아니라 버틸 수 있는 Hard mask를 사용한다.”</p>
+        <p>아마 예비군 수업 때일 듯 사진 확인하기</p>
+      </div>
+
+      <h3 id="s28-1">140pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 일단 이온이 나와야하니까 플라즈마가 나와야겠지</p>
+      </div>
+      <figure><img src="images/fig36.jpg" width="1400" height="1050" alt="판서 — 이온 주입 장비: PH3 → P⁺ 이온 종류, Suppression · Extraction plate, 자기장 질량 분석, Blow-up, Junction depth와 Dose (화이트보드 사진)" loading="lazy"><figcaption>판서 — 이온 주입 장비: PH<sub>3</sub> → P⁺ 이온 종류, Suppression · Extraction plate, 자기장 질량 분석, Blow-up, Junction depth와 Dose (화이트보드 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig37.png" width="895" height="532" alt="판서 — 이온 빔의 추출과 자기장 질량 분석(M), 이온 에너지(100 keV)와 Junction depth" loading="lazy"><figcaption>판서 — 이온 빔의 추출과 자기장 질량 분석(M), 이온 에너지(100 keV)와 Junction depth (출처: 사용자 노션 캡처)</figcaption></figure>
+
+      <h3 id="s28-2">PH₃(g) → P⁺</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 플라즈마는 만들어두고 끝이 아니라 가만히 냅두면 재결합해서 꺼질 확률 99% 이상</p>
+        <p>- P⁺, P⁺⁺, P</p>
+        <p class="sub">– 여기에서 +은 전자를 잃은 것을 의미한다 ++이면 두 개 잃은 것이다</p>
+      </div>
+
+      <h3 id="s28-3">P나 H 중에 +를 갖고 있는 모든 애들의 거동</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 다양한 +를 갖고 있는 애들은 서로 척력이 발생해서 확 밀어낸다.</p>
+        <p>- 그걸 다시 모아주는 역할도 필요하고, 애들이 자기장을 걸어줘서 휘게 하면 가벼운 애들은 가벼우니까 안쪽에서 휘게 되고, 무거운 애들은 원심력이 더 크게 작용돼서 큰 반경으로 휜다.</p>
+        <p>- 그러면 적당하게 휘는 애들만 휘어서 통과할 수 있게 만들어준다.</p>
+        <p>(1) Suppression plate</p>
+        <p>(2) Extraction plate</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s29">29. Mask는 이온주입시에 Mask 자체도 이온주입이 된다!</h2>
+      <figure><img src="images/fig38.png" width="415" height="507" alt="판서 — Mask에도 이온이 주입되고 아래로 확산되는 모습 (Hard Mask)" loading="lazy"><figcaption>판서 — Mask에도 이온이 주입되고 아래로 확산되는 모습 (Hard Mask) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Wafer는 상하로 움직이고 이온 주입은 좌우로 된다. 따라서 Mask에도 이온이 주입되고 있는 것이다. PR 자체에도 이온 주입이 되고 있는 것이다.</p>
+        <p>- 그렇다보니 이온은 Mask에만 주입이 되는 것이 아니다.</p>
+        <p>- PR Mask는 이온 에너지가 높아지면 사용하지 못하기 때문에 Hard Mask를 사용한다.</p>
+        <p>비유) 비가 내리는 상황에서 아무리 우산으로 비를 방지해도 비가 우수수 내리면 비를 맞을 수 밖에 없잖아?</p>
+        <p>- Hard Mask로는 SiO₂와 Si₃N₄를 사용한다. 여기에서도 무조건 SiO₂, Si₃N₄를 쓸거야! 이게 아니라 확산 속도를 고려해서 확산 속도가 느린 Hard mask를 골라서 사용을 해야한다.</p>
+        <p>- 결국 마스크</p>
+        <p></li></p>
+        <p></ul></p>
+      </div>
+
+      <h3 id="s29-1">(1) SiO₂ - Ga/Al Impurity</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Ga/Al 와 같은 불순물들은 SiO₂ 안에서 확산이 빨라서 SiO₂가 마스크 역할을 잘 못한다.</p>
+        <p>- 결국에 Mask에도 이온주입이 되면 확산해서 들어가게 된다. 이게 SiO₂라고 한다면 확산해 나가는 속도가 SiO₂가 Si보다 느리다.</p>
+        <p>- Hard Mask를 쓴다고 다 막아지는 것도 아니다. 방지를 해주는 정도이지 100대 0의 개념은 없는 것이다.</p>
+      </div>
+
+      <h3 id="s29-2">(2) Si₃N₄</h3>
+
+      <h3 id="s29-3">내 말로 정리</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>결국에 PR Mask는 이온 주입정도가 강해지면 PR Mask가 녹아버리고 못버티겠지? 그래서 SiO₂나 Si₃N₄를 사용한다고 하더라도 결국 이온주입은 Mask에 동일하게 된다.</p>
+        <p>그래서 SiO₂랑 Si₃N₄를 선정하는 기준은 확산이 얼마나 잘 되냐. 그 아래 Si에 비해 얼마나 잘 확산을 느리냐가 문제이라는 것이지.</p>
+        <p>하여간 마스크 써도 이온 주입되는 것이고, 이온 주입이 되었으니 확산돼서 들어가는 것도 고민해줘야 하는 것이고, 그 때 확산되는 정도를 확인하라고</p>
+      </div>
+
+      <h3 id="s29-4">144pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>책 진도 나가다가 갑자기 플라즈마로 트셨음</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s30">30. ★진공 &amp; 플라즈마★</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- <u>여기에 나오는 해당 개념들은 반드시 문장으로 정리해둬라</u></p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 플라즈마가 무엇인가요?</p>
+        <p>A.</p>
+        <p>높은 에너지를 가진 전자가 반응성 기체의 원자, 분자와 충돌하여 Ion(+)과 전자(-)로 전기적으로 분리되어 공존하는 물질의 상태</p>
+        <p>[답변에 대한 설명]</p>
+        <p>- 플라즈마의 필요조건은 전자이다. 전자는 어디에서 왔는가? 대기 중, 챔버 안 …</p>
+        <p>- 높은 에너지를 갖는다? Ionization Energy 전기 에너지를 걸어준다. 그러면 전자가 에너지를 받아서 충돌할 수 있게 해준다.</p>
+        <p>- 전자가 가속해서 충돌해야 이온과 전자와 전기적으로 분리되고, 공존할 수 있다.</p>
+        <p>- <span class="mark-red">특히 주의할 것! 온도하고 상관이 없다. 답변을 보면 온도에 대한 조건이 없다. 그래서 저온 공정이라고 얘기하면 안된다는 것이다. 온도와 관계가 없는거지 저온에서 쓰는게 아니다. 우리는 충돌에 의해서 플라즈마가 형성된다고 말하면 되는 것이다.</span></p>
+        <p>- Ion(+)은 Physical rxn의 주체, 라디칼은 Chemical rxn의 주체이다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Q. 플라즈마가 무엇인가요?”</p>
+        <p>공부하고 정리 노트 만들 때 이런 느낌으로 정리하기</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Q. 플라즈마가 무엇인가요?”</p>
+        <p>답변을 할 때 글을 그대로 읽지 말고 말하듯이 설명해라. 지금 적힌 것은 문어체이고, 구어체로 반드시 다시 정리하기</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “플라즈마의 필요조건은 전자이다. 전자는 어디에서 왔는가? 대기 중, 챔버 안 …”</p>
+        <p>솔직히 몰랐음 알았으면 말로 나왔겠지</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 라디칼이 무엇인가요?</p>
+        <p>A. Unpaired 한 공유 결합쌍을 갖는 물질을 말합니다. 그래서 반응 중에 Chemical Reation의 주체가 됩니다.</p>
+        <p>ex) H₂O₂의 이름이 과산화수소이다. H₂O + O로 해리되게 되면 O가 라디칼로 반응성이 매우 높다.</p>
+        <p>- CF₄ gas에서 CF₃ - 이것도 라디칼이다.</p>
+        <p>ref) Ion implantation에서도 플라즈마를 형성하지만 그 중에서 아까 배웠던 것처럼 이온이 있는 것만 끄집어냈다. 그러면 이때 당연하게 플라즈마 이지만 라디칼을 안쓰는거지!</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “ref) Ion implantation에서도 플라즈마를 형성하지만 그 중에서 아까 배웠던 것처럼 이온이 …”</p>
+        <p>이런걸 생각할 수 있어야 한다고</p>
+      </div>
+      <figure><img src="images/fig39.jpg" width="1400" height="1050" alt="판서 — Plasma: Ionization Energy · Collision · Ion(+) · Radical · Sheath · Self-bias (화이트보드 사진)" loading="lazy"><figcaption>판서 — Plasma: Ionization Energy · Collision · Ion(+) · Radical · Sheath · Self-bias (화이트보드 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Radical이 플라즈마 내에서 만들어지면 사방으로 움직일 수도 있다. 제한이 없다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. Sheath가 무엇인가요?</p>
+        <p>A. 전기적인 평형상태가 깨진 지점입니다.</p>
+      </div>
+
+      <h3 id="s30-1">RF Bias를 걸었을 때 Self bias가 걸리는 메커니즘</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>(+) → (-) → (+) → …</p>
+        <p>- + 일 때는 전자가 가지만 (-) 일 때는 양이온이 가야하지만 속도가 느려서 가지 못한다. 그런 상태가 계속 반복되면 전극에 전자들만 쌓이게 된다.</p>
+        <p class="sub">– 조금 더 디테일하게 설명을 한다면 전자의 이동속도가 100km 정도 일 때 양이온이 100m를 갈 정도로 느리다. 따라서 양이온은 중앙에서 거의 가만히 있는 것처럼 보이고 전자들이 전극으로 가게 되는 것이다.</p>
+        <p>- 전극에 전자들이 쌓이게 되니까 전자들은 반발에 의해서 돌아가게 되며, 전기적 평형상태가 깨진 지점인 Sheath 영역이 생긴다.</p>
+        <p>- 따라서 양이온들이 기판을 때리게된다.</p>
+      </div>
+
+      <h3 id="s30-2"><span class="mark-yel">플라즈마 내에서의 Mobility</span></h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Electron: 9.5 × 10⁷ cm/sec → 100 km</p>
+        <p>- Ion: 5.2 × 10⁴ cm/sec → 100m</p>
+        <p>- Neutral: 4.0 × 10⁴ cm/sec</p>
+        <p>→ 전자는 100km 갈 동안 Ion은 100m 가는 것이다.</p>
+        <p>Ref) PECVD</p>
+        <p>- 다 같은데 Plasma에서 중성 라디칼만 사용하는 것이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s31">31. Vacuum (진공): 기체 분자수의 감소</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>1기압: 760 Torr</p>
+        <p>- 토리챌리가 수은 실험으로..</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “토리챌리가 수은 실험으로..”</p>
+        <p>아 과학 인물 100인 책 다시 빌려야하는데..</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 755Torr가 진공인가?</p>
+        <p>A. 답이 뭔데 그래서?</p>
+        <p>이상 기체 방정식</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p class="eq">PV = nRT</p>
+        <p>- 아보가드로 방정식으로부터 시작 0°C 1atm 22.4L 1mol의 분자수 → 6.02 × 10²³</p>
+        <p><span>진공도를 높이게 되면 압력이 낮아지게 된다</span></p>
+        <p>- <span>(1) 기체 분자수 감소</span></p>
+        <p>- <span>(2) 충돌 감소</span></p>
+        <p>- <span>(3) MFP 증가</span></p>
+        <p>→ 진공도를 논하기 보단 압력을 논하는 것이다. 압력이 낮으면 따라오는 3개의 현상이 있는 것이다.</p>
+        <p><span class="mark-red">→ 압력은 process가 진행되는 환경이고 압력을 툭 치면 압력으로 읽히는게 아니라 저 위에 3개가 머릿속에 같이 따라와야 한다. 압력이 하나의 파라미터라고 생각하고 끝내는게 아니라, 저 세 개의 특성과 관련된 것임을 기억해야한다.</span></p>
+        <p>(1) 저진공: 1~10⁻³<br>[1] Dry Etch [2] Clean [3] CMP<br><br>(2) 중진공: 10⁻³ ~10⁻⁶<br>[4,5] T/F(PVD,CVD) [6] Diffusion<br><br>(3) 고진공: 10⁻⁶ ~10⁻⁹<br>[7] Photo [8] Ion Implantation<br><br>(4) 초고진공: 10⁻⁹~</p>
+        <p><span class="mark-yel">왜 분류를 하는가? 8대 공정이 전부 진공을 사용하기 때문에</span></p>
+        <p>- PVD에서는 실제로 1.57m 정도만 날라간다고 한다. Ar기체를 만들고 증착을 시키겠다고 했을 때 진공도에 따라서 m.f.p가 바뀌게 된다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. PVD에서 압력을 낮추는 이유가 무엇인가?</p>
+        <p>A. Precusor나 Reactant 중 하나의 m.f.p 를 길게 늘려져서 구현하는 박막의 순도, 품질을 높인다.</p>
+        <p>→ 여기에서 중요한건 위에서의 3개 중에 하나를 가져와서 설명해야한다는 점이다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. Clean 저진공을 사용하는 이유?</p>
+        <p>A. 기체분자수를 줄여서 오염이 적은 상태에서 공정을 진행하게 하기 위해서입니다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. Photo 고진공을 사용하는 이유?</p>
+        <p>A. 기체분자수를 줄여서 Photon의 대기 중 산란 및 흡수를 방지하기 위해서입니다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s32">32. 플라즈마를 사용하는 공정은 다시 생각해봐야한다?</h2>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. Dry Etch가 저진공을 사용하는 이유?</p>
+        <p>A. 플라즈마는 이온 충돌이 일어나야하는데, 진공을 써야한다면 압력이 낮춰져야 하면 충돌량이 줄어든다. 아 그래서 진공을 저진공 영역에서 사용해야하니까 Dry Etch 공정은 플라즈마를 사용하되 저진공 영역에서 사용해서 Collision이 일어나서 플라즈마를 형성할 수 있게 해준다.</p>
+        <p>Dry etch의 목적은 Ion의 m.f.p를 늘려야 한다. Ion의 방향성이 커져야 한다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. Ion Implantation은 고진공을 사용하는 이유?</p>
+        <p>A. 아까 이온빔이 한 번도 충돌 안하고 Wafer로 쭉 이어져서 Wafer에 충돌해야하니 m.f.p가 길어야 한다.</p>
+        <p>Ion m.f.p를 높이는 것이 목표이고, 원하는 이온 불순물만 주입하기 위해서 진공을 사용하는 것이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s33">33. 스터디</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>1. ICP가 CCP보다 플라즈마 밀도도 높고 제어도 유리한데 왜 둘 다 사용할까</p>
+        <p>- CCP 는 위 아래 전극 이온과 전자가 기하급수적으로 늘어나고 어느순간에 도달하면 재결합 정도가 어째서 유지가 된다.</p>
+        <p>- 30~40cm로 매우 짧음.</p>
+        <p>- ICP는 안테나 구조이다. 코일에 의해 자기장이 코일 모양에 따라 수직으로 이동함. 전기장 방향대로 다시 전자가 움직이기 된다.</p>
+        <p>- 플라즈마의 밀도가 높아지지만 균일도가 떨어지는 문제가 있다.</p>
+        <p>2. 습식 식각보다 건식 식각이 미세 패턴 형성에 유리한 이유는?</p>
+        <p>- 2um 정도까지 등방성, 이방성</p>
+        <p>3. 식각 공정에서 선택비(Selectivity)가 중요한 이유는?</p>
+        <p>4. 식각 공정에서 온도를 조절하는 이유는?</p>
+        <p>- Dry etch에서 온도를 논하는 것은 척의 온도이고, 척의 온도는 결국 물질의 휘발성과 연관된다.</p>
+        <p>- 식각이 결국 휘발을 시켜야 하니까.</p>
+        <p>5. Self dc bias가 형성되는 이유는?</p>
+        <p>6. wiw wtw에서 각각의 uniformity가 미치는 영향</p>
+        <p>7. 하드마스크의 역할 무엇이 달라졌는지 pr mask와의 차이점</p>
+        <p>- <u>Hard mask 위에 PR이 올라가있는지 여부 체크. Hard Mask 종류를 무엇을 쓰는지?</u></p>
+        <p>- Hard mask 먼저 증착하고 PR을 사용한다!</p>
+        <p>8. etch profile에서 언더컷 I빔은 무엇 때문에 생기고 해결하기 위한 테이퍼는 어떤 방법으로 만든 것인가</p>
+        <p>9. wet etch에서 린스를 하는이유</p>
+        <p>10. Notch 불량 생성 원인? Pulsed plasma를 통한 해결 설명</p>
+        <p>11. Dry etch 이슈 설명? Pattern density effect</p>
+        <p>12. Over Etch를 진행하는 이유? 그리고 Over Etch를 진행하게 되면 이미 Etch 된 곳은 어떻게 되는 것인가?</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>필기는 사용자가 노션에 정리한 원문 그대로이며, 이미지는 교재·강의 슬라이드·판서 촬영본입니다.</p>
+      <p><span id="updatedAt"></span> · <a id="notionLink" href="#" target="_blank" rel="noopener" hidden>Notion 원본 보기</a> · <a href="../../index.html">홈으로</a></p>
+    </footer>
+  </main>
+</div>
+
+<button id="toTop" class="to-top" aria-label="맨 위로" hidden>↑</button>
+
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="이미지 확대">
+  <button class="lb-close" aria-label="닫기">✕</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</div>
+
+<script src="../../topics.js"></script>
+<script src="../../assets/common.js"></script>
+<script src="../../assets/topic.js"></script>
+</body>
+</html>
