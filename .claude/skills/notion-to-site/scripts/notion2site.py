@@ -38,6 +38,7 @@ def parse(lines, ctx, depth=0):
         raw = lines[i]; s = raw.strip(); i += 1
         if not s: continue
         lvl = depth + (len(raw) - len(raw.lstrip(" "))) // 2
+        if s.startswith("<synced-block") or s == "</synced-block>": continue   # 동기화 블록은 안의 내용만 쓴다
         if s == "<p />": items.append(("sp",)); continue
         if s.startswith("<image "):
             ctx["img"] += 1; items.append(("img", ctx["img"])); continue

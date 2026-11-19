@@ -134,7 +134,7 @@
         <p>- D to D는 소자끼리 절연을 시켜주는게 - LOCOS(Activation Area 침범), STI</p>
         <p class="sub">– LOCOS Active 영역이 줄어들면 어떤 일이 벌어지는데?  STI</p>
         <p>- L to L - MOS, IMD, ILD, PMD</p>
-        <p>MOS</p>
+        <p class="sub">MOS</p>
         <p class="sub">– MOSFET에서 Source Drain 사이에 channel을 형성하기 위해서 Oxide 사용</p>
         <p class="sub">– M 쪽에서 + 전압이 걸리지만 oxide를 통과하면 X</p>
         <p class="sub">– V<sub>DS</sub> 쪽에도 양의 포텐셜이 걸리고?</p>
@@ -160,7 +160,7 @@
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- Input → Output 을 제대로 하고 싶은데 그 중간에서 장비들 수 백개가 존재. 걔네들간의 상관관계를 정확히 규명하기가 어려움 (AI, 빅데이터 사용)</p>
         <p>- Al는 pure할 때 660도 정도에서 녹더라. 그래서 Poly-Si을 사용한 것이다. (이것도 이래서 그렇구나)</p>
-        <p>→ Gate에 Al이 아니라 Poly-Si을 사용한 이유는 녹는점 때문이다. Al의 녹는점은 660도인데 이후에 Source, Drain을 도핑 한 뒤에 열처리 공정을 할 때 그 온도를 버티지 못하고 녹아버린다. 따라서 녹는점이 1400도인 Poly-Si를 사용한다.</p>
+        <p class="sub">→ Gate에 Al이 아니라 Poly-Si을 사용한 이유는 녹는점 때문이다. Al의 녹는점은 660도인데 이후에 Source, Drain을 도핑 한 뒤에 열처리 공정을 할 때 그 온도를 버티지 못하고 녹아버린다. 따라서 녹는점이 1400도인 Poly-Si를 사용한다.</p>
       </div>
     </section>
 
@@ -262,12 +262,12 @@
       <h2 id="s10">10. CVD(Chemical Vapor Deposition)</h2>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- A(g) + B(g) → C(s) + D(g)</p>
-        <p>- A랑 B는 전구체</p>
-        <p>- 이렇게 되어서 D가 부산물로 날라가야한다. 그래서 휘발성이 높아야한다. 만약에 날라가지 못하면 defect이 되는 것이다.</p>
+        <p class="sub">– A랑 B는 전구체</p>
+        <p class="sub">– 이렇게 되어서 D가 부산물로 날라가야한다. 그래서 휘발성이 높아야한다. 만약에 날라가지 못하면 defect이 되는 것이다.</p>
         <p>- 용융점이 높아서 가공하기 어려운 재료들을 증착할 수 있다.</p>
-        <p>- W는 녹는점이 3000도 정도 되는데, 이걸 PVD 방식으로 할 수가 없다. 다만 W를 PVD로 만들 수는 있지만, 깊은 콘택을 채우려면 step coverage가 좋은 CVD를 쓴다. 그런데 CVD에서는 WF₆ 처럼 화학반응을 이용해서 만들 수 있다는 얘기이다.</p>
+        <p class="sub">– W는 녹는점이 3000도 정도 되는데, 이걸 PVD 방식으로 할 수가 없다. 다만 W를 PVD로 만들 수는 있지만, 깊은 콘택을 채우려면 step coverage가 좋은 CVD를 쓴다. 그런데 CVD에서는 WF₆ 처럼 화학반응을 이용해서 만들 수 있다는 얘기이다.</p>
         <p>- Step Coverage</p>
-        <p>- Step과 Step 사이에 증착이 될때 bottom이나 side 쪽에 제대로 되지 않는 것을 말함</p>
+        <p class="sub">– Step과 Step 사이에 증착이 될때 bottom이나 side 쪽에 제대로 되지 않는 것을 말함</p>
       </div>
     </section>
 
@@ -382,10 +382,10 @@
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- PVD는 step coverage가 낮기 때문에 contact 처럼 깊은 곳을 채우기가 어렵다. 그래서 CVD로 진행하려고 한다.</p>
         <p>- 실제로 W 같은 경우 CVD로 바꿔서 증착을 진행하게 된 것이다. 왜? PVD로는 높은 종횡비를 갖는 곳을 채울 수 없으니까</p>
-        <p>→ 모든 Metal 이 CVD라는 소리는 아니고, PVD로 해야하는게 있지</p>
+        <p class="sub">→ 모든 Metal 이 CVD라는 소리는 아니고, PVD로 해야하는게 있지</p>
         <p>- APCVD는 900도 정도에서 진행한다. 상압에서 진행하니까 defect도 많이 생기겠지. 그래서 LPCVD를 사용하게 된다.</p>
         <p>- 상압에서 0.1Torr ~ 1Torr까지 줄이게 되면 LPCVD로 사용하는 것. 아까 말했던 것처럼 압력이 낮으니까 온도를 높여서 Depo rate를 확보한다. (Gas 량 자체가 줄어드니까 온도를 높여서 입자 간 반응성을 높인다)</p>
-        <p>→ Step coverage가 좋아지고, 균일도가 좋아진다.</p>
+        <p class="sub">→ Step coverage가 좋아지고, 균일도가 좋아진다.</p>
         <p>- LPCVD로 만드는 물질들</p>
         <p>(1) Poly-Si</p>
         <p>(2) Si₃N₄</p>
@@ -436,10 +436,10 @@
         <p class="sub">– 여기에서 Gas를 무엇을 집어넣는가에 따라서 Depo인지, Etch인지가 결정되는 것이다</p>
         <p>- “원하지 않는 부산물 필름이 남는다”</p>
         <p class="sub">– SiH₄ → SiH₃ + H</p>
-        <p class="sub">– SiH₂ + H + H</p>
-        <p class="sub">– Si + H + H + H</p>
-        <p>→ 이렇게 다양하게 생기게 되는데, SiH₃ + H가 제일 많다.</p>
-        <p>→ SiH₃ 여도 여기에 남는 공유 결합에 O가 붙을 수도 있는 것이다. 우리가 원하는건 SiO₂인데, 실제로는 그렇지 않다는 것이지.</p>
+        <p class="sub sub2">– SiH₂ + H + H</p>
+        <p class="sub sub2">– Si + H + H + H</p>
+        <p class="sub">→ 이렇게 다양하게 생기게 되는데, SiH₃ + H가 제일 많다.</p>
+        <p class="sub">→ SiH₃ 여도 여기에 남는 공유 결합에 O가 붙을 수도 있는 것이다. 우리가 원하는건 SiO₂인데, 실제로는 그렇지 않다는 것이지.</p>
       </div>
       <div class="note qa"><b>[질문 노트]</b>
         <p class="q">Q. RF 플라즈마 사용하는 이유?</p>
@@ -501,8 +501,8 @@
         <p>- 저항이 낮아야한다 = 전류가 빠르게 흐른다. <u>순도가 요구되기 때문</u>에 금속은 CVD가 아니라 PVD를 선호하는 것이다.</p>
         <p>- 반도체에서 99.9999% 의 순도를 요구한다.</p>
         <p>- Al target에 요즘은 0.5% 정도 Cu가 들어간다. 이걸 화학 반응으로 컨트롤이 가능한가? 여기에서 하는말은 target 자체는 PVD의 재료라서 target을 만드는 것은 가능하다는 것이지. 근데 이걸 Gas 상태에서 반응해서 99.9999% 의 순도를 갖게 만들 수는 없다는 것이다.</p>
-        <p>- 결국에는 Sputtering을 통해서 순도를 얻을 수 밖에 없다. <u>왜? 저항이 낮아야하니까 어떻게? 불순물이 적어야 해 왜? 전류가 빨리 흘러야 하니까 왜? 반도체는 빨라야하니까. (반복)</u></p>
-        <p>- 요약: Target의 순도는 조절 가능하지만, Gas에서 반응물의 순도는 컨트롤하기 어렵다.</p>
+        <p class="sub">– 결국에는 Sputtering을 통해서 순도를 얻을 수 밖에 없다. <u>왜? 저항이 낮아야하니까 어떻게? 불순물이 적어야 해 왜? 전류가 빨리 흘러야 하니까 왜? 반도체는 빨라야하니까. (반복)</u></p>
+        <p class="sub">– 요약: Target의 순도는 조절 가능하지만, Gas에서 반응물의 순도는 컨트롤하기 어렵다.</p>
       </div>
       <div class="note cmt"><b>[댓글]</b>
         <p class="cmt-ctx">대상: “저항이 낮아야한다 = 전류가 빠르게 흐른다.”</p>
@@ -731,7 +731,7 @@
         <p>- Si를 만들 때 SiO2 도가니에서 녹여서 만든다. 이에 따라 열처리가 진행되는 온도에서 산소가 Si안으로 녹아들어간다. 그리고 식히는 과정에서 산소가 빠져나가게 되면 공고이 생기고 SiOₓ가 생긴다.</p>
         <p>- 그래서 Si 를 만들고 난 다음에 Epi층을 길러 Si층을 다시 깔아주고 이를 통해 전기적인 성능을 좋게 만든다.  .</p>
         <p>- “PWP 10775” Poly silicon Wafer 의 P type의 비저항이 10 이고 775μm 라는 의미이다.</p>
-        <p>- 공정을 진행하고 나서 Wafer 뒷면은 갈아주게 되고 40~50μm만 남기게 된다.</p>
+        <p class="sub">– 공정을 진행하고 나서 Wafer 뒷면은 갈아주게 되고 40~50μm만 남기게 된다.</p>
       </div>
     </section>
 
