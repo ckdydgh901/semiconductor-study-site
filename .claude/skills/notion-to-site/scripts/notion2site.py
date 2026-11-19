@@ -15,6 +15,9 @@ def inline(s, anchors=None):
         return m.group(2)
     s = re.sub(r'<span discussion-urls="discussion://[^/"]+/[^/"]+/([0-9a-f-]+)">(.*?)</span>', disc, s, flags=re.S)
     s = s.replace('<span color="red_bg">', '<span class="mark-red">').replace('<span color="yellow_bg">', '<span class="mark-yel">')
+    for _c, _k in (("green_bg", "grn"), ("blue_bg", "blu"), ("orange_bg", "org"), ("pink_bg", "pnk"), ("purple_bg", "pur"),
+                   ("gray_bg", "gry"), ("brown_bg", "brn")):
+        s = s.replace(f'<span color="{_c}">', f'<span class="mark-{_k}">')
     s = re.sub(r'<span color="[a-z_]+">', '<span>', s)
     s = s.replace("<br />", "<br>")
     s = s.replace("\\<", "&lt;").replace("\\>", "&gt;")
@@ -34,6 +37,7 @@ def parse(lines, ctx, depth=0):
     while i < n:
         raw = lines[i]; s = raw.strip(); i += 1
         if not s: continue
+        lvl = depth + (len(raw) - len(raw.lstrip(" "))) // 2
         if s == "<p />": items.append(("sp",)); continue
         if s.startswith("<image "):
             ctx["img"] += 1; items.append(("img", ctx["img"])); continue
@@ -58,10 +62,10 @@ def parse(lines, ctx, depth=0):
                 if lines[i].strip(): buf.append(lines[i].strip())
                 i += 1
             i += 1
-            if buf: items.append(("line", "<br>".join(buf)))
+            if buf: items.append(("line", "<br>".join(buf), lvl))
             continue
         if s.startswith("<p>") and s.endswith("</p>"):
-            items.append(("line", s[3:-4])); continue
+            items.append(("line", s[3:-4], lvl)); continue
         if s == "<ul>":
             # 중첩 목록을 위해 <ul>/<li>의 짝을 깊이로 맞춘다 (2026-11-19)
             block = []; d = 1
@@ -85,9 +89,9 @@ def parse(lines, ctx, depth=0):
                             if d2 == 0: break
                         inner.append(block[j]); j += 1
                     j += 1
-                    sub_items = parse(inner, ctx, depth + 1)
+                    sub_items = parse(inner, ctx, lvl + 1)
                     if sub_items and sub_items[0][0] == "line":
-                        sub_items[0] = ("bullet", sub_items[0][1], depth)
+                        sub_items[0] = ("bullet", sub_items[0][1], lvl)
                     items.extend(sub_items)
                 else:
                     j += 1
@@ -134,7 +138,7 @@ def parse(lines, ctx, depth=0):
         m = re.match(r"^(\s*)- (.*)$", raw)
         if m:
             items.append(("bullet", m.group(2).strip(), len(m.group(1)) // 2 + depth)); continue
-        items.append(("line", s))
+        items.append(("line", s, lvl))
     return items
 
 # ---------------------------------------------------------------- 별도 줄 수식($$…$$)·표
@@ -281,7 +285,8 @@ class Builder:
             if it[0] == "bullet":
                 ps.append(bullet_p(html_s, it[2]))
             else:
-                ps.append(f"        <p>{html_s}</p>")
+                lv = it[2] if len(it) > 2 else 0
+                ps.append(f'        <p class="sub{" sub2" if lv >= 2 else ""}">{html_s}</p>' if lv else f"        <p>{html_s}</p>")
         self.emit('      <div class="note"><b>[사용자 노트 필기]</b>\n' + "\n".join(ps) + "\n      </div>\n" + self.cmt_boxes(anchors))
         self.run = []
 
@@ -298,7 +303,8 @@ class Builder:
             elif it[0] == "bullet":
                 ps.append(bullet_p(html_s, it[2]))
             else:
-                ps.append(f"        <p>{html_s}</p>")
+                lv = it[2] if len(it) > 2 else 0
+                ps.append(f'        <p class="sub{" sub2" if lv >= 2 else ""}">{html_s}</p>' if lv else f"        <p>{html_s}</p>")
         self.emit('      <div class="note qa"><b>[질문 노트]</b>\n' + "\n".join(ps) + "\n      </div>\n" + self.cmt_boxes(anchors))
         self.qa = None; self.qa_cont = False
 

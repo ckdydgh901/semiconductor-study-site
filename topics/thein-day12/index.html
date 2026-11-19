@@ -105,9 +105,9 @@
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- A(g) + B(g) → C(s) + D(g)</p>
         <p>- 사용하는 장비: Single Type</p>
-        <p>- 저온 적용이 가능하다.</p>
-        <p>- 저온 적용하기 때문에 퀄리티가 낮고, 절연체로만 사용해, 중요한 공정에서는 사용할 수 없다.</p>
-        <p>- 그래서 이젠 CVD 공정 갈래요! 하면 의미가 없다는 것이다. 별로 중요하지 않은 공정이기 때문이다.</p>
+        <p class="sub">– 저온 적용이 가능하다.</p>
+        <p class="sub">– 저온 적용하기 때문에 퀄리티가 낮고, 절연체로만 사용해, 중요한 공정에서는 사용할 수 없다.</p>
+        <p class="sub">– 그래서 이젠 CVD 공정 갈래요! 하면 의미가 없다는 것이다. 별로 중요하지 않은 공정이기 때문이다.</p>
         <p>→ 결국 현재에는 Diffusion가 CVD의 차이는 고온/저온 공정 여부 차이</p>
         <p>- 결국 고온 공정과 저온 공정의 차이는 패턴의 밀도를 얘기한다.</p>
         <p>- 현재에는 고온 공정을 진행한다고 하면 Diffusion을 진행한다.</p>
@@ -136,8 +136,8 @@
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- Conductivity는 Resistivity를 낮추는 게 중요하다. 전기전도도를 높이는 건 저항을 낮추는 것이다? (Resistiviy는 비저항 아니야?)</p>
         <p class="sub">– 비저항을 낮추기 위해서 하고 있는 활동은? (물론 과거 기준)</p>
-        <p>1. Barrier Metal 적용</p>
-        <p>2. Silicide 형성</p>
+        <p class="sub">1. Barrier Metal 적용</p>
+        <p class="sub">2. Silicide 형성</p>
         <p>- Contact 형성, Via 형성, 층간절연막(IMD) 형성, Passivation 형성</p>
       </div>
       <figure><img src="images/fig03.jpg" width="1400" height="1867" alt="판서 — FEOL · BEOL 구조 (Contact · Via · ILD · IMD, HARC) (화이트보드 사진)" loading="lazy"><figcaption>판서 — FEOL · BEOL 구조 (Contact · Via · ILD · IMD, HARC) (화이트보드 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
@@ -162,7 +162,7 @@
         <p class="q">Q. 과거에는 Fume 제거를 안했는데 지금은 BEOL 공정이나 FEOL 공정이나 해준다? </p>
         <p>A.</p>
         <p>- 아 그러니까 Fume 제거는 목적인거고, FOUP cleaning을 진행한다는 것이네. 그러고 예전에는 그렇게 까지 안했는데 요즘은 미세화 되면서 이 Cleaning을 여러번 진행한다.</p>
-        <p>→ 과거에는 fume를 신경 쓰지 않았지만, 선폭이 좁아지고 금속과 민감한 막이 많아지면서 미세한 잔류물도 불량으로 이어져서 지금은 FEOL과 BEOL 모두에서 해준다는 설명</p>
+        <p class="sub">→ 과거에는 fume를 신경 쓰지 않았지만, 선폭이 좁아지고 금속과 민감한 막이 많아지면서 미세한 잔류물도 불량으로 이어져서 지금은 FEOL과 BEOL 모두에서 해준다는 설명</p>
         <p>- 층간 절연막에 사용하는 SiO₂는 전부 같은 소재이다. 왜냐하면 1~30층에서 Nitride 안쓰잖아? 하지만 SiO₂에서 사고 났어? 라고 물어보면 어딘지 모르니 네이밍을 해준 것이다.</p>
       </div>
       <div class="note qa"><b>[질문 노트]</b>
@@ -233,7 +233,7 @@
       <h2 id="s8">8. Cu 다마신 공정</h2>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- 고려상감청자 문양 기법 (양각은 찍고자 하는 것만 남겨두는 것이고, 음각은 찍고자 하는 것을 파내는 것이다) 고려 청자는 음각 기법을 사용했다.</p>
-        <p>→ 이건 면접 때 얘기할게 아니다. 그냥 반도체 용도로 다마신 공정이 있다는 것을 알면 된다. 어원은 고려상감청자에서 온 것이지만 실제로 반도체와 관련 X</p>
+        <p class="sub">→ 이건 면접 때 얘기할게 아니다. 그냥 반도체 용도로 다마신 공정이 있다는 것을 알면 된다. 어원은 고려상감청자에서 온 것이지만 실제로 반도체와 관련 X</p>
         <p><b>다마신 공정: Dielectric을 Etch하고 Metal을 채워 넣는 공정</b></p>
         <p>(1) Dielectric 증착 → (2) Photo → (3) Dielectric Etch → (4) PR 제거 공정(Ahsing+PR Strip) → (5) Barrier Metal 증착 (Ta/TaN) → (6) Seed Cu 증착 (PVD) → (7) Main Cu 증착 (Electro-plating)</p>
       </div>
@@ -257,10 +257,10 @@
       <figure><img src="images/fig14.png" width="469" height="405" alt="판서 — 식각 부산물의 녹는점: CuCl2 1490°C · CuF2 1100°C, AlCl3 177 · AlF3 1291" loading="lazy"><figcaption>판서 — 식각 부산물의 녹는점: CuCl<sub>2</sub> 1490°C · CuF<sub>2</sub> 1100°C, AlCl<sub>3</sub> 177 · AlF<sub>3</sub> 1291 (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- 우리가 Gas로 Cl과 F를 사용하고자 하는 이유가 전기음성도가 높아서라고? ㄹㅈㄷ 이걸 어캐아누</p>
-        <p>→ 아 다른 material의 전자를 빠르게 끌어 당겨 → 반응해! → 날라가!</p>
+        <p class="sub">→ 아 다른 material의 전자를 빠르게 끌어 당겨 → 반응해! → 날라가!</p>
         <p>- Etch를 진행하게 되면 부산물과 Polymer 가 안생길 수가 없다.</p>
         <p>- Cu는 Etch를 할 수는 있는데, Etch를 하고 나서 나오는 반응 부산물의 녹는점이 너무 높기 때문에 사용할 수 없다.</p>
-        <p>→ 그래서 절연체를 미리 깎아두고 채워넣을 생각을 한 것이다.</p>
+        <p class="sub">→ 그래서 절연체를 미리 깎아두고 채워넣을 생각을 한 것이다.</p>
         <p>- Al도 그래서 Cl gas를 쓰는 것이다. 왜? F gas를 사용하면 생기는 부산물의 녹는점이 너무 높잖아?</p>
       </div>
       <div class="note cmt"><b>[댓글]</b>
@@ -676,7 +676,7 @@
         <p>- Wafer는 상하로 움직이고 이온 주입은 좌우로 된다. 따라서 Mask에도 이온이 주입되고 있는 것이다. PR 자체에도 이온 주입이 되고 있는 것이다.</p>
         <p class="sub">– 그렇다보니 이온은 Mask에만 주입이 되는 것이 아니다.</p>
         <p>- PR Mask는 이온 에너지가 높아지면 사용하지 못하기 때문에 Hard Mask를 사용한다.</p>
-        <p>비유) 비가 내리는 상황에서 아무리 우산으로 비를 방지해도 비가 우수수 내리면 비를 맞을 수 밖에 없잖아?</p>
+        <p class="sub">비유) 비가 내리는 상황에서 아무리 우산으로 비를 방지해도 비가 우수수 내리면 비를 맞을 수 밖에 없잖아?</p>
         <p>- Hard Mask로는 SiO₂와 Si₃N₄를 사용한다. 여기에서도 무조건 SiO₂, Si₃N₄를 쓸거야! 이게 아니라 확산 속도를 고려해서 확산 속도가 느린 Hard mask를 골라서 사용을 해야한다.</p>
         <p class="sub">– 결국 마스크</p>
       </div>
@@ -789,10 +789,10 @@
       <div class="note"><b>[사용자 노트 필기]</b>
         <p class="eq">PV = nRT</p>
         <p>- 아보가드로 방정식으로부터 시작 0°C 1atm 22.4L 1mol의 분자수 → 6.02 × 10²³</p>
-        <p><span>진공도를 높이게 되면 압력이 낮아지게 된다</span></p>
-        <p>- <span>(1) 기체 분자수 감소</span></p>
-        <p>- <span>(2) 충돌 감소</span></p>
-        <p>- <span>(3) MFP 증가</span></p>
+        <p><span class="mark-grn">진공도를 높이게 되면 압력이 낮아지게 된다</span></p>
+        <p>- <span class="mark-grn">(1) 기체 분자수 감소</span></p>
+        <p>- <span class="mark-grn">(2) 충돌 감소</span></p>
+        <p>- <span class="mark-grn">(3) MFP 증가</span></p>
         <p>→ 진공도를 논하기 보단 압력을 논하는 것이다. 압력이 낮으면 따라오는 3개의 현상이 있는 것이다.</p>
         <p><span class="mark-red">→ 압력은 process가 진행되는 환경이고 압력을 툭 치면 압력으로 읽히는게 아니라 저 위에 3개가 머릿속에 같이 따라와야 한다. 압력이 하나의 파라미터라고 생각하고 끝내는게 아니라, 저 세 개의 특성과 관련된 것임을 기억해야한다.</span></p>
         <p>(1) 저진공: 1~10⁻³<br>[1] Dry Etch [2] Clean [3] CMP<br><br>(2) 중진공: 10⁻³ ~10⁻⁶<br>[4,5] T/F(PVD,CVD) [6] Diffusion<br><br>(3) 고진공: 10⁻⁶ ~10⁻⁹<br>[7] Photo [8] Ion Implantation<br><br>(4) 초고진공: 10⁻⁹~</p>
