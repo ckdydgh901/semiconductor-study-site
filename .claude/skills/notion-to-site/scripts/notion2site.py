@@ -29,7 +29,7 @@ def is_bold_only(s):
     return re.fullmatch(r"\s*<b>(?:(?!</b>).)*</b>\s*", s, flags=re.S) is not None
 
 # ---------------------------------------------------------------- 파서
-def parse(lines, ctx):
+def parse(lines, ctx, depth=0):
     items = []; i = 0; n = len(lines)
     while i < n:
         raw = lines[i]; s = raw.strip(); i += 1
@@ -63,19 +63,34 @@ def parse(lines, ctx):
         if s.startswith("<p>") and s.endswith("</p>"):
             items.append(("line", s[3:-4])); continue
         if s == "<ul>":
-            while i < n and lines[i].strip() != "</ul>":
-                if lines[i].strip() == "<li>":
-                    inner = []; i += 1
-                    while i < n and lines[i].strip() != "</li>":
-                        inner.append(lines[i]); i += 1
-                    i += 1
-                    sub_items = parse(inner, ctx)
+            # 중첩 목록을 위해 <ul>/<li>의 짝을 깊이로 맞춘다 (2026-11-19)
+            block = []; d = 1
+            while i < n:
+                t = lines[i].strip()
+                if t == "<ul>": d += 1
+                elif t == "</ul>":
+                    d -= 1
+                    if d == 0:
+                        i += 1; break
+                block.append(lines[i]); i += 1
+            j = 0; m = len(block)
+            while j < m:
+                if block[j].strip() == "<li>":
+                    inner = []; d2 = 1; j += 1
+                    while j < m:
+                        t = block[j].strip()
+                        if t == "<li>": d2 += 1
+                        elif t == "</li>":
+                            d2 -= 1
+                            if d2 == 0: break
+                        inner.append(block[j]); j += 1
+                    j += 1
+                    sub_items = parse(inner, ctx, depth + 1)
                     if sub_items and sub_items[0][0] == "line":
-                        sub_items[0] = ("bullet", sub_items[0][1], 0)
+                        sub_items[0] = ("bullet", sub_items[0][1], depth)
                     items.extend(sub_items)
                 else:
-                    i += 1
-            i += 1
+                    j += 1
             continue
         if s.startswith("<columns>"):
             cols = []; cur = None
@@ -118,7 +133,7 @@ def parse(lines, ctx):
             items.append(("quote", "<br>".join(buf))); continue
         m = re.match(r"^(\s*)- (.*)$", raw)
         if m:
-            items.append(("bullet", m.group(2).strip(), len(m.group(1)) // 2)); continue
+            items.append(("bullet", m.group(2).strip(), len(m.group(1)) // 2 + depth)); continue
         items.append(("line", s))
     return items
 
@@ -210,6 +225,13 @@ def table_html(lines):
             f'        <tbody>{body}</tbody>\n'
             '      </table></div>\n')
 
+def bullet_p(html_s, lvl, pad=8):
+    """불릿 한 줄을 HTML로. 1단계는 '- ', 하위 단계는 '– '와 들여쓰기(sub, sub2)."""
+    sp = " " * pad
+    if not lvl:
+        return f"{sp}<p>- {html_s}</p>"
+    return f'{sp}<p class="sub{" sub2" if lvl >= 2 else ""}">– {html_s}</p>'
+
 # ---------------------------------------------------------------- 빌더
 class Builder:
     def __init__(self, items, meta, caps, comments, h2=(), h3=(), rename=None, insert=None, first_title="", drop_first=None):
@@ -257,8 +279,7 @@ class Builder:
                 ps.append(f'        <p class="eq">{eq_html(it[1])}</p>'); continue
             html_s = inline(it[1], anchors)
             if it[0] == "bullet":
-                lvl = it[2]
-                ps.append(f'        <p class="sub">– {html_s}</p>' if lvl else f"        <p>- {html_s}</p>")
+                ps.append(bullet_p(html_s, it[2]))
             else:
                 ps.append(f"        <p>{html_s}</p>")
         self.emit('      <div class="note"><b>[사용자 노트 필기]</b>\n' + "\n".join(ps) + "\n      </div>\n" + self.cmt_boxes(anchors))
@@ -275,7 +296,7 @@ class Builder:
                 html_s = re.sub(r"^\s*<b>(.*)</b>\s*$", r"\1", html_s, flags=re.S)
                 ps.append(f'        <p class="q">{html_s}</p>')
             elif it[0] == "bullet":
-                ps.append(f"        <p>- {html_s}</p>")
+                ps.append(bullet_p(html_s, it[2]))
             else:
                 ps.append(f"        <p>{html_s}</p>")
         self.emit('      <div class="note qa"><b>[질문 노트]</b>\n' + "\n".join(ps) + "\n      </div>\n" + self.cmt_boxes(anchors))

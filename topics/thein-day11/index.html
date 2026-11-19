@@ -115,7 +115,7 @@
         <p>- Exynos는 삼성전자, Snapdragon는 퀄컴 제품</p>
         <p>- AP 칩에서 데카코어에서 “데카”는 10을 의미</p>
         <p>- 메모리는 DRAM은 8GB/12GB, Flash는 256GB/1TB</p>
-        <p>- Tera는 10¹²</p>
+        <p class="sub">– Tera는 10¹²</p>
         <p>- AP 칩에는 GPU도 들어가있고 등등이 들어가 있어서 System on Chip이라고 하는 것이다.</p>
       </div>
 
@@ -153,7 +153,7 @@
       <h3 id="s4-5">ADC와 DAC</h3>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- 아날로그는 큰 트랜지스터를 쓰고 전압도 조금 높게 사용. 5V를 사용한다.</p>
-        <p>- 왜냐하면 작은 트랜지스터는 민감하기 때문이다.</p>
+        <p class="sub">– 왜냐하면 작은 트랜지스터는 민감하기 때문이다.</p>
         <p>- 5V를 10bit로 쓰겠다는 것은 1024로 나눈다는 것이니까 4.88mV 정도가 된다는 것이다.</p>
       </div>
     </section>
@@ -162,7 +162,7 @@
       <h2 id="s5">5. 메모리의 층위</h2>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- 캐시 메모리는 속도가 엄청 빠르다. CPU와 가깝게 위치. CPU의 캐시 메모리는 보통 SRAM으로 만든다고 한다.</p>
-        <p>- 이런 SRAM의 Cell의 크기가 엄청 크다고 한다.</p>
+        <p class="sub">– 이런 SRAM의 Cell의 크기가 엄청 크다고 한다.</p>
         <p>- DRAM이 그 다음, NAND Flash 가 그 다음</p>
         <p>- 결국 속도와 용량은 Trade-off 관계에 있다.</p>
       </div>
@@ -262,7 +262,7 @@
         <p>- 그러면 원래 존재하는 트랜지스터의 상태가 달라야한다.</p>
         <p>- Word line에 0V를 주고, 어쩌구저쩌구</p>
         <p>- 문턱전압을 (-)로 만들어놓으면 “1”으로 읽히는 것이고, 문턱전압을 (+)을 만들어 놓으면 “0”으로 읽힌다.</p>
-        <p>- 따라서 문턱전압은 어떤 불순물을 넣을 것이냐에 따라 결정된다.</p>
+        <p class="sub">– 따라서 문턱전압은 어떤 불순물을 넣을 것이냐에 따라 결정된다.</p>
         <p>- 결국에 이러면 Read Only가 되는 것이다. 이게 비휘발성 메모리의 메커니즘이다.</p>
         <p>- 이건 공정상에서 결정되는 것이다. 한 번 정하면 바꿀 수 없다.</p>
       </div>
@@ -304,12 +304,12 @@
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- Floating gate에 전자가 없는 걸 전압을 인가해 floating gate에 넣게되면 문턱전압이 우측이 되고, floating gate에서 빼내면 문턱전압이 좌측이 된다.</p>
         <p>- NAND 에서 Hot carrier 방식과 FN Tunneling 방식</p>
-        <p>- Hot carrier 방식: Source에서 Drain으로 이동하는 전자가 올라가는 것</p>
-        <p>- FN Tunneling 방식: 기판에 있는 소수 전자가 올라가는 것</p>
+        <p class="sub">– Hot carrier 방식: Source에서 Drain으로 이동하는 전자가 올라가는 것</p>
+        <p class="sub">– FN Tunneling 방식: 기판에 있는 소수 전자가 올라가는 것</p>
         <p>→ FN Tunneling 방식은 Hot carrier보다 전자가 oxide 내에 Trap 되는 정도가 적다. 따라서 Oxide 내에 Trap 되는 전자의 수가 줄어들기 때문에 수명이 더 길다. (그래서 FN Tunneling 방식을 사용한다.)</p>
         <p>- Control gate에서 15V가 가해지는데, 이 정도면 고전압 Transistor가 필요하다.</p>
-        <p>- 이걸 뭐 P-type 기판에 농도를 조절해서 공핍영역을 늘리고, Breakdown voltage를 키워서, 고전압을 사용할 수 있게 해준다.</p>
-        <p>- 도핑 농도를 낮춘다 → 농도가 낮아지면 공핍 영역 폭이 넓어진다 → 같은 전압에서도 전기장 약해진다 → 더 높은 전압에서 견딘다.</p>
+        <p class="sub">– 이걸 뭐 P-type 기판에 농도를 조절해서 공핍영역을 늘리고, Breakdown voltage를 키워서, 고전압을 사용할 수 있게 해준다.</p>
+        <p class="sub">– 도핑 농도를 낮춘다 → 농도가 낮아지면 공핍 영역 폭이 넓어진다 → 같은 전압에서도 전기장 약해진다 → 더 높은 전압에서 견딘다.</p>
       </div>
       <div class="note cmt"><b>[댓글]</b>
         <p class="cmt-ctx">대상: “이걸 뭐 P-type 기판에 농도를 조절해서 공핍영역을 늘리고, Breakdown voltage를 키워서…”</p>
@@ -359,7 +359,7 @@
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- 소자가 작아지면 short channel effect (부정적 현상) 이 생긴다.</p>
         <p>- Transistor를 작게 한다는 것은 Gate length를 작게 하는 것이다.</p>
-        <p>- 이것에 한계에 봉착해서 Planar → FinFET → GAA</p>
+        <p class="sub">– 이것에 한계에 봉착해서 Planar → FinFET → GAA</p>
       </div>
     </section>
 
