@@ -232,15 +232,15 @@ window.SITE = {
       notion: "https://app.notion.com/p/41b6b8b7c6bb80dcaa3fc41335b3f9b4"
     },
     {
-      id: "thein-day12",
+      id: "thein-day13",
       area: "thein",
-      title: "더인 교육 12일차 정리",
-      short: "12일차",
+      title: "더인 교육 13일차 정리",
+      short: "13일차",
       category: "더인 교육",
-      summary: "Diffusion과 CVD의 변천, Metal 배선(Contact/Via, Al→Cu 다마신, Cu etch, Capping layer), 금속 박막 조건과 PVD·CVD·ALD 비교(SOD·SOH), 오믹 컨택(Silicide), 이온 주입(Rp·Dose·하드마스크와 확산), 플라즈마(Sheath·Self bias)와 진공도 분류를 정리한 노트.",
-      tags: ["더인 교육", "12일차", "Diffusion", "CVD", "Contact", "Via", "다마신", "Cu", "Al", "Barrier Metal", "Silicide", "오믹 컨택", "PVD", "ALD", "SOD", "SOH", "이온 주입", "Rp", "하드마스크", "플라즈마", "Sheath", "Self bias", "진공"],
+      summary: "Diffusion과 CVD의 변천, Metal 배선(Contact/Via, Al→Cu 다마신, Cu etch, Capping layer), 금속 박막 조건과 PVD·CVD·ALD 비교(SOD·SOH), 오믹 컨택(Silicide), 이온 주입(Rp·Dose·하드마스크와 확산), 플라즈마(Sheath·Self bias)와 진공도 분류, N-type·P-type 에너지 밴드(E_d·E_a·E_F)를 정리한 노트.",
+      tags: ["더인 교육", "13일차", "Diffusion", "CVD", "Contact", "Via", "다마신", "Cu", "Al", "Barrier Metal", "Silicide", "오믹 컨택", "PVD", "ALD", "SOD", "SOH", "이온 주입", "Rp", "하드마스크", "플라즈마", "Sheath", "Self bias", "진공", "Fermi level", "Donor", "Acceptor"],
       date: "2026-11-19",
-      updated: "2026-11-19",
+      updated: "2026-11-20",
       notion: "https://app.notion.com/p/41d6b8b7c6bb8035b482f815d071b0fc"
     },
     {
