@@ -156,7 +156,7 @@ window.SITE = {
       summary: "반도체 정의(전기전도도·비저항·Energy band gap), 반도체 종류, 유전체와 유전상수(High-k/Low-k), 8대 공정, Photo 공정(Snell 법칙·간섭·회절), Positive/Negative PR을 정리한 노트.",
       tags: ["더인 교육", "4일차", "반도체 정의", "유전체", "High-k", "Low-k", "8대 공정", "Photo", "Snell", "간섭", "회절", "PR"],
       date: "2026-11-05",
-      updated: "2026-11-19",
+      updated: "2026-11-23",
       notion: "https://app.notion.com/p/40f6b8b7c6bb80c8baf2ca4317536f8a"
     },
     {
@@ -204,7 +204,7 @@ window.SITE = {
       summary: "5nm 노드의 의미와 트랜지스터 전류(μ·C_ox·W/L, 단채널 효과, HKMG, FinFET/GAA), Gate 금속의 변천(Al→Poly-Si→HKMG, 메모리/비메모리), Dielectric·Metal·Thin film, CVD(기체상/표면 반응, Film Growth Kinetics, APCVD·LPCVD·PECVD 응력, TEOS, SOG), PVD(Al-Cu, Electromigration), ALD, Step coverage와 Gap fill, Epi 층을 정리한 노트.",
       tags: ["더인 교육", "8일차", "5nm", "노드", "Thin film", "CVD", "PVD", "ALD", "LPCVD", "PECVD", "Film Growth Kinetics", "Electromigration", "Step coverage", "HDPCVD", "HKMG", "단채널 효과", "Gate 금속", "TEOS", "SOG", "Epi", "PECVD 응력"],
       date: "2026-11-11",
-      updated: "2026-11-19",
+      updated: "2026-11-23",
       notion: "https://app.notion.com/p/4156b8b7c6bb8059adc8fb3b58f31b6a"
     },
     {
@@ -240,8 +240,20 @@ window.SITE = {
       summary: "Diffusion과 CVD의 변천, Metal 배선(Contact/Via, Al→Cu 다마신, Cu etch, Capping layer), 금속 박막 조건과 PVD·CVD·ALD 비교(SOD·SOH), 오믹 컨택(Silicide), 이온 주입(Rp·Dose·하드마스크와 확산), 플라즈마(Sheath·Self bias)와 진공도 분류, N-type·P-type 에너지 밴드(E_d·E_a·E_F)를 정리한 노트.",
       tags: ["더인 교육", "13일차", "Diffusion", "CVD", "Contact", "Via", "다마신", "Cu", "Al", "Barrier Metal", "Silicide", "오믹 컨택", "PVD", "ALD", "SOD", "SOH", "이온 주입", "Rp", "하드마스크", "플라즈마", "Sheath", "Self bias", "진공", "Fermi level", "Donor", "Acceptor"],
       date: "2026-11-19",
-      updated: "2026-11-20",
+      updated: "2026-11-23",
       notion: "https://app.notion.com/p/41d6b8b7c6bb8035b482f815d071b0fc"
+    },
+    {
+      id: "thein-day14",
+      area: "thein",
+      title: "더인 교육 14일차 정리",
+      short: "14일차",
+      category: "더인 교육",
+      summary: "Metal 배선과 Pitch Size, Clean 공정(오염 물질, Wet·Dry Clean, RCA Cleaning, Surface Roughness), EUV와 LER·LWR, RET와 멀티 패터닝(LELELE → LE), Loading Effect와 Pattern Density, Drying·Resist Strip·ALE, Cl₂ 식각과 폴리머, Etch 정리를 담은 노트.",
+      tags: ["더인 교육", "14일차", "Clean", "RCA", "SC1", "SC2", "Piranha", "HF", "Dry Clean", "UV/O3", "Surface Roughness", "EUV", "LER", "LWR", "RET", "멀티 패터닝", "LELELE", "Loading Effect", "Pattern Density", "OPC", "Attenuated PSM", "Drying", "Resist Strip", "Ashing", "ALE", "Cl2 식각", "폴리머"],
+      date: "2026-11-20",
+      updated: "2026-11-23",
+      notion: "https://app.notion.com/p/41e6b8b7c6bb80448100df595e434ada"
     },
     {
       id: "notes-qa",

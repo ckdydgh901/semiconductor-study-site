@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>더인 교육 14일차</title>
+<meta name="description" content="더인 교육 14일차: Metal 배선과 Pitch Size, Clean 공정(오염 물질 · Wet/Dry Clean · RCA Cleaning), Surface Roughness와 EUV · LER/LWR, RET와 멀티 패터닝(LELELE → LE), Loading Effect · Pattern Density, Drying · Resist Strip · ALE, Etch 정리 노트">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-root="../../" data-topic="thein-day14">
+
+<div id="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <button id="menuBtn" class="icon-btn menu-btn" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <a id="brand" class="brand" href="../../index.html">나의 공부 공간</a>
+  <nav id="tabs" class="tabs" aria-label="영역"></nav>
+  <button id="themeBtn" class="icon-btn" aria-label="다크 모드 전환">◐</button>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="목차">
+    <div class="sidebar-head">
+      <a href="#top" class="sidebar-title">더인 교육 14일차</a>
+    </div>
+    <nav id="toc"></nav>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <main id="top" class="content">
+
+    <header class="cover">
+      <h1>더인 교육 14일차</h1>
+      <p class="meta">날짜: 2026-11-20 · 종류: 교육</p>
+      <p class="meta">원본: 사용자 노션 필기 (더인 교육 14일차)</p>
+
+      <div class="toc-box">
+        <b>목차</b>
+        <p><a href="#s1">들어가며</a> · <a href="#s2">잠깐 딴소리</a> · <a href="#s3">Clean 공정</a> · <a href="#s4">예상되는 문제</a> · <a href="#s5">오염 물질</a> · <a href="#s6">Cleaning 방법</a> · <a href="#s7">Wet Clean 과정</a> · <a href="#s8">Dry Clean 과정</a> · <a href="#s9">Wafer를 처음 투입 할 때 RCA Cleaning을 진행</a> · <a href="#s10">그림을 통해 process 이해해보기</a> · <a href="#s11">변천사</a> · <a href="#s12">Cleaning Parameter</a> · <a href="#s13">딴소리</a> · <a href="#s14">Wet Chemical의 재료</a> · <a href="#s15">R! Loading Effect in Etch</a> · <a href="#s16">Organic Contaminant, Metallic Contaminant</a> · <a href="#s17">Cleaning Method</a> · <a href="#s18">Attenuated phase shift mask</a> · <a href="#s19">Silicon Surface</a> · <a href="#s20">Drying</a> · <a href="#s21">Resist Strip</a> · <a href="#s22">Cleaning Perfectly</a> · <a href="#s23">ALE</a> · <a href="#s24">Etch에 대해서 정리해보자 (잠깐 딴 얘기)</a></p>
+        <p class="meta small">[사용자 노트 필기] 표시 = 사용자가 노션에 직접 정리한 원본 노트(내용·말투·감상은 원문 그대로). [질문 노트] = 사용자의 질문과 답. [댓글] = 사용자가 노션에 남긴 댓글. 회색 캡션은 이미지 설명.</p>
+      </div>
+    </header>
+
+    <section>
+      <h2 id="s1">1. 들어가며</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 다음주 목요일에 CMP 수업</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 왜 Metal이 17~18개 쭉 올라가는가?</p>
+        <p>A.</p>
+        <p>- V = IR 옴의 법칙</p>
+        <p>- Metal 라인이 갖고 있는 고유한 저항들이 있는 건 어쩔 수 없다.</p>
+        <p>- Metal 라인이 계속해서 길어지게 되면 저항이 계속 생기고 Voltage가 떨어진다.</p>
+        <p>- 외부에서 전압을 걸어주면 Metal을 통해서 결국 Gate까지 가잖아?</p>
+        <p>- R = 비저항 L/A</p>
+        <p>- 결국 저항을 최소화 해야할 것 아니야? 근데 패턴이 점점 작아지고, Active 영역도 줄어들면 줄어든 크기에 맞춰서 Contact하고 Metal을 연결해주는 1차? 애들도 작아져야 한다. 아래는 그 설명</p>
+      </div>
+      <figure><img src="images/fig01.png" width="649" height="577" alt="판서 — Metal 층별 Pitch Size: 1X 20/20 · 2X 40/40 · 3X 60/60 · 4X 80/80 · 5X 100/100 (면적과 저항 R)" loading="lazy"><figcaption>판서 — Metal 층별 Pitch Size: 1X 20/20 · 2X 40/40 · 3X 60/60 · 4X 80/80 · 5X 100/100 (면적과 저항 R) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이런 이유에서 Metal이 위에 올라가서 20개가 되고 하는 것이다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “이런 이유에서 Metal이 위에 올라가서 20개가 되고 하는 것이다.”</p>
+        <p>근데 이게 왜 몇 배를 해주고 있는건데? 20/20 이라고 쓰는 이유가 뭔데?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s2">2. 잠깐 딴소리</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>반도체에서 커뮤니케이션이란? 앞에 공정에 영향을 받고, 내 공정은 뒷 공정에 영향을 주는 것이다. 따라서 기술적인 토의가 필요한 것이다. (내가 목표하는 공정만 알면 돼! 가 아니다)</p>
+        <p>공정을 얼추 다 배웠으니 서로 간의 연관성을 생각하면서 공부하자</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s3">3. Clean 공정</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Defect을 제거하는 공정이다. 그럼 어떤 Defect이 있는지를 배워야겠지? 그리고 그 Defect이 어느 공정에서 발생하는 지 알면 좋고</p>
+        <p>- Clean도 Wet Etch에서 Dry Etch 으로 바뀐 것처럼 Dry Clean 쪽으로 바뀌었다. Wet Clean을 물론 사용하지만.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s4">4. 예상되는 문제</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>Photo 공정 -  short, open, 마스크에 있는게 계속 print</p>
+        <p>Etch 공정 - short, open, 막혀서 Etch X</p>
+        <p>Ion Implant 공정 - 이온 주입이 잘 안되겠지 막혀서</p>
+        <p>Depo 공정</p>
+        <p>→ Cleaning을 잘 하는 것도 중요하지만 애초에 오염이 안되는 환경을 만드는게 더 중요하겠다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s5">5. 오염 물질</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 금속 잔류물</p>
+        <p>- 유기 물질</p>
+        <p>- Native Oxide - 잘 케어해도 존재하는 공기는 78% N₂ 21% O₂ 이렇기 때문에 자연 산화막이 생긴다.</p>
+        <p>- 어떠한 Particle</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s6">6. Cleaning 방법</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Chemical Treatment, Gas, Physical Method</p>
+        <p>- 최근 Trend는 Wet Clean을 사용하다가 Dry Clean을 같이 쓰는 분위기이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s7">7. Wet Clean 과정</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 크게 보면 결국은 Etch를 하는 과정이다.</p>
+        <p>- H₂O₂를 사용하는건 결국은 산화 시키는 것이다?</p>
+        <p><u>순서: Wet Clean → 세정 용액 → Rinse → Dry</u></p>
+        <p>- H₂O₂(과산화수소)의 세정 용액과 O₃(오존계열)의 세정 용액이 있다.</p>
+        <p>- 설거지하고 나면 물자국이 존재하는 것 같이 Wafer 위에도 물자국이 있고, 그런 곳 위에 Oxidation을 하면 성장 속도에 있어 빠르게/느리게 되는 문제가 생길 수 있다. 그래서 잘 Dry 시켜줘야 한다.</p>
+        <p>(1) Chemical</p>
+        <p>- SC1 → Organic particle 제거</p>
+        <p>- SC2 → Metallic particle 제거</p>
+        <p>- 확실하진 않지만 H₂O₂ 모두 SC1, SC2 용액 기본 구성 물질인 듯 함</p>
+        <p>(2) Piranha</p>
+        <p>(3) H₃PO₄ → Nitride (LOCOS에서 Oxide 기르고 Nitride를 제거한다)</p>
+        <p>(4) HF → SiO₂ 산화막 제거</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s8">8. Dry Clean 과정</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>(1) Laser: 레이저를 쏴서 Metalic contaminant를 깨버린다.</p>
+        <p>(2) Plasma: 유기물, Al₂O₃, Si 화합물</p>
+        <p>(3) UV/O₃: 유기물 오염</p>
+        <p>(4) UV/Cl₂: Metallic Ion</p>
+        <p>(5) HF Gas: SiO₂ 산화막 제거</p>
+        <p>SC1: H₂O₂ + NH₄OH + D.I</p>
+        <p>- 해당 물질들은 각각 넣어주는 것이고, 회사에 따라서, 공정에 따라서 혼합비가 다르다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s9">9. Wafer를 처음 투입 할 때 RCA Cleaning을 진행</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>SC1 → SC2 → HF</p>
+        <p>- 유기물질, 금속물질, 자연산화막 제거하는 순서로 Wafer를 깔끔하게 만들어준다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s10">10. 그림을 통해 process 이해해보기</h2>
+      <figure><img src="images/fig02.png" width="841" height="631" alt="판서 — Contact · Via 구조: W 플러그, Al, IMD · ILD(PMD), 제거 대상(Native Oxide SiO2, Al2O3), Cu: Ta/TaN · W: Ti/TiN" loading="lazy"><figcaption>판서 — Contact · Via 구조: W 플러그, Al, IMD · ILD(PMD), 제거 대상(Native Oxide SiO<sub>2</sub>, Al<sub>2</sub>O<sub>3</sub>), Cu: Ta/TaN · W: Ti/TiN (출처: 사용자 노션 캡처)</figcaption></figure>
+
+      <h3 id="s10-1">(1) SiO₂ 제거</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 존재하고 있는 SiO₂는 자연산화막이며 10Å 정도 자라는데, 결국 금속과 반도체 사이에서 절연을 해버리는 상태니 저걸 지워줘야겠지?</p>
+        <p>- HF를 통해서 제거 해준다.</p>
+        <p>- <u>노드 분리</u>라는건 끊겨 있어야하는 부분을 끊는 것을 말한다. 금속끼리 쭉 연결되어있으니 그 부분에서 short가 나니 더 CMP(?)를 진행해준다.</p>
+      </div>
+
+      <h3 id="s10-2">(2) Al₂O₃ 제거</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- HF를 사용해도 제거는 되지만 Al₂O₃ 뿐만 아니라 Al도 같이 날라간다.</p>
+        <p>- Ar⁺ 이온을 가지고 Dry Etch를 시켜서 날린다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s11">11. 변천사</h2>
+
+      <h3 id="s11-1">12pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- RCA 클린은 RCA 회사에 의해서 만들어졌다.</p>
+        <p>- 2000년대 초부터는 Single process로</p>
+        <p>- Wet → Dry 쪽으로</p>
+      </div>
+
+      <h3 id="s11-2">13pg</h3>
+
+      <h3 id="s11-3">Surface Roughness를 설명하시며</h3>
+      <figure><img src="images/fig03.png" width="841" height="325" alt="판서 — Surface Roughness: 울퉁불퉁한 Si 표면과 그 위에 올라간 막(M)" loading="lazy"><figcaption>판서 — Surface Roughness: 울퉁불퉁한 Si 표면과 그 위에 올라간 막(M) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Si을 만들고 나면 표면이 저렇게 울퉁불퉁하게 된다.</p>
+        <p>- 이렇게 울퉁불퉁한 표면 위에 만들게 되면 접착이 불량이 되니 전류 누설이 생길 수도 있고, 전하 이동도에 영향을 주는 문제가 생긴다.</p>
+        <p>- 잘 이동하지 못한다는 것은 전하가 이동하며 산란되고 막 부딪히니까 이동도가 떨어진다는 것이다.</p>
+      </div>
+
+      <h3 id="s11-4">EUV와 Gate를 언급하며</h3>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “EUV와 Gate를 언급하며”</p>
+        <p>여기 내용은 내가 더 정리해서 내걸로 만드는거야</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 반사 어쩌고 저쩌고 실제로 투입되는 빛 어쩌구 67.5%, 전체 과정은 3%</p>
+        <p>- EUV는 stochastic effect 확률적인 결함에 의한 문제가 생긴다.</p>
+        <p>- 여기에서 데이터를 통한 분석을 한다는게 무슨 소리냐? CD 모니터링을 한다는 것을 특정 위치 몇 개의 포인트를 정해놓고 LER, LWR를 확정하면서 Average를 파악한다. 예를 들어 10 point를 집어놓고 그걸로 전체의 특성을 예측하겠지</p>
+      </div>
+      <figure><img src="images/fig04.png" width="450" height="588" alt="판서 — LER · LWR: 게이트 라인의 가장자리 거칠기와 선폭 변동 (S · D 사이)" loading="lazy"><figcaption>판서 — LER · LWR: 게이트 라인의 가장자리 거칠기와 선폭 변동 (S · D 사이) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- IDS 비례 식에 의해서 이동도 × Cox × W/L 에서 이동도가 떨어지면 Saturation이 떨어지니까 이동도를 확보해야한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s12">12. Cleaning Parameter</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><u>Chemical Rxn, Temperature, Mixture Rate, Process Sequence</u></p>
+        <p>→ 이 중에서 문제를 해결할 수 있는 방법이 있다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. Etch Rate? Edge Rate?? 하여간 울퉁불퉁한걸 최소화하고 싶어. 이건 어떻게 해야해?</p>
+        <p>A. 온도랑 농도를 낮춰서 이 문제를 해결한다. (반대면 울퉁불퉁한 정도가 더 심해질테니까) 그리고 이게 바로 차세대 Cleaning의 방향성이라고 한다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 온도랑 농도를 낮추면 어떤 문제가 생기지?</p>
+        <p>A. Defect이 제거될 수 있는 능력이 줄어든다. Performance가 떨어지니까 어떻게 커버해야할까?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s13">13. 딴소리</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>어떤 한 강사님이, 한 AI의 답변이, 한 정보가 다 맞을 것이라고 생각하지 말아라. 뭐가 맞고 틀린지 판단하고 잘 정리해라</p>
+      </div>
+
+      <h3 id="s13-1">14pg</h3>
+      <figure><img src="images/fig05.jpg" width="1400" height="1050" alt="판서(화이트보드 사진) — 반도체 8대 공정: Photo(PR Mask 형성) → Dry Etch · Ion Implantation → PR 제거(Ashing + PR Strip) → Thin Film Deposition(PVD · CVD · Diffusion) → CMP, ⑧ WET Clean, DOF margin (화이트보드 사진)" loading="lazy"><figcaption>판서(화이트보드 사진) — 반도체 8대 공정: Photo(PR Mask 형성) → Dry Etch · Ion Implantation → PR 제거(Ashing + PR Strip) → Thin Film Deposition(PVD · CVD · Diffusion) → CMP, ⑧ WET Clean, DOF margin (화이트보드 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig06.jpg" width="1400" height="1050" alt="교재 — Cleaning Steps: 반도체 소자 공정 Step에 따른 Cleaning 공정 기술 분류 (Pre Treatment · Post Treatment · Wet Etch)" loading="lazy"><figcaption>교재 — Cleaning Steps: 반도체 소자 공정 Step에 따른 Cleaning 공정 기술 분류 (Pre Treatment · Post Treatment · Wet Etch) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- PR에서 Resist 라는 말이 Etch랑 Ion Implantation을 막아주는건데 순간 빛! 이러고 있었다.</p>
+      </div>
+
+      <h3 id="s13-2">16pg</h3>
+      <figure><img src="images/fig07.jpg" width="1400" height="1050" alt="교재 — Typical Contaminants: Particle · Metal · Organics · Native Oxide · Micro roughness의 오염원(Sources)과 영향(Effects)" loading="lazy"><figcaption>교재 — Typical Contaminants: Particle · Metal · Organics · Native Oxide · Micro roughness의 오염원(Sources)과 영향(Effects) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Particle이 생길 수 있는 곳은 너무나도 다양하다.</p>
+        <p>- 배관에서도 골이지는 부분에서 잔류할 수도 있고, 변형해서 언젠가 문제가 될 수 있다. 배관 쪽 엔지니어는 유체역학적으로 어떻게 하면 잘 빠져나가게 할 수 있을까를 공부한다고 한다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “배관 쪽 엔지니어는 유체역학적으로 어떻게 하면 잘 빠져나가게 할 수 있을까를 공부한다고 한다.”</p>
+        <p>이런 분야는 반도체 뿐만 아니라 여러가지 분야에서 필수 아닌가? 재밌어보이는데</p>
+      </div>
+      <figure><img src="images/fig08.png" width="642" height="367" alt="판서 — 웨이퍼 가장자리: 위 · 아래와 Etch 측" loading="lazy"><figcaption>판서 — 웨이퍼 가장자리: 위 · 아래와 Etch 측 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Wafer Edge는 여러가지 Defect이 발생할 수 있다. Depo가 얌전히 되는 게 아니고 뒷면도 살짝 있게 되면 Etch를 해도 뒷면에 남아서 문제를 일으킨다.</p>
+      </div>
+
+      <h3 id="s13-3">17pg</h3>
+      <figure><img src="images/fig09.jpg" width="1400" height="1050" alt="교재 — Wet Chemical 재료: Particles · Metallic Impurities · Organic · Micro Roughness · Native Oxide의 오염 경로 · 파급 효과 · 세정 방법" loading="lazy"><figcaption>교재 — Wet Chemical 재료: Particles · Metallic Impurities · Organic · Micro Roughness · Native Oxide의 오염 경로 · 파급 효과 · 세정 방법 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 여기를 필기해서 뭐하나 아직 이걸 외우기에는 벅차다.</p>
+        <p>- DHF(Dilute HF)라는건 HF(불산)을 희석해서 쓴다는 것이다. 100:1, 200:1 이렇게 사용하니까 Etch는 거의 안되고 세정에 목적에</p>
+        <p>- BOE (HF+NH₄F)</p>
+      </div>
+
+      <h3 id="s13-4">18pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 세정 용액은 H₂O₂를 기본으로 한다.</p>
+      </div>
+
+      <h3 id="s13-5">(1) 화학적인 방법</h3>
+      <figure><img src="images/fig10.png" width="1128" height="415" alt="Claude 답변 — 세정 약액 표: APM(SC-1) · HPM(SC-2) · SPM · DHF · BHF · IPA의 풀네임과 구성 (Claude 답변 캡처)" loading="lazy"><figcaption>Claude 답변 — 세정 약액 표: APM(SC-1) · HPM(SC-2) · SPM · DHF · BHF · IPA의 풀네임과 구성 (Claude 답변 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Cl 쪽이 금속 이온이랑 반응하겠고, 유기물은 산화되어서 어떻게 되겠네</p>
+      </div>
+
+      <h3 id="s13-6">(2) 물리적인 방법</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Di Sonic은 안경점</p>
+        <p>- Aerosol 은 모기약 처럼 푸쉭</p>
+        <p>- Laser는 레이저겠지</p>
+      </div>
+
+      <h3 id="s13-7">19pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Metal은 황산을 써서 날린다. SPM에서 Sulfuric Acid 이니까.</p>
+        <p>- PR도 경화되면 또는 그냥 유기물들은 잘 안날라간다. 그래서 UV랑 O₃를 같이 쓰고, O₂ Plasma 같은걸로 지워진다.</p>
+        <p>- 자연 산화막은 HF를 사용해주는 느낌이고, SiN이나 Poly는 H₃PO₄로 날려준다.</p>
+      </div>
+
+      <h3 id="s13-8">20pg(과거) → 21pg(현재)</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Step 이 늘어난다는 것은 결국 Defect이 늘어난다. → Yield가 떨어진다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Step 이 늘어난다는 것은 결국 Defect이 늘어난다. → Yield가 떨어진다.”</p>
+        <p>기본 마인드로 탑재</p>
+      </div>
+      <figure><img src="images/fig11.png" width="945" height="675" alt="판서 — ArFi(193 nm) Half pitch = R = k1·λ/NA(NA 1.44, 37.5 ≈ 38), RET(off-axis · PSM · OPC), EUV 13.5 nm(NA 0.33 · 0.55)" loading="lazy"><figcaption>판서 — ArFi(193 nm) Half pitch = R = k<sub>1</sub>·λ/NA(NA 1.44, 37.5 ≈ 38), RET(off-axis · PSM · OPC), EUV 13.5 nm(NA 0.33 · 0.55) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- RET는 Resolution Enhancement Technology</p>
+        <p>- <span class="mark-red">혼자 계산해서 이론 계산값 꼭 구해보기</span></p>
+      </div>
+      <figure><img src="images/fig12.jpg" width="1400" height="1050" alt="판서(화이트보드 사진) — EUV와 ArF 193i의 해상도 R = k1·λ/NA, RET(off-axis · PSM · OPC), LELELE → LE (화이트보드 사진)" loading="lazy"><figcaption>판서(화이트보드 사진) — EUV와 ArF 193i의 해상도 R = k<sub>1</sub>·λ/NA, RET(off-axis · PSM · OPC), LELELE → LE (화이트보드 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 30nm pitch를 만들려고 하는데 37.5 약 38nm까지만 가능하니 30nm pitch를 갖고 있는 경우에는 한 번에 패터닝이 안된다.</p>
+        <p>- 따라서 멀티 패터닝을 해서 pitch 사이즈를 만들 수 있다.</p>
+        <p>- 그렇지만 애초에 EUV를 사용하면 멀티 패터닝을 하지 않아도 된다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. LELELE → LE 로 줄이면 좋은 점</p>
+        <p>A. 가장 큰 장점은 Step이 줄어들어서 defect이 줄어들고 이는 곧 수율 증가로 직결된다.<br>당연히 사용하는 소재의 양도 적어지고, 시간도 줄어들고 하는 장점이 있지만 결국 가장 중요한건 위 문장이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s14">14. Wet Chemical의 재료</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 아 그렇구나~</p>
+      </div>
+
+      <h3 id="s14-1">(1) 유기 용제</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 알코올 계열</p>
+        <p>- 벤젠 계열</p>
+      </div>
+
+      <h3 id="s14-2">(2) 산, 알칼리 계열</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- H₂SO₄, H₃PO₄, HCl → 황산, 인산, 염산</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s15">15. R! Loading Effect in Etch</h2>
+      <figure><img src="images/fig13.png" width="652" height="258" alt="판서 — R! Loading Effect in Etch: PR 패턴 사이의 식각 깊이 차이" loading="lazy"><figcaption>판서 — R! Loading Effect in Etch: PR 패턴 사이의 식각 깊이 차이 (출처: 사용자 노션 캡처)</figcaption></figure>
+
+      <h3 id="s15-1">(1) micro effect</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- A/R 큰 부분과 A/R 이 작은 부분의 Etch Rate이 다르다.</p>
+        <p>- Etch rate은 좁은데는 들어가기도 어렵고 부산물이 나오기도 어렵다. 큰데는 들어가기도 쉽고 부산물이 나오기도 쉽다.</p>
+      </div>
+
+      <h3 id="s15-2">(2) macro effect</h3>
+    </section>
+
+    <section>
+      <h2 id="s16">16. Organic Contaminant, Metallic Contaminant</h2>
+
+      <h3 id="s16-1">33, 34pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Si 위에 있는 Metal 들은 전자친화도가 높기 때문에 Si가 환원되며(전자를 잃으며-Metal에게 빼앗기며) Metal과 강하게 결합한다.</p>
+        <p>- Si 기준으로 위 물질과는 결합력이 강해서 잘 안떨어지고, 아래 물질과는 결합력이 약해서 잘 떨어진다,</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s17">17. Cleaning Method</h2>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. Batch Cleaning 대신 Single Wafer type을 쓰는 이유?</p>
+        <p>A. 생산성은 떨어지더라도 균일도를 확보하기 위해이다. Batch Type은 웨이퍼가 아래 부분부터 담기게 되니까 웨이퍼가 용액과 맞닿아 있는 시간 차이가 발생한다. LTL &amp; WTW &amp; WIW (Wafer In Wafer)의 차이가 발생하게 된다.</p>
+        <p>한 매씩 올려서 똑같은 방식으로 진행하니까 균일도가 좋아진다.</p>
+      </div>
+      <figure><img src="images/fig14.png" width="288" height="312" alt="판서 — 칩 안의 패턴 밀도(Pattern Density) 차이" loading="lazy"><figcaption>판서 — 칩 안의 패턴 밀도(Pattern Density) 차이 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>WIW에서 더 나아가서 이제는 칩 안에서 Etch, Photo, Depo를 할 때 Pattern Density에 따른 차이가 발생한다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. Loading Effect에 의해 고립된 곳과 밀도가 높은 곳에서의 패턴의 크기가 달라진다.  ADI CD 를 비교해보자</p>
+      <figure><img src="images/fig15.png" width="883" height="535" alt="판서 — Q. ADI CD: 패턴 A · B · C · D · E의 폭(30)과 간격(30 · 30 · 360)" loading="lazy"><figcaption>판서 — Q. ADI CD: 패턴 A · B · C · D · E의 폭(30)과 간격(30 · 30 · 360) (출처: 사용자 노션 캡처)</figcaption></figure>
+      </div>
+      <figure><img src="images/fig16.png" width="514" height="430" alt="판서 — 위 그림에서 패턴 A · B · C · D · E의 영역을 표시한 모습" loading="lazy"><figcaption>판서 — 위 그림에서 패턴 A · B · C · D · E의 영역을 표시한 모습 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>A.</p>
+        <p>D,E는 고립된 영역이다 회절이 가장 많다. B는 밀도가 가장 높고 회절이 적게 일어난다. A,C는 같다.</p>
+        <p>B > A=C > D=E</p>
+        <p>이걸 해결하기 위해서 OPC를 통해 미리 패턴의 크기를 보정하고, …를 한다.</p>
+        <p>Ref) 증착시에도 Metal 간의 간격이 좁을 때 Void가 생겼다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s18">18. Attenuated phase shift mask</h2>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Attenuated phase shift mask”</p>
+        <p>찾아보기 - 렛유인 교재랑 연관</p>
+      </div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Phase shift mask는 양산에서 안쓴다고 한다. 양산에서 사용하는 건 이거니까 찾아보라고 하셨다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s19">19. Silicon Surface</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 표면이 Si-OH기가 생겨서 친수성이 되면 unstable한 표면이 되는 것이다.</p>
+        <p>- 친수성이면 접촉각이 90도 이하이고, 소수성이 접촉각 90도 이상이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s20">20. Drying</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 물반점이나 이런 것들이 남지 않아야 한다.</p>
+        <p>- Isopropyl Alcohol을 사용해서 dry를 한다. 얘네들이 증발하면서 수분을 제거한다고 함</p>
+        <p>- 웨이퍼를 물에서 천천히 꺼내면서 IPA 증기를 공급한다. 뭔소리여 하여간 와인을 흔들어서 공기와 뭐시기 원리랑 같다고 함.</p>
+      </div>
+      <figure><img src="images/fig17.png" width="390" height="397" alt="판서 — Drying: 표면 장력 (물방울 곡면)" loading="lazy"><figcaption>판서 — Drying: 표면 장력 (물방울 곡면) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 마랑고니(사람이름) Drying 이라고 한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s21">21. Resist Strip</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- PR이 요즘 Etching을 버티고, Ion Impantation이 끝나고 나서 변형이 된다. 그래서 예전에는 Wet etch 그러니까 황산을 사용해서 PR Strip을 했지만 이제는 태워버린다.</p>
+        <p>- 변형된 PR을 확실하게 날려버리기 위해서 태우는 Ashing을 진행한다. O₂ Ashing 이라는 건 태워서 날리게 된다. (Ash:재)</p>
+        <p class="sub">– PSK 회사가 이걸 하는 회사라고 한다.</p>
+        <p>- Ashing은 결국 plasma를 사용하니까 부산물이 생기니까 Cleaning을 진행해줘야한다.</p>
+        <p>- Metal이 있을 때는 황산을 사용하면 안된다.</p>
+      </div>
+
+      <h3 id="s21-1">63pg 사진추가하기</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Etch하고 난 다음에 변형된 모습이다.</p>
+        <p>- Post Clean은 Ashing을 하고 나서 없어진 모습이다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s22">22. Cleaning Perfectly</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 당연히 완벽하게는 안되겠지</p>
+        <p>- Particle이 없어야 하고, 금속이나 유기물 오염이 없어야하며, 자연 산화막이 없어야겠지</p>
+        <p>- Hydrophobic 소수성을 만들어서 particle을 없애는, Dry up을 할 때 IPA를 사용해서 날버린다, Surface Micro roughness는 MOS에서 이동도를 낮추기 때문에 맨 앞에 설명했던 온도와 농도를 낮추는 방향으로 가야한다.</p>
+      </div>
+
+      <h3 id="s22-1">66pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- HF가지고 SiO₂를 Cleaning을 한다.</p>
+        <p>- Si-F bonding이 6eV인데, Si-H bonding 3.5eV 정도라고 한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s23">23. ALE</h2>
+      <figure><img src="images/fig18.png" width="345" height="258" alt="판서 — ALE: (1)층 Si에 붙은 Cl과 아래 (2)층의 Si–Si 결합" loading="lazy"><figcaption>판서 — ALE: (1)층 Si에 붙은 Cl과 아래 (2)층의 Si–Si 결합 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Cl의 전기음성도가 크고 Cl-Si의 결합쪽으로 전자가 쏠리고 결합 세기가 강해진다. 그래서 (2)번쪽의 Si-Si 결합이 약해진다.</p>
+        <p>- Ar⁺ 같은 이온으로 툭툭 치게 되면 (2)번 쪽이 끊어지게 된다.</p>
+      </div>
+
+      <h3 id="s23-1">67pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Si의 경우 Cu보다 전기음성도가 훨씬 크니, Si는 Cu와의 결합이 강하다.</p>
+        <p class="sub">→ 훨씬 큰건 맞나? 34pg 그림에 나온 값을 보면 훨씬 큰건 아닌 것 같은데</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. Cl₂가지고 Etch하는게 뭐야? </p>
+        <p>A. Al을 Etch 한다. Al + Cl₂ 인데 얘는 이방성으로 Etching이 된다. 그래서 Al + Cl₂ + BCl₃ → CCl₄ 가 생기게 되고 폴리머가 생기게 되면서 RIE 가 되면서 측벽이 보호되고 이방성 Etch가 된다. C는 PR에서 나온거다. 이건 고민할 것도 없지 당연히 알아야지.<br><span class="mark-yel">[고분자 내용 조금 챙겨가기]</span></p>
+        <p>- Polymer가 어떻게 형성되는지 메커니즘</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Q. Cl₂가지고 Etch하는게 뭐야?”</p>
+        <p>나 이 얘기 들은 기억이 없는데요?</p>
+      </div>
+      <figure><img src="images/fig19.png" width="529" height="397" alt="CCl4 폴리머 형성 메커니즘 — 플라즈마에서 분해, 조각이 이어 붙어 고분자가 됨, 전체 반응식 (Claude 답변 캡처)" loading="lazy"><figcaption>CCl<sub>4</sub> 폴리머 형성 메커니즘 — 플라즈마에서 분해, 조각이 이어 붙어 고분자가 됨, 전체 반응식 (Claude 답변 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s24">24. Etch에 대해서 정리해보자 (잠깐 딴 얘기)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>(1) Chemical</p>
+        <p>- Liquid (물론 플라즈마도 있고) - 반응 gas etchant를 사용해서 뜯어내기</p>
+        <p>- 선택비가 좋다.</p>
+        <p>- Pressure가 높아지는 건 gas를 주입해서이다.</p>
+        <p>(2) Physical</p>
+        <p>- Ion Bombardment - 물리적으로 뜯어내기</p>
+        <p>- Anisotropic 이방성이 좋다. Ar⁺가 막 때릴거 아니야.</p>
+        <p>- Ar⁺이 잘 때리려면 m.f.p가 보장되어야 하니 압력이 낮아야겠지</p>
+        <p>- Energy는 Potential을 많이 줘야 잘 때리겠지?</p>
+        <p>(3) Plasma</p>
+        <p>- Chem</p>
+        <p>- Phy</p>
+        <p>- P+C = RIE</p>
+        <p>- Polymer 식각</p>
+        <p>- Future tech: Pulsed plasma, 높은 주파수+낮은 주파수</p>
+        <p>DC: 절연체가 안되니까 ..</p>
+        <p>RF: Self bias를 만들기 위해 조건</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Polymer 식각”</p>
+        <p>이게 Borch 인가 borsch 인가 그건가?</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “높은 주파수+낮은 주파수”</p>
+        <p>흠</p>
+        <p>이렇게 섞어서 쓰거나 제어하는 이유가 뭐지?</p>
+      </div>
+      <figure><img src="images/fig20.jpg" width="1400" height="1050" alt="교재 슬라이드 — Future Cleaning: GAA · CFET · 3D NAND로 가면서 Device Damage Free · Material Selectivity · Atomic Level Surface Control, Focusing Technology 5가지 (슬라이드 사진)" loading="lazy"><figcaption>교재 슬라이드 — Future Cleaning: GAA · CFET · 3D NAND로 가면서 Device Damage Free · Material Selectivity · Atomic Level Surface Control, Focusing Technology 5가지 (슬라이드 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- CFET이 NMOS위에 PMOS가 있는 건가?</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 플라즈마의 색은 무슨 색인가?</p>
+        <p>A.</p>
+      <figure><img src="images/fig21.jpg" width="1400" height="1050" alt="교재 슬라이드 — Future Cleaning (위 슬라이드 사진과 같은 이미지)" loading="lazy"><figcaption>교재 슬라이드 — Future Cleaning (위 슬라이드 사진과 같은 이미지) (출처: 사용자 노션 캡처)</figcaption></figure>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Q. 플라즈마의 색은 무슨 색인가?”</p>
+        <p>숙제</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>필기는 사용자가 노션에 정리한 원문 그대로이며, 이미지는 교재·강의 슬라이드·판서 촬영본입니다.</p>
+      <p><span id="updatedAt"></span> · <a id="notionLink" href="#" target="_blank" rel="noopener" hidden>Notion 원본 보기</a> · <a href="../../index.html">홈으로</a></p>
+    </footer>
+  </main>
+</div>
+
+<button id="toTop" class="to-top" aria-label="맨 위로" hidden>↑</button>
+
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="이미지 확대">
+  <button class="lb-close" aria-label="닫기">✕</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</div>
+
+<script src="../../topics.js"></script>
+<script src="../../assets/common.js"></script>
+<script src="../../assets/topic.js"></script>
+</body>
+</html>

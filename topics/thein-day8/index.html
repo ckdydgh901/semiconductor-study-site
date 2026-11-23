@@ -139,15 +139,24 @@
         <p class="sub">– M 쪽에서 + 전압이 걸리지만 oxide를 통과하면 X</p>
         <p class="sub">– V<sub>DS</sub> 쪽에도 양의 포텐셜이 걸리고?</p>
         <p class="sub">– Oxide 두께가 12Å 정도 되면 터널링 현상이 생김 → High K 사용</p>
-        <p class="sub">– I<sub>D</sub> ∝ μC<sub>ox</sub>W/L 에서 I가 커지기 위해서는 μ(이동도) 커지고, C<sub>ox</sub> 커지고, W 커지고, L 작아지고</p>
-        <p class="sub">– C<sub>ox</sub> = εA/d → d를 더 이상 줄이기 어려우니까, 유전상수를 키우고자 한다. (High k)</p>
-        <p>2. Metal → Interconnection → Contact (Metal 간의 contact Via), Al/Cu, Silicide</p>
-        <p>목표: Dielectric 전류가 잘 흐르지 않게 만들어주는 것, Metal은 전류가 잘 흐르게 만들어주는 것 (=비저항이 낮은 소재를 사용)</p>
-        <p>→ 그래서 이걸 Thin film을 통해서 만들고자 하는 것이다. 그 Thin film 공정에는 CVD, PVD, ALD가 있는 것이고, Metal 공정은 따로 빼서 존재하는 것이다.</p>
+        <p class="sub">– Back-end 에서는 Low-k 물질을 쓰는건 RC delay를 줄이기 위해서</p>
+        <p class="sub sub2">→그래서 공기로 채워서 Capacitance를 낮춤.</p>
       </div>
       <div class="note cmt"><b>[댓글]</b>
         <p class="cmt-ctx">대상: “LOCOS Active 영역이 줄어들면 어떤 일이 벌어지는데?  STI”</p>
         <p>숙제!</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Back-end 에서는 Low-k 물질을 쓰는건 RC delay를 줄이기 위해서”</p>
+        <p>순간 이유 답 못함. RC Delay라고</p>
+      </div>
+      <figure><img src="images/fig26.png" width="679" height="564" alt="판서 — Cap ↓: Metal(M) 사이의 커패시턴스와 Air gap" loading="lazy"><figcaption>판서 — Cap ↓: Metal(M) 사이의 커패시턴스와 Air gap (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p class="sub">– I<sub>D</sub> ∝ μC<sub>ox</sub>W/L 에서 I가 커지기 위해서는 μ(이동도) 커지고, C<sub>ox</sub> 커지고, W 커지고, L 작아지고</p>
+        <p class="sub">– C<sub>ox</sub> = εA/d → d를 더 이상 줄이기 어려우니까, 유전상수를 키우고자 한다. (High k)</p>
+        <p>2. Metal → Interconnection → Contact, Via(Metal 간의 contact), Al/Cu, Silicide (TiSi₂, CoSi₂, NiSi₂) - 오믹 컨택</p>
+        <p>목표: Dielectric 전류가 잘 흐르지 않게 만들어주는 것, Metal은 전류가 잘 흐르게 만들어주는 것 (=비저항이 낮은 소재를 사용)</p>
+        <p>→ 그래서 이걸 Thin film을 통해서 만들고자 하는 것이다. 그 Thin film 공정에는 CVD, PVD, ALD가 있는 것이고, Metal 공정은 따로 빼서 존재하는 것이다.</p>
       </div>
       <div class="note cmt"><b>[댓글]</b>
         <p class="cmt-ctx">대상: “I<sub>D</sub> ∝ μC<sub>ox</sub>W/L”</p>
@@ -500,6 +509,7 @@
         <p>A.</p>
         <p>- 저항이 낮아야한다 = 전류가 빠르게 흐른다. <u>순도가 요구되기 때문</u>에 금속은 CVD가 아니라 PVD를 선호하는 것이다.</p>
         <p>- 반도체에서 99.9999% 의 순도를 요구한다.</p>
+        <p class="sub">– <span class="mark-yel">PVD 에서는 Target의 순도가 곧 증착되는 Metal의 순도가 된다.</span></p>
         <p>- Al target에 요즘은 0.5% 정도 Cu가 들어간다. 이걸 화학 반응으로 컨트롤이 가능한가? 여기에서 하는말은 target 자체는 PVD의 재료라서 target을 만드는 것은 가능하다는 것이지. 근데 이걸 Gas 상태에서 반응해서 99.9999% 의 순도를 갖게 만들 수는 없다는 것이다.</p>
         <p class="sub">– 결국에는 Sputtering을 통해서 순도를 얻을 수 밖에 없다. <u>왜? 저항이 낮아야하니까 어떻게? 불순물이 적어야 해 왜? 전류가 빨리 흘러야 하니까 왜? 반도체는 빨라야하니까. (반복)</u></p>
         <p class="sub">– 요약: Target의 순도는 조절 가능하지만, Gas에서 반응물의 순도는 컨트롤하기 어렵다.</p>
@@ -740,8 +750,8 @@
       <figure><img src="images/fig24.jpg" width="1400" height="1050" alt="TEOS — Tetraethyloxysilane, Si(OC₂H₅)₄의 구조와 특징 (교재 슬라이드)" loading="lazy"><figcaption>TEOS — Tetraethyloxysilane, Si(OC₂H₅)₄의 구조와 특징 (교재 슬라이드) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- TEOS는 사용하는 화학 물질의 이름이다.</p>
-        <p>- PECVD 공정을 했다면 PECVD, LPCVD 공정을 했다면 LPCVD, O3을 사용했다면 O3-TEOS이다.</p>
-        <p>- 이전에는 SiH4 gas를 사용한 CVD 였던 것이고, 이건 TEOS를 사용하는 것이다.</p>
+        <p>- PECVD 공정을 했다면 PECVD, LPCVD 공정을 했다면 LPCVD, O₃을 사용했다면 O₃-TEOS이다.</p>
+        <p>- 기존 SiH₄(실레인) 기반 증착과 비교해 개선된 SiO₂ 증착 방식</p>
       </div>
     </section>
 
