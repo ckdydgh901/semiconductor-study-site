@@ -253,6 +253,11 @@ figcaption { margin-top: .6em; font-size: .8rem; color: var(--text-mute); line-h
 /* 노션 댓글: 해당 필기 박스 바로 뒤에 붙는 노란 박스 */
 .note.cmt { background: var(--callout-bg); border-left-color: var(--callout-bar); }
 .note.cmt .cmt-ctx { color: var(--text-mute); font-size: .82rem; }
+/* 노션에서 발췌한 내용 아래에 붙는 출처 링크 (직접 정리한 내용에는 쓰지 않음) */
+.src { margin: -.7em 0 1.2em; padding-left: 4px; font-size: .84rem; color: var(--text-mute); }
+.src a { color: var(--blue); text-decoration: none; border-bottom: 1px dotted var(--blue); }
+.src a::after { content: " \2197"; }
+.src a:hover { color: var(--blue-deep); border-bottom-style: solid; }
 .note .q { font-weight: 700; margin-top: 1em; }
 .note.qa { background: var(--qa-bg); border-left-color: var(--qa-bar); }
 blockquote {
