@@ -257,6 +257,7 @@ figcaption { margin-top: .6em; font-size: .8rem; color: var(--text-mute); line-h
 .src { margin: -.7em 0 1.2em; padding-left: 4px; font-size: .84rem; color: var(--text-mute); }
 .src a { color: var(--blue); text-decoration: none; border-bottom: 1px dotted var(--blue); }
 .src a::after { content: " \2197"; }
+.src a.in::after { content: " \2192"; }  /* 사이트 안의 다른 페이지로 가는 링크 */
 .src a:hover { color: var(--blue-deep); border-bottom-style: solid; }
 .note .q { font-weight: 700; margin-top: 1em; }
 .note.qa { background: var(--qa-bg); border-left-color: var(--qa-bar); }
