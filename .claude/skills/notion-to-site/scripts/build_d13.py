@@ -1,7 +1,6 @@
 """더인 교육 13일차 빌드 (2026-11-24 재동기화).
-- 노션 원문의 두 "B.D" 블록(맨 위, "R! PR의 사용조건" 앞)은 사용자의 개인 메모라서 사이트에 넣지 않는다(2026-11-24 사용자 지시).
-  변환 전에 d13b_raw.txt에서 그 구간(과 그 안의 이미지 1장)을 잘라 d13d_raw.txt를 만들고, 이미지는 d13d/에 같은 순서로 둔다.
-- 사용: 작업폴더(scratchpad)에 d13d_raw.txt, d13d_meta.json, d13d/ 가 있는 상태에서 실행
+- 노션 전체를 그대로 옮긴다(맨 위·중간 "B.D" 블록 포함). 사용자가 "개인적인 메모 (여기 내용은 웹사이트에 옮기지 X)"라고 표시한 블록만 뺀다 — 13일차에는 그런 표시가 없다.
+- 사용: 작업폴더(scratchpad)에 d13c_raw.txt, d13c_meta.json, d13c/ 가 있는 상태에서 이 폴더에서 실행
 """
 import sys
 sys.path.insert(0, '.')
@@ -33,26 +32,27 @@ cap13 = {
  18: '판서 — B/L · W/L과 트랜지스터(G · S · D): 신호는 Metal 배선으로 전달',
  19: '판서 — 깊은 Via 구멍: Not open과 식각 문제',
  20: '판서 — 칩 가장자리의 패드',
- 21: '교재 17pg — Metallization: 금속 박막의 요구 조건 (전기적 특성 · 박막 형성 · 신뢰성)',
- 22: '판서 — Contact과 Silicide: Ohmic contact',
- 23: '판서 — 홈 안에 생긴 Void(단면과 입체)와 저항 R의 식',
- 24: '판서 — Dielectric 내부의 Void (절연파괴 관점)',
- 25: '교재 18pg — Metallization [Metal Process]: PVD(Evaporation · Sputtering) · CVD · ALD의 종류',
- 26: '교재 19pg — PVD · CVD · ALD의 장점과 단점',
- 27: '판서 — Step 구조와 Trench (단차 100 Å)',
- 28: '판서 — SiO<sub>2</sub> 100 Å 박막 (Bulk 영역)',
- 29: '판서 — Heterogeneous / Homogeneous Reaction(Cluster)과 SOD · SOH, ALD (화이트보드 사진)',
- 30: '판서 — CF<sub>4</sub> 가스로 SiO<sub>2</sub> 식각: Mask(M) 아래의 SiO<sub>2</sub>와 B-Film',
- 31: '판서 — Metal–Semi, Metal–Metal 오믹 컨택: Si + Metal → Silicide(Anneal), Ti / Ni / Co (화이트보드 사진)',
- 32: '판서 — Mask와 이온 주입, 0.5 μm 깊이(Junction depth)의 농도 분포와 R<sub>p</sub>',
- 33: '판서 — Cell(NMOS)과 Core / Peri의 층별 이온 주입: LDD · S/D · V<sub>th</sub> adjust · Pinch-off · Halo · p-well · Deep well',
- 34: '판서 — Cell(NMOS)과 Core / Peri의 층별 이온 주입 (화이트보드 사진)',
- 35: '판서 — 트랜지스터의 S / D는 네모가 아니라 점처럼 찍힌 영역',
- 36: '판서 — 같은 불순물의 R<sub>p</sub>를 여러 번 중첩해 원하는 깊이(0.1 ~ 0.9 μm)에 주입',
- 37: '판서 — 이온 주입 장비: PH<sub>3</sub> → P⁺ 이온 종류, Suppression · Extraction plate, 자기장 질량 분석, Blow-up, Junction depth와 Dose (화이트보드 사진)',
- 38: '판서 — 이온 빔의 추출과 자기장 질량 분석(M), 이온 에너지(100 keV)와 Junction depth',
- 39: '판서 — Mask에도 이온이 주입되고 아래로 확산되는 모습 (Hard Mask)',
- 40: '판서 — Plasma: Ionization Energy · Collision · Ion(+) · Radical · Sheath · Self-bias (화이트보드 사진)',
+ 21: '이건희 회장의 프랑크푸르트 선언 — 배경과 핵심 내용 정리 (Claude 답변 캡처)',
+ 22: '교재 17pg — Metallization: 금속 박막의 요구 조건 (전기적 특성 · 박막 형성 · 신뢰성)',
+ 23: '판서 — Contact과 Silicide: Ohmic contact',
+ 24: '판서 — 홈 안에 생긴 Void(단면과 입체)와 저항 R의 식',
+ 25: '판서 — Dielectric 내부의 Void (절연파괴 관점)',
+ 26: '교재 18pg — Metallization [Metal Process]: PVD(Evaporation · Sputtering) · CVD · ALD의 종류',
+ 27: '교재 19pg — PVD · CVD · ALD의 장점과 단점',
+ 28: '판서 — Step 구조와 Trench (단차 100 Å)',
+ 29: '판서 — SiO<sub>2</sub> 100 Å 박막 (Bulk 영역)',
+ 30: '판서 — Heterogeneous / Homogeneous Reaction(Cluster)과 SOD · SOH, ALD (화이트보드 사진)',
+ 31: '판서 — CF<sub>4</sub> 가스로 SiO<sub>2</sub> 식각: Mask(M) 아래의 SiO<sub>2</sub>와 B-Film',
+ 32: '판서 — Metal–Semi, Metal–Metal 오믹 컨택: Si + Metal → Silicide(Anneal), Ti / Ni / Co (화이트보드 사진)',
+ 33: '판서 — Mask와 이온 주입, 0.5 μm 깊이(Junction depth)의 농도 분포와 R<sub>p</sub>',
+ 34: '판서 — Cell(NMOS)과 Core / Peri의 층별 이온 주입: LDD · S/D · V<sub>th</sub> adjust · Pinch-off · Halo · p-well · Deep well',
+ 35: '판서 — Cell(NMOS)과 Core / Peri의 층별 이온 주입 (화이트보드 사진)',
+ 36: '판서 — 트랜지스터의 S / D는 네모가 아니라 점처럼 찍힌 영역',
+ 37: '판서 — 같은 불순물의 R<sub>p</sub>를 여러 번 중첩해 원하는 깊이(0.1 ~ 0.9 μm)에 주입',
+ 38: '판서 — 이온 주입 장비: PH<sub>3</sub> → P⁺ 이온 종류, Suppression · Extraction plate, 자기장 질량 분석, Blow-up, Junction depth와 Dose (화이트보드 사진)',
+ 39: '판서 — 이온 빔의 추출과 자기장 질량 분석(M), 이온 에너지(100 keV)와 Junction depth',
+ 40: '판서 — Mask에도 이온이 주입되고 아래로 확산되는 모습 (Hard Mask)',
+ 41: '판서 — Plasma: Ionization Energy · Collision · Ion(+) · Radical · Sheath · Self-bias (화이트보드 사진)',
 }
 
 H2_13 = B.H2_12 | S([
@@ -67,4 +67,4 @@ H3_13 = B.H3_12 | S([
 DESC13 = B.DESC12.replace('더인 교육 12일차', '더인 교육 13일차')
 
 if __name__ == '__main__':
-    B.build('d13d', 'thein-day13', '더인 교육 13일차', '2026-11-19', cm13, cap13, H2_13, H3_13, [], '들어가며', ('<b>들어가며</b>',), DESC13)
+    B.build('d13c', 'thein-day13', '더인 교육 13일차', '2026-11-19', cm13, cap13, H2_13, H3_13, [], 'B.D', (), DESC13)
