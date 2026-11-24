@@ -261,6 +261,66 @@ window.SITE = {
       notion: "https://app.notion.com/p/41e6b8b7c6bb80448100df595e434ada"
     },
     {
+      id: "thein-day15",
+      area: "thein",
+      title: "더인 교육 15일차 정리",
+      short: "15일차",
+      category: "더인 교육",
+      summary: "금속 전기전도도 순서, PN 접합·전압, DRAM(LPDDR·DDR)과 EDS 테스트(Power short · Pin open/short · Pin Leakage), Parameter Analyzer(V_th · I_sat · I_off), 정전기, 반도체 패키징(Tg · 열가소성/열경화성), Capacitance 감소의 영향, 포트폴리오 정리 방법을 정리한 노트.",
+      tags: ["더인 교육", "15일차", "전기전도도", "PN 접합", "DRAM", "LPDDR", "EDS", "Parameter Analyzer", "정전기", "패키징", "유리전이 온도", "Capacitance", "Vth"],
+      date: "2026-11-21",
+      updated: "2026-11-24",
+      notion: "https://app.notion.com/p/41f6b8b7c6bb80f398f4d7466212a347"
+    },
+    {
+      id: "thein-day16",
+      area: "thein",
+      title: "더인 교육 16일차 정리",
+      short: "16일차",
+      category: "더인 교육",
+      summary: "Etch 장비·소재·공정기술(극저온 Etch, 200mm/300mm 진공 Chamber, EFEM·Load Lock), Process Chamber 구성(ESC · MFC · Shower Head), Plasma·ICP, Etch 진단(OES · EOP), 진공 펌프·Chiller·Scrubber, Ashing·Bevel Etch, 이온주입·RTP, Thin Film(CVD · PVD · ALD) 정리 노트.",
+      tags: ["더인 교육", "16일차", "Etch", "극저온 식각", "EFEM", "Load Lock", "ESC", "MFC", "Shower Head", "ICP", "OES", "EOP", "Cryo pump", "Ashing", "Bevel Etch", "RTP", "Thin Film", "CVD", "PVD", "ALD"],
+      date: "2026-11-23",
+      updated: "2026-11-24",
+      notion: "https://app.notion.com/p/4216b8b7c6bb80ab9b8fc25603bbe51c"
+    },
+    {
+      id: "thein-day17",
+      area: "thein",
+      title: "더인 교육 17일차 정리",
+      short: "17일차",
+      category: "더인 교육",
+      summary: "파이썬(Colab) 실습 안내, Print의 의미, 정올(jungol) 문제, 진수 표현을 정리한 노트.",
+      tags: ["더인 교육", "17일차", "파이썬", "Colab", "Print", "정올", "진수 표현"],
+      date: "2026-11-24",
+      updated: "2026-11-24",
+      notion: "https://app.notion.com/p/4226b8b7c6bb805c8bcaedf909936703"
+    },
+    {
+      id: "kocw-interconnect",
+      area: "study",
+      title: "KOCW 세종대 이원준 교수님 — Interconnect 정리",
+      short: "KOCW 배선",
+      category: "KOCW 강의",
+      summary: "KOCW 세종대 이원준 교수님 Interconnect 1&2: 배선 구조와 소재의 변천(Al → W → Cu → Co), Al 배선의 Junction Spiking · Hillock · Void와 Al(Si) · Al(Cu) 합금, Silicide(TiSi₂ → CoSi₂ → NiSi), W Plug, CMP 평탄화, RC Delay.",
+      tags: ["KOCW", "Interconnect", "배선", "Al", "Spiking", "Hillock", "Void", "Electromigration", "Silicide", "TiSi2", "CoSi2", "NiSi", "W Plug", "CMP", "RC Delay"],
+      date: "2026-11-24",
+      updated: "2026-11-24",
+      notion: "https://app.notion.com/p/4226b8b7c6bb80bdabfdfde991279036"
+    },
+    {
+      id: "ms-junction",
+      area: "study",
+      title: "기초반도체공학 김성호 교수님 — MS 접합 정리",
+      short: "MS 접합",
+      category: "반도체 소자",
+      summary: "기초반도체공학 김성호 교수님 [3.1] MS접합: Schottky contact와 Ohmic contact, 정류작용, 금속의 밴드(Eg = 0), Workfunction과 Electron Affinity를 정리한 노트.",
+      tags: ["MS 접합", "Schottky", "Ohmic", "정류작용", "Workfunction", "Electron Affinity", "Metal-Semiconductor", "김성호"],
+      date: "2026-11-21",
+      updated: "2026-11-24",
+      notion: "https://app.notion.com/p/41f6b8b7c6bb80a4abf8c1a68d1d3576"
+    },
+    {
       id: "notes-qa",
       area: "notes",
       title: "반도체 정리노트 Q&A 연습",

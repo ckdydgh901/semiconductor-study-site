@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>기초반도체공학 김성호 교수님 MS 접합</title>
+<meta name="description" content="기초반도체공학 김성호 교수님 [3.1] MS접합: Schottky contact와 Ohmic contact, 정류작용, 금속의 밴드(Eg = 0), Workfunction과 Electron Affinity 정리">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-root="../../" data-topic="ms-junction">
+
+<div id="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <button id="menuBtn" class="icon-btn menu-btn" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <a id="brand" class="brand" href="../../index.html">나의 공부 공간</a>
+  <nav id="tabs" class="tabs" aria-label="영역"></nav>
+  <button id="themeBtn" class="icon-btn" aria-label="다크 모드 전환">◐</button>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="목차">
+    <div class="sidebar-head">
+      <a href="#top" class="sidebar-title">MS 접합</a>
+    </div>
+    <nav id="toc"></nav>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <main id="top" class="content">
+
+    <header class="cover">
+      <h1>기초반도체공학 김성호 교수님 MS 접합</h1>
+      <p class="meta">날짜: 2026-11-21 · 종류: 강의</p>
+      <p class="meta">원본: 사용자 노션 필기 (기초반도체공학 김성호 교수님 MS 접합) · 영상: 기초반도체공학 3.1 MS접합</p>
+
+      <div class="toc-box">
+        <b>목차</b>
+        <p><a href="#s1">MS 접합 (유튜브 강의)</a> · <a href="#s2">(1) Workfunction (eφ<sub>m</sub>, eφ<sub>s</sub>)</a> · <a href="#s3">(2) Electron Affinity</a></p>
+        <p class="meta small">[사용자 노트 필기] 표시 = 사용자가 노션에 직접 정리한 원본 노트(내용·말투·감상은 원문 그대로). [질문 노트] = 사용자의 질문과 답. [댓글] = 사용자가 노션에 남긴 댓글. 회색 캡션은 이미지 설명.</p>
+      </div>
+    </header>
+
+    <section>
+      <h2 id="s1">1. MS 접합 (유튜브 강의)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>[[기초반도체공학|3.1] MS접합 : #정성적해석 #정류작용 #Schottky contact #Ohmic contact](https://www.youtube.com/watch?v=qVsmpjGjhpg&amp;t=920s)</p>
+      </div>
+      <figure><img src="images/fig01.png" width="1246" height="691" alt="Junction(contact) — Homo-Junction(pn)과 Hetero-Junction(Schottky, Metal-silicon junction), 다이오드 기호와 바이어스 회로 (강의 영상 캡처)" loading="lazy"><figcaption>Junction(contact) — Homo-Junction(pn)과 Hetero-Junction(Schottky, Metal-silicon junction), 다이오드 기호와 바이어스 회로 (강의 영상 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이전에는 PN 접합이 같은 반도체 물질에 대한 얘기였고, 지금 Hetero junction 에서는 Metal과 반도체를 접합시킨 것임</p>
+      </div>
+      <figure><img src="images/fig02.png" width="1248" height="702" alt="Metal-semiconductor contacts — Schottky Barrier(정류, pn diode와 유사)와 Ohmic Contact의 I–V 곡선 (강의 영상 캡처)" loading="lazy"><figcaption>Metal-semiconductor contacts — Schottky Barrier(정류, pn diode와 유사)와 Ohmic Contact의 I–V 곡선 (강의 영상 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 검은색 선 그래프를 보면 정류작용을 하는 것을 알 수 있다. Reverse bias에서는 전류가 흐르지 않다가 Forward bias에서는 전류가 흐른다. → Scottky diode</p>
+        <p>- 여기에서 파란 색 선 그래프를 보면 금속처럼 거동한다.</p>
+      </div>
+      <figure><img src="images/fig03.png" width="1252" height="697" alt="About metal — Energy bandgap = 0 eV, 금속 안의 excess carrier는 즉시 재결합 (반도체와 금속의 밴드 비교) (강의 영상 캡처)" loading="lazy"><figcaption>About metal — Energy bandgap = 0 eV, 금속 안의 excess carrier는 즉시 재결합 (반도체와 금속의 밴드 비교) (강의 영상 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 금속에 대한 얘기이다</p>
+        <p>- 보면 Ev에 Ef, Ec들이 다 하나의 값을 갖는다고 적혀있네</p>
+        <p>- Excess carrier가 존재할 수 없다. 재결합되어 바로 사라지기 때문이다.</p>
+        <p>- E<sub>g</sub> = 0 eV</p>
+        <p>- L<sub>diff</sub> = 0, lifetime = 0</p>
+        <p>- δ n = δ p = 0</p>
+      </div>
+      <figure><img src="images/fig04.png" width="1249" height="703" alt="Metal-semiconductor contacts — Workfunction(eφm, eφs)과 Electron affinity qχ, φM &gt; φS (강의 영상 캡처)" loading="lazy"><figcaption>Metal-semiconductor contacts — Workfunction(eφ<sub>m</sub>, eφ<sub>s</sub>)과 Electron affinity qχ, φ<sub>M</sub> > φ<sub>S</sub> (강의 영상 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s2">2. (1) Workfunction (eφ<sub>m</sub>, eφ<sub>s</sub>)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 전자 1개를 고체 내에서 Vacuum level까지 끄집어 낼 때 필요한 값이다.</p>
+        <p>- Vacuum level 자체는 가상의 Level으로 어디에 고정되어 있는 값은 아니라고 한다.</p>
+        <p>- 일함수 값은 물질마다 정해지는 고유의 값이다.</p>
+        <p>- φ<sub>M</sub> &gt; φ<sub>S</sub></p>
+        <p></p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s3">3. (2) Electron Affinity</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 고정된 값이다.</p>
+        <p>- qχ = electron affinity = qφ<sub>S</sub> − (E<sub>c</sub> − E<sub>F</sub>)</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>필기는 사용자가 노션에 정리한 원문 그대로이며, 이미지는 교재·강의 슬라이드·판서 촬영본입니다.</p>
+      <p><span id="updatedAt"></span> · <a id="notionLink" href="#" target="_blank" rel="noopener" hidden>Notion 원본 보기</a> · <a href="../../index.html">홈으로</a></p>
+    </footer>
+  </main>
+</div>
+
+<button id="toTop" class="to-top" aria-label="맨 위로" hidden>↑</button>
+
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="이미지 확대">
+  <button class="lb-close" aria-label="닫기">✕</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</div>
+
+<script src="../../topics.js"></script>
+<script src="../../assets/common.js"></script>
+<script src="../../assets/topic.js"></script>
+</body>
+</html>

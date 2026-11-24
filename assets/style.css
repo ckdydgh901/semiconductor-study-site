@@ -350,9 +350,10 @@ mark { background: #ffe58a; color: #1a1a1a; border-radius: 2px; padding: 0 1px; 
 
 /* 수식 (라이브러리 없이 분수 표기) */
 .note p.eq { text-align: center; margin: .8em auto; padding: .45em 1em; width: fit-content; max-width: 100%; border: 1px solid var(--border); border-radius: 6px; font-size: 1.12em; }
-.eq .frac { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; margin: 0 .2em; }
-.eq .frac > span { padding: 0 .3em; line-height: 1.35; }
-.eq .frac > span:first-child { border-bottom: 1px solid currentColor; }
+.frac { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; margin: 0 .2em; }
+.frac > span { padding: 0 .3em; line-height: 1.35; }
+.frac > span:first-child { border-bottom: 1px solid currentColor; }
+.sqrt { border-top: 1px solid currentColor; padding: 0 .12em; margin-left: .05em; }
 
 /* 연습용 Q&A: 질문만 보이고 클릭하면 답이 펼쳐짐 (details) */
 .qa-tools { display: flex; gap: 8px; margin: 14px 0 4px; }

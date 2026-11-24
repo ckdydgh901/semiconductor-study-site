@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>더인 교육 15일차</title>
+<meta name="description" content="더인 교육 15일차: 금속 전기전도도 순서, PN 접합·전압, DRAM(LPDDR/DDR)과 EDS 테스트(Power short · Pin open/short · Pin Leakage), Parameter Analyzer(V_th · I_sat · I_off), 정전기, 반도체 패키징(Tg · 열가소성/열경화성), Capacitance 감소의 영향, 포트폴리오 정리 방법">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-root="../../" data-topic="thein-day15">
+
+<div id="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <button id="menuBtn" class="icon-btn menu-btn" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <a id="brand" class="brand" href="../../index.html">나의 공부 공간</a>
+  <nav id="tabs" class="tabs" aria-label="영역"></nav>
+  <button id="themeBtn" class="icon-btn" aria-label="다크 모드 전환">◐</button>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="목차">
+    <div class="sidebar-head">
+      <a href="#top" class="sidebar-title">15일차</a>
+    </div>
+    <nav id="toc"></nav>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <main id="top" class="content">
+
+    <header class="cover">
+      <h1>더인 교육 15일차</h1>
+      <p class="meta">날짜: 2026-11-21 · 종류: 교육</p>
+      <p class="meta">원본: 사용자 노션 필기 (더인 교육 15일차)</p>
+
+      <div class="toc-box">
+        <b>목차</b>
+        <p><a href="#s1">신소재공학과에서 외우면 좋을 만한 것들</a> · <a href="#s2">신소재가 전문으로 할 수 있어야 함 (전 유기쪽인데요;)</a> · <a href="#s3">금속 전기전도도 순서</a> · <a href="#s4">PN 접합</a> · <a href="#s5">전압</a> · <a href="#s6">DRAM</a> · <a href="#s7">EDS</a> · <a href="#s8">Parameter Analyzer (파라미터 분석기)</a> · <a href="#s9">Transistor</a> · <a href="#s10">정전기 (Electrostatic)</a> · <a href="#s11">Open과 Short가 일어나는 이유?</a> · <a href="#s12">반도체 패키징</a> · <a href="#s13">Capacitance 감소가 되면 다른 값들은 어떻게 되는가?</a> · <a href="#s14">생각정리</a></p>
+        <p class="meta small">[사용자 노트 필기] 표시 = 사용자가 노션에 직접 정리한 원본 노트(내용·말투·감상은 원문 그대로). [질문 노트] = 사용자의 질문과 답. [댓글] = 사용자가 노션에 남긴 댓글. 회색 캡션은 이미지 설명.</p>
+      </div>
+    </header>
+
+    <section>
+      <h2 id="s1">1. 신소재공학과에서 외우면 좋을 만한 것들</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- <span class="mark-yel">실습 내용 메모장에 있음</span></p>
+        <p>- 소재들의 특징, 종류 인지</p>
+        <p>- 고분자 소재의 사용 용도. 대표적인 반도체에서 사용되는 고분자의 특징. PR이나 패키징에 사용되는 고분자 정도만 따로 정리해도 좋을 듯</p>
+        <p>- 전기전도도, 밴드갭, 비저항 값들</p>
+        <p>- 그리고 오늘 수업들은 것에서는 정말 기본적인 것들만 취하면 될 듯 (내 분야가 이런쪽은 아니라는 것을 확신 할 수 있었음)</p>
+        <p>- 오늘 실습은 레포트 딱히 안만들겠지만, 스터디나 마지막 프로젝트 진행했던 내용은 잘 정리해두는게 좋을 것 같다. (스터디를 했다? 끝이면 시간 낭비 → 스터디를 통해 무엇을 얻어갔다! 가 포트폴리오로 정리하자)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s2">2. 신소재가 전문으로 할 수 있어야 함 (전 유기쪽인데요;)</h2>
+    </section>
+
+    <section>
+      <h2 id="s3">3. 금속 전기전도도 순서</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>Ag > Cu > Au > Al ≫ W</p>
+        <p>- 은 부식 때문에 사용하지 X</p>
+        <p>- Cu는 전해도금 방법으로 증착</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s4">4. PN 접합</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 전기전자 전공의 고유 영역 (소자를 한다면 알아야 한다)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s5">5. 전압</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 수압과 같은 개념이라서 1 → 0 과 0 → −1 차이 모두 1V이다.</p>
+      </div>
+      <figure><img src="images/fig01.png" width="760" height="496" alt="판서 — Turn on Voltage: 다이오드와 저항의 I–V 특성 그래프" loading="lazy"><figcaption>판서 — Turn on Voltage: 다이오드와 저항의 I–V 특성 그래프 (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s6">6. DRAM</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 모바일용 - LPDDR (Low power)</p>
+        <p>- PC용 - DDR</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s7">7. EDS</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Wafer 1개에 살릴 수 있는 테스트할 만한 Die는 1500개?</p>
+        <p>- EDS 테스트를 할 때 Power short, Pin open/short, Pin Leakage가 가장 기본적인 테스트</p>
+        <p class="sub">– 품질 분야에서도 알면 좋다.</p>
+      </div>
+      <figure><img src="images/fig02.png" width="1123" height="285" alt="EDS 기본 테스트 표 — Power Short · Pin Open/Short(Continuity) · Pin Leakage (Claude 답변 캡처)" loading="lazy"><figcaption>EDS 기본 테스트 표 — Power Short · Pin Open/Short(Continuity) · Pin Leakage (Claude 답변 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s8">8. Parameter Analyzer (파라미터 분석기)</h2>
+    </section>
+
+    <section>
+      <h2 id="s9">9. Transistor</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- V<sub>th</sub> (문턱 전압)</p>
+        <p>- I<sub>sat</sub> (포화 전류)</p>
+        <p>- I<sub>off</sub> (누설전류)</p>
+        <p>- Q = I²Rt (줄 열)</p>
+        <p>- 열이 생기면서 박살나는 것이 뻔트가 난다고 한다.</p>
+        <p>- Open 단선</p>
+        <p>- Short 단락</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s10">10. 정전기 (Electrostatic)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 정전기는 주로 핀으로 들어온다.</p>
+        <p>- 정전기는 +, - 상관없이 들어온다.</p>
+        <p>- 정전기 보호 셀이 필요하다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s11">11. Open과 Short가 일어나는 이유?</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 배선 면적의 99%를 차지하는게 Power line이다. Vdd와 Vss 사이의 길이는 실질적으로 짧다? 하여간 외부에서 power를 인가하고 그게 내부의 낮은 층수로 연결되기까지가 배선이 긴 것임</p>
+        <p>- Vdd와 Vss 사이에 defect이 앉으면 short가 일어난다. 근데 이게 pin 이면 pin short가 된다?</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “근데 이게 pin 이면 pin short가 된다?”</p>
+        <p>무슨 소릴까?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s12">12. 반도체 패키징</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 유리전이 온도 Tg 고분자 사슬의 일부가 움직일 수 있게 되고, 고무 상태가 되는 것을 말한다.</p>
+        <p>- 칩을 감싸는 에폭시?</p>
+      </div>
+      <figure><img src="images/fig03.png" width="1138" height="886" alt="열가소성과 열경화성 비교표, Tg와 반도체(EMC · 포토레지스트)와의 연결 (Claude 답변 캡처)" loading="lazy"><figcaption>열가소성과 열경화성 비교표, Tg와 반도체(EMC · 포토레지스트)와의 연결 (Claude 답변 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s13">13. Capacitance 감소가 되면 다른 값들은 어떻게 되는가?</h2>
+
+      <h3 id="s13-1">(1) 문턱전압이 높다.</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><br>V<sub>th</sub> = V<sub>FB</sub> + 2φ<sub>F</sub> + <span class="frac"><span>Q<sub>dep</sub></span><span>C<sub>ox</sub></span></span><br>(Q<sub>dep</sub> = √<span class="sqrt">2ε<sub>Si</sub>  q  N<sub>A</sub> (2φ<sub>F</sub>)</span> : 공핍층 전하, C<sub>ox</sub> = ε<sub>ox</sub> / t<sub>ox</sub> : 산화막 커패시턴스)</p>
+      </div>
+
+      <h3 id="s13-2">(2) Isat 감소한다 → 성능이 떨어진다.</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><br>I<sub>sat</sub> = <span class="frac"><span>1</span><span>2</span></span> μ  C<sub>ox</sub> <span class="frac"><span>W</span><span>L</span></span> (V<sub>GS</sub> − V<sub>th</sub>)²</p>
+      </div>
+
+      <h3 id="s13-3">(3) Ioff 증가한다.</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><br>서브문턱 기울기: S = <span class="frac"><span>kT</span><span>q</span></span>ln 10(1 + <span class="frac"><span>C<sub>dep</sub></span><span>C<sub>ox</sub></span></span>) (C<sub>dep</sub> : 공핍층 커패시턴스)<br>I<sub>off</sub> ≈ I₀ · 10<sup>−V<sub>th</sub>/S</sup></p>
+      </div>
+      <figure><img src="images/fig04.png" width="678" height="600" alt="판서 — 입력 전압 0 V · 3.3 V에 따른 I–V 곡선과 IIL · IIH" loading="lazy"><figcaption>판서 — 입력 전압 0 V · 3.3 V에 따른 I–V 곡선과 I<sub>IL</sub> · I<sub>IH</sub> (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><b>&lt;반도체 카페에서 다시 확인></b></p>
+        <p>내가 지원하는 직무 -> 직무필요역량이 ~이라고 생각합니다 -> 그래서 학부 때 어떤 수업을 들었고, 어떤 온라인 교육을 들었습니다 -> 그리고 +a로 공정실습이나 000을 했습니다</p>
+        <p>그리고 필요하면 논문을 몇 편 읽어서 정리하거나, SEM 등의 사진도 정리했습니다. → 포트폴리오를 만드는 방법에 대해 알려주신 것임</p>
+        <p>&lt;Flow><br>직무 선정 -> 직무필요역량 -> 학부 때 이걸 했다 -> +a</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s14">14. 생각정리</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>1. 노트 만들 때 남들 다 할 수 있는 정도로 정리해서 말할거면 의미 없다.</p>
+        <p>2. 공부할 때 논문도 같이 읽었으면 옆에 잘 메모해두기</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>필기는 사용자가 노션에 정리한 원문 그대로이며, 이미지는 교재·강의 슬라이드·판서 촬영본입니다.</p>
+      <p><span id="updatedAt"></span> · <a id="notionLink" href="#" target="_blank" rel="noopener" hidden>Notion 원본 보기</a> · <a href="../../index.html">홈으로</a></p>
+    </footer>
+  </main>
+</div>
+
+<button id="toTop" class="to-top" aria-label="맨 위로" hidden>↑</button>
+
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="이미지 확대">
+  <button class="lb-close" aria-label="닫기">✕</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</div>
+
+<script src="../../topics.js"></script>
+<script src="../../assets/common.js"></script>
+<script src="../../assets/topic.js"></script>
+</body>
+</html>

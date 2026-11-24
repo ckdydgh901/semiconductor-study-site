@@ -185,15 +185,24 @@ def eq_html(tex):
 
 _SUB = {**{str(i): "₀₁₂₃₄₅₆₇₈₉"[i] for i in range(10)}, "x": "ₓ"}
 _SUP = {**{str(i): "⁰¹²³⁴⁵⁶⁷⁸⁹"[i] for i in range(10)}, "+": "⁺", "-": "⁻", "−": "⁻"}
-_TEXCMD = [(r"\varepsilon", "ε"), (r"\epsilon", "ε"), (r"\propto", " ∝ "), (r"\times", "×"), (r"\mu", "μ"), (r"\tau", "τ"),
-           (r"\rho", "ρ"), (r"\ll", " ≪ "), (r"\gg", " ≫ "), (r"\rightarrow", " → "), (r"\cdot", "·"), (r"\approx", "≈"),
+_TEXCMD = [(r"\rightarrow", " → "), (r"\chi", "χ"), (r"\delta", "δ"), (r"\phi", "φ"), (r"\ln", "ln"), (r"\left", ""), (r"\right", ""),
+           (r"\varepsilon", "ε"), (r"\epsilon", "ε"), (r"\propto", " ∝ "), (r"\times", "×"), (r"\mu", "μ"), (r"\tau", "τ"),
+           (r"\rho", "ρ"), (r"\ll", " ≪ "), (r"\gg", " ≫ "), (r"\cdot", "·"), (r"\approx", "≈"),
            (r"\,", "\u2009"), (r"\ ", " ")]
 
 def _tex_conv(s):
     out = ""; i = 0
     while i < len(s):
-        if s.startswith(r"\mathrm", i) and i + 7 < len(s) and s[i + 7] == "{":
-            c, j = _brace(s, i + 7); out += _tex_conv(c); i = j; continue
+        # 인라인 수식 분수·제곱근 지원 (2026-11-24: dfrac, frac, sqrt, phi, ln, left/right)
+        frac_cmd = next((c for c in (r"\dfrac", r"\frac") if s.startswith(c, i)), None)
+        if frac_cmd:
+            a, j = _brace(s, i + len(frac_cmd)); b, j = _brace(s, j)
+            out += f'<span class="frac"><span>{_tex_conv(a)}</span><span>{_tex_conv(b)}</span></span>'; i = j; continue
+        if s.startswith(r"\sqrt", i):
+            a, j = _brace(s, i + 5); out += f'√<span class="sqrt">{_tex_conv(a)}</span>'; i = j; continue
+        txt_cmd = next((c for c in (r"\mathrm", r"\text") if s.startswith(c, i) and i + len(c) < len(s) and s[i + len(c)] == "{"), None)
+        if txt_cmd:
+            c, j = _brace(s, i + len(txt_cmd)); out += _tex_conv(c); i = j; continue
         hit = False
         for cmd, r_ in _TEXCMD:
             if s.startswith(cmd, i):
