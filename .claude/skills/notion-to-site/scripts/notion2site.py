@@ -205,7 +205,10 @@ def _tex_conv(s):
             if s[i + 1] == "{": c, j = _brace(s, i + 1)
             else: c, j = s[i + 1], i + 2
             cc = _tex_conv(c)
-            out += "".join(tbl[x] for x in cc) if cc and all(x in tbl for x in cc) else f"<{tag}>{cc}</{tag}>"
+            if tag == "sup" and re.fullmatch(r"\d*[+−]+", cc):   # 이온 전하(P⁺, Ar⁺, SiF₆²⁻)는 <sup>로 — 유니코드 ⁺ 글자는 작아서 잘 안 보임(2026-11-24)
+                out += f"<sup>{cc}</sup>"
+            else:
+                out += "".join(tbl[x] for x in cc) if cc and all(x in tbl for x in cc) else f"<{tag}>{cc}</{tag}>"
             i = j; continue
         out += {"<": "&lt;", ">": "&gt;", "-": "−"}.get(ch, ch); i += 1
     return out
