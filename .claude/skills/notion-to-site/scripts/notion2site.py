@@ -485,8 +485,23 @@ def render_page(pid, title, side, desc, sub_line, source, secs):
 </body>
 </html>
 '''
+    page = charge_sup(page)
     open(PROJ + pid + "/index.html", "w", encoding="utf-8").write(page)
     return page
+
+_CHG = re.compile(r'([A-Za-z][A-Za-z0-9₀-₉]*)([⁰¹²³⁴-⁹]*)([⁺⁻]+)(?![⁰¹²³⁴-⁹])')
+_SUPDIG = {c: str(i) for i, c in enumerate("⁰¹²³⁴⁵⁶⁷⁸⁹")}
+_SUPDIG.update({"¹": "1", "²": "2", "³": "3"})
+
+def charge_sup(html_s):
+    """이온 전하 위첨자(유니코드 ⁺⁻: P⁺, Ar⁺, SiF₆²⁻)를 <sup>로 바꾼다. 태그 안(alt 등)은 건드리지 않고, cm⁻³ 같은 지수(뒤에 위첨자 숫자)도 그대로."""
+    def rep(m):
+        d = "".join(_SUPDIG[x] for x in m.group(2)); sg = m.group(3).replace("⁺", "+").replace("⁻", "−")
+        return f"{m.group(1)}<sup>{d}{sg}</sup>"
+    parts = re.split(r"(<[^>]*>)", html_s)
+    for i in range(0, len(parts), 2):
+        parts[i] = _CHG.sub(rep, parts[i])
+    return "".join(parts)
 
 def load_content(raw_path):
     t = open(raw_path, encoding="utf-8").read()

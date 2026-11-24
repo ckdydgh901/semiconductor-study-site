@@ -53,7 +53,7 @@ window.SITE = {
       summary: "Isolation(STI)부터 Well, Vt 조정, BCAT 셀 트랜지스터, Peri 트랜지스터(LDD·Halo)까지 FEOL 전 과정을 1부·2부 통합으로 정리한 노트.",
       tags: ["DRAM", "FEOL", "STI", "Well", "BCAT", "RCAT", "LDD", "Halo", "CMP", "임플란트", "Vt"],
       date: "2026-09-18",
-      updated: "2026-11-07",
+      updated: "2026-11-24",
       notion: "https://app.notion.com/p/3de6b8b7c6bb80aa8684d24c5f1e2c0e"
     },
     {
@@ -89,7 +89,7 @@ window.SITE = {
       summary: "DC/RF 플라즈마, Sheath와 이온 충돌, RIE의 비등방성 식각 원리에서 HDP(ICP·ECR), DRIE(Bosch), ALE, Cryogenic·펄스 플라즈마까지 정리한 노트.",
       tags: ["플라즈마", "식각", "Etch", "RIE", "CCP", "ICP", "ECR", "Sheath", "Bosch", "ALE", "Cryogenic", "HARC"],
       date: "2026-10-28",
-      updated: "2026-11-07",
+      updated: "2026-11-24",
       notion: "https://app.notion.com/p/4076b8b7c6bb80028ea4ccfe497f3e95"
     },
     {
@@ -125,7 +125,7 @@ window.SITE = {
       summary: "KOCW 세종대 이원준 교수님 Etching 강의(01~03): 플라즈마와 Etch 기초, Etch Rate·균일도·선택비·이방성, Loading Effect, Wet Etch와 Etchant, PE·SE·RIE, ICP·ECR·HWP, ESC·세라믹 부품, 에칭 가스를 정리한 노트.",
       tags: ["KOCW", "Etching", "식각", "Wet Etch", "Dry Etch", "RIE", "ICP", "ECR", "HWP", "ESC", "Loading Effect", "선택비", "이방성", "플라즈마"],
       date: "2026-11-09",
-      updated: "2026-11-19",
+      updated: "2026-11-24",
       notion: "https://app.notion.com/p/4136b8b7c6bb801b8d20c5c72fab4480"
     },
     {
@@ -173,7 +173,7 @@ window.SITE = {
       summary: "PR(NUV·DUV·EUV)과 현상 메커니즘, DUV 화학 증폭형 레지스트(CAR) 추가 공부, NA와 해상도, Soft/Hard Bake·PEB·HMDS, Carrier mobility, 공정 변동과 엔지니어 역할, Presentation(FLASH MEMORY Program/Erase)과 발표 피드백을 정리한 노트.",
       tags: ["더인 교육", "5일차", "PR", "DNQ", "CAR", "PAG", "PEB", "화학 증폭", "NA", "해상도", "PEB", "HMDS", "Passivation", "FLASH MEMORY", "발표 피드백"],
       date: "2026-11-06",
-      updated: "2026-11-19",
+      updated: "2026-11-24",
       notion: "https://app.notion.com/p/40f6b8b7c6bb80d7a4d4ce3b3ecba790"
     },
     {
@@ -185,7 +185,7 @@ window.SITE = {
       summary: "Dry Etch vs Wet Etch, 식각 파라미터(선택비·이방성·균일도)와 식각 이후 현상, 진공(Conductance·Throughput·Residence Time), ESC, Plasma 조건과 방전·Sheath, RF Plasma와 DC Self-bias(87pg 토론 문제)를 정리한 노트.",
       tags: ["더인 교육", "6일차", "Dry Etch", "Wet Etch", "식각", "이방성", "Conductance", "Throughput", "진공", "ESC", "Plasma", "디바이 차폐", "Sheath", "Presheath", "RF", "DC Self-bias", "Blocking capacitor"],
       date: "2026-11-09",
-      updated: "2026-11-19",
+      updated: "2026-11-24",
       notion: "https://app.notion.com/p/4136b8b7c6bb80d98216dcb107624403"
     },
     {
@@ -209,7 +209,7 @@ window.SITE = {
       summary: "5nm 노드의 의미와 트랜지스터 전류(μ·C_ox·W/L, 단채널 효과, HKMG, FinFET/GAA), Gate 금속의 변천(Al→Poly-Si→HKMG, 메모리/비메모리), Dielectric·Metal·Thin film, CVD(기체상/표면 반응, Film Growth Kinetics, APCVD·LPCVD·PECVD 응력, TEOS, SOG), PVD(Al-Cu, Electromigration), ALD, Step coverage와 Gap fill, Epi 층을 정리한 노트.",
       tags: ["더인 교육", "8일차", "5nm", "노드", "Thin film", "CVD", "PVD", "ALD", "LPCVD", "PECVD", "Film Growth Kinetics", "Electromigration", "Step coverage", "HDPCVD", "HKMG", "단채널 효과", "Gate 금속", "TEOS", "SOG", "Epi", "PECVD 응력"],
       date: "2026-11-11",
-      updated: "2026-11-23",
+      updated: "2026-11-24",
       notion: "https://app.notion.com/p/4156b8b7c6bb8059adc8fb3b58f31b6a"
     },
     {
@@ -221,7 +221,7 @@ window.SITE = {
       summary: "반도체 상식 Quiz(원소 구성비, 메모리 점유율, 8대 공정, V·I·P와 PPA, HKMG, SoC·SiP·Chiplet과 수율, HBM·TSV, 수직 적층 NAND, Planar·Fin·GAA), 교재 정리(Wafer 구조와 Scribe line, DRAM·Flash), 페르미 준위, 옴의 법칙·MOSFET 원리·PN 접합·MOS·C-V·CMOS Inverter를 정리한 노트.",
       tags: ["더인 교육", "10일차", "Quiz", "HKMG", "SoC", "SiP", "Chiplet", "수율", "HBM", "TSV", "NAND", "GAA", "Scribe line", "페르미 준위", "MOSFET", "PN 접합", "CMOS Inverter", "문턱전압"],
       date: "2026-11-16",
-      updated: "2026-11-19",
+      updated: "2026-11-24",
       notion: "https://app.notion.com/p/4156b8b7c6bb80379575d0e8e0c3824e"
     },
     {
@@ -233,7 +233,7 @@ window.SITE = {
       summary: "온도에 따른 문턱전압·I_Dsat·I_off, 메모리와 비메모리 반도체(SRAM·DRAM Refresh/Read 동작·ROM·EPROM·EEPROM·Flash, NAND vs NOR, FN Tunneling), 스마트폰 반도체 부품(AP·CIS·PMIC·DDI), Short Channel Effect, 반도체 스터디 질문 18개를 정리한 노트.",
       tags: ["더인 교육", "11일차", "문턱전압", "Idsat", "SRAM", "DRAM", "Refresh", "Charge sharing", "ROM", "Flash", "NAND", "NOR", "FN Tunneling", "AP", "CIS", "PMIC", "DDI", "Short Channel Effect", "스터디"],
       date: "2026-11-17",
-      updated: "2026-11-19",
+      updated: "2026-11-24",
       notion: "https://app.notion.com/p/41b6b8b7c6bb80dcaa3fc41335b3f9b4"
     },
     {
@@ -245,7 +245,7 @@ window.SITE = {
       summary: "Diffusion과 CVD의 변천, Metal 배선(Contact/Via, Al→Cu 다마신, Cu etch, Capping layer), 금속 박막 조건과 PVD·CVD·ALD 비교(SOD·SOH), 오믹 컨택(Silicide), 이온 주입(Rp·Dose·하드마스크와 확산), 플라즈마(Sheath·Self bias)와 진공도 분류, N-type·P-type 에너지 밴드(E_d·E_a·E_F)를 정리한 노트.",
       tags: ["더인 교육", "13일차", "Diffusion", "CVD", "Contact", "Via", "다마신", "Cu", "Al", "Barrier Metal", "Silicide", "오믹 컨택", "PVD", "ALD", "SOD", "SOH", "이온 주입", "Rp", "하드마스크", "플라즈마", "Sheath", "Self bias", "진공", "Fermi level", "Donor", "Acceptor"],
       date: "2026-11-19",
-      updated: "2026-11-23",
+      updated: "2026-11-24",
       notion: "https://app.notion.com/p/41d6b8b7c6bb8035b482f815d071b0fc"
     },
     {
@@ -257,7 +257,7 @@ window.SITE = {
       summary: "Metal 배선과 Pitch Size, Clean 공정(오염 물질, Wet·Dry Clean, RCA Cleaning, Surface Roughness), EUV와 LER·LWR, RET와 멀티 패터닝(LELELE → LE), Loading Effect와 Pattern Density, Drying·Resist Strip·ALE, Cl₂ 식각과 폴리머, Etch 정리를 담은 노트.",
       tags: ["더인 교육", "14일차", "Clean", "RCA", "SC1", "SC2", "Piranha", "HF", "Dry Clean", "UV/O3", "Surface Roughness", "EUV", "LER", "LWR", "RET", "멀티 패터닝", "LELELE", "Loading Effect", "Pattern Density", "OPC", "Attenuated PSM", "Drying", "Resist Strip", "Ashing", "ALE", "Cl2 식각", "폴리머"],
       date: "2026-11-20",
-      updated: "2026-11-23",
+      updated: "2026-11-24",
       notion: "https://app.notion.com/p/41e6b8b7c6bb80448100df595e434ada"
     },
     {
@@ -278,7 +278,7 @@ window.SITE = {
       category: "더인 교육",
       summary: "더인 교육의 숙제, 토론 등 과제 내용을 한 곳에 모아 두는 페이지. ①반도체의 역사(반도체 개론 5pg) ②Particle이 미치는 영향(반도체 개론 111pg, 정답 슬라이드 포함) ③SiO₂ 성장은 Si/SiO₂ 계면에서 발생하는 이유(8대공정 1 교재 29pg) ④SiO₂ 두께-시간 그래프(교재 56pg) ⑤산화공정이란? 5분 발표 준비(대본 포함) ⑥조별과제: FLASH MEMORY의 동작원리(Program/Erase) 발표 내용·대본.",
       tags: ["더인 교육", "과제", "숙제", "토론", "반도체 역사", "트랜지스터", "VLSI", "SoC", "TSMC", "엘피다", "Particle", "산화공정", "SiO₂", "Deal-Grove", "발표 준비", "조별과제", "FLASH MEMORY", "Program", "Erase"],
-      updated: "2026-11-19"
+      updated: "2026-11-24"
     },
     {
       id: "advice-notes",
