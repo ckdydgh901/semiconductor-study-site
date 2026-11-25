@@ -77,9 +77,17 @@ def parse(path):
     return head, items
 
 
+# Word 원본에는 없고 사용자가 사이트에 직접 추가해 달라고 한 답변(문항 번호별). 다시 변환해도 유지된다.
+EXTRA = {
+    "1": ["Ref) 다른 관점에서의 답변",
+          "반도체는 도체와 부도체의 중간 성질을 가지며, 불순물 도핑이나 외부 자극(전기, 빛, 열)으로 전기전도도를 조절할 수 있는 물질입니다."],
+}
+
+
 def card(it):
     qsub = "".join('<span class="qsub">%s</span>' % esc(x) for x in it["qsub"])
     ans = "".join("<p>%s</p>" % esc(x) for x in it["ans"]) or "<p>(답변 없음)</p>"
+    ans += "".join("<p>%s</p>" % esc(x) for x in EXTRA.get(it["id"], []))
     return ('      <details class="note qa qa-card" id="q%s"><summary><b>[질문 노트]</b><span class="q">%s</span>%s</summary>\n'
             '        <div class="ans">%s</div>\n      </details>\n') % (it["id"], esc(it["q"]), qsub, ans)
 

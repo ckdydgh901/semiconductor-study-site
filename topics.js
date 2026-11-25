@@ -161,7 +161,7 @@ window.SITE = {
       summary: "반도체 정의(전기전도도·비저항·Energy band gap), 반도체 종류, 유전체와 유전상수(High-k/Low-k), 8대 공정, Photo 공정(Snell 법칙·간섭·회절), Positive/Negative PR을 정리한 노트.",
       tags: ["더인 교육", "4일차", "반도체 정의", "유전체", "High-k", "Low-k", "8대 공정", "Photo", "Snell", "간섭", "회절", "PR"],
       date: "2026-11-05",
-      updated: "2026-11-23",
+      updated: "2026-11-26",
       notion: "https://app.notion.com/p/40f6b8b7c6bb80c8baf2ca4317536f8a"
     },
     {
@@ -328,7 +328,7 @@ window.SITE = {
       category: "반도체 정리노트",
       summary: "Word로 정리한 반도체 질문 47개와 답변. 질문만 보고 먼저 답해 본 뒤 눌러서 답을 확인하는 연습용 페이지.",
       tags: ["반도체 정리노트", "Q&A", "면접 연습", "질문", "답변", "반도체 정리노트", "Word"],
-      updated: "2026-11-19"
+      updated: "2026-11-26"
     },
     {
       id: "thein-homework",
