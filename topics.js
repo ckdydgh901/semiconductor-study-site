@@ -89,7 +89,7 @@ window.SITE = {
       summary: "DC/RF 플라즈마, Sheath와 이온 충돌, RIE의 비등방성 식각 원리에서 HDP(ICP·ECR), DRIE(Bosch), ALE, Cryogenic·펄스 플라즈마까지 정리한 노트.",
       tags: ["플라즈마", "식각", "Etch", "RIE", "CCP", "ICP", "ECR", "Sheath", "Bosch", "ALE", "Cryogenic", "HARC"],
       date: "2026-10-28",
-      updated: "2026-11-24",
+      updated: "2026-11-27",
       notion: "https://app.notion.com/p/4076b8b7c6bb80028ea4ccfe497f3e95"
     },
     {
