@@ -14,7 +14,7 @@ major = ["Cleaning Review", "듀얼 다마신 설명 (Etch stopper에 대한 설
          "Zeta potential -44, 45, 46pg", "다양한 Slurry들", "<b>Ceria (CeO₂)</b>", "Ceria (CeO₂)", "STI CMP - 71pg", "W CMP - 73pg", "Cu CMP - 80pg, 81pg",
          "Future Tech - 99pg", "지난 주 숙제에 대한 설명", "오후 수업", "Review Metal 17, 18개 "]
 H2 = S(major)
-H3 = S(bold + ["7pg", "8pg", "15pg", "16pg, 17pg - Platen", "18pg - Wafer Carrier", "21pg - Removal Rate", "22pg - Conditional", "39pg", "75pg, 76pg"]) - H2
+H3 = S(bold + ["7pg", "8pg", "15pg", "16pg, 17pg - Platen", "18pg - Wafer Carrier", "21pg - Removal Rate", "22pg - Conditioner", "39pg", "75pg, 76pg"]) - H2
 cm = {
  "001c61cb5a86": ["이거 이해하고 넘어가기"],
  "001cc3fc0487": ["Etch 할 때 무슨 gas 사용하는지 다시 복습하기!"],
