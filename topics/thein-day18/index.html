@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>더인 교육 18일차</title>
+<meta name="description" content="더인 교육 18일차: Cleaning 복습, CMP(Litho DOF, 듀얼 다마신 Etch stopper, Pattern density · Dishing · Plug recess, Preston 법칙, Pad · Slurry · Ceria, STI · W · Cu CMP), RMG, 플라즈마가 보라색인 이유와 EEDF 정리 노트">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body data-root="../../" data-topic="thein-day18">
+
+<div id="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <button id="menuBtn" class="icon-btn menu-btn" aria-label="목차 열기" aria-expanded="false">☰</button>
+  <a id="brand" class="brand" href="../../index.html">나의 공부 공간</a>
+  <nav id="tabs" class="tabs" aria-label="영역"></nav>
+  <button id="themeBtn" class="icon-btn" aria-label="다크 모드 전환">◐</button>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar" aria-label="목차">
+    <div class="sidebar-head">
+      <a href="#top" class="sidebar-title">18일차</a>
+    </div>
+    <nav id="toc"></nav>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <main id="top" class="content">
+
+    <header class="cover">
+      <h1>더인 교육 18일차</h1>
+      <p class="meta">날짜: 2026-11-26 · 종류: 교육</p>
+      <p class="meta">원본: 사용자 노션 필기 (더인 교육 18일차)</p>
+
+      <div class="toc-box">
+        <b>목차</b>
+        <p><a href="#s1">Cleaning Review</a> · <a href="#s2">CMP</a> · <a href="#s3">듀얼 다마신 설명 (Etch stopper에 대한 설명)</a> · <a href="#s4">Review Metal 17, 18개</a> · <a href="#s5">What is CMP</a> · <a href="#s6">CMP Utilization</a> · <a href="#s7">CMP에서 중요한 것들 - 14pg</a> · <a href="#s8">25pg - Preston’s Law</a> · <a href="#s9">26pg - CMP Pad</a> · <a href="#s10"><span class="mark-yel">32,33pg - CMP Slurry - Contents</span></a> · <a href="#s11">34pg - CMP Slurry 종류</a> · <a href="#s12">오후 수업</a> · <a href="#s13">Zeta potential -44, 45, 46pg</a> · <a href="#s14">다양한 Slurry들</a> · <a href="#s15">Ceria (CeO₂)</a> · <a href="#s16">STI CMP - 71pg</a> · <a href="#s17">W CMP - 73pg</a> · <a href="#s18">Cu CMP - 80pg, 81pg</a> · <a href="#s19">Future Tech - 99pg</a> · <a href="#s20">지난 주 숙제에 대한 설명</a></p>
+        <p class="meta small">[사용자 노트 필기] 표시 = 사용자가 노션에 직접 정리한 원본 노트(내용·말투·감상은 원문 그대로). [질문 노트] = 사용자의 질문과 답. [댓글] = 사용자가 노션에 남긴 댓글. 회색 캡션은 이미지 설명.</p>
+      </div>
+    </header>
+
+    <section>
+      <h2 id="s1">1. Cleaning Review</h2>
+
+      <h3 id="s1-1">목적</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>Cleaning - 결국 수율 향상 (소자 신뢰성 확보)</p>
+      </div>
+
+      <h3 id="s1-2">오염 종류</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>1~4</p>
+      </div>
+
+      <h3 id="s1-3">Cleaning 방법</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>Chemical</p>
+        <p>Physical</p>
+      </div>
+
+      <h3 id="s1-4">RCA</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>SC1 H₂O₂ NH₄OH D.I</p>
+        <p>SC2 H₂O₂ HCl D.I</p>
+      </div>
+
+      <h3 id="s1-5">전체적인 방향성</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>용액의 온도 낮, 농도 낮, 스텝수 적</p>
+      </div>
+
+      <h3 id="s1-6">Surface Roughness</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>전자(하) 이동도에 영향을 미친다</p>
+      </div>
+
+      <h3 id="s1-7">Not-Uniformity</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>Batch type, Single type 왜 변화? Uniformity 관점에서 균일도를 확보하기 위해. 하지만 Single Type은 Throughput이 안좋고, Etchant를 많이 사용하기 때문에 Semi batch type으로 가려고 함.</p>
+        <p>→ WTW, WIW, PTP</p>
+        <p>- 그리고 PTP는 Lithography 관점에서 우리가 그림을 그려서 공부했었음</p>
+        <p class="sub">Ref) CMP에서도 PTP가 중요하다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s2">2. CMP</h2>
+
+      <h3 id="s2-1">CMP의 최대 수혜자는 Litho</h3>
+      <figure><img src="images/fig01.png" width="865" height="466" alt="판서 — CMP 전 단차 위의 PR 노광: Mask · PR · ILD/PMD" loading="lazy"><figcaption>판서 — CMP 전 단차 위의 PR 노광: Mask · PR · ILD/PMD (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이때 gate에 Focus를 맞출지, Active area 맞출지를 결정해야한다.</p>
+        <p>- 그래서 그림과 같은 경우에 어디에 맞춰야 할지 고려할 때 생각하는 것이 DOF, DOF margin을 생각해야 한다.</p>
+      </div>
+
+      <h3 id="s2-2">DOF는 주황색이고, 중앙 값에 맞췄을 때 그 차이를 말한다.</h3>
+      <figure><img src="images/fig02.png" width="892" height="499" alt="판서 — 단차에 따른 DOF 차이 (x만큼의 높이 차)" loading="lazy"><figcaption>판서 — 단차에 따른 DOF 차이 (x만큼의 높이 차) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig03.png" width="411" height="283" alt="판서 — R = k1·λ/NA, DOF = k2·λ/NA²" loading="lazy"><figcaption>판서 — R = k<sub>1</sub>·λ/NA, DOF = k<sub>2</sub>·λ/NA² (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Res를 확보하는게 우선이다. 먼저 패턴이 작게 형성 되는 것이 먼저인데, 수식적으로 보면 DOF는 동일한 람다와 NA 식을 가지고 있으니 DOF 값은 어쩔 수 없이 작아지는 것이다.</p>
+      </div>
+      <figure><img src="images/fig04.png" width="982" height="783" alt="판서 — CMP ① 면과 DOF, R · DOF 식" loading="lazy"><figcaption>판서 — CMP ① 면과 DOF, R · DOF 식 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이제 DOF 의 차이를 줄이기 위해서 CMP 1번까지 갈아주게 되는 것이다. 그러면 초점을 맞춰야하는 차이가 줄어들기 때문이다??? (이건 그림이 헷갈려가지고 다시 봐야겠다.)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s3">3. 듀얼 다마신 설명 (Etch stopper에 대한 설명)</h2>
+      <figure><img src="images/fig05.png" width="537" height="343" alt="판서 — 듀얼 다마신 구조: Si3N4 · IMD · Si3N4 · IMD" loading="lazy"><figcaption>판서 — 듀얼 다마신 구조: Si<sub>3</sub>N<sub>4</sub> · IMD · Si<sub>3</sub>N<sub>4</sub> · IMD (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Si₃N₄가 있고 IMD 이게 두번 반복</p>
+      </div>
+
+      <h3 id="s3-1">근데 만약에 Etch stopper 가 없으면?</h3>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 실제 타겟이 3000Å이면 얼마를 Etch를 해야하는가?</p>
+        <p>A.</p>
+        <p>- 실제 증착을 하면 3000Å가 되지를 않는다. 평균적으로 3000Å가 되는 것이다. 그러니까 30%? 정도는 Over Etch를 진행하는 것이다.</p>
+        <p>- 그래서 만약에 3000Å를 Etch하는 것이 목표로 하더라도 4000Å만큼 오버Etch를 시킬 것이고, 만약에 Etch stopper가 없으면 쭉 식각되어 들어가버릴 것이다. 멈춘다는 개념이 없을 것이다.</p>
+        <p>- 결국 우리는 SiO₂를 식각하고 있는 것이고, SiO₂가 식각될 때 식각이 안된 곳은 Nitride가 버텨줘야 하고 있는 것이다.</p>
+        <p>- 근데 Nitride 선택비는 10:1이니까 위에 SiO₂가 식각될 때 버틸 수 있는 것이다.</p>
+        <p class="sub">– SiO₂:Si₃N₄ = 10:1</p>
+      </div>
+      <figure><img src="images/fig06.png" width="502" height="360" alt="판서 — PR 패턴과 3000 Å 식각, Etch stopper(Si3N4)" loading="lazy"><figcaption>판서 — PR 패턴과 3000 Å 식각, Etch stopper(Si<sub>3</sub>N<sub>4</sub>) (출처: 사용자 노션 캡처)</figcaption></figure>
+
+      <h3 id="s3-2">Low-K (위 설명과 계속 이어짐)</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 우리가 요즘 사용하는 것은 Air Gap을 사용하는게 Low k를 만들기 위함이다.</p>
+        <p>- Nitride는 유전상수는 7.0이고, SiO₂는 3.9인데 그러면 Low-k 관점에서 Etch stopper 역할은 좋지만 또 Low-k를 사용하려는 노력과는 반대이다. (Trade-off)</p>
+        <p>- Nitride를 그래서 완전히 제거해야한다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s4">4. Review Metal 17, 18개</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이렇게 길게 이어지는 이유는 voltage drop이 생기게 되기 때문에.</p>
+        <p>- Voltage drop이 생기는 이유는 Metal이 길어져서? V=IR에서 저항이 커지고 …?</p>
+        <p>- 근데 Voltage drop이 생기는거랑 metal 자체가 여러개 되는 것이랑은 무슨 상관인데?</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “근데 Voltage drop이 생기는거랑 metal 자체가 여러개 되는 것이랑은 무슨 상관인데?”</p>
+        <p>이거 이해하고 넘어가기</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s5">5. What is CMP</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- SiO₂에서 CMP는 OH-기가 Si-O-Si를 가수분해 시켜 제거하기 쉬운 상태로 만든다.</p>
+        <p>- Metal은 아마 산화로 약하게 만들어줄 것 같긴해.</p>
+      </div>
+
+      <h3 id="s5-1">평탄화의 필요성</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- STI, Tungsten Plugs, Copper Damascence process(구리도 CMP가 없었으면 Etch가 안되니까 사용을 못했지)</p>
+        <p>- Al은 Cl₂ gas로 etch하는데 Cu는 Cl₂ gas로 etch가 안되더라.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “STI, Tungsten Plugs, Copper Damascence process(구리도 CMP가 없었…”</p>
+        <p>Etch 할 때 무슨 gas 사용하는지 다시 복습하기!</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s6">6. CMP Utilization</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Buffer는 blanket 상태에서 밀어낸다?</p>
+        <p>- W, Cu CMP도 많이 시키고, ILD IMD CMP도 많이 시키고, STI도 CMP 하고</p>
+        <p class="sub">– Al는 gas로 Etch가 되니까 CMP를 논할 것도 없지</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “Buffer는 blanket 상태에서 밀어낸다?”</p>
+        <p>이게 뭔데??</p>
+      </div>
+
+      <h3 id="s6-1">과거에 울퉁불퉁했을 때 어떤 문제가 생겼는가?</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Step coverage가 안좋아진다. → Metal의 신뢰성 문제 (밑에 신뢰성 문제가 일어나는 이유)</p>
+        <p>- Electromigration이 일어나면 폭이 좁아지는 곳이 생기고 전류의 흐름이 집중적이 되고 → 열이 발생하고 → 그러면 전자가 쉽게 이동하고 → 결국 끊어지게 될 수도 있다.</p>
+      </div>
+
+      <h3 id="s6-2">7pg</h3>
+      <figure><img src="images/fig07.jpg" width="1400" height="1050" alt="교재 — CMP: BPSG Depo, Re-flow 후, CMP 후 단면 SEM (교재 사진)" loading="lazy"><figcaption>교재 — CMP: BPSG Depo, Re-flow 후, CMP 후 단면 SEM (교재 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- USG (Undopper Silicate glass)</p>
+        <p class="sub">– SiO₂이다.</p>
+        <p class="sub">– TEOS는 PE를 통해서나 오존을 통해서나 만들었다.</p>
+        <p>- BPSG는 Boron이나 Phosphorus는 도핑을 해서 만든 것인데, 그러면 열을 가했을 때 (Re-flow) 다시 흘러버리게 된다??</p>
+        <p>- BPSF가 Reflow 공정을 거쳐서 평탄화가 조금 되긴 한다는 것이다. 긍정적이라는 것이지. Reflow공정은 열을 주는 것이고, BP가 도핑 된 걸 알면 되는 것이고. 그렇지만 여기에서 결국 이걸로 다 되는게 아니고 예전에 과거에는 이렇게 했다는 것이다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “USG (Undopper Silicate glass)”</p>
+        <p>silicate가 SiO2야?</p>
+      </div>
+
+      <h3 id="s6-3">8pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 표면에 스크래치가 생길 수 있는데, pad나 slurry를 사용해서 완화시켜주고 있다.</p>
+        <p>- particle도 문제가 되는데, 이건 또 브러쉬나 이런걸 사용해서 공정 조건을 잘 만들어주려고 한다.</p>
+        <p>- Post CMP cleaning은 Chemical 사용해서 cleaning 해주는 것임</p>
+      </div>
+
+      <h3 id="s6-4">CMP</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- End Point Detector, In-Line Metrology 이런 것들이 있다. 그리고 이런게 조금 어렵다.</p>
+        <p>- 궤도를 가지면서 원운동을 한다고 함</p>
+        <p>- 중심축이 이동하면서 원운동</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s7">7. CMP에서 중요한 것들 - 14pg</h2>
+      <figure><img src="images/fig08.jpg" width="1400" height="1050" alt="교재 — CMP Infrastructure: 측정·검사 항목 (Removal Rate, Uniformity, Dishing, Erosion, Plug recess, Planarity 등) (교재 사진)" loading="lazy"><figcaption>교재 — CMP Infrastructure: 측정·검사 항목 (Removal Rate, Uniformity, Dishing, Erosion, Plug recess, Planarity 등) (교재 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 가장 중요한 것은 분당 얼마나 제거되는지 - 압력과 속도에 큰 영향을 받음</p>
+        <p>- CMP에서도 가장 중요한건 pattern density. 왜냐하면 pattern 밀도 차이가 pattern이 많으면 힘을 더 나눠서 받게 되고, pattern이 별로 없으면 몇 개가지고 힘을 받는 상황이니 더 많이 제거가 된다.</p>
+        <p class="sub">– pattern 밀도 크면 제거가 덜 되고, pattern 밀도 작으면 제거가 더 많이 된다.</p>
+        <p class="sub">– Pattern Density가 얼마나 되는지도 중요하고, Loading Effect 그러니까 칩 안에서도 pattern 들이 어떻게 분포해 있는지도 중요하다.</p>
+        <p>- Dishing은 pattern 이 없는 곳에서 푹 꺼지면서 접시 모양처럼 되는 것을 말하고, 그 부분을 dummy pattern을 통해서 보완해줄 수도 있다.</p>
+      </div>
+      <div class="cols2"><figure><img src="images/fig09.png" width="451" height="174" alt="판서 — 패턴 밀도 차이에 따른 CMP 후 표면 (Dishing)" loading="lazy"><figcaption>판서 — 패턴 밀도 차이에 따른 CMP 후 표면 (Dishing) (출처: 사용자 노션 캡처)</figcaption></figure><figure><img src="images/fig10.png" width="475" height="177" alt="판서 — 빈 곳에 Dummy pattern을 넣은 모습" loading="lazy"><figcaption>판서 — 빈 곳에 Dummy pattern을 넣은 모습 (출처: 사용자 노션 캡처)</figcaption></figure></div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- plug recess라는 건 너무 많이 CMP를 해서 주변부가 날라가는 것이다.</p>
+      </div>
+      <figure><img src="images/fig11.png" width="769" height="213" alt="정상과 Plug recess 비교 그림 (Claude 답변 캡처)" loading="lazy"><figcaption>정상과 Plug recess 비교 그림 (Claude 답변 캡처) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig12.png" width="687" height="331" alt="판서 — Planarity: CMP 전후 평탄화 정도" loading="lazy"><figcaption>판서 — Planarity: CMP 전후 평탄화 정도 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Planarity는 평탄화 된 정도를 말한다. *이 정도를 말함</p>
+      </div>
+
+      <h3 id="s7-1">15pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 공정을 하다보면 여러 particle이 나오는데 이게 마찰력을 감소시킨다. So Conditioner는 왔다갔다 하면서 plate를 clean 해준다.</p>
+        <p>- Slurry에 Abrasive는 연마제이다. 해당 연마제에 따라서 SiO₂(실리카) 슬러리, CeO₂(세리아) 슬러리, Al₂O₃(알루미나) 슬러리라고 한다. 그리고 연마제도 크기에 따라서 결과가 달라진다.</p>
+        <p>- Chemical은 어떤걸 갈아내냐에 따라서 달라진다. Cu는 산화가 잘 되어서 산화억제제? 그리고 pH를 조절하는 계면활성제 등을 넣어준다.</p>
+      </div>
+
+      <h3 id="s7-2">16pg, 17pg - Platen</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Platen위에서 CMP 위에서 진행되는 것이다.</p>
+        <p>- 밑에서 Air가 불어넣어져서 압력이 조절된다. (압력조절은 공기로 진행한다)</p>
+        <p class="sub">– 그래서 밑에서 zone별로 구간이 나눠져있고, 압력을 이런식으로 control 가능하다.</p>
+      </div>
+
+      <h3 id="s7-3">18pg - Wafer Carrier</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Wafer Carrier 에 대한 설명이다. Wafer에서 Retainer ring은 양쪽에서 잡아주고 있다.</p>
+        <p>- 여기에서 압력을 가해주는 방법은 위쪽에서 공기로 밀어넣는 것이다.</p>
+      </div>
+
+      <h3 id="s7-4">21pg - Removal Rate</h3>
+      <figure><img src="images/fig13.jpg" width="1400" height="1050" alt="교재 — CMP System: Pad에 따른 산화막 Removal rate 분포 (교재 사진)" loading="lazy"><figcaption>교재 — CMP System: Pad에 따른 산화막 Removal rate 분포 (교재 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Center보다 양쪽에서 더 빨리 Removal 된다. 가운데는 Removal이 잘 안되는 상황</p>
+        <p>- 이렇게 불균일하게 된 세모의 경우는 가운데 쪽에 압력을 줘서 동그라미처럼 만드려고 노력해야겠지?</p>
+      </div>
+
+      <h3 id="s7-5">22pg - Conditional</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Pad에 hole이 있고, 이 hole을 통해 슬러리들이 움직이는 것이다.</p>
+        <p class="sub">– 아마 Pad는 바닥을 말하는거지? ㅇㅇ</p>
+        <p>- 공정을 진행하다보면 이 hole들이 채워지게 되면 Removal rate가 떨어지기 때문에 Conditionaer을 통해서 다시 hole을 비워줘 Removal rate이 떨어지지 않게 도와준다.</p>
+        <p class="sub">– Pad의 hole을 얘기하는거지?</p>
+      </div>
+      <figure><img src="images/fig14.jpg" width="1400" height="938" alt="CMP 공정 모식도 — 압력 · Slurry · Chuck · Wafer · Pad · Platen (SK hynix Newsroom)" loading="lazy"><figcaption>CMP 공정 모식도 — 압력 · Slurry · Chuck · Wafer · Pad · Platen (SK hynix Newsroom) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig15.png" width="766" height="511" alt="CMP 장비 구성 — Load, Head, Membrane/Retainer ring, Conditioner, Platen, Pad" loading="lazy"><figcaption>CMP 장비 구성 — Load, Head, Membrane/Retainer ring, Conditioner, Platen, Pad (출처: 사용자 노션 캡처)</figcaption></figure>
+    </section>
+
+    <section>
+      <h2 id="s8">8. 25pg - Preston’s Law</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- RR = K<sub>p</sub> · P · V</p>
+        <p class="sub">– Removal Rate는 압력과 속도에 관련 있다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s9">9. 26pg - CMP Pad</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Polyurethane으로 구성 됨</p>
+        <p>- 사진에 보이는 동글뱅이들은 다 Hole 들이다.</p>
+        <p>- Top Pad와 Bottom Pad로 이루어져 있다.</p>
+        <p class="sub">– Top pad는 grove와 pore로 이루어져 있다. 직접 맞닿는 부분</p>
+        <p class="sub">– Bottom pad는 soft 하고 압력을 분산시키는 역할을 한다.</p>
+        <p class="sub">– Grove라는 것은 slurry가 이동할 수 있도록 파여져 있는 것을 말한다.</p>
+      </div>
+
+      <h3 id="s9-1">28pg - CMP Pad - Groove</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>Groove 는 이렇게 slurry가 이동할 수 있는 이동 경로가 되어지는 것이다.</p>
+      </div>
+
+      <h3 id="s9-2">29pg - CMP Pad - 회사에 적힌 CMP 설명</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 2개의 pad 중에 위에 있는게 Hard하고 pore가 있고, 아래에는 soft하고 압력을 분산시키고..</p>
+        <p>- 위에 Pad는 PU, pore, Groove가 있다.</p>
+        <p>- 우측에 자세한 설명</p>
+      </div>
+
+      <h3 id="s9-3">30, 31pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이렇게 다양한 모양의 Pad 모양이 있다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s10">10. <span class="mark-yel">32,33pg - CMP Slurry - Contents</span></h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>→ 이건 알아야지 불소계 유화중합 현탁중합 이거 공부했잖아?</p>
+        <p>(1) Emulsion (유화)</p>
+        <p>ex) Milk</p>
+        <p>- 물에 유지방이 녹아있는 것이다.</p>
+        <p>- 그래서 용해되어 있기 때문에 시간이 지나도 어떻게 되진 않다.</p>
+        <p>(2) Suspension (현탁) → CMP는 녹아있는게 아니라 물과 같이 존재하는 것이다.</p>
+        <p>ex) 미숫가루</p>
+        <p>- 얘는 시간이 지나면 곡물가루들이 가라앉는다.</p>
+        <p>- 얘네는 물에 녹아있지 않다는 것이다.</p>
+        <p>Ref) 현탁중합은 액체 속에 단량체 방울을 분산시킨 뒤, 그 방울 안에서 중합해 고분자 입자를 만드는 방식</p>
+      </div>
+
+      <h3 id="s10-1">ㄱ) Abrasive(연마제)</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 완전히 녹아 있는게 아니라 물과 연마제가 공존하고 있는 것이고, 이렇기 때문에 뭉쳐있지 않게 하기 위해서 분산제가 필요한 것이다.</p>
+        <p>- 너무 크게 뭉쳐있으면 Scratch가 날 수 있기 때문이다.</p>
+        <p>ref) Metal 산화시켜서 연하게 만들어서 제거하기 때문에 산화제가 필요했다.</p>
+      </div>
+
+      <h3 id="s10-2">ㄴ) D.I water</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 연마제를 나르는 역할을 해준다.</p>
+      </div>
+
+      <h3 id="s10-3">ㄷ) 첨가제 Chemical</h3>
+    </section>
+
+    <section>
+      <h2 id="s11">11. 34pg - CMP Slurry 종류</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 연마제에 따른 분류이다.</p>
+        <p>- Fumed는 태워서 SiO₂, Collodial은 용액에 녹여서 만드는 SiO₂</p>
+        <p>- STI CMP에서</p>
+      </div>
+
+      <h3 id="s11-1">Q. STI 에서 Bird’s beak이 생기면 왜 Incrugment 가 생기면 무슨 문제가 생기는가?</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>A.</p>
+        <p>첫번째 문제, 주변에서 산화가 균등하게 퍼지게 되면서 Active area 영역이 줄어들면 본래 빨간색 점선의 contact 부분이 줄어들게 된다. 저 부분이 줄어든다는 것은 Contact 면적이 줄어들어 저항이 커지는 결과로 이어진다.</p>
+        <p>두번째 문제, 결국 I current에서 saturation을 빠르게 시키고, channel을 빠르게 만들고 싶은데, oxdiation이 되면 SiO₂가 침범해서 W가 결국 작아지는 문제.</p>
+      </div>
+      <figure><img src="images/fig16.png" width="739" height="786" alt="판서 — STI 산화(Bird’s beak)와 Contact 면적 · W 감소: IDS ∝ μCoxW/L" loading="lazy"><figcaption>판서 — STI 산화(Bird’s beak)와 Contact 면적 · W 감소: I<sub>DS</sub> ∝ μC<sub>ox</sub>W/L (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig17.png" width="622" height="267" alt="판서 — Si3N4 · SiO2와 Bird’s beak" loading="lazy"><figcaption>판서 — Si<sub>3</sub>N<sub>4</sub> · SiO<sub>2</sub>와 Bird’s beak (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이런 식으로 빨간색에 MOS가 와야하는데 문제가 생긴다는 것을 그냥 받아들이지 말고 이해하고 넘어갈 것</p>
+      </div>
+      <figure><img src="images/fig18.png" width="706" height="379" alt="판서 — Bird’s beak으로 인해 생기는 문제 영역" loading="lazy"><figcaption>판서 — Bird’s beak으로 인해 생기는 문제 영역 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Nitride는 인산으로 날리고, 그 선택비가 SiO₂랑 비교했을 때 100:1 이라는 것이다.</p>
+        <p>- 요즘은 SiO₂는 CVD 이건 ALD이건 증착시키는 것이다. 그 위는 CMP로 갈아내고 그 다음 Si₃N₄를 날리고 이 때 날릴 때 H₃PO₄를 날리는 것이다.</p>
+      </div>
+
+      <h3 id="s11-2">35pg - CMP slurry 종류</h3>
+      <figure><img src="images/fig19.png" width="609" height="249" alt="판서 — W plug와 Ti/TiN Barrier의 CMP · Blanket etch" loading="lazy"><figcaption>판서 — W plug와 Ti/TiN Barrier의 CMP · Blanket etch (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Ti/TiN (Barrier Metal) 깔기 → W 깔기 → CMP 하기 (W랑 Barrier Metal까지 원래는 날라감)</p>
+        <p>- 근데 이렇게 하지 않고 W을 그냥 모든 면적을 Blanket Etch를 진행한다. 이러면 CMP를 진행하지 않고서도 Etch가 가능하다.</p>
+        <p class="sub">→ 결국에 Ti/TiN이 위에서 끊겨 있어야 하는건 동일하다. 이거 왜 모르지? 알고 있어야지</p>
+      </div>
+
+      <h3 id="s11-3">Ref) HKMG</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- High-k와 Metal gate 와의 조합으로 가야한다.</p>
+      </div>
+      <div class="note qa"><b>[질문 노트]</b>
+        <p class="q">Q. 이거 왜 그런데?</p>
+        <p>A. 밥 먹고 생각해보자</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s12">12. 오후 수업</h2>
+
+      <h3 id="s12-1">Carrier path에 대한 고민</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>TrumpF: 펌프 (CO2 Laser를 만든다고 함)</p>
+        <p>Cymer: 모듈을 만드는 곳으로 ASML이 인수했다.</p>
+        <p>ASML이 삼성에 들어가면 TrumpF와 Cymer가 같이 들어가서 작업을 하는 것이다.</p>
+      </div>
+
+      <h3 id="s12-2"><span class="mark-red">RMG (Replacement Metal Gate) → 내가 궁금했던 부분임!! 꼭 챙겨가기</span></h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>Ref) I = μ C<sub>ox</sub> <span class="frac"><span>W</span><span>L</span></span></p>
+        <p>- Electron mobility를 계산하기 위해 Strain Engneering?</p>
+        <p class="sub">– 밑에서 Poly-Si를 wet etching으로 식각한 뒤에 나온 얘기</p>
+        <p>- Poly-Si를 만들고 그 다음 Poly-Si를 Wet-etching을 하고 Ti/TiN → W 을 증착하는 플로우</p>
+      </div>
+      <figure><img src="images/fig20.png" width="855" height="289" alt="판서 — Poly-Si 위 PR 패터닝과 SiO2" loading="lazy"><figcaption>판서 — Poly-Si 위 PR 패터닝과 SiO<sub>2</sub> (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig21.png" width="645" height="333" alt="판서 — RMG: W 게이트와 Ti/TiN" loading="lazy"><figcaption>판서 — RMG: W 게이트와 Ti/TiN (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig22.png" width="679" height="778" alt="판서 — RMG 흐름: Poly-Si를 Wet etch로 제거" loading="lazy"><figcaption>판서 — RMG 흐름: Poly-Si를 Wet etch로 제거 (출처: 사용자 노션 캡처)</figcaption></figure>
+
+      <h3 id="s12-3">38pg - CMP Slurry</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>(1) Dispersion Technology</p>
+        <p>(2) Formulation Tech</p>
+        <p>(3) Contamination Control</p>
+      </div>
+
+      <h3 id="s12-4">39pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- MS는 균일하게 되어있는 것, PI는 불규칙하게 존재하는 것, PSM 다양한 크기를 갖고 있다.</p>
+        <p>- 정형화되어있지 않고 사이즈가 다양한 PI가 가장 Removal rate이 클 것이다. 그리고 PSM 그리고 MS이다.</p>
+        <p>- 이 내용보다 중요한건 이것들은 컨트롤 된다는 것이다. Removal rate 측면에서는 이렇고, Uniformity 측면에서는 작고 균일한게 제어가능하고 좋을 것이다.</p>
+      </div>
+      <figure><img src="images/fig23.jpg" width="1400" height="1050" alt="교재 — CMP Slurry 입자: Fumed Silica와 Colloidal Silica (교재 사진)" loading="lazy"><figcaption>교재 — CMP Slurry 입자: Fumed Silica와 Colloidal Silica (교재 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+
+      <h3 id="s12-5">(1) Fumed Silica - 40, 41pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 집합체의 사이즈, 하나의 particle도 각각이 조절 요소이다.</p>
+        <p>- 1500°C에서 제작</p>
+        <p>- 하지만 너무 응집이 많이 되면 스크래치를 낼 수 있고, 식각은 잘되겠지만 균일도는 낮을 것이다.</p>
+        <p>- 애네는 비정형의 형상</p>
+      </div>
+
+      <h3 id="s12-6">(2) Colloid Silica - 42, 43pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 이건 액체 상에서 존재한다. 콜로이드 상태로.</p>
+        <p>- 결국에 Stable 하기 위해서는 Colloid 상태로 존재해야한다.</p>
+        <p>- Aggregation이 일어나지 않게 계면활성제나 Dispersion 이런걸 넣어준다.</p>
+        <p>- 애는 균일한 형상</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s13">13. Zeta potential -44, 45, 46pg</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Stern layer는 딱 달라붙어서 움직이지 않는 층이다.</p>
+        <p>- Stern layer에서 반대 전하가 달라붙으니까 중화가 될 것이다.</p>
+        <p>- 그렇게 되면 바깥에서는 같은 전하들도 달라붙을 것이고, 그에 따라 표면에서 느껴지는 +나 - 의 정도는 달라질 것이다.</p>
+        <p>- 반데르 발스 힘은 달라붙으려고 하고, 정전기적 반발력은 밀어내려고 한다.</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “반데르 발스 힘은 달라붙으려고 하고, 정전기적 반발력은 밀어내려고 한다.”</p>
+        <p>왜 반데르발스 힘은 달라붙으려고 하는데?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s14">14. 다양한 Slurry들</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Silica - SiO₂</p>
+        <p>- Ceria - Si₃N₄ 와 SiO₂에서 Si₃N₄에 대한 선택비가 좋다.</p>
+        <p>- Metal slurry는 W, Cu Slurry로 나눌 수 있다.</p>
+        <p class="sub">– W는 H₂O₂와 Al₂O₃로 구성되고, 산화시켜서 연마시킨다.</p>
+        <p class="sub">– Cu는 H₂O₂와 Ethanol, NH₄OH로 구성된다.</p>
+      </div>
+
+      <h3 id="s14-1">Q. 아까 점심시간에 나왔던 질문</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>A.</p>
+      </div>
+      <figure><img src="images/fig24.jpg" width="1400" height="1050" alt="판서(종이) — Al + 0.5% Cu 흐름성 금속과 Contact · 평탄화 (필기 사진)" loading="lazy"><figcaption>판서(종이) — Al + 0.5% Cu 흐름성 금속과 Contact · 평탄화 (필기 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig25.png" width="1039" height="592" alt="판서 — Al 증착과 평탄화 전 단면 흐름 ①②③" loading="lazy"><figcaption>판서 — Al 증착과 평탄화 전 단면 흐름 ①②③ (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 2번에서 구멍을 살짝 기울기있게 만드는 이유는 sputtering을 통해서 Al PVD 증착할 때 잘 증착될 수 있게 하기 위함이다.</p>
+        <p>- 이 때는 Etch를 하더라도 평탄화를 시킬 수는 없었던 것이다. 불순물이 섞인 Al의 낮은 녹는점을 이용해서 metal이 흐르게 해서 평탄화를 시키거나, BPSG 같은 짓들 CMP가 존재하기 전에 진행했던 짓들이다. 그리고 W이 등장하기도 했고</p>
+        <p>- 근데 헷갈리는게 여기에서 contact이 어디로 연결되는지 어떻게 아는거야? 아래 사진을 보면 B/L 과 연결된 contact은 좌측 앞이고, World line 과 연결된 contact은 뒤에서 연결되고 왜이러는겨??</p>
+        <p>Ref) 13일차 다른 강사님 - 생각을 돕기 위함</p>
+      </div>
+      <div class="note cmt"><b>[댓글]</b>
+        <p class="cmt-ctx">대상: “근데 헷갈리는게 여기에서 contact이 어디로 연결되는지 어떻게 아는거야? 아래 사진을 보면 B/L 과…”</p>
+        <p>이건 어떻게 아는거지? 그냥 받아들이는 영역인가?</p>
+      </div>
+      <figure><img src="images/fig26.png" width="1400" height="1050" alt="화이트보드 — B/L · W/L · Capacitor contact, Metal-Semi / Metal-Metal, Silicide (화이트보드 사진)" loading="lazy"><figcaption>화이트보드 — B/L · W/L · Capacitor contact, Metal-Semi / Metal-Metal, Silicide (화이트보드 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p><b>CMP Slurry - 52pg~57pg - 이 파트에서 calcination 세라믹 때 배웠던 내용도 나오고, TEM 얘기도 나오고, 입자들의 크기 조절, 분포 같은 얘기가 나오네. 잘 정리해보자 나랑 연결시킬 수도 있을듯</b><br><b><u>→ Ceria 는 CeO₂에 대한 얘기이다. CeO₂는 Slurry에 존재하는 연마제이다.</u></b></p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s15">15. Ceria (CeO₂)</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>(1) Calcined Ceria Slury</p>
+        <p>- 80nm~300nm가 있을 때 저게 랜덤하게 저런 범위로 갖는다는게 아니다. 필터를 통해서 걸러내서 필요한걸 사용하겠지</p>
+        <p>- 여기에서도 상대적은 작은 Small size를 사용할 수도 있는 것이다.</p>
+        <p>- Calcined는 ‘하소’한 이라는 의미이다.</p>
+        <p>- 어떻게 기본 Ceria에서 Slurry에 사용하는 슬러리가 되는지에 대한 설명이다.</p>
+        <p>(2) Colloidal Ceria Slurry</p>
+        <p>- 10nm~140nm 사이즈를 갖기 때문에 조금 더 균일하게 만들어줄 수 있겠지.</p>
+        <p>- 어쩌구저쩌구 책 보기</p>
+      </div>
+      <figure><img src="images/fig27.jpg" width="1400" height="1050" alt="교재 — CMP Slurry: FEOL은 Ceria, BEOL은 Silica (교재 사진)" loading="lazy"><figcaption>교재 — CMP Slurry: FEOL은 Ceria, BEOL은 Silica (교재 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 해당 Si₃N₄와 SiO₂의 선택비가 좋다. 그래서 FEOL에서 사용된다. Ceria를 사용하기 때문에 Si₃N₄ stopper로 사용가능하고 Removal rate가 크다.</p>
+        <p>- Back end에서는 Silica를 사용한다. why?</p>
+      </div>
+
+      <h3 id="s15-1">CMP Disk - 62pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Surface가 무뎌지는 것을 Conditioner (다이아가 박힘) 을 통해서 다시 표면을 제대로 만든다.</p>
+      </div>
+
+      <h3 id="s15-2">Mechanical Etch in CMP</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Particle size는 aggregation 정도겠다.</p>
+        <p>- 탄성 정도가 커지면 pad가 눌러져도 stress를 못가할테니 조금 눌리는 정도가 적어야겠지? 단단해야겠지?</p>
+      </div>
+
+      <h3 id="s15-3">Edge Engineering</h3>
+      <figure><img src="images/fig28.png" width="661" height="628" alt="판서 — Edge Engineering: Bevel (W CVD · PR coating)" loading="lazy"><figcaption>판서 — Edge Engineering: Bevel (W CVD · PR coating) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>Slurry 화학물질이므로 보관을 잘해야한다.</p>
+        <p>Ref) PR coating 할 때 사용하는 PR은 빛에 반응하지 않게 하기 위해서 갈색 병에 둔다고 한다.</p>
+        <p>- 점도가 떨어질 수 있고 화학 물질이 반응하거나 변형 할 수도 있다 → 다른 performance가 나타날 수 있다.</p>
+      </div>
+
+      <h3 id="s15-4">Oxide CMP Mechanism - 68pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Si(OH)₄ 기가 만들어진 다는 것이지. By-product랑 같이 Drain에 빨려들어가겠다.</p>
+        <p>- H₂O가 SiO₂가 만나서 Si-OH 결합이 생기게 된다. (이것도 그래서 산화막 생겼을 때 HF 해주는 것 아니겠어?)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s16">16. STI CMP - 71pg</h2>
+      <figure><img src="images/fig29.jpg" width="1400" height="1050" alt="교재 — STI CMP 공정 순서 (교재 사진)" loading="lazy"><figcaption>교재 — STI CMP 공정 순서 (교재 사진) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 왜 STI에서 CeO₂를 쓴다고? Removal rate가 빠르고, SiO₂와 Nitride에 대한 선택비가 좋기 때문이다. (선택비가 좋다는 건 SiO₂에 높은 선택비로 갈아낸다는 것이다.</p>
+        <p>- CVD 장비에서 그냥 열을 줘서 Etch하고 생긴 defect들을 커버</p>
+        <p>- Si₃N₄는 인산으로 제거 (반복 또 반복)</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s17">17. W CMP - 73pg</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>(사진)</p>
+        <p>- 텅스텐은 직접 갈아내기 어려워서 산화를 통해서 약하게 만들어 준 다음 산화를 시킨다는 얘기이다.</p>
+        <p>- 그래서 Oxdized Tungsten에 대한 얘기가 나오고 있는 것이다.</p>
+      </div>
+
+      <h3 id="s17-1">75pg, 76pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>(사진)</p>
+      </div>
+      <figure><img src="images/fig30.png" width="403" height="394" alt="판서 — W 채움에서의 Grain과 Seam" loading="lazy"><figcaption>판서 — W 채움에서의 Grain과 Seam (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Ethcing 할 때 W라고 적혀있긴 하지만 Ti/TiN가 증착되어있고, CMP를 진행해서 Ti/TiN이 연결되지 않는 깊이만큼 쭉 갈아버려야한다. (복습 또 복습)</p>
+        <p>- 76pg에서는 다양하게 산화될 수 있다는 얘기이다.</p>
+        <p>- Seam이라는 건 Grain들이 충분히 자라지 않았을 때 텅스텐에서 충분히 문제가 생길 수 있다. 빨간색 부분처럼 결정립들이 충분히 자라지 못하면 저렇게 될 수도 있지.</p>
+      </div>
+
+      <h3 id="s17-2">Q. W이 웨이퍼에서 이렇게 남았다 왜 그러한가?</h3>
+      <figure><img src="images/fig31.png" width="526" height="498" alt="판서 — 웨이퍼에 남은 W" loading="lazy"><figcaption>판서 — 웨이퍼에 남은 W (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>A.</p>
+        <p>- 동심원으로 돌기 때문에 압력이 한쪽에만 불균일 하면 전체적으로 돌면서 불균일 해진다. 그러니까 저 부분만 불균일하게 되지는 않았을 것이다. (if 압력이라면. 근데 답은 아니다)</p>
+        <p>→ 강사님의 접근은 이전 단계를 보자는 것이다.</p>
+        <p>- 이전 과정을 살펴보자 Oxide를 Depo를 먼저한다. Oxide를 했을 때 생긴 Defect이 그 다음 증착에도</p>
+        <p>- 이런 문제는 Blanket Etch를 통해 Etch를 할 수도 있겠고..</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s18">18. Cu CMP - 80pg, 81pg</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Barrier → Seed (PVD) → 전해도금</p>
+        <p>- 넓은 쪽에서 dishing이 일어난다는 것이다.</p>
+        <p class="sub">– pattern의 밀도가 낮은데에서는 날라간다는 것이다.</p>
+        <p>- Dishing 구리가 푹 꺼지는 것이고, 패턴 자체가 폭삭 없어지는건 Erosion이라고 한다. Cu만 살짝 내려앉는게 아니라 전체적으로 다 갈려버리는걸 말하는 것이다.</p>
+      </div>
+
+      <h3 id="s18-1">Q. 패턴이 작아지고 공간이 작아지면 어떻게 해야하는가?</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>A.</p>
+      </div>
+      <figure><img src="images/fig32.png" width="955" height="541" alt="판서 — R = ρ·L/A, Al → Cu, Ta/TaN과 Ru · Mo · Co" loading="lazy"><figcaption>판서 — R = ρ·L/A, Al → Cu, Ta/TaN과 Ru · Mo · Co (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 공간이 좁아지면 애초에 Cu가 차지할 수 있는 영역이 좁아진 상태이다.</p>
+        <p>- 그래서 사용하는 metal의 종류가 바뀌는 것이다. barrier layer를 사용하면 이미 공간이 좁은데 단일로만 사용해야 하는 상황이 온다는 것이지. 그래서 소재가 바뀌고 있고 Ru, Mo, Co로 바뀌고 있다.</p>
+        <p>- 결국에 이 어려운 metal들도 CVD를 할 것이고, CMP로 갈아내야겠지?</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s19">19. Future Tech - 99pg</h2>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Backside Power는 새롭게 끌어와서 붙이는 것이다. → 이것도 전압 강하 이슈에 대응하는 방법인가?</p>
+      </div>
+
+      <h3 id="s19-1">CMP Tool Maker - 101pg</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Cabot, Fujimi 이런데도 다 슬러리 만드는 회사들. 우리나라에는 동진쎄미캠</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s20">20. 지난 주 숙제에 대한 설명</h2>
+
+      <h3 id="s20-1">Q. 플라즈마는 왜 보라색을 띠는가?</h3>
+      <div class="cols2"><figure><img src="images/fig33.png" width="586" height="444" alt="판서 — 전자 충돌로 여기된 Ar이 빛을 내는 모습: E = hν" loading="lazy"><figcaption>판서 — 전자 충돌로 여기된 Ar이 빛을 내는 모습: E = hν (출처: 사용자 노션 캡처)</figcaption></figure><figure><img src="images/fig34.png" width="505" height="484" alt="판서 — 전자 에너지 분포(EEDF) 곡선" loading="lazy"><figcaption>판서 — 전자 에너지 분포(EEDF) 곡선 (출처: 사용자 노션 캡처)</figcaption></figure></div>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>전기장이 걸렸을 때 Ar이온을 빵 때린다. 그러면 이온화를 시킬 수 있는 Energy 이상을 가질 때 Ar 15.8eV를 가졌을 때 3번째 껍질에서 이온화가 되는 것이다.</p>
+        <p>그 때 전자를 한 개 잃었을 때는 Ar<sup>+</sup>가 되겠지?</p>
+        <p>그렇지만 이온화 시킬만큼의 에너지가 가해지지 않았을 때는 전자가 여기되었다가 방출할 것이다. 이 때 E=hν에 식에 의해서 나오는 빛의 파장 색이 보라색이라는 것이다.</p>
+        <p>하지만 실제로 1→3으로만 가라는 법은 없다. 1→2, 2→3, 3→2, 2→1 도 있을 것이다.</p>
+        <p>여기까지는 문제에 대한 설명이었다.</p>
+      </div>
+
+      <h3 id="s20-2">EEDF?</h3>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>원자들에 따라서 에너지 대역별로 가지고 있는 전자의 분포가 다르다. 그래서 특정 에너지를 갖고 있는 분포가 다르며 실제 파장대를 다 방출하는 것이 아니다. 그래서 실제로는 특정 에너지에 해당 전자가 많이 분포하고 있는 부분이 지배적인 것이다. 그래서 빛의 색은 파장대에서 나온 모든 빛을 반영하는게 아니라, 전자가 많이 분포하고 있는 에너지 영역대의 빛이 지배적으로 띠는 것이다?</p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>필기는 사용자가 노션에 정리한 원문 그대로이며, 이미지는 교재·강의 슬라이드·판서 촬영본입니다.</p>
+      <p><span id="updatedAt"></span> · <a id="notionLink" href="#" target="_blank" rel="noopener" hidden>Notion 원본 보기</a> · <a href="../../index.html">홈으로</a></p>
+    </footer>
+  </main>
+</div>
+
+<button id="toTop" class="to-top" aria-label="맨 위로" hidden>↑</button>
+
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="이미지 확대">
+  <button class="lb-close" aria-label="닫기">✕</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</div>
+
+<script src="../../topics.js"></script>
+<script src="../../assets/common.js"></script>
+<script src="../../assets/topic.js"></script>
+</body>
+</html>

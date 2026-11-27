@@ -257,7 +257,7 @@ window.SITE = {
       summary: "Metal 배선과 Pitch Size, Clean 공정(오염 물질, Wet·Dry Clean, RCA Cleaning, Surface Roughness), EUV와 LER·LWR, RET와 멀티 패터닝(LELELE → LE), Loading Effect와 Pattern Density, Drying·Resist Strip·ALE, Cl₂ 식각과 폴리머, Etch 정리를 담은 노트.",
       tags: ["더인 교육", "14일차", "Clean", "RCA", "SC1", "SC2", "Piranha", "HF", "Dry Clean", "UV/O3", "Surface Roughness", "EUV", "LER", "LWR", "RET", "멀티 패터닝", "LELELE", "Loading Effect", "Pattern Density", "OPC", "Attenuated PSM", "Drying", "Resist Strip", "Ashing", "ALE", "Cl2 식각", "폴리머"],
       date: "2026-11-20",
-      updated: "2026-11-24",
+      updated: "2026-11-27",
       notion: "https://app.notion.com/p/41e6b8b7c6bb80448100df595e434ada"
     },
     {
@@ -281,7 +281,7 @@ window.SITE = {
       summary: "Etch 장비·소재·공정기술(극저온 Etch, 200mm/300mm 진공 Chamber, EFEM·Load Lock), Process Chamber 구성(ESC · MFC · Shower Head), Plasma·ICP, Etch 진단(OES · EOP), 진공 펌프·Chiller·Scrubber, Ashing·Bevel Etch, 이온주입·RTP, Thin Film(CVD · PVD · ALD) 정리 노트.",
       tags: ["더인 교육", "16일차", "Etch", "극저온 식각", "EFEM", "Load Lock", "ESC", "MFC", "Shower Head", "ICP", "OES", "EOP", "Cryo pump", "Ashing", "Bevel Etch", "RTP", "Thin Film", "CVD", "PVD", "ALD"],
       date: "2026-11-23",
-      updated: "2026-11-24",
+      updated: "2026-11-27",
       notion: "https://app.notion.com/p/4216b8b7c6bb80ab9b8fc25603bbe51c"
     },
     {
@@ -293,8 +293,20 @@ window.SITE = {
       summary: "파이썬(Colab) 실습 안내, Print의 의미, 정올(jungol) 문제, 진수 표현을 정리한 노트.",
       tags: ["더인 교육", "17일차", "파이썬", "Colab", "Print", "정올", "진수 표현"],
       date: "2026-11-24",
-      updated: "2026-11-24",
+      updated: "2026-11-27",
       notion: "https://app.notion.com/p/4226b8b7c6bb805c8bcaedf909936703"
+    },
+    {
+      id: "thein-day18",
+      area: "thein",
+      title: "더인 교육 18일차 정리",
+      short: "18일차",
+      category: "더인 교육",
+      summary: "Cleaning 리뷰(오염 종류·RCA·Surface Roughness), 듀얼 다마신과 Etch stopper·Low-K, CMP(평탄화·Preston 법칙·Pad·Slurry·Zeta potential·Ceria·Disk), STI·W·Cu CMP, 지난 주 숙제(플라즈마 색)를 정리한 노트.",
+      tags: ["더인 교육", "18일차", "CMP", "Cleaning", "RCA", "듀얼 다마신", "Etch Stopper", "Low-K", "Preston", "CMP Pad", "Slurry", "Abrasive", "Fumed Silica", "Colloidal Silica", "Zeta Potential", "Ceria", "CMP Disk", "STI CMP", "W CMP", "Cu CMP", "RMG", "HKMG", "플라즈마", "EEDF"],
+      date: "2026-11-26",
+      updated: "2026-11-27",
+      notion: "https://app.notion.com/p/4246b8b7c6bb80149a6efc618f2eafb3"
     },
     {
       id: "kocw-interconnect",
