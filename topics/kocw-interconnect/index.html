@@ -39,7 +39,7 @@
 
       <div class="toc-box">
         <b>목차</b>
-        <p><a href="#s1">Interconnect 1</a> · <a href="#s2">Pure한 Al의 다양한 문제들</a></p>
+        <p><a href="#s1">Interconnect 1</a> · <a href="#s2">Pure한 Al의 다양한 문제들</a> · <a href="#s3">Interconnect 02</a></p>
         <p class="meta small">[사용자 노트 필기] 표시 = 사용자가 노션에 직접 정리한 원본 노트(내용·말투·감상은 원문 그대로). [질문 노트] = 사용자의 질문과 답. [댓글] = 사용자가 노션에 남긴 댓글. 회색 캡션은 이미지 설명.</p>
       </div>
     </header>
@@ -63,13 +63,13 @@
       </div>
       <figure><img src="images/fig04.jpg" width="1400" height="972" alt="반도체 배선기술의 흐름 — Spiking, 단차 문제, Stress voiding, CMP, Low-k까지 배선층수별 기술 변천 (Source: ADMETA 2008)" loading="lazy"><figcaption>반도체 배선기술의 흐름 — Spiking, 단차 문제, Stress voiding, CMP, Low-k까지 배선층수별 기술 변천 (Source: ADMETA 2008) (출처: 사용자 노션 캡처)</figcaption></figure>
       <figure><img src="images/fig05.jpg" width="1400" height="962" alt="AL 배선기술 — 섹션 표지 슬라이드" loading="lazy"><figcaption>AL 배선기술 — 섹션 표지 슬라이드 (출처: 사용자 노션 캡처)</figcaption></figure>
-      <figure><img src="images/fig06.jpg" width="1400" height="971" alt="Junction Spiking — Al(Si) Alloy와 Barrier Metal(TiSi2 · TiN)" loading="lazy"><figcaption>Junction Spiking — Al(Si) Alloy와 Barrier Metal(TiSi<sub>2</sub> · TiN) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig06.jpg" width="1400" height="971" alt="Junction Spiking — Al(Si) Alloy와 Barrier Metal(TiSi₂ · TiN)" loading="lazy"><figcaption>Junction Spiking — Al(Si) Alloy와 Barrier Metal(TiSi<sub>2</sub> · TiN) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- 초창기에는 순수한 Al을 사용했고, 이에 따라 Si-Al에서 spiking 현상이 일어났다.</p>
-        <p>- Al 위에 Si3N4를 증착하고 Annealing을 할 때 문제가 생긴다. (왜 Si3N4를 증착하는지는 나중에 공부)</p>
-        <p>- Al과 Si는 450도에서 Annealing 할 때 Al 안으로 Si가 0.5% 녹아들어가게 된다. (by 상태도) = 고용도가 450도 기준 0.5%라는 말</p>
+        <p>- Al 위에 Si₃N₄를 증착하고 Annealing을 할 때 문제가 생긴다. (왜 Si₃N₄를 증착하는지는 나중에 공부)</p>
+        <p>- Al과 Si는 450°C에서 Annealing 할 때 Al 안으로 Si가 0.5% 녹아들어가게 된다. (by 상태도) = 고용도가 450°C 기준 0.5%라는 말</p>
         <p>- Si이 녹아나가기 때문에 점점 Si 영역이 Al로 들어가면 Si 쪽으로 마치 Al이 파고드는 상태가 됨</p>
-        <p>- 그러면 언제는 spiking이 1um 이상 일어나고 PN 접합자체를 뚫어버리면 문제가 생김</p>
+        <p>- 그러면 언제는 spiking이 1μm 이상 일어나고 PN 접합자체를 뚫어버리면 문제가 생김</p>
       </div>
 
       <h3 id="s1-1">해결 방법 1 (Al에 미리 Si를 녹여두자)</h3>
@@ -87,7 +87,7 @@
       <h2 id="s2">2. Pure한 Al의 다양한 문제들</h2>
       <figure><img src="images/fig07.jpg" width="1400" height="966" alt="Reliability Issue → Al(Cu) alloy — Hillock · Void와 Electromigration" loading="lazy"><figcaption>Reliability Issue → Al(Cu) alloy — Hillock · Void와 Electromigration (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
-        <p>- Si과 Al의 열팽창 계수 차이가 있다. Si의 결합이 더 단단하고, Al은 열팽창 계수가 커서 많이 늘어날 수 있다. Si는 700um 정도되고, Al은 박막이니까 훨씬 얇다.</p>
+        <p>- Si과 Al의 열팽창 계수 차이가 있다. Si의 결합이 더 단단하고, Al은 열팽창 계수가 커서 많이 늘어날 수 있다. Si는 700μm 정도되고, Al은 박막이니까 훨씬 얇다.</p>
       </div>
 
       <h3 id="s2-1">(1) Heating 할 때</h3>
@@ -96,7 +96,7 @@
         <p>- 따라서 이러한 Stress를 해소하기 위해 위로 볼록 튀어나와버리는 hillock 현상이 생기게 된다.</p>
         <p class="sub">– 이때 항복응력(강도) 이전에서 이러한 현상이 나타난다고 함.</p>
         <p class="sub sub2">→ 당연히 그럴 것 같은게 파괴 되는 걸 논하는 있지는 않잖아?</p>
-        <p class="sub">– 450도 정도에서 Annealing 공정을 거치게 되면 Al의 결정립계에서의 원자(?) 확산 속도가 빨라지기 때문에 이러한 hillock이 생길 수 있다.</p>
+        <p class="sub">– 450°C 정도에서 Annealing 공정을 거치게 되면 Al의 결정립계에서의 원자(?) 확산 속도가 빨라지기 때문에 이러한 hillock이 생길 수 있다.</p>
       </div>
 
       <h3 id="s2-2">해결책: Cu 넣어주기 (Hillock &amp; Electromigration 해결)</h3>
@@ -124,18 +124,18 @@
         <p>- 이때 Metal이 증착이 되고 4번째에서 5번째로 넘어가게 된다. 이 때 부분적으로 Etch는 Metal과 Si의 접촉 부분이 아닌 곳에서는 Silicide가 형성되지 않기 때문에 선택비를 이용해서 Wet Etch를 시켜준다.</p>
         <p>- 최종 결과물은 금속 위에 Silicide가 존재하고, 절연체 위에는 Wet etch가 되어 아무것도 존재하지 않는다.</p>
       </div>
-      <figure><img src="images/fig10.jpg" width="1400" height="967" alt="C54-TiSi2, CoSi2, NiSi — 실리사이드 특성 비교표" loading="lazy"><figcaption>C54-TiSi<sub>2</sub>, CoSi<sub>2</sub>, NiSi — 실리사이드 특성 비교표 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig10.jpg" width="1400" height="967" alt="C54-TiSi₂, CoSi₂, NiSi — 실리사이드 특성 비교표" loading="lazy"><figcaption>C54-TiSi<sub>2</sub>, CoSi<sub>2</sub>, NiSi — 실리사이드 특성 비교표 (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
-        <p>- TiSi2도 선폭이 넓을 때는 괜찮았는데 선폭이 작아짐에 따라서 변경이 필요했다. 왜냐하면 TiSi2이 저저항이 되려면 C54가 되어야 한다.</p>
+        <p>- TiSi₂도 선폭이 넓을 때는 괜찮았는데 선폭이 작아짐에 따라서 변경이 필요했다. 왜냐하면 TiSi₂이 저저항이 되려면 C54가 되어야 한다.</p>
       </div>
-      <figure><img src="images/fig11.jpg" width="1400" height="970" alt="C54-TiSi2 Limitation — C49 → C54 상전이와 좁은 선폭 문제" loading="lazy"><figcaption>C54-TiSi<sub>2</sub> Limitation — C49 → C54 상전이와 좁은 선폭 문제 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig11.jpg" width="1400" height="970" alt="C54-TiSi₂ Limitation — C49 → C54 상전이와 좁은 선폭 문제" loading="lazy"><figcaption>C54-TiSi<sub>2</sub> Limitation — C49 → C54 상전이와 좁은 선폭 문제 (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
-        <p>- TiSi2를 사용하는 원리는 내부의 핵이 성장해서 큰 결정립계를 만들어서 저항이 낮은 것이다. 하지만 회로가 얇아지면 그 회로 안에 핵이 있을 수도 있고, 없을 수도 있다. 이 경우에 문제가 생기는 것이다. 핵이 없는 곳은 결정립계가 많으니 저항이 클 수 밖에 없다.</p>
+        <p>- TiSi₂를 사용하는 원리는 내부의 핵이 성장해서 큰 결정립계를 만들어서 저항이 낮은 것이다. 하지만 회로가 얇아지면 그 회로 안에 핵이 있을 수도 있고, 없을 수도 있다. 이 경우에 문제가 생기는 것이다. 핵이 없는 곳은 결정립계가 많으니 저항이 클 수 밖에 없다.</p>
         <p>- 그래서 선폭이 100nm이하 되면서는 사용하지 못하게 되었다.</p>
       </div>
-      <figure><img src="images/fig12.jpg" width="1400" height="968" alt="CoSi2 Limitation — poly-Si 선폭에 따른 저항 상승과 NiSi 비교" loading="lazy"><figcaption>CoSi<sub>2</sub> Limitation — poly-Si 선폭에 따른 저항 상승과 NiSi 비교 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <figure><img src="images/fig12.jpg" width="1400" height="968" alt="CoSi₂ Limitation — poly-Si 선폭에 따른 저항 상승과 NiSi 비교" loading="lazy"><figcaption>CoSi<sub>2</sub> Limitation — poly-Si 선폭에 따른 저항 상승과 NiSi 비교 (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
-        <p>- 그래서 CoSi2를 사용하게 되었지만 이마저도 50nm 이하부터는 사용하지 못하게 되어 NiSi를 사용하게 되었다.</p>
+        <p>- 그래서 CoSi₂를 사용하게 되었지만 이마저도 50nm 이하부터는 사용하지 못하게 되어 NiSi를 사용하게 되었다.</p>
         <p>- 근데 또 요즘에는 NiSi를 사용하지 않는다고 한다.</p>
       </div>
       <figure><img src="images/fig13.jpg" width="1400" height="964" alt="Multilevel Metallization → W Plug — 초기 2층 배선의 단차 문제(Failure)와 W plug" loading="lazy"><figcaption>Multilevel Metallization → W Plug — 초기 2층 배선의 단차 문제(Failure)와 W plug (출처: 사용자 노션 캡처)</figcaption></figure>
@@ -147,14 +147,14 @@
 
       <h3 id="s2-4">(이건 강의 내용은 아님)</h3>
       <div class="note"><b>[사용자 노트 필기]</b>
-        <p>- Ti는 여기 그림에는 없지만 일반적으로 Si위에 Ti를 증착하고, Annealing 해서 TiSi2를 생성한다. 그리고 TiN을 통해서 확산 방지를 시킨다.</p>
-        <p>- TiN이 필요한 이유는 WF₆ + 3H₂ → W + 6HF  CVD 방식으로 증착할 때 HF가 생성되고, 이에 따라 아래 막인 Si와 SiO2막과 반응하게 된다. 따라서 TiN를 통해서 F가 확산되어 들어가는 것을 막아준다.</p>
+        <p>- Ti는 여기 그림에는 없지만 일반적으로 Si위에 Ti를 증착하고, Annealing 해서 TiSi₂를 생성한다. 그리고 TiN을 통해서 확산 방지를 시킨다.</p>
+        <p>- TiN이 필요한 이유는 WF₆ + 3H₂ → W + 6HF  CVD 방식으로 증착할 때 HF가 생성되고, 이에 따라 아래 막인 Si와 SiO₂막과 반응하게 된다. 따라서 TiN를 통해서 F가 확산되어 들어가는 것을 막아준다.</p>
       </div>
 
       <h3 id="s2-5">(강의 내용)</h3>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- W은 구멍을 채우는 데에만 사용하게 된다. 그리고 위 부분은 비저항이 낮은 Al을 사용한다. (W는 사실 좁은 곳을 채우기 위함인거지 특성이 좋아서 사용하는건 아니니까)</p>
-        <p>- W를 에치할 때는 CMP를 사용해서 갈아내면 된다. 아니면 F 계열 gas를 사용해서 etch를 해주면 SiO2에서 멈춘다고 한다.</p>
+        <p>- W를 에치할 때는 CMP를 사용해서 갈아내면 된다. 아니면 F 계열 gas를 사용해서 etch를 해주면 SiO₂에서 멈춘다고 한다.</p>
       </div>
       <div class="note cmt"><b>[댓글]</b>
         <p class="cmt-ctx">대상: “W를 에치할 때는 CMP를 사용해서 갈아내면 된다. 아니면 F 계열 gas를 사용해서 etch를 해주면 …”</p>
@@ -171,10 +171,42 @@
       <figure><img src="images/fig17.jpg" width="1400" height="964" alt="Chemical Mechanical Polishing — CMP 시스템 (Figure 11-27)" loading="lazy"><figcaption>Chemical Mechanical Polishing — CMP 시스템 (Figure 11-27) (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
         <p>- CMP를 사용하고서부터 평평하게 쌓는 것이 가능해졌다.</p>
+        <p>- 튀어나온 부분에서 압력이 더 가해져서 빨리 갈리고, 덜 걸리는 부분은 느리게 갈리게 된다.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 id="s3">3. Interconnect 02</h2>
+      <figure><img src="images/fig20.jpg" width="937" height="645" alt="Under/overlayers of Ti/TiN — Shunt layer와 반사방지(antireflection) (Figure 11-20 · 11-21)" loading="lazy"><figcaption>Under/overlayers of Ti/TiN — Shunt layer와 반사방지(antireflection) (Figure 11-20 · 11-21) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Al의 문제를 극복시켜주기 위해서 전기전도도 좋고, 녹는점도 높은 Ti를 사용해서 Void가 생기더라도 끊기지는 않도록 해주었다.</p>
+        <p>- Ti/TiN에서 TiN은 이외에도 Al만 증착되었을 때보다 반사율을 낮아주게 만들어준다. 반사는 standing wave나 구석진 곳에서 난반사를 일으켜 문제를 발생시킬 수 있다.</p>
+        <p>- Al의 결정립들이 서로 편차가 큰 상태로 존재하는 것보다는 차라리 작고 균일하게 존재하는 것이 낫다고 한다. 왜냐하면 오히려 편차가 클수록 Electromigration 현상이 심해지기 때문이다.</p>
+        <p>- 당연히 결정립이 큰 것이 저항 측면에서는 좋지만 차라리 편차가 너무 심해 Electromigration이 일어나서 끊겨버리는 것보다는 낫다는 것이지.</p>
+      </div>
+      <figure><img src="images/fig21.jpg" width="940" height="649" alt="HDP CVD Gapfill + CMP — 다층 배선 단면 SEM (Figure 11-30)" loading="lazy"><figcaption>HDP CVD Gapfill + CMP — 다층 배선 단면 SEM (Figure 11-30) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 샌드위치 같이 되어있는 부분에서 양 사이드 쪽이 빵 부분이 Ti/TiN이고 가운데에 Al이 있고 주위에는 SiO₂가 있는 형태라고 한다.</p>
+      </div>
+      <figure><img src="images/fig22.png" width="939" height="642" alt="Cu 배선기술 — 섹션 표지 슬라이드" loading="lazy"><figcaption>Cu 배선기술 — 섹션 표지 슬라이드 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 2000년대까지는 Al 배선을 사용했고, 2000년 초부터 Cu를 사용하기 시작했다.</p>
+      </div>
+      <figure><img src="images/fig23.png" width="937" height="646" alt="Interconnects are Getting Slower — Gate delay와 Interconnect delay (K. Saraswat, Stanford EE311)" loading="lazy"><figcaption>Interconnects are Getting Slower — Gate delay와 Interconnect delay (K. Saraswat, Stanford EE311) (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- 지금은 점점 폭도 얇아지고 길이도 길어지고 있다.</p>
+        <p>- 회로의 길이는 짧아질 수도 있고, 길어질 수도 있다. 미세화된다고 해서 다 짧아지는건 아니다.</p>
+        <p>- Local 배선들은 아래쪽 배선들은 점점 미세화되고 있지만, 위에 Global 배선들은 길이가 길어지고 있다.</p>
+        <p>- Gate 쪽에서의 delay는 점점 짧아지고 있다. 이건 미세화 됨에 따라 긍정적인 영향이다. 하지만 위에서 연결시켜주는 배선의 delay는 점점 길어지고 있다. 근데 이걸 잘라서 저항을 줄여볼 수는 있다고 한다.</p>
       </div>
       <figure><img src="images/fig18.jpg" width="1400" height="972" alt="RC Delay — R = ρL/(w·h), C = ε0εox·wL/tox, RC = (ρ/h)·ε0εox·L²/tox" loading="lazy"><figcaption>RC Delay — R = ρL/(w·h), C = ε<sub>0</sub>ε<sub>ox</sub>·wL/t<sub>ox</sub>, RC = (ρ/h)·ε<sub>0</sub>ε<sub>ox</sub>·L²/t<sub>ox</sub> (출처: 사용자 노션 캡처)</figcaption></figure>
       <div class="note"><b>[사용자 노트 필기]</b>
-        <p>- RC delay는</p>
+        <p>- 회로에서 capacitance가 크다는건 쭉 charging 하면서 가야하기 때문에 느리다고 한다. 이걸 이렇게 이해하니까 조금 더 직관적이다.</p>
+      </div>
+      <figure><img src="images/fig24.png" width="855" height="606" alt="배선 단면 SEM — ① 위아래 배선 사이, ② 같은 층 배선 사이의 절연막 거리" loading="lazy"><figcaption>배선 단면 SEM — ① 위아래 배선 사이, ② 같은 층 배선 사이의 절연막 거리 (출처: 사용자 노션 캡처)</figcaption></figure>
+      <div class="note"><b>[사용자 노트 필기]</b>
+        <p>- Oxide의 두께가 얇아지면 RC delay가 커지게 된다. 정전용량이 커진다는 것은 회로가 쭉 charging 하면서 지나가야 하기 때문이다.</p>
+        <p>- 이 때 Oxide 두께라는 건 꼭 수직을 얘기하는 것 뿐만 아니라 2번처럼 저 사이의 거리도 의미한다.</p>
       </div>
       <figure><img src="images/fig19.jpg" width="1400" height="981" alt="Candidates for Interconnect — Al · Au · Ag · Cu 특성 비교표 (Ryu, Ph.D. Thesis, Stanford, 1998)" loading="lazy"><figcaption>Candidates for Interconnect — Al · Au · Ag · Cu 특성 비교표 (Ryu, Ph.D. Thesis, Stanford, 1998) (출처: 사용자 노션 캡처)</figcaption></figure>
     </section>

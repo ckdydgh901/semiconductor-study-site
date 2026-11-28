@@ -161,7 +161,7 @@ window.SITE = {
       summary: "반도체 정의(전기전도도·비저항·Energy band gap), 반도체 종류, 유전체와 유전상수(High-k/Low-k), 8대 공정, Photo 공정(Snell 법칙·간섭·회절), Positive/Negative PR을 정리한 노트.",
       tags: ["더인 교육", "4일차", "반도체 정의", "유전체", "High-k", "Low-k", "8대 공정", "Photo", "Snell", "간섭", "회절", "PR"],
       date: "2026-11-05",
-      updated: "2026-11-26",
+      updated: "2026-11-28",
       notion: "https://app.notion.com/p/40f6b8b7c6bb80c8baf2ca4317536f8a"
     },
     {
@@ -173,7 +173,7 @@ window.SITE = {
       summary: "PR(NUV·DUV·EUV)과 현상 메커니즘, DUV 화학 증폭형 레지스트(CAR) 추가 공부, NA와 해상도, Soft/Hard Bake·PEB·HMDS, Carrier mobility, 공정 변동과 엔지니어 역할, Presentation(FLASH MEMORY Program/Erase)과 발표 피드백을 정리한 노트.",
       tags: ["더인 교육", "5일차", "PR", "DNQ", "CAR", "PAG", "PEB", "화학 증폭", "NA", "해상도", "PEB", "HMDS", "Passivation", "FLASH MEMORY", "발표 피드백"],
       date: "2026-11-06",
-      updated: "2026-11-24",
+      updated: "2026-11-28",
       notion: "https://app.notion.com/p/40f6b8b7c6bb80d7a4d4ce3b3ecba790"
     },
     {
@@ -209,7 +209,7 @@ window.SITE = {
       summary: "5nm 노드의 의미와 트랜지스터 전류(μ·C_ox·W/L, 단채널 효과, HKMG, FinFET/GAA), Gate 금속의 변천(Al→Poly-Si→HKMG, 메모리/비메모리), Dielectric·Metal·Thin film, CVD(기체상/표면 반응, Film Growth Kinetics, APCVD·LPCVD·PECVD 응력, TEOS, SOG), PVD(Al-Cu, Electromigration), ALD, Step coverage와 Gap fill, Epi 층을 정리한 노트.",
       tags: ["더인 교육", "8일차", "5nm", "노드", "Thin film", "CVD", "PVD", "ALD", "LPCVD", "PECVD", "Film Growth Kinetics", "Electromigration", "Step coverage", "HDPCVD", "HKMG", "단채널 효과", "Gate 금속", "TEOS", "SOG", "Epi", "PECVD 응력"],
       date: "2026-11-11",
-      updated: "2026-11-24",
+      updated: "2026-11-28",
       notion: "https://app.notion.com/p/4156b8b7c6bb8059adc8fb3b58f31b6a"
     },
     {
@@ -245,7 +245,7 @@ window.SITE = {
       summary: "Diffusion과 CVD의 변천, Metal 배선(Contact/Via, Al→Cu 다마신, Cu etch, Capping layer), 금속 박막 조건과 PVD·CVD·ALD 비교(SOD·SOH), 오믹 컨택(Silicide), 이온 주입(Rp·Dose·하드마스크와 확산), 플라즈마(Sheath·Self bias)와 진공도 분류, N-type·P-type 에너지 밴드(E_d·E_a·E_F)를 정리한 노트.",
       tags: ["더인 교육", "13일차", "Diffusion", "CVD", "Contact", "Via", "다마신", "Cu", "Al", "Barrier Metal", "Silicide", "오믹 컨택", "PVD", "ALD", "SOD", "SOH", "이온 주입", "Rp", "하드마스크", "플라즈마", "Sheath", "Self bias", "진공", "Fermi level", "Donor", "Acceptor"],
       date: "2026-11-19",
-      updated: "2026-11-24",
+      updated: "2026-11-28",
       notion: "https://app.notion.com/p/41d6b8b7c6bb8035b482f815d071b0fc"
     },
     {
@@ -305,7 +305,7 @@ window.SITE = {
       summary: "Cleaning 리뷰(오염 종류·RCA·Surface Roughness), 듀얼 다마신과 Etch stopper·Low-K, CMP(평탄화·Preston 법칙·Pad·Slurry·Zeta potential·Ceria·Disk), STI·W·Cu CMP, 지난 주 숙제(플라즈마 색)를 정리한 노트.",
       tags: ["더인 교육", "18일차", "CMP", "Cleaning", "RCA", "듀얼 다마신", "Etch Stopper", "Low-K", "Preston", "CMP Pad", "Slurry", "Abrasive", "Fumed Silica", "Colloidal Silica", "Zeta Potential", "Ceria", "CMP Disk", "STI CMP", "W CMP", "Cu CMP", "RMG", "HKMG", "플라즈마", "EEDF"],
       date: "2026-11-26",
-      updated: "2026-11-27",
+      updated: "2026-11-28",
       notion: "https://app.notion.com/p/4246b8b7c6bb80149a6efc618f2eafb3"
     },
     {
@@ -317,7 +317,7 @@ window.SITE = {
       summary: "KOCW 세종대 이원준 교수님 Interconnect 1&2: 배선 구조와 소재의 변천(Al → W → Cu → Co), Al 배선의 Junction Spiking · Hillock · Void와 Al(Si) · Al(Cu) 합금, Silicide(TiSi₂ → CoSi₂ → NiSi), W Plug, CMP 평탄화, RC Delay.",
       tags: ["KOCW", "Interconnect", "배선", "Al", "Spiking", "Hillock", "Void", "Electromigration", "Silicide", "TiSi2", "CoSi2", "NiSi", "W Plug", "CMP", "RC Delay"],
       date: "2026-11-24",
-      updated: "2026-11-24",
+      updated: "2026-11-28",
       notion: "https://app.notion.com/p/4226b8b7c6bb80bdabfdfde991279036"
     },
     {
@@ -340,7 +340,7 @@ window.SITE = {
       category: "반도체 정리노트",
       summary: "Word로 정리한 반도체 질문 47개와 답변. 질문만 보고 먼저 답해 본 뒤 눌러서 답을 확인하는 연습용 페이지.",
       tags: ["반도체 정리노트", "Q&A", "면접 연습", "질문", "답변", "반도체 정리노트", "Word"],
-      updated: "2026-11-26"
+      updated: "2026-11-28"
     },
     {
       id: "thein-homework",
